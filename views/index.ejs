@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>NetID</title>
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+
+<body>
+    <!-- START NAVBAR -->
+    <div class="row header">
+        <div class="col-md-3 logoContainer">
+            <div class="col-md-9 col-md-offset-3 logoBox">
+                <a href="#">
+                    <div class="logo"></div>
+                </a>
+            </div>
+        </div>
+        <div class="link_container col-md-9">
+            <div class="link_inner">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="trusted_source_home">Trusted Source</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- START LOGIN FIELDS -->
+    <div class="mainFirstContent">
+        <div class="row">
+            <div class="col-md-6 infoContainer">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-4 headlineContainer">
+                        <h1 class="h1Headline">Accountability + Privacy</h1>
+                        <h3 class="h3Headline">Let's get you started today</h3>
+                    </div>
+                </div>
+                <div class="col-md-8 col-md-offset-4 videoContainer">
+                    <button class="btn videoButton" type="button" value="video" data-toggle="modal" data-target="#videoModal">
+                        <span class="sr-only">Error:</span> Learn How
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button>
+                    <!-- Video Modal -->
+                    <div class="modal fade popUpModal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">What is NetID?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Gc2en3nHxA4" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 loginContainer">
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-3 innerLoginContainer">
+                        <!-- <button class="btn loginButton" id="register" type="submit" value="submit">TESTING</button> -->
+                        <form action="/userDashboard" method="post">
+                            <input class="form-control loginInputs" id='login_username' type="text" name="username" placeholder="Username">
+                            <input class="form-control loginInputs" id='login_passcode' type="text" name="passcode" placeholder="Passcode">
+                            <input class="form-control loginInputs" id='login_auth_app' type="text" name="authApp" placeholder="Authenticator App Code">
+                            <button class="btn loginButton">Log In</button>
+                            <hr class="dotted">
+                            <button class="btn signupButton" type="button" value="signup" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                        </form>
+                        <!-- Video Modal -->
+                        <div class="modal fade popUpModal" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Sign Up Now!</h4>
+                                        <p>Here is Step 1 of getting your NetID. Create a Username and Passcode for your account. Once completed, you will look up your nearest Trusted Source.</p>
+                                    </div>
+                                    <div class="modal-body signUpBox2">
+                                        <div id="signUpContent">
+                                            <form name="signUpForm">
+                                                <div class="input-group input-group-lg signUpInputs">
+                                                    <span class="input-group-addon glyphicon glyphicon-user spanBorder" id="sizing-addon2"></span>
+                                                    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2" data-toggle="popover" data-content="Please Enter a Username. It may include A-z, 0-9, and the following symbols: .=+#!_-]" data-trigger="focus">
+                                                </div>
+                                                <div class="input-group input-group-lg signUpInputs">
+                                                    <span class="input-group-addon glyphicon glyphicon-ok spanBorder" id="sizing-addon2"></span>
+                                                    <input type="text" class="form-control" placeholder="Passcode" aria-describedby="sizing-addon2" data-toggle="popover" data-content="Please Enter a Passcode. It may include A-z, 0-9, and the following symbols: .=+#!_-]" data-trigger="focus">
+                                                </div>
+                                                <div class="input-group input-group-lg signUpInputs">
+                                                    <span class="input-group-addon glyphicon glyphicon-lock spanBorder" id="sizing-addon2"></span>
+                                                    <input type="text" class="form-control" placeholder="Re-Enter Passcode" aria-describedby="sizing-addon2" data-toggle="popover" data-content="Please Re-Enter Your Passcode" data-trigger="focus">
+                                                </div>
+                                                <br>
+                                                <button class="btn signUpModalButton" id="register" type="submit" value="submit">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="col-md-12">
+        <div class="col-md-12 asideHeadlineContainer">
+            <h1 class="asideH1Headline">The New Way to Internet</h1>
+        </div>
+        <div class="col-md-12 asideDescriptionContainer">
+            <p class="asideParagraph">
+                In this new online world, you can create a distinct difference and speration between your professional and personal life.
+                <br> Some things just don't blend. Joint today and become a better and safer online 'You'.
+            </p>
+            <br>
+            <br>
+        </div>
+        <div class="col-md-8 col-md-offset-2 iconTitle">
+            <div class="row">
+                <div class="col-md-3 asideHandscans">
+                    <div class="handScansIcon iconCircle"></div>
+                    <h5>Hand Scans</h5>
+                    <p class="iconDescription">The biometric scanner identifies you</p>
+                </div>
+                <div class="col-md-3 asideRatingSystem">
+                    <div class="dwebIcon iconCircle"></div>
+                    <h5>Rating System</h5>
+                    <p class="iconDescription">Rate transactions and communication to create peer-to-peer accountability</p>
+                </div>
+                <div class="col-md-3 asideDWeb">
+                    <div class="ratingsIcon iconCircle"></div>
+                    <h5>Decentralized Web</h5>
+                    <p class="iconDescription">No single, centralized authority</p>
+                </div>
+                <div class="col-md-3 asideAnonimity">
+                    <div class="anonymityIcon iconCircle"></div>
+                    <h5>Online Anonymity</h5>
+                    <p class="iconDescription">Your privacy is always protected, only you can choose to reveal who you are</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <article class="col-md-12 stepsToJoin">
+        <div class="col-md-12 articleHeadlineContainer">
+            <h1 class="articleH1Headline">Join Now</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 articleStepContainer1">
+                <div class="row">
+                    <div class="stepContainer col-md-6">
+                        <div class="row">
+                            <div class="stepNumberContainer col-md-1">
+                                <h1 class="stepNumber">1</h1>
+                            </div>
+                            <div class="stepDescription col-md-11">
+                                <h5 class="orangeTitle">Create Username and Passcode</h5>
+                                <p class="stepsExplanation">You are the only person who will know these login credentials. NetID does not own or hold this information. Keep your login safe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stepContainer col-md-6">
+                        <div class="row">
+                            <div class="stepNumberContainer col-md-1">
+                                <h1 class="stepNumber">2</h1>
+                            </div>
+                            <div class="stepDescription col-md-11">
+                                <h5 class="greenTitle">Find Trusted Source</h5>
+                                <p class="stepsExplanation">Search for the most convenient Trusted Source to complete your biometric scan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2 articleStepContainer2">
+                <div class="row">
+                    <div class="stepContainer col-md-6">
+                        <div class="row">
+                            <div class="stepNumberContainer col-md-1">
+                                <h1 class="stepNumber">3</h1>
+                            </div>
+                            <div class="stepDescription col-md-11">
+                                <h5 class="greenTitle">Hand-Scan Process</h5>
+                                <p class="stepsExplanation">Hand scanning verifies your true identity. This process will ensure your security and allow you to set up your online personas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stepContainer col-md-6">
+                        <div class="row">
+                            <div class="stepNumberContainer col-md-1">
+                                <h1 class="stepNumber">4</h1>
+                            </div>
+                            <div class="stepDescription col-md-11">
+                                <h5 class="orangeTitle">Login</h5>
+                                <p class="stepsExplanation">Begin connecting within the new internet. Safe, secure, and anonymous. Create personas to fit all areas of your life.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="col-md-12 lookUpContainer ">
+        <div class="col-md-4 col-md-offset-4 findHeadlineContainer">
+            <h1 class="findHeadline">Find the Nearest Trusted Source</h1>
+            <div class="col-md-6 col-md-offset-3">
+                <input class="form-control zip-code tsSearchBox" maxlength="5" type="text" name="zipCode" placeholder="Enter Zip Code">
+                <br>
+            </div>
+        </div>
+    </article>
+    <div class="col-md-12 mapContainer" id="googleMap"></div>
+    <article class="col-md-12 signUp2" style="background-color:#f6f6f6">
+        <div class="col-md-6 col-md-offset-2 signUpAgain">Sign Up Today!
+            <p class="asideParagraph">It's free to use and no credit card information is required. </p>
+        </div>
+        <div class="col-md-4 signUpBox">
+            <button class="btn signupButton" type="button" value="signup" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+        </div>
+    </article>
+    <article class="col-md-12 signUp2">
+        <div class="col-md-6 col-md-offset-2 signUpAgain">Interested in Becoming a Trusted Source?
+            <p class="asideParagraph">Become an integral part of the NetID community. </p>
+        </div>
+        <div class="col-md-4 signUpBox">
+            <button class="btn signupButton" type="button"><a href='trusted_source_home'>Learn More</a></button>
+        </div>
+    </article>
+    <% include ../../netid/views/partials/template/footer.ejs %>
+        </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="/javascripts/main.js"></script>
+        <!--<script src="/javascripts/main2.js"></script>-->
+        <script src="/javascripts/bootstrap.js"></script>
+        <script src="/javascripts/ipfsapi.min.js"></script>
+        <!-- // <script src="js/npm.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>NetID</title>
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/stylesheets/socialPersona.css" />
+    <link rel="stylesheet" href="/stylesheets/profPersona.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-select.css">
+    <link rel="stylesheet" href="/stylesheets/head.css" />
+    <link rel="stylesheet" href="/stylesheets/dashboard.css"></link>
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+
+<body>
+    <% include ./../../template/head.ejs %>
+    <div class="container-fluid">
+        <div class="row">
+            <header class="col-sm-12 header">
+            </header>
+            <section class="col-sm-12">
+                <div class="col-sm-10 col-md-8 col-lg-7 col-sm-offset-1 socialContainer">
+                    <div class="row">
+                        <div class="col-sm-12 professional orangeBar">
+                            
+                        </div>
+                        <div class="col-sm-12 socialMainContent">
+                            <div class="col-sm-3">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="professional_border imageContainer"></div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12 ratings_container">
+                                            <div class="persona_rating_container">
+                                                <div class=" prof_rating persona_rating"></div>
+                                                <p>Persona Rating</p>
+                                            </div>
+                                            <div class="col-sm-12 persona_ratings_breakdown_container">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12 ratings_container">
+                                            <div class="persona_rating_container master_rating_container">
+                                                <div class="master_rating"></div>
+                                                <p>Master Rating</p>
+                                            </div>
+                                            <div class="col-sm-12 master_ratings_breakdown_container">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12 postContainer">
+                                            <input type="text" class="post_input" placeholder="    Post something...">
+                                            <button class="btn professional post_btn"  onclick="newPost()">Share</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 info_tabs">
+                                        <ul class="nav nav-tabs prof_tabs persona_personal_tabs">
+                                            <li class="active"><a data-toggle="tab" href="#home">Your Posts</a></li>
+                                            <li><a data-toggle="tab" href="#menu1">About Your Persona</a></li>
+                                            <li><a data-toggle="tab" href="#menu2">Your NetWork</a></li>
+                                        </ul>
+                                        <div class="tab-content persona_custom_width">
+                                            <div id="home" class="tab-pane fade in active persona_tab">
+                                                <ul id="recent_posts"></ul>
+                                            </div>
+                                            <div id="menu1" class="tab-pane fade">
+                                                <h3>Menu 1</h3>
+                                                <p>Testing 2</p>
+                                            </div>
+                                            <div id="menu2" class="tab-pane fade">
+                                                <h3>Menu 2</h3>
+                                                <p>Testing 3</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-lg visible-lg col-md-2 sideBar">
+                    <div class="row">
+                        <div class="col-sm-12 feedWidget">
+                            <div class="col-sm-12 feedHeader">
+                                <p>Feed</p>
+                            </div>
+                            <div class="col-sm-12 feedMainContent">
+                                <p class="first">You posted a new picture.</p>
+                                <p class="first">You have a NetConnect Request.</p>
+                                <p class="first">You posted a new picture.</p>
+                                <p class="first">You have a NetConnect Request.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 chatWidget">
+                            <div class="col-sm-12 chatHeader">
+                                <p>Chat</p>
+                            </div>
+                            <div class="col-sm-12 chatMainContent">
+                                <div id="chatFriends"></div>
+                                <br>
+                                <div class="input-group chatSearch">
+                                    <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                                    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <% include ./../../template/footer.ejs %>
+        </div>
+    </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="/javascripts/jquery.bootstrap.wizard.js"></script>
+        <!-- <script src="js/bootstrap-select.js"></script> -->
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="/javascripts/bootstrap-select.js"></script>
+        <script src="/javascripts/persona_view.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            loadPosts();
+        });
+        </script>
+</body>
+
+</html>

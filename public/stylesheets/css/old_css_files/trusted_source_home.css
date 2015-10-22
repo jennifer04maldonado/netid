@@ -1,0 +1,671 @@
+/*Medium devices Desktops (>=992px) */
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,500,700);
+
+body{
+	font-family: "Roboto" !important;
+}
+
+/* ________________THIS STARTS THE NAVBAR__________________ */
+
+
+/*MOBILE DEVICES*/
+@media (max-width: 768px){
+  	.logo img{
+	margin-top: 10%;
+	width: 70% !important;
+	}
+	.navbar-toggle{
+	margin-right: 0px;
+	float: left !important;
+	padding: 9px 25px !important;
+	}
+	.collapse.in{
+	margin-left: 5%;
+	}
+	.mobile-nav>li{
+	border-bottom: 1px;
+	}
+	.glyphicon-menu-hamburger{
+	font-size: 20px;
+	color: gray;
+	}
+}
+
+/*TABLET SIZE*/
+@media (min-width: 769px) and (max-width:991px){
+	.logo img{
+	margin-top: 3%;
+	margin-bottom: 3%;
+	width: 25% !important;
+	}
+	.navbar-toggle{
+	float: right !important;
+	}
+}
+
+
+/*LARGE DESKTOP*/
+@media (min-width: 992px){
+	.link_container{
+	padding-top: 1.6%;
+	}
+	.logo img{
+	margin-top: 4%;
+	margin-bottom: 4%;
+	}
+}
+
+.navbar-collapse ul{
+	list-style: none;
+	text-align: center;
+	padding-left: 0px;
+	line-height: 40px;
+	letter-spacing: 0.5px;
+	margin-top: 5%;
+	margin-bottom: 7%;
+}
+.navbar-collapse a{
+	font-weight: 500;
+    font-family:"Roboto",sans-serif;
+    font-size:14px;
+    color: #77787a;
+    text-transform: uppercase;
+}
+.navbar-collapse a:hover{
+	text-decoration: none;
+}
+
+.navbar-collapse li:hover{
+	background-color: #e0e0dc;
+ 	color: #77787a;
+}
+
+.logo img{
+	width: 30%;
+}
+.logoBox{
+	padding: 0 !important;
+}
+
+.link_inner{
+	float: right;
+}
+
+.link_inner > ul li a{
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.header-dropdown{
+    padding: 8px 0px;
+}
+.header-dropdown li{
+	margin: 17px;
+}
+.header-dropdown li:hover{
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s !important;
+}
+
+.dropdown-menu>li>a {
+	display: block;
+}
+
+.link_inner li{
+	float: left;
+	height: 100%;
+  	display: inline-block;
+}
+
+.link_inner a:link, a:visited {
+    font-weight: 500;
+    font-family:"Roboto",sans-serif;
+    font-size:14px;
+    color: #77787a;
+    padding: 0px 15px;
+    text-decoration: none;
+}
+
+.link_inner a:hover, a:active {
+    background-color: #e0e0dc;
+ 	color: #77787a;
+ 	height: 50%;
+}
+
+
+
+
+
+/* ________________THIS ENDS THE NAVBAR__________________ */
+
+
+
+
+
+
+/* ________________THIS STARTS THE HOME SCREEN__________________ */
+
+.ts_img{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+
+}
+.left_text{
+	padding-top:10%;
+}
+
+.mainFirstContent{
+	color:#fff;
+	font-weight: 300;
+	background-image: url("../images/office.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;	
+	position: absolute;
+	padding-top: 5%;
+	padding-bottom: 15%;
+}
+
+.innerLoginContainer{
+	margin-top: 12%;
+}
+
+@media (max-width: 768px){
+	.h1Headline {
+	text-align: center;
+	}
+	.h1SubHeadline{
+	font-size:2.929em !important;
+	text-align:center;
+	margin-top: 25%;
+	}
+	.h3Headline{
+	text-align: center;
+	}
+	.videoContainer{
+		margin-top: 5em !important;
+	}
+	.mainFirstContent{
+		padding-bottom: 25%;
+	}
+}
+
+.h1Headline{
+	font-size:2.929em;
+	margin-top:0%;
+	margin-bottom: 0%;
+	text-transform: uppercase;
+
+}
+.h1SubHeadline{
+	font-size:3.929em;
+	font-weight: 100;
+	margin-bottom: 0px;
+}
+
+.h3Headline{
+	font-size:1.5em;
+	font-weight:100;
+	line-height: 1.3em;
+}
+.videoContainer{
+	margin-top:2em;
+}
+.videoContainer button{
+	width:50%;
+	height:3.5em;
+	border-radius: 10px;
+	color:#fff;
+	background-color:transparent;
+	border:1.5px solid #fff;
+	font-size:15px;
+	font-family: "Roboto", sans-serif;
+	font-weight:300;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+@media (max-width: 768px){
+	.videoContainer button {
+	width: 100%
+	}
+}
+
+.videoButton:link{
+	color: white !important;
+}
+
+.videoButton:hover{
+	color: black !important;
+	background-color: white;
+}
+
+.videoButton:focus{
+	outline: 0 !important;
+	color: white !important;
+}
+
+
+span:visited{
+	color: white !important;
+}
+.videoButton:active{
+	color: white !important;
+}
+
+.popUpModal{
+	color:#77787a;
+}
+
+#myModalLabel{
+	padding-top: 10px;
+	margin-bottom: 12px;
+	text-align: center;
+	font-size: 1.5em;
+} 
+
+.glyphicon{
+	top: 0px !important;
+}
+
+.input-group-addon{
+	border-radius: 10px 0px 0px 10px !important;
+}
+
+.innerLoginContainer .loginInputs{
+	height:3.5em;
+	margin-top:10%;
+	margin:.5em auto;
+	font-weight:500;
+	border-radius: 10px;
+	padding-left:6%;
+}
+.signUpInputs{
+	margin:.5em auto;
+	font-weight:500;
+}
+
+.form-control{
+	font-size: 15px !important;
+}
+.tsSearchBox{
+	border-radius: 10px !important;
+}
+
+input .form-control {
+	border-radius: 0px 10px 10px 0px !important;
+}
+
+.innerLoginContainer button{
+	width:100%;
+	height:3.5em;
+	margin:.25em auto;
+}
+
+.innerLoginContainer .loginButton{
+	border-radius: 10px;
+	background-color:#729e8e;
+	font-family:"Roboto",sans-serif;
+	font-weight: 300;
+	font-size:15px;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.loginButton:hover{
+	  background: #658E7F;
+	  color: white!important;
+}
+.loginButton:focus{
+	outline: 0 !important;
+	color: white !important;
+}
+
+.signupButton:hover{ 
+	background: #BF5E1D !important;
+	color: white !important;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+#signUpContent .signUpModalButton{
+	background-color:#f6862b;
+	font-weight: 300;
+	font-size:15px;
+	color:white;
+}
+
+.signUpModalButton:hover{
+	background: #BF5E1D !important;
+	color: white !important;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.innerLoginContainer .signupButton{
+	border-radius: 10px;
+	background-color:#f6862b;
+	font-weight: 300;
+	font-size:15px;
+	color:white;
+	font-family:"Roboto",sans-serif;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.signupButton:visited{
+	color: white  !important;
+}
+
+.signupButton:focus{
+	outline: 0 !important;
+	color: white !important;
+}
+.signUpBox2 button{
+	border-radius: 10px;
+	background-color:#f6862b;
+	font-weight: 300;
+	font-size:15px;
+	color:white;
+	height:3.5em;
+	width: 100%
+}
+
+.signUpBox2 button:focus{
+	outline: 0 !important;
+	color:white !important;
+}
+
+/* ________________THIS ENDS THE HOME SCREEN__________________ */
+
+
+
+
+
+/* ________________THIS STARTS THE SLIDESHOW SCREEN__________________ */
+.slideshow{
+	position: relative;
+}
+
+@media (max-width: 768px){
+	.slideshow {
+	margin-top: 20%;
+	margin-bottom: 25%;
+	}
+	.carousel-indicators {
+	bottom: -15px !important;
+	}
+	.left-icon{
+	height:100% !important;
+	width:100% !important;
+	}
+	.content-right{
+	padding-left: 5%;
+	padding-right:5%;	
+	}
+	.ts-number-title{
+	font-size: 2em !important;
+	}
+}
+
+@media (min-width: 769px){
+	.left-icon{
+	height:100%;
+	width:100%;
+	}
+}
+
+@media (max-width: 768px){
+.carousel-controls{
+  	margin-top: 3%;
+	}
+}
+
+.carousel-controls{
+ 	position:relative; 
+}
+.carousel-indicators li{
+	background-color: gray !important;
+	width: 20px !important;
+	height: 20px !important;
+	margin: 1% !important;	
+}
+
+.carousel-indicators .active{
+	background-color: #729E8D !important;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.carousel-description{
+	text-align: center;
+	font-weight: 300;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.carousel-title{
+	text-align: center;
+	font-weight: 500;
+	font-size:2.5em;
+	color: #729E8D;
+}
+.top-title{
+	text-align: center;
+	font-size:2.5em;
+	font-weight: 100;
+}
+
+.content-right{
+	margin-top: 10%;
+}
+.hr-slider {
+	width: 30%;
+}
+
+.slider-left, .slider-right{
+	margin-top: 8%;
+	margin-bottom: 6%;
+}
+
+.left-icon{
+	height:60%;
+	width:60%;
+}
+
+.carousel-indicators{
+	position: relative !important;
+}
+
+
+
+/*START TRUSTED SOURCE STEPS*/
+
+.trustedsource-three{
+	background-color: #F37935;
+	position: absolute;
+	padding-top: 6%;
+	padding-bottom: 7%;
+}
+
+@media (max-width: 768px){
+	.trustedsource-three{
+	padding-top: 25%;
+	padding-bottom: 25%;
+	}
+	.steps-contain{
+	padding-top: 10%;
+	}
+}
+
+.ts-steps-title{
+	text-align: center;
+	font-weight: 500;
+	font-size:2.5em;
+	color: white;
+}
+
+.ts-steps-description{
+	text-align: center;
+	font-weight: 300;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: white;
+}
+.steps-row{
+	margin-top: 2%;
+}
+.number-circles{
+	height:5.3vw;
+	border-radius:100%;
+	font-size:40px;
+	font-weight: 500;
+	color:#F37935;
+	line-height:250%;
+	text-align:center;
+	background:white;
+}
+
+@media (max-width: 768px){
+	.number-circles {
+	height:30vw;
+	width: 30vw;
+	border-radius:100%;
+	font-size:40px;
+	font-weight: 500;
+	color:#F37935;
+	line-height:250%;
+	text-align:center;
+	background:white;
+	margin-left: 30%;
+	}
+}
+.ts-number-title{
+	text-transform: uppercase;
+	font-size:2.5em;
+	font-weight: 500;
+	color: white;
+	text-align: center;
+}
+.ts-number-text{
+	color: white;
+	font-weight: 300;
+	text-align: center;
+}
+.training{
+	width: 10%;
+}
+
+.hr-home{
+	width: 100%
+}
+
+/*begin last content*/
+
+
+
+.mainLastContent {
+	background-image: url("../images/white_office.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;	
+	position: absolute;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+.last-panel{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.last-ts-sub{
+	text-align: center;
+	font-weight: 100;
+	font-size: 2.5em;
+}
+.last-ts-title{
+	text-align: center;
+	text-transform: uppercase;
+	font-size:2.5em;
+	color: #4B4B4D;
+}
+.last-right-btn{
+	margin-top: 2%;
+}
+.register-btn-ts{
+	background-color:#f6862b;
+	color:white;
+	height:3.5em;
+	width:100%;
+	margin:.25em auto;
+	border-radius: 10px !important;
+	font-weight: 300 !important;
+	font-size: 15px;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+
+.register-btn-ts:hover{ 
+	background: #BF5E1D !important;
+	color: white !important;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.register-btn-ts:focus{
+	outline: 0 !important;
+	color: white !important;
+}
+
+.ts-email-row{
+	padding-top: 3%;
+}
+
+.mail_text{
+	font-size: 1.5em;
+	font-weight: 300;
+}
+
+
+/*IPHONE DEVICE*/
+@media (max-width: 768px){
+	.email-btn-ts button {
+	width: 100%
+	}
+	.started-row{
+	margin-top: 25%;
+	margin-bottom: 10%;
+	}
+	.ts-email-row{
+	margin-bottom: 25%;
+	margin-top: 7%;
+	}
+	.mail-row{
+	text-align: center;
+	}
+	.email-btn-ts{
+	margin-top: 3%;
+	}
+	.modal-header p{
+	text-align: center;
+	}
+}
+@media (min-width: 769px){
+.mail-row{
+	margin-left: 15%;
+	}
+}
+
+.email-btn-ts{
+	border-radius: 10px !important;
+	background-color:transparent;
+	color:#383C3F;
+	border: 1px solid #808080 !important;
+	height:3.5em;
+}
+
+.email-btn-ts:link{
+	color: #383C3F !important;
+}
+
+.email-btn-ts:hover{
+	color: #383C3F !important;
+	border: 1px solid #4B4B4D !important;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.email-btn-ts:focus{
+	outline: 0 !important;
+	color: #383C3F !important;
+}

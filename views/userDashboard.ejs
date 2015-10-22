@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>NetID</title>
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    
+    <script type="text/javascript" src="/javascripts/libraries/jquery/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/javascripts/libraries/jquery/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="/javascripts/libraries/bootstrap-js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="/stylesheets/css/old_css_files/head.css"> -->
+    <!-- <link rel="stylesheet" href="/stylesheets/socialPersona.css"></link> -->
+    <!-- <link rel="stylesheet" href="/stylesheets/dashboard.css"></link> -->
+    <link rel="stylesheet" href="/stylesheets/css/global.css"></link>
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/ratings.css"> -->
+    <!-- <link rel="stylesheet" href="/stylesheets/footer.css"></link> -->
+    <script src="/javascripts/libraries/react-0.14.0/build/react-with-addons.js"></script>
+    <script src="/javascripts/libraries/react-0.14.0/build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;">
+        <% include partials/template/head.ejs %>
+        <div class="col-sm-12 mainBody">
+            <div class="row dashboardContainer">
+                <div class="col-sm-3" id="personaIndex">
+<!--                     <div class="col-sm-12 addPersona">
+                        Add New Persona
+                    </div>
+                    <div class="col-sm-12 panel-group" id="accordion">
+                        <div class="col-sm-12 panel panel-default personaCntnr">
+                            <div class="col-sm-12 panel-heading personaHeading">
+                                
+                                <div class="col-sm-3 imgCntnr">
+                                    <img src="/images/man1.jpg">
+                                </div> 
+                                <h4 class="col-sm-9 panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">CorporateUnderling105</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in personaInfo">
+                                <div class="panel-body">
+                                   <div class="col-sm-4 col-sm-offset-5 ctrlPanel">
+                                       <span>Communities <span></span></span>
+                                       <span>Transactions <span></span></span>
+                                       <span>Messages <span></span></span>
+                                       <span>Friends <span></span></span>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 panel panel-default personaCntnr">
+                            <div class="col-sm-12 panel-heading personaHeading">
+                                <div class="col-sm-3 imgCntnr">
+                                    <img src="/images/man2.jpg">
+                                </div> 
+                                <h4 class="col-sm-9 panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">RedSnapper085</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse personaInfo">
+                                <div class="panel-body">
+                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 panel panel-default personaCntnr">
+                            <div class="col-sm-12 panel-heading personaHeading">
+                                <div class="col-sm-3 imgCntnr">
+                                    <img src="/images/jenn.jpeg">
+                                </div> 
+                                <h4 class="col-sm-9 panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">JenLookinCool</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse personaInfo">
+                                <div class="panel-body">
+                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-sm-6 mainView row">
+                    <div class="col-sm-12 focusedPersona">
+                        <p>CorporateUnderling105</p>
+                    </div>
+                    <div class="col-sm-12 netIdSpace"></div>
+                    <div class="col-sm-12 viewPort">
+                       
+                    </div>
+                </div>
+                <div class="col-sm-3 rightControlPanel">
+                <div class="col-sm-12 ratingsPanel">
+                    My Ratings
+                </div>
+                    <div class="col-sm-12 panel-group" id="accordion2">
+                        <div class="col-sm-12 panel panel-default yourOffers">
+                            <div class="col-sm-12 panel-heading offersHeading">
+                                <h4 class="col-sm-9 panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">Your Offers</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse in offersPanel">
+                                <div class="panel-body">
+                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 panel panel-default yourFriends">
+                            <div class="col-sm-12 panel-heading friendsHeading">
+                                <h4 class="col-sm-9 panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">Friends</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse friendsPanel">
+                                <div class="panel-body">
+                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 panel panel-default yourMembers">
+                            <div class="col-sm-12 panel-heading offersHeading">
+                                <h4 class="col-sm-9 panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">Members Online</a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse offersPanel">
+                                <div class="panel-body">
+                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        <% include partials/template/footer.ejs %>
+    </div>
+    <script type="text/javascript" src="javascripts/dashboard-ajax-calls-react.js"></script>
+    <script type="text/babel" src="javascripts/userDashboard/personaIndex.jsx"></script>
+</body>
+
+</html>

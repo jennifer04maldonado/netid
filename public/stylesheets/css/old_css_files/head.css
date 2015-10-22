@@ -1,0 +1,125 @@
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,500,700);
+/*MOBILE DEVICES*/
+@media (max-width: 768px){
+  	.logo img{
+	margin-top: 10%;
+	width: 70% !important;
+	}
+	.navbar-toggle{
+	margin-right: 0px;
+	float: left !important;
+	padding: 9px 55px;
+	}
+	.collapse.in{
+	margin-left: 5%;
+	}
+	ul li, li a{
+	width: 100%;
+	}
+	.mobile-nav>li{
+	border-bottom: 1px;
+	}
+	.glyphicon-menu-hamburger{
+	font-size: 20px;
+	color: gray;
+}
+
+/*TABLET SIZE*/
+@media (min-width: 769px) and (max-width:991px){
+	.logo img{
+	margin-top: 3%;
+	margin-bottom: 3%;
+	width: 25% !important;
+	}
+	.navbar-toggle{
+	float: right !important;
+	}
+}
+
+
+/*LARGE DESKTOP*/
+@media (min-width: 992px){
+	.linkContainer{
+	padding-top: 1.6%;
+	}
+	.logo img{
+	margin-top: 4%;
+	margin-bottom: 4%;
+	}
+}
+
+.navbar-collapse ul{
+	list-style: none;
+	text-align: center;
+	padding-left: 0px;
+	line-height: 40px;
+	letter-spacing: 0.5px;
+	margin-top: 5%;
+	margin-bottom: 7%;
+}
+.navbar-collapse a{
+	font-weight: 500;
+    font-family:"Roboto",sans-serif;
+    font-size:14px;
+    color: #77787a;
+    text-transform: uppercase;
+}
+.navbar-collapse a:hover{
+	text-decoration: none;
+}
+
+.navbar-collapse li:hover{
+	background-color: #e0e0dc;
+ 	color: #77787a;
+}
+
+.logo img{
+	width: 10%;
+}
+.logoBox{
+	padding: 0 !important;
+}
+
+.linkInner{
+	float: right;
+}
+
+.linkInner > ul li a{
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.header-dropdown{
+    padding: 8px 0px;
+}
+.header-dropdown li{
+	margin: 17px;
+}
+.header-dropdown li:hover{
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s !important;
+}
+
+.dropdown-menu>li>a {
+	display: block;
+}
+
+.linkInner li{
+	float: left;
+	height: 100%;
+  	display: inline-block;
+}
+
+.linkInner a:link, a:visited {
+    font-weight: 500;
+    font-family:"Roboto",sans-serif;
+    font-size:14px;
+    color: #77787a;
+    padding: 0px 15px;
+    text-decoration: none;
+}
+
+.linkInner a:hover, a:active {
+    background-color: #e0e0dc;
+ 	color: #77787a;
+ 	height: 50%;
+}

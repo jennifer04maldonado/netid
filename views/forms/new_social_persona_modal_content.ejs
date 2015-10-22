@@ -1,0 +1,305 @@
+<% include partials/template/header.ejs %>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Add New Social Persona</h4>
+</div>
+<div class="modal-body">
+    <div class="span11">
+        <a name="demo"></a>
+        <div class="rootwizard">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <ul class="nav nav-stacked createSocialPersonaNav">
+                                    <li><a href=".tab1" data-toggle="tab">Required</a></li>
+                                    <li><a href=".tab2" data-toggle="tab">Basic</a></li>
+                                    <li><a href=".tab3" data-toggle="tab">Education &#38; Employment</a></li>
+                                    <li><a href=".tab4" data-toggle="tab">Personal</a></li>
+                                    <li><a href=".tab5" data-toggle="tab">Physical</a></li>
+                                    <li><a href=".tab6" data-toggle="tab">Interests</a></li>
+                                    <li><a href=".tab7" data-toggle="tab">Wallet</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="tab-content">
+                                    <div class="dashboard_tab tab-pane tab1">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>Generated</td>
+                                                <td>
+                                                    <input type="text" placeholder="baldeep@netID.com" id="persona_email" disabled>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Persona Name</td>
+                                                <td>
+                                                    <input type="text" class="persona_name" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Description</td>
+                                                <td>
+                                                    <textarea id="persona_description"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="dashboard_tab tab-pane tab2">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>
+                                                    <input type="text" class="persona_name">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Check the box to show your sex in this Persona</td>
+                                                <td>
+                                                    <input type="checkbox" class="showSex"><span>I acknowledge that by checking this box, connections will be able to see my sex upon connecting.</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Check the box to your age in this Persona</td>
+                                                <td>
+                                                    <input type="checkbox" class="showAge"><span>I acknowledge that by checking this box, connections will be able to see my age upon connecting.</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phone Number</td>
+                                                <td>
+                                                    <input type="text" id="persona_number">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hometown</td>
+                                                <td>
+                                                    <input type="text" id="persona_hometown">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Additional Information</td>
+                                                <td>
+                                                    <textarea id="persona_add_info"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="dashboard_tab tab-pane tab3">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>Education History</td>
+                                                <td>
+                                                    <select id="education" class="selectpicker" multiple title="Select from existing...">
+                                                        <option>UCSC 2011</option>
+                                                        <option>CSUN 2015</option>
+                                                        <option>Harvard 2008</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Additional Education Information</td>
+                                                <td>
+                                                    <textarea id="additional_school_info"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Employment History</td>
+                                                <td>
+                                                    <select id="employment" class="selectpicker" multiple title="Select from existing">
+                                                        <option>Digital Money Corp</option>
+                                                        <option>NetID</option>
+                                                        <option>Google</option>
+                                                        <option>Facebook</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Additional Professional Information</td>
+                                                <td>
+                                                    <textarea id="additional_job_info"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="dashboard_tab tab-pane tab4">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>Political Affiliation:</td>
+                                                <td>
+                                                    <input type="text" id="persona_politics">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Religion</td>
+                                                <td>
+                                                    <input type="text" id="persona_religion">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Relationship Status</td>
+                                                <td>
+                                                    <select class="selectpicker" title="Select from existing...">
+                                                        <option>Single</option>
+                                                        <option>In A Relationship</option>
+                                                        <option>Engaged</option>
+                                                        <option>Married</option>
+                                                        <option>In An Open Relationship</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Number of Children</td>
+                                                <td>
+                                                    <input type="text" id="persona_children">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gender</td>
+                                                <td>
+                                                    <input type="text" id="persona_gender">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Languages Spoken</td>
+                                                <td>
+                                                    <textarea id="persona_languages"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ethnicity</td>
+                                                <td>
+                                                    <input type="text" id="persona_ethnicity">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tell us a little more about you, your family, and any other information you would like ot share</td>
+                                                <td>
+                                                    <textarea id="persona_more_info"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                    </div>
+                                    <div class="dashboard_tab tab-pane tab5">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>
+                                                    <select class="selectpicker" title="Select Units">
+                                                        <option>Metric</option>
+                                                        <option>US Standard</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Height</td>
+                                                <td>
+                                                    <input type="text" id="height">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Weight</td>
+                                                <td>
+                                                    <input type="text" id="weight">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hair Color</td>
+                                                <td>
+                                                    <input type="text" id="hair_color">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Eye Color</td>
+                                                <td>
+                                                    <input type="text" id="eye_color">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Please add any additional details</td>
+                                                <td>
+                                                    <textarea id="physical_add_info"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="dashboard_tab tab-pane tab6">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>Hobbies</td>
+                                                <td>
+                                                    <textarea id="hobbies"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Favorite Movies</td>
+                                                <td>
+                                                    <textarea id="fave_movies"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Favorite Music</td>
+                                                <td>
+                                                    <textarea id="fave_music"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Favorite TV Shows</td>
+                                                <td>
+                                                    <textarea id="fave_tv_shows"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Favorite Books</td>
+                                                <td>
+                                                    <textarea id="fave_books"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Favorite Sports</td>
+                                                <td>
+                                                    <textarea id="fave_sports"></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Additional Information</td>
+                                                <td>
+                                                    <textarea id="fave_add_info"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="dashboard_tab tab-pane tab7">
+                                        <p>Your NetID Wallet</p>
+                                        <hr>
+                                        <button class="btn btn-primary wallet_btn">Mastercard - 7654</button>
+                                        <br>
+                                        <br>
+                                        <button class="btn btn-primary wallet_btn">Visa - 5555</button>
+                                        <br>
+                                        <br>
+                                        <button class="btn btn-primary wallet_btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Wallet</button>
+                                    </div>
+                                    <ul class="pager wizard wizButtonsSocial">
+                                        <li class="next finish" style="display:none;"><a href="javascript:;">Complete</a></li>
+                                        <li class="next"><a href="javascript:;">Next</a></li>
+                                        <li class="previous"><a href="javascript:;">Previous</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+</div>
+<% include partials/template/footer.ejs %>
+<!-- <script src="js/bootstrap-select.js"></script> -->
+<script src="js/bootstrap_wizard_for_modal.js"></script>
+<script type="text/javascript" src="js/new_social_persona_creation.js"></script>
+
+</body>
+
+</html>

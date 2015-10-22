@@ -1,0 +1,16 @@
+{
+	"persona_id": "0",
+	"master_rating": "87",
+	"ratings":
+		{
+			"social_rating": "75",
+			"prof_rating" : "81"
+			
+		},
+	"ratings_brkdwn": 
+		{
+			"Honesty": "5",
+			"Accountability": "4",
+		    "Anonymity": "4"
+		}
+}

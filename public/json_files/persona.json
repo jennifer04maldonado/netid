@@ -1,0 +1,191 @@
+{
+    "profile": [
+        {
+            "masterID": "masterID_1",
+            "sex": "Female",
+            "age": "24",
+            "masterScore": "76%",
+            "socialScore": "87%",
+            "profScore": "56%",
+            "socialPersonas": [
+                {
+                    "persona_name": "Shawn",
+                    "description": "Hello! I'm single and ready to mingle. Send me an email to connect.",
+                    "image": "images/man1.jpg",
+                    "show_sex": true,
+                    "age": "37",
+                    "show_age": true,
+                    "phone_number": "888-888-8888",
+                    "hometown": "Boston",
+                    "add_personal_info": "I have a perverse fear of cats",
+                    "education": "",
+                    "add_edu_info": "Won 5th grade spelling bee",
+                    "employment_history":"",
+                    "add_employ_info": "none",
+                    "political_affiliation": "democrat",
+                    "religion": "agnostic",
+                    "relationship_status": "single",
+                    "number_children":"9",
+                    "gender": "male",
+                    "zodiac_sign": "Aquarius",
+                    "languages_spoken":"swahili, mandarin, french",
+                    "ethnicity": "African-American",
+                    "more_info": "",
+                    "height": "5'6",
+                    "weight": "290 lbs",
+                    "hair_color": "blonde",
+                    "eye_color": "green",
+                    "phys_add_info": "",
+                    "hobbies": [
+                        "stalking cats",
+                        "hunting wild boar",
+                        "voting Republican",
+                        "people watching from my watchtower"
+                    ],
+                    "fave_movies":[
+                        "Kill Bill Vol. 1",
+                        "What's Eating Gilbert Grape",
+                        "Interstellar",
+                        "Teenage Mutant Ninja Turtles"
+                    ],
+                    "fave_music":[
+                        "reggae",
+                        "country",
+                        "anything with an awesome guitar"
+                    ],
+                    "fave_shows":[
+                        "The Simpsons",
+                        "Better Off Ted",
+                        "The Twilight Zone"
+                    ],
+                    "fave_books":[
+                        "Harry Potter",
+                        "Hamlet",
+                        "Batman, issue #145"
+                    ],
+                    "fave_sports":[
+                        "table tennis",
+                        "badminton",
+                        "ultra frisbee"
+                    ],
+                    "add_interests_info":"",
+                    "wallet":[
+                        {
+                            "card_name": "Visa",
+                            "card_number": "4837162900128572",
+                            "name_on_card":"Shawn Perkinsonin",
+                            "exp_date": "14/21"
+                        },
+                        {
+                             "card_name": "Disscover",
+                            "card_number": "49237212900128682",
+                            "name_on_card":"Shawn Algonquin Perkinsonin",
+                            "exp_date": "12/21"
+                        },
+                        {
+                             "card_name": "Mastercard",
+                            "card_number": "6835164902124581",
+                            "name_on_card":"Shawn Perkinsonin",
+                            "exp_date": "1/21"
+                        }
+                    ],
+                    "score": "9/10",
+                    "your_posts": [
+                        {
+                            "post": "Currently looking for a friend. Or a hot date. I’ll pay. For dinner, not the girlfriend.",
+                            "post_time": "1 minute"
+                        },
+                        {
+                            "post": "Looking to go bike riding in the area. Anyone down?",
+                            "post_time": "3 hours"
+                        },
+                        {
+                            "post": "Rare Beatles Tshirt for sale. Email me for pricing",
+                            "post_time": "1 day"
+                        },
+                        {
+                            "post": "Who wants to eat pho?",
+                            "post_time": "1 day"
+                        },
+                        {
+                            "post": "Rare Beatles Tshirt for sale. Email me for pricing",
+                            "post_time": "1 day"
+                        },
+                        {
+                            "post": "Friday morning run. Who wants to meet up?",
+                            "post_time": "3 days"
+                        }
+                    ],
+                    "ratings":"",
+                    "transactions":[],
+                    "disputes": [],
+                    "friends": []
+                },
+                {
+                    "persona_name": "hotstuff8733",
+                    "description": "I'm an intelligent man who is in the Army. I love food and women.",
+                    "image": "images/man2.jpg",
+                    "score": "8/10"
+                },
+                {
+                    "persona_name": "mysteryman434",
+                    "description": "I'm a mystery. Let's make a transaction. Don't tell anyone.",
+                    "image": "images/man2.jpg",
+                    "score": "2/10"
+                }
+            ],
+            "profPersonas": [
+                {
+                    "persona_name": "officialTarget",
+                    "description": "Spring is here! Shop at Target for anything you need.",
+                    "image": "images/target.jpeg",
+                    "score": "10/10",
+                    "your_posts": [
+                        {
+                            "post": "Make a connection with Target today! 20% off!",
+                            "post_time": "1 minute"
+                        },
+                        {
+                            "post": "Use your NetID wallet for an additional 10% off!",
+                            "post_time": "3 hours"
+                        },
+                        {
+                            "post": "Summer is around the corner...are you flip flop ready?",
+                            "post_time": "1 day"
+                        },
+                        {
+                            "post": "Tag your photos with #targetrun for 25% off every $100",
+                            "post_time": "3 days"
+                        }
+                    ]
+                },
+                {
+                    "persona_name": "Ray's Cleaners",
+                    "description": "Free Dry Cleaning for a year, make a transaction to enter!",
+                    "image": "images/target.jpeg",
+                    "score": "7/10"
+                },
+                {
+                    "persona_name": "Sketchy ID Business",
+                    "description": "Get your IDs here, send an email to begin!",
+                    "image": "images/target.jpeg",
+                    "score": "10/10"
+                }
+            ],
+            "friends": [
+                {
+                    "online": true,
+                    "name": "Scott Appleseed"
+                },
+                {
+                    "online": "false",
+                    "name": "Pablo Ramos"
+                },
+                {
+                    "online": true,
+                    "name": "Karen Larkin"
+                }
+            ]
+        }
+    ]
+}

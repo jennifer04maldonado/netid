@@ -1,0 +1,121 @@
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,500,700);
+
+body{
+	background-color:#fff !important; 
+	color:black;
+}
+.glyphicon{
+	top:0px !important;
+}
+.logo{
+	/*width:200px;*/
+	height:100px;
+	background-image:url('../images/NetID_png_1433452694.png');
+	background-position: center top;
+	background-size:contain;
+	background-repeat:no-repeat;
+
+}
+.tsLoginHeadline{
+/*	border:1px solid black;*/
+	color:#f6862b;
+	margin-top:4%;
+	padding:0px;
+	
+}
+.tsLoginHeadline h4{
+	font-family: Roboto, sans-serif;
+	padding:0px;
+}
+
+.tsLoginBox{
+	margin-top:10%;
+	padding-bottom:3%;
+	border-radius:15px;
+	color:#E6E7E8;
+	font-family:"Roboto Condensed",sans-serif;
+	text-align: center;
+}
+.tsLoginBox input{
+	/*border:1px solid black;*/
+	background-color:#f1f1f1;
+}
+.tsLoginBox .enrollButton{
+	background-color:#f6862b;
+}
+.tsLoginBox .spanBorder{
+	/*border:1px solid black;*/
+	background-color:#f1f1f1;
+
+}
+.bigYellowButton{
+	color:#fff;
+	width:80%;
+	height:60px;
+	background-color:#f6862b;
+	border:none;
+	font-size:20px;
+	font-weight: 700;
+	margin-top:2%;
+}
+#tsLoginBox h2{
+	font-weight: 700;
+}
+/*#tsLoginFormBox{
+	color:black;
+	width:85%;
+	margin:auto;
+}
+#tsLoginFormBox input{
+	height:48px;
+	font-size:15px;
+	font-weight:700;
+	margin-top:1%;
+	padding-left:5%;
+}*/
+#tsLoginFormBox{
+	width:85%;
+	margin:auto;
+}
+#tsLoginFormBox div{
+	margin-top:5px;
+}
+.bigWhiteButton{
+	color:#fff;
+	background-color:#729e8e;
+	height:60px;
+	border:none;
+	font-size:20px;
+	font-weight: 700;
+	margin-top:2%;
+}
+#newCustomerForm{
+	width:85%;
+	margin:auto;
+}
+#newCustomerForm div{
+	margin-top:5px;
+}
+#newCustomerForm button{
+	background-color:#f6862b;
+}
+#tsNewCustCompleteBox{
+	color:black;
+}
+#returningCustomerForm{
+	width:85%;
+	margin:auto;
+}
+#returningCustomerForm div{
+	margin-top:5px;
+}
+#tsReturningCustCompleteBox{
+	color:black;
+}
+
+
+
+
+
+

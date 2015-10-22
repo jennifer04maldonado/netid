@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>NetID</title>
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+
+
+ 
+    <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-select.css">
+    <link rel="stylesheet" href="/stylesheets/ratings.css">
+    <link rel="stylesheet" href="/stylesheets/head.css">
+    <link rel="stylesheet" href="/stylesheets/dashboard.css"></link>  
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+<body>
+<% include ./../../template/head.ejs %>
+<div class="col-xs-12" style="background-color: black;">
+    <br></br>
+    <input type="text" id="trans_input" placeholder="I dated...">
+    <select id="persona_id" class="selectpicker" multiple title="Select from personas...">
+        <option>Redonculous</option>
+        <option>Josh</option>
+        <option>Jen</option>
+    </select>
+    <input type="text" id="trans_cost" placeholder = "$0.99">
+    <input type="text" id="trans_rating" placeholder = "4">
+    <br></br>
+</div>
+
+<% include ./../../template/footer.ejs %>
+<script src="javascripts/jquery.bootstrap.wizard.js"></script>
+<script src="javascripts/bootstrap-select.js"></script>
+<script src="javascripts/bootstrap-select.js"></script>
+</body>
+</html>

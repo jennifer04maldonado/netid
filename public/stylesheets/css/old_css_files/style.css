@@ -1,0 +1,481 @@
+/*Medium devices Desktops (>=992px) */
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,500,700);
+
+body{
+	font-family: "Roboto" !important;
+}
+
+/* ________________THIS STARTS THE NAVBAR__________________ */
+
+
+.logo{
+	width:35%;
+	height:90px;
+	background-image:url('../images/NetID_png_1433452694.png');
+	background-position: center;
+	background-size:contain;
+	background-repeat:no-repeat;
+	float: right;
+}
+
+.logoBox{
+	padding: 0 !important;
+}
+
+.link_container{
+	padding-top: 33px;
+}
+
+.link_inner{
+	float: right;
+	padding-right: 330px;
+}
+
+.link_inner ul li a{
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.link_inner ul{
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    height: 100%;
+}
+
+.link_inner li{
+	float: left;
+	height: 100%;
+  	display: inline-block;
+}
+
+.link_inner a:link, a:visited {
+    font-weight: 500;
+    font-family:"Roboto",sans-serif;
+    font-size:14px;
+    color: #77787a;
+    padding: 0px 15px;
+    text-decoration: none;
+}
+
+.link_inner a:hover, a:active {
+    background-color: #e0e0dc;
+
+}
+
+
+
+
+/* ________________THIS ENDS THE NAVBAR__________________ */
+
+
+
+
+
+
+/* ________________THIS STARTS THE HOME SCREEN__________________ */
+
+.mainFirstContent{
+	background-attachment:fixed;
+	background-image:url('../images/hands.jpg');
+	background-position:center top;
+	background-repeat:no-repeat;
+	background-size:cover;
+	color:#fff;
+	font-weight: 300;
+	cursor:default;
+	height:100vh;
+}
+.infoContainer{
+	
+}
+.headlineContainer{
+	margin-top:15em;
+}
+.h1Headline{
+	font-size:55px;
+	margin-top:80px;
+}
+
+.h3Headline{
+	margin-top:10px;
+	font-size:40px;
+	font-weight:300;
+}
+.videoContainer{
+	margin-top:2em;
+}
+.videoContainer button{
+	width:20em;
+	height:3.5em;
+	border-radius: 10px;
+	color:#fff;
+	background-color:transparent;
+	border:1.5px solid #fff;
+	font-size:15px;
+	font-family: "Roboto", sans-serif;
+	font-weight:300;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.videoButton:link{
+	color: white !important;
+}
+
+.videoButton:hover{
+	color: black !important;
+	background-color: white;
+}
+
+.videoButton:focus{
+	outline: 0 !important;
+	color: white !important;
+}
+
+
+span:visited{
+	color: white !important;
+}
+.videoButton:active{
+	color: white !important;
+}
+
+hr.dotted {
+	border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.popUpModal{
+	color:#77787a;
+}
+
+#myModalLabel{
+	padding-top: 10px;
+	margin-bottom: 12px;
+} 
+
+.glyphicon{
+	top: 0px !important;
+
+}
+
+.input-group-addon{
+	border-radius: 10px 0px 0px 10px !important;
+}
+.innerLoginContainer{
+	margin-top:15em;
+}
+.innerLoginContainer .loginInputs{
+	height:3.5em;
+	margin-top:10px;
+	margin:.5em auto;
+	font-weight:500;
+	border-radius: 10px;
+	padding-left:2em;
+}
+.signUpInputs{
+	margin:.5em auto;
+	font-weight:500;
+
+}
+
+.form-control{
+	font-size: 15px !important;
+}
+.tsSearchBox{
+	border-radius: 10px !important;
+}
+
+input .form-control {
+	border-radius: 0px 10px 10px 0px !important;
+}
+
+.innerLoginContainer button{
+	width:100%;
+	height:3.5em;
+	margin:.25em auto;
+}
+
+.innerLoginContainer .loginButton{
+	border-radius: 10px;
+	background-color:#729e8e;
+	font-family:"Roboto",sans-serif;
+	font-weight: 300;
+	font-size:15px;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.loginButton:hover{
+	  background: #658E7F;
+	  color: white!important;
+}
+.loginButton:focus{
+	outline: 0 !important;
+	color: white !important;
+}
+
+.signupButton:hover{ 
+	background: #BF5E1D !important;
+	color: white !important;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+#signUpContent .signUpModalButton{
+	background-color:#f6862b;
+	font-weight: 300;
+	font-size:15px;
+	color:white;
+}
+
+.signUpModalButton:hover{
+	background: #BF5E1D !important;
+	color: white !important;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.innerLoginContainer .signupButton{
+	border-radius: 10px;
+	background-color:#f6862b;
+	font-weight: 300;
+	font-size:15px;
+	color:white;
+	font-family:"Roboto",sans-serif;
+	transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+}
+
+.signupButton:visited{
+	color: white  !important;
+}
+
+.signupButton:focus{
+	outline: 0 !important;
+	color: white !important;
+}
+.signUpBox2 button{
+	border-radius: 10px;
+	background-color:#f6862b;
+	font-weight: 300;
+	font-size:15px;
+	color:white;
+	height:3.5em;
+}
+
+/* ________________THIS ENDS THE HOME SCREEN__________________ */
+
+
+
+
+
+/* ________________THIS STARTS THE ICON SCREEN__________________ */
+
+.asideHeadlineContainer{
+	text-align: center;
+	margin-top:5%;
+}
+.asideH1Headline{
+	color: #4B4B4D;
+	font-weight: 300;
+	font-size: 40px;
+}
+.asideDescriptionContainer{
+	text-align: center;
+	margin-bottom:1em;
+}
+.asideParagraph{
+	font-weight: 300;
+	font-size: 15px;
+	color: #7e7e7e;
+}
+.iconTitle{
+	margin-bottom:5%;
+}
+.iconCircle{
+	margin:auto;
+	height:120px;
+	width:120px;
+}
+.handScansIcon{
+	background-image:url('../images/main_1.png');
+	background-size:contain;
+	background-position:center;
+}
+.ratingsIcon{
+	background-image:url('../images/main_3.png');
+	background-size:contain;
+	background-position:center;
+}
+.dwebIcon{
+	background-image:url('../images/main_2.png');
+	background-size:contain;
+	background-position:center;
+}
+.anonymityIcon{
+	background-image:url('../images/main_4.png');
+	background-size:contain;
+	background-position:center;
+}
+.iconTitle h5{
+	color:#4B4B4D;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top:2em;
+	font-size: 18px;
+}
+.iconDescription{
+	color:#7e7e7e;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 20px;
+}
+/* ________________THIS ENDS THE ICON SCREEN__________________ */
+
+
+
+
+
+
+/* ________________THIS STARTS THE STEPS SCREEN__________________ */
+.stepsToJoin{
+	background-color:#4b4b4d;
+}
+.articleHeadlineContainer{
+	margin-top:5%;
+	text-align: center;
+}
+.articleH1Headline{
+	color:white;
+	font-weight:300;
+	font-size: 40px;
+}
+
+.articleStepContainer2{
+	margin-top:2em;
+}
+
+.stepNumber{
+	color:#fff;
+	font-weight:100;
+	font-size:70px;
+}
+.articleStepContainer1{
+	margin-top:2%;
+}
+.articleStepContainer2{
+	/*margin-top:3%;*/
+	margin-bottom:5%;
+}
+.orangeTitle{
+	color:#f6862b;
+	font-size:17px;
+	text-transform:uppercase;
+}
+.greenTitle{
+	color:#729e8e;
+	font-size:17px;
+	text-transform:uppercase;
+}
+
+.stepDescription h5{
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+.stepsExplanation{
+	color:#a8a9ad;
+	font-size: 15px;
+	font-weight: 300;
+}
+/* ________________THIS ENDS THE STEPS SCREEN__________________ */
+
+
+
+
+
+
+/* ________________THIS STARTS THE ZIP CODE SCREEN__________________ */
+.lookUpContainer{
+	background-color:#f6862b;
+}
+
+.findHeadlineContainer{
+	margin-top:5%;
+	margin-bottom:5%;
+}
+.findHeadline{
+	text-align: center;
+	font-weight: 300;
+	font-size: 40px;
+	color: white;
+	margin-bottom: 5%;
+}
+
+.zip-code{
+	height:55px !important;
+	text-align: center;
+	font-size:15px;
+	font-weight:500;
+}
+/* ________________THIS ENDS THE ZIP CODE SCREEN__________________ */
+
+
+
+
+
+
+
+/* ________________THIS STARTS THE MAP SCREEN__________________ */
+.mapContainer{
+	height:35em;
+	margin-bottom:0em;
+}
+/* ________________THIS ENDS THE MAP SCREEN__________________ */
+
+
+
+
+
+
+
+/* ________________THIS STARTS THE BOTTOM SIGN UP SCREEN__________________ */
+.signUp2{
+	padding-top:3%;
+	padding-bottom:3%;
+}
+
+.signUpAgain{
+	font-weight: 300;
+	font-size: 40px;
+	color: #4B4B4D;
+}
+/*
+article .signUp2{
+	background-color: red;
+}*/
+
+.signUpBox{
+	margin-top: 1em;
+}
+
+.signUpBox button{
+	border-radius: 10px;
+	background-color:#f6862b;
+	font-weight: 300;
+	font-size:15px;
+	color:white;
+	width:50%;
+	height:3.5em;
+}
+
+.signUpBox button:hover{
+	color: white;
+}
+.signUpBox button:visited{
+	color: white;
+}
+
+/* ________________THIS ENDS THE BOTTOM SIGN UP SCREEN__________________ */

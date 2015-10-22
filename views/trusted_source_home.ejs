@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>NetID</title>
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/stylesheets/footer.css" />
+    <link rel="stylesheet" href="/stylesheets/trusted_source_home.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+
+<body>
+
+
+<!-- START NAVBAR -->
+<div class="container-fluid">
+<div class="header col-xs-12 row" style="border-bottom-style:inset;">
+    
+    <div class="col-sm-3 col-sm-offset-2 col-xs-10 logoContainer">
+        <div class="logoBox">
+            <a href="dashboard">
+                <div class="logo">
+                 <img src='../images/NetID_png_1433452694.png'/>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="navbar-toggle-con col-xs-2 visible-xs">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+    </div>
+     <div class="row visible-xs">
+        <nav class="navbar-collapse bs-navbar-collapse collapse col-xs-12">
+            <ul>
+                <li><a href="#">FAQ's</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <div class="link_container col-sm-5 hidden-xs">
+        <div class="link_inner">
+            <ul>
+                <li><a href="#">FAQ's</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row header">
+    <div class="col-md-3 logoContainer">
+        <div class="col-md-9 col-md-offset-3 logoBox">
+            <a href="#">
+                <div class="logo"></div>
+            </a>
+        </div>
+    </div>
+    <div class="link_container col-md-9">
+        <div class="link_inner">
+            <ul>
+                <li><a href="#">FAQ's</a></li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+<!-- END NAVBAR -->
+
+<!-- START LOGIN FIELDS -->
+<div class="row">
+    <div class="mainFirstContent col-xs-12">
+        <div class="col-sm-12 col-md-6 ">
+                <div class="col-md-8 col-md-offset-4 left_text">
+                    <h1 class="h1SubHeadline">Become a</h1>
+                    <h1 class="h1Headline">Trusted Source</h1>
+                    <h3 class="h3Headline">Ready for an exciting new career in the field of cryptocurrency? Let's get started!</h3>
+                </div>
+
+            <div class="col-md-8 col-md-offset-4 videoContainer">
+                <button class="btn videoButton" type="button" value="video" data-toggle="modal" data-target="#videoModal">
+                    <span class="sr-only">Error:</span>Watch the video
+                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                </button>
+                <!-- Video Modal -->
+                <div class="modal fade popUpModal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">CHANGE This</h4>
+                            </div>
+                            <div class="modal-body">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Gc2en3nHxA4" frameborder="0" allowfullscreen></iframe>
+                            </div> <!-- END video -->
+                        </div><!-- END modal-content -->
+                    </div><!-- END modal dialog -->
+                </div><!-- END video modal -->
+            </div> <!-- END video container -->
+        </div><!-- END info container -->
+        <div class="col-md-6 loginContainer">
+            <div class="col-md-5 col-md-offset-3 innerLoginContainer">
+                <!-- <button class="btn loginButton" id="register" type="submit" value="submit">TESTING</button> -->
+                <form action="/dashboard" method="post">
+                    <input class="form-control loginInputs" id='login_username' type="text" name="username" placeholder="Username">
+                    <input class="form-control loginInputs" id='login_passcode' type="text" name="passcode" placeholder="Passcode">
+                    <button class="btn loginButton">Log In</button>
+                    <hr class="hr-home">
+                    <button class="btn signupButton" type="button" value="signup" data-toggle="modal" data-target="#signUpModal">Register</button>
+                </form>
+            </div> <!-- END innerLoginContainer -->
+        </div><!-- END login container -->
+    </div><!--  end row -->
+</div> <!-- END main first content -->
+
+<!-- START modal -->
+<div class="modal fade popUpModal" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">CHANGE THIS!</h4>
+                <p>Here is Step 1 of getting your NetID. Create a Username and Passcode for your account. Once completed, you will look up your nearest Trusted Source.</p>
+            </div> <!-- modal-header -->
+            <div class="modal-body signUpBox2">
+                <div id="signUpContent">
+                    <form name="signUpForm">
+                        <div class="input-group input-group-lg signUpInputs">
+                            <span class="input-group-addon glyphicon glyphicon-user spanBorder" id="sizing-addon2"></span>
+                            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2" data-toggle="popover" data-content="Please Enter a Username. It may include A-z, 0-9, and the following symbols: .=+#!_-]" data-trigger="focus">
+                        </div>
+                        <div class="input-group input-group-lg signUpInputs">
+                            <span class="input-group-addon glyphicon glyphicon-ok spanBorder" id="sizing-addon2"></span>
+                            <input type="text" class="form-control" placeholder="Passcode" aria-describedby="sizing-addon2" data-toggle="popover" data-content="Please Enter a Passcode. It may include A-z, 0-9, and the following symbols: .=+#!_-]" data-trigger="focus">
+                        </div>
+                        <div class="input-group input-group-lg signUpInputs">
+                            <span class="input-group-addon glyphicon glyphicon-lock spanBorder" id="sizing-addon2"></span>
+                            <input type="text" class="form-control" placeholder="Re-Enter Passcode" aria-describedby="sizing-addon2" data-toggle="popover" data-content="Please Re-Enter Your Passcode" data-trigger="focus">
+                        </div>
+                        <br>
+                        <button class="btn signUpModalButton" id="register" type="submit" value="submit">Sign Up</button>
+                    </form> <!-- sign up form -->
+                </div> <!-- sign up content -->
+            </div> <!-- modal-body -->
+        </div> <!-- modal content -->
+    </div> <!-- modal dialog -->
+</div> 
+<!-- END modal -->
+           
+   
+<div class="row">
+    <div class=" slideshow"><!-- START CAROUSEL PANELS -->
+        <div id="slideshow" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active ">
+                    <div class="panel1">
+                        <div class="col-sm-4 col-sm-offset-2  col-xs-8 col-xs-offset-2 slider-left">
+                            <img class="left-icon" src="images/revenue.png" alt="icon1">
+                        </div>
+                        <div class="col-sm-5 slider-right">
+                            <div class="content-right">
+                                <h3 class="top-title">Interested in being part of the</h3>
+                                <h1 class="carousel-title">REVENUE GENERATION?</h1>
+                                <hr class="hr-slider">
+                                <p class="carousel-description">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? </p>
+                            </div> <!-- content right -->
+                        </div> <!-- slider right -->
+                    </div> <!-- end panel 1 -->
+                </div>
+                <div class="item ">
+                     <div class="panel2">
+                        <div class="col-sm-4 col-sm-offset-2 col-xs-8 col-xs-offset-2 slider-left">
+                            <img class="left-icon" src="images/rewards.png" alt="icon2">
+                        </div>
+                        <div class="col-sm-5 slider-right">
+                            <div class="content-right">
+                                <h3 class="top-title">Being a Trusted Source means</h3>
+                                <h1 class="carousel-title">ADDITIONAL REWARDS</h1>
+                                 <hr class="hr-slider">
+                                <p class="carousel-description">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? </p>
+                            </div> <!-- content right -->
+                        </div> <!-- slider right -->
+                    </div> <!-- end panel 2 -->
+                 </div>
+                <div class="item">
+                     <div class="panel3">
+                        <div class="col-sm-4 col-sm-offset-2 col-xs-8 col-xs-offset-2 slider-left">
+                            <img class="left-icon" src="images/logouse.png" alt="icon3">
+                        </div>
+                        <div class="col-sm-5 slider-right">
+                            <div class="content-right">
+                                <h3 class="top-title">Authorization of the </h3>
+                                <h1 class="carousel-title">NetID LOGO</h1>
+                                 <hr class="hr-slider">
+                                <p class="carousel-description">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? </p>
+                            </div> <!-- content right -->
+                        </div> <!-- slider right -->
+                    </div> <!-- end panel 3 -->
+                </div>
+                <div class="item ">
+                     <div class="panel4">
+                        <div class="col-sm-4 col-sm-offset-2 col-xs-8 col-xs-offset-2 slider-left">
+                            <img class="left-icon" src="images/support.png" alt="icon4">
+                        </div>
+                        <div class="col-sm-5 slider-right">
+                            <div class="content-right">
+                                <h3 class="top-title">Great amounts of helpful</h3>
+                                <h1 class="carousel-title">MARKETING + PROMOTIONAL SUPPORT</h1>
+                                 <hr class="hr-slider">
+                                <p class="carousel-description">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? </p>
+                            </div> <!-- content right -->
+                        </div> <!-- slider right -->
+                    </div> <!-- end panel 4 -->
+                </div>
+        </div> <!-- END CAROUSEL inner -->
+                    <div class="carousel-controls">
+                        <ol class="carousel-indicators">   
+                            <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                            <li data-target="#slideshow" data-slide-to="1"></li>
+                             <li data-target="#slideshow" data-slide-to="2"></li>
+                            <li data-target="#slideshow" data-slide-to="3"></li>
+                        </ol>
+                    </div> <!-- END carousel-controls -->
+        </div> <!-- END CAROUSEL SLIDE  -->
+    </div> <!-- end slideshow -->
+</div> <!-- end row -->
+
+<div class="col-sm-12 trustedsource-three">
+    <div class="row">
+        <div class="col-sm-12 ts-steps">
+            <h1 class="ts-steps-title">IT TAKES 3 EASY STEPS</h1> 
+            <p class="ts-steps-description">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people?</p> 
+            <hr class="training">
+            <br>
+        </div> 
+    </div> <!-- end row -->
+
+    <div class="row steps-row">
+        <div class="col-sm-4 steps-contain">
+            <div class="number-circles col-sm-2 col-sm-offset-5" >1</div>
+            <h1 class="ts-number-title col-sm-12">Register</h1>
+            <p class="ts-number-text col-sm-8 col-sm-offset-2">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people?</p>
+        </div>
+        <div class="col-sm-4 steps-contain">
+            <div class="number-circles col-sm-2 col-sm-offset-5">2</div>
+            <h1 class="ts-number-title col-sm-12">Training</h1>
+            <p class="ts-number-text col-sm-8 col-sm-offset-2">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people?
+            You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people?</p>
+        </div>
+        <div class="col-sm-4 steps-contain">
+            <div class="number-circles col-sm-2 col-sm-offset-5">3</div>
+            <h1 class="ts-number-title col-sm-12">Certification</h1>
+            <p class="ts-number-text col-sm-8 col-sm-offset-2">You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people? You can make great money in a fun, fast-paced work envoirnment. What is better than making good money, people?</p>
+        </div>
+    </div>
+</div> <!-- end row -->
+</div><!-- trusted source three -->
+  
+
+
+<div class="mainLastContent col-sm-12">
+    <div class="row">
+       <!--  <img src="../images/white_office.jpg" alt="office" class="last-panel"> -->
+        <div class="col-sm-12 started-row"> 
+            <div class="last-left-text">
+                <h1 class="last-ts-sub">Let's get started</h1>
+                <h1 class="last-ts-title">On a great career</h1>
+            </div>
+        </div>
+  
+        <div class="last-right-btn col-sm-2 col-sm-offset-5">
+            <button class="btn register-btn-ts" type="button" value="signup" data-toggle="modal" data-target="#signUpModal">Register</button>
+        </div>     
+        <div class="col-sm-5 col-sm-offset-4 col-xs-12 ts-email-row">
+            <div class="mail-row">
+                <p class="mail_text col-sm-5">Any additional questions?</p>
+                <button class="col-xs-12 col-sm-5 btn email-btn-ts" type="button" value="signup" data-toggle="modal" data-target="#signUpModal">Email Us</button>
+            </div>
+        </div>
+  </div> <!-- end row -->
+</div> <!-- end main last content -->
+
+ <% include partials/template/footer.ejs %>
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="/javascripts/main.js"></script>
+        <!--<script src="/javascripts/main2.js"></script>-->
+        <script src="/javascripts/bootstrap.js"></script>
+        <script src="/javascripts/ipfsapi.min.js"></script>
+        <!-- // <script src="js/npm.js"></script> -->
+
+</body>
+</html>
