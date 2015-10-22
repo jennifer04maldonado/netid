@@ -1,59 +1,67 @@
-# netid
-Description
-  This document will contain the full implementation of netid. Currently this holds the roadmap laying out what technologies are being used and which are being built in order to have a staged release of netid. 
+netid
+=========
+
+# Description
+
+This document will contain the full implementation of netid. Currently this holds the roadmap laying out what technologies are being used and which are being built in order to have a staged release of netid. 
+
 We are doing a staged release in alpha / beta format to test our platform and offer more user friendly interfaces to netid as the roadmap is completed. The Alpha release will have two version to its architecture that we are calling hosted nodes and local versions.  The hosted nodes version will work with mobile platforms.  The local version will be the preferred method for our users to test the alpha build since it is less centralized however it will require more technical understanding from the user. The hosted node will be an easier entry point to test until we build the webrtc beta version of netid. This map is tentative and items may be added or checked off over time. 
 
-*= Built but needs testing or some refactors
 
-X= Completed
+> **Not ready for prime time yet**
 
-Roadmap
-•	Alpha – Complete by 1/1/2016
-  o	Hosted Nodes – reference docs.augur.net/#architecture
-    [ ] Maintain ~five public Ethereum nodes.
-    [x]* Maintain ~five public IPFS nodes (We have one on the server atm)
-	Load balance requests to the nodes to avoid congesting geth and ipfs client
-	Load balance requests to node server.
-	* Mongo DB User Auth (Needs to be installed on dev server and everyone’s test env, also testing)
-	* Ethereum Javascript API (Node.js API) (Ready to be connected We need to develop what method we can use to have the five geth clients we host make tx’s on behalf of the client, look at client.augur.net – needs testing)
-	* IPFS Javascript API (Node.js API) (Already in middleware, just commented out until everyone can run an ipfs node to test. Server does have IPFS – needs testing)
-	* Data schema (we have some user objects built out but we really need to get this right early on in defining our data)
-	* Ratings Smart Contract (Josh is working on this, needs to use the API bindings I built to get it running in the platform, testing)
-	* Advertising Smart Contract (Began writing pseudocode. This needs a lot of work to get right.  I have a plan to layout the contract.)
-	Design Graphic – Again these should really be links on our wiki or private github to expand to further subtasks
-	* Design UX - CSS/HTML/Javascript (This has been planned, I am not familiar with the details, subpage is needed for this)
-	* Server Architecture (Node.js server with Express framework and IPFS and Ethereum API middleware hosting all of the Graphics and Frontend design. We need to update our server architecture in the wiki to reflect the API and load balancing user requests to IPFS and Ethereum)
-	* User Auth (Server has hard coded, Mongo, and OAuth currently built in and commented out until everyone gets their developer computers set up right. We can use any method of login we would like until p2p login can be built in later versions of netid). 
-	Chat (Have ideas of using completely p2p messaging with XMPP. We need to consider regular server side storage for this version of release and completely p2p storage for the client release in alpha with encryption.)
-	Trusted Source (Some gateway for letting people in)
-	* Wallet Integration (Use API to send via federated 5 eth nodes, still needs front end for this)
-	* Searching (Plan out how to integrate the switch between data being on a user’s node to a node that can be searched publicly, I have discussed ways of indexing all content in ipfs via DHT provider broadcasts, this could be an interesting implementation in beta or full release.)
-	* Wall feed (Built, needs testing and IPNS improvements. Also work on getting the 5 servers to post new entries for users)
-o	Local Version (Many things will be listed twice and are the same task as the Hosted version, some things differ)
-	Load balance requests to node server.
-	MongoDB (May not be needed at all with IPNS, if it is it is only for user Auth)
-	* Ethereum Javascript API (same as hosted, can move more to client side now too)
-	* IPFS Javascript API (Same as hosted, more client options again)
-	* Data schema (same as hosted)
-	* Ratings Smart Contract (same as hosted)
-	* Advertising Smart Contract (same as hosted)
-	Design Graphic – (same as hosted)
-	* Design UX - CSS/HTML/Javascript (same as hosted)
-	* Server Architecture (Node.js server with Express framework only to server static content to the user. IPFS database API and Ethereum API will be start to move to the client side. I have already built all of the connections needed for this. )
-	* User Auth (We have the potential of using IPNS to auth users when they are all running their own node). 
-	X Wallet Integration (I already built this)
-	* Searching (same as hosted)
-	* Wall feed (This version already is built and works)
-•	Beta – Complete by ( )
-o	One version (Many things will be reused from Alpha build, not listed)
-	Load balance requests to node server
-	Node IPFS Implementation
-•	See https://github.com/ipfs/node-ipfs
-	Ethereum Web Integration
-•	See webcoin
-•	Final release – Complete by ( )
-o	Everything is built, new features over time
-	Testing
+# Roadmap
 
-
+- Alpha – Complete by 1/1/2016
+  - [ ] [libp2p-website](https://github.com/diasdavid/libp2p-website).
+  - [ ] [node-libp2p](https://github.com/diasdavid/node-libp2p) _(the entry point)_.
+    - [x] [PeerInfo](https://github.com/diasdavid/node-peer-info)
+    - [x] [PeerId](https://github.com/diasdavid/node-peer-id)
+    - Peer Routing
+      - [x] [node-ipfs-kad-router](https://github.com/diasdavid/node-ipfs-kad-router). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/18).
+        - discovery mechanisms
+          - [x] [node-ipfs-mdns](https://github.com/diasdavid/node-ipfs-mdns) _mDNS-discovery_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/19).
+          - [ ] [node-ipfs-random-walk](https://github.com/diasdavid/node-ipfs-random-walk). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/20).
+          - [x] [node-ipfs-railing](https://github.com/diasdavid/node-ipfs-railing) _Bootstrap-list_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/21).
+      - [ ] mDNS-routing
+    - [x] Swarm. 
+      - Main repo [node-libp2p-swarm](https://github.com/diasdavid/node-libp2p-swarm). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/22).
+      - [x] Identify Protocol [identify](https://github.com/diasdavid/node-libp2p-swarm/tree/master/src/identify).
+      - [x] [node-ipfs-ping](https://github.com/diasdavid/node-ipfs-ping).
+      - [x] Connection Interface [abstract-connection](https://github.com/diasdavid/abstract-connection)
+      - Transports
+        - [x] Transport Interface [abstract-transport](https://github.com/diasdavid/abstract-transport)
+        - [x] [libp2p-tcp](https://github.com/diasdavid/node-libp2p-tcp)
+        - [ ] [libp2p-udp](https://github.com/diasdavid/node-libp2p-udp)
+        - [ ] [libp2p-udt](https://github.com/diasdavid/node-libp2p-udt)
+        - [ ] [libp2p-utp](https://github.com/diasdavid/node-libp2p-utp)
+        - [ ] libp2p-webrtc
+        - [ ] libp2p-cjdns
+      - Upgrades
+        - [ ] libp2p-tls
+      - Stream Muxing
+        - [x] [abstract-stream-muxer](https://github.com/diasdavid/abstract-stream-muxer).
+        - [x] [node-spdy-stream-muxer](https://github.com/diasdavid/node-spdy-stream-muxer) _stream muxer_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/23).
+        - [x] [libp2p-spdy](https://github.com/diasdavid/node-libp2p-spdy/blob/master/src/index.js) _stream muxer upgrade_
+      - Protocol Muxing
+        - [x] [node-multistream](https://github.com/diasdavid/node-multistream) _protocol muxer_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/24).
+        - [x] [node-multistream](https://github.com/diasdavid/node-multistream).
+    - [ ] Distributed Record Store. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/25).
+      - [x] [node-ipfs-record](https://github.com/diasdavid/node-ipfs-record) _record (needs MerkleDAG node)_.
+      - [x] [node-ipfs-distributed-record-store](https://github.com/diasdavid/node-ipfs-distributed-record-store).
+      - [x] [node-ipfs-kad-record-store](https://github.com/diasdavid/node-ipfs-kad-record-store) _implements abstract record store_.
+      - [x] [abstract-record-store](https://github.com/diasdavid/abstract-record-store).
+- Exchange
+  - [ ] [node-bitswap](https://github.com/diasdavid/node-bitswap). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/17).
+- MerkleDAG
+  - [x] MerkleDAG node implementation (needs IPLD).
+    - [x] [node-ipld](https://github.com/diasdavid/node-ipld).
+    - [x] [node-merkledag-store](https://github.com/diasdavid/node-merkledag-store).
+- Supporting modules
+  - [ ] [webcrypto](https://github.com/diasdavid/webcrypto). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/27).
+  - [x] [node-multihash](https://github.com/jbenet/node-multihash). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/26).
+  - [x] [node-multihashing](https://github.com/jbenet/node-multihashing). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/26).
+  - [x] [node-multiaddr](https://github.com/jbenet/node-multiaddr).
+- Spec
+  - [specs/19](https://github.com/ipfs/specs/pull/19).
 
