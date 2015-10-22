@@ -3,24 +3,42 @@
 //INPUT: SOCIAL PERSONA LIST FROM AJAX CALL PASSED DOWN TO PARENT
 //OUTPUT: PERSONA CONTAINERS FOR EACH PERSONA IN ARRAY
 var SinglePersonaHeader = React.createClass({
+	getInitialState: function(){
+		return {
+			activePersona: this.props.personas[0].id 
+		}
+	},
+	setActive: function(event){
+		var clickedPersona = event.target.id;
+		this.setState({
+			activePersona: clickedPersona
+		});
+	},
 	render: function(){
-		var mapPersonas = this.props.personas.map(function(persona){
+		var self = this;
+		var mapPersonas = this.props.personas.map(function(persona, index){
 			var name = persona.persona_name;
 			var personaId = persona.id;
 			var href = '#' + personaId;
+			var image = persona.image;
+			var myClassName = "panel-collapse collapse in personaInfo";
+			if(self.state.activePersona !== personaId){
+				myClassName= myClassName.replace(' in', '');
+			}
+		
 
 			return (
-				<div className="col-sm-12 panel panel-default personaCntnr">
+				<div key={personaId} className="col-sm-12 panel panel-default personaCntnr">
                     <div className="col-sm-12 panel-heading personaHeading">
                         
                         <div className="col-sm-3 imgCntnr">
-                            <img src="/images/man1.jpg"></img>
+                            <img src={image}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href={href}>{name}</a>
                         </h4>
                     </div>
-                    <div id={personaId} className="panel-collapse collapse personaInfo">
+                    <div id={personaId} className={myClassName}>
                         <div className="panel-body">
                            <div className="col-sm-4 col-sm-offset-5 ctrlPanel">
                                <span>Communities <span></span></span>
@@ -31,7 +49,7 @@ var SinglePersonaHeader = React.createClass({
                         </div>
                     </div>
                 </div>
-			)
+			);
 		});
 		return(
 			<div>
