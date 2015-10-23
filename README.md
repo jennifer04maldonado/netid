@@ -29,7 +29,7 @@ X= Completed
     - [ ] * Ratings Smart Contract
     - [ ] Advertising Smart Contract
     - Design
-      - [ ] Design Graphic
+      - [ ] Design Graphic - [view designs](https://github.com/dmcnetid/netid-graphics)
       - [ ] * Design UI/UX - CSS/HTML/Javascript
         - [ ] * Design UI/UX - subtask
     - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
