@@ -20,8 +20,6 @@ X= Completed
   - [ ] <b>Hosted Nodes</b> - reference docs.augur.net/#architecture - [Discussion issue] (https://github.com/dmcnetid/netid/issues/4)
     - [ ] Maintain ~five public Ethereum nodes.
     - [ ] * Maintain ~five public IPFS nodes - We have one on the server atm
-    - [ ] Load balance requests to the nodes to avoid congesting geth and ipfs client
-    - [ ] Load balance requests to node server.
     - [x] Mongo DB User Auth - Researching Blockchain ID
     - [ ] * Ethereum Javascript API (Node.js API)
     - [ ] * IPFS Javascript API (Node.js API)
@@ -33,13 +31,14 @@ X= Completed
       - [ ] * Design UI/UX - CSS/HTML/Javascript
         - [ ] * Design UI/UX - subtask
     - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
+      - [ ] Load balance requests to the nodes to avoid congesting geth and ipfs client
+      - [ ] Load balance requests to node server.
     - [ ] [Chat - webrtc](https://temasys.github.io/how-to/2014/09/02/Building_A_Simple_P2P_chat_with_WebRTC/)
     - [ ] Trusted Source - Or some gateway
     - [ ]	* Wallet Integration
     - [ ] * Searching - Researching DHT broadcasting 
     - [X] Wall feed 
   - [ ] <b>Local Nodes</b> (Many things will be listed twice and are the same task as the Hosted version) - [Discussion issue] (https://github.com/ipfs/node-ipfs/issues/19)
-    - [ ] Load balance requests to node server.
     - [ ] Ethereum Javascript API (same as hosted, can move more to client side now too)
     - [ ] IPFS Javascript API (Same as hosted, more client options again)
     - [ ] Data schema (same as hosted)
@@ -49,6 +48,7 @@ X= Completed
       - [ ] Design Graphic
       - [ ] * Design UI/UX - CSS/HTML/Javascript
     - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
+      - [ ] Load balance requests to node server.
     - [ ] User Auth - Blockchain and IPNS possible
     - [x]	Wallet Integration
     - [X] Wall feed 
