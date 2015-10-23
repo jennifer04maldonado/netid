@@ -17,7 +17,7 @@ X= Completed
 # Roadmap
 
 - Alpha – Complete by 1/1/2016
-  - [ ] Hosted Nodes - reference docs.augur.net/#architecture
+  - [ ] <b>Hosted Nodes</b> - reference docs.augur.net/#architecture - [Discussion issue] (https://github.com/ipfs/node-ipfs/issues/19)
     - [ ] Maintain ~five public Ethereum nodes.
     - [ ] * Maintain ~five public IPFS nodes - We have one on the server atm
     - [ ] Load balance requests to the nodes to avoid congesting geth and ipfs client
@@ -33,51 +33,16 @@ X= Completed
       - [ ] * Design UI/UX - CSS/HTML/Javascript
         - [ ] * Design UI/UX - subtask
     - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
-    - Peer Routing
-      - [x] [node-ipfs-kad-router](https://github.com/diasdavid/node-ipfs-kad-router). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/18).
-        - discovery mechanisms
-          - [x] [node-ipfs-mdns](https://github.com/diasdavid/node-ipfs-mdns) _mDNS-discovery_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/19).
-          - [ ] [node-ipfs-random-walk](https://github.com/diasdavid/node-ipfs-random-walk). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/20).
-          - [x] [node-ipfs-railing](https://github.com/diasdavid/node-ipfs-railing) _Bootstrap-list_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/21).
-      - [ ] mDNS-routing
-    - [x] Swarm. 
-      - Main repo [node-libp2p-swarm](https://github.com/diasdavid/node-libp2p-swarm). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/22).
-      - [x] Identify Protocol [identify](https://github.com/diasdavid/node-libp2p-swarm/tree/master/src/identify).
-      - [x] [node-ipfs-ping](https://github.com/diasdavid/node-ipfs-ping).
-      - [x] Connection Interface [abstract-connection](https://github.com/diasdavid/abstract-connection)
-      - Transports
-        - [x] Transport Interface [abstract-transport](https://github.com/diasdavid/abstract-transport)
-        - [x] [libp2p-tcp](https://github.com/diasdavid/node-libp2p-tcp)
-        - [ ] [libp2p-udp](https://github.com/diasdavid/node-libp2p-udp)
-        - [ ] [libp2p-udt](https://github.com/diasdavid/node-libp2p-udt)
-        - [ ] [libp2p-utp](https://github.com/diasdavid/node-libp2p-utp)
-        - [ ] libp2p-webrtc
-        - [ ] libp2p-cjdns
-      - Upgrades
-        - [ ] libp2p-tls
-      - Stream Muxing
-        - [x] [abstract-stream-muxer](https://github.com/diasdavid/abstract-stream-muxer).
-        - [x] [node-spdy-stream-muxer](https://github.com/diasdavid/node-spdy-stream-muxer) _stream muxer_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/23).
-        - [x] [libp2p-spdy](https://github.com/diasdavid/node-libp2p-spdy/blob/master/src/index.js) _stream muxer upgrade_
-      - Protocol Muxing
-        - [x] [node-multistream](https://github.com/diasdavid/node-multistream) _protocol muxer_. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/24).
-        - [x] [node-multistream](https://github.com/diasdavid/node-multistream).
-    - [ ] Distributed Record Store. [Discussion issue](https://github.com/ipfs/node-ipfs/issues/25).
-      - [x] [node-ipfs-record](https://github.com/diasdavid/node-ipfs-record) _record (needs MerkleDAG node)_.
-      - [x] [node-ipfs-distributed-record-store](https://github.com/diasdavid/node-ipfs-distributed-record-store).
-      - [x] [node-ipfs-kad-record-store](https://github.com/diasdavid/node-ipfs-kad-record-store) _implements abstract record store_.
-      - [x] [abstract-record-store](https://github.com/diasdavid/abstract-record-store).
-- Exchange
-  - [ ] [node-bitswap](https://github.com/diasdavid/node-bitswap). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/17).
-- MerkleDAG
-  - [x] MerkleDAG node implementation (needs IPLD).
-    - [x] [node-ipld](https://github.com/diasdavid/node-ipld).
-    - [x] [node-merkledag-store](https://github.com/diasdavid/node-merkledag-store).
-- Supporting modules
-  - [ ] [webcrypto](https://github.com/diasdavid/webcrypto). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/27).
-  - [x] [node-multihash](https://github.com/jbenet/node-multihash). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/26).
-  - [x] [node-multihashing](https://github.com/jbenet/node-multihashing). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/26).
-  - [x] [node-multiaddr](https://github.com/jbenet/node-multiaddr).
-- Spec
-  - [specs/19](https://github.com/ipfs/specs/pull/19).
+    - [ ] [Chat - webrtc](https://temasys.github.io/how-to/2014/09/02/Building_A_Simple_P2P_chat_with_WebRTC/)
+    - [ ] Trusted Source - Or some gateway
+    - [ ]	* Wallet Integration
+    - [ ] * Searching - Researching DHT broadcasting 
+    - [X] Wall feed 
+  - [ ] <b>Local Nodes</b> (Many things will be listed twice and are the same task as the Hosted version, some things differ)
+    - [ ] Load balance requests to node server.
+    - [ ] Ethereum Javascript API (same as hosted, can move more to client side now too)
+    - [ ] IPFS Javascript API (Same as hosted, more client options again)
+    - [ ] Data schema (same as hosted)
+    - [ ] 
+      
 
