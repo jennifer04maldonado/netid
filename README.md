@@ -15,7 +15,11 @@ We are doing a staged release in alpha / beta format to test our platform and of
 - Alpha – Complete by 1/1/2016
   - [ ] [Hosted Nodes] reference docs.augur.net/#architecture
     - [ ] [Maintain ~five public Ethereum nodes.]
-    - [x] [PeerId](https://github.com/diasdavid/node-peer-id)
+    - [ ] [* Maintain ~five public IPFS nodes] (We have one on the server atm)
+    - [ ] [Load balance requests to the nodes to avoid congesting geth and ipfs client]
+    - [ ] [Load balance requests to node server.]
+    - [x] [Mongo DB User Auth](Researching blockchain ID)
+    - [ ] [* Ethereum Javascript API (Node.js API)]
     - Peer Routing
       - [x] [node-ipfs-kad-router](https://github.com/diasdavid/node-ipfs-kad-router). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/18).
         - discovery mechanisms
