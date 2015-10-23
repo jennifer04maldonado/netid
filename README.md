@@ -17,20 +17,22 @@ X= Completed
 # Roadmap
 
 - Alpha – Complete by 1/1/2016
-  - [ ] [Hosted Nodes] reference docs.augur.net/#architecture
-    - [ ] [Maintain ~five public Ethereum nodes.]
-    - [ ] [* Maintain ~five public IPFS nodes] - We have one on the server atm
-    - [ ] [Load balance requests to the nodes to avoid congesting geth and ipfs client]
-    - [ ] [Load balance requests to node server.]
-    - [x] [Mongo DB User Auth] - Researching Blockchain ID
-    - [ ] [* Ethereum Javascript API (Node.js API)]
-    - [ ] [* IPFS Javascript API (Node.js API)]
-    - [ ] [* Data schema definitions]
-    - [ ] [* Ratings Smart Contract]
-    - [ ] [Advertising Smart Contract]
-    - [ ] [Design Graphic]
-    - [ ] [* Design UI/UX] - CSS/HTML/Javascript
-    - [ ] [* ]
+  - [ ] Hosted Nodes - reference docs.augur.net/#architecture
+    - [ ] Maintain ~five public Ethereum nodes.
+    - [ ] * Maintain ~five public IPFS nodes - We have one on the server atm
+    - [ ] Load balance requests to the nodes to avoid congesting geth and ipfs client
+    - [ ] Load balance requests to node server.
+    - [x] Mongo DB User Auth - Researching Blockchain ID
+    - [ ] * Ethereum Javascript API (Node.js API)
+    - [ ] * IPFS Javascript API (Node.js API)
+    - [ ] * Data schema definitions
+    - [ ] * Ratings Smart Contract
+    - [ ] Advertising Smart Contract
+    - Design
+      - [ ] Design Graphic
+      - [ ] * Design UI/UX - CSS/HTML/Javascript
+        - [ ] * Design UI/UX - subtask
+    - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
     - Peer Routing
       - [x] [node-ipfs-kad-router](https://github.com/diasdavid/node-ipfs-kad-router). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/18).
         - discovery mechanisms
