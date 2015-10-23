@@ -16,7 +16,7 @@ X= Completed
 
 # Roadmap
 
-- Alpha – Complete by 1/1/2016
+- <h3><b>Alpha: Target Date 1/1/2016</b></h3>
   - [ ] <b>Hosted Nodes</b> - reference docs.augur.net/#architecture - [Discussion issue] (https://github.com/ipfs/node-ipfs/issues/19)
     - [ ] Maintain ~five public Ethereum nodes.
     - [ ] * Maintain ~five public IPFS nodes - We have one on the server atm
@@ -43,6 +43,22 @@ X= Completed
     - [ ] Ethereum Javascript API (same as hosted, can move more to client side now too)
     - [ ] IPFS Javascript API (Same as hosted, more client options again)
     - [ ] Data schema (same as hosted)
-    - [ ] 
-      
+    - [ ] Ratings Smart Contract
+    - [ ] Advertising Smart Contract 
+    - Design - Same as hosted
+      - [ ] Design Graphic
+      - [ ] * Design UI/UX - CSS/HTML/Javascript
+    - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
+    - [ ] User Auth - Blockchain and IPNS possible
+    - [x]	Wallet Integration
+    - [X] Wall feed 
+- <h3><b>Beta: Target Date - </b></h3>
+  - [ ] <b>One Version</b>
+    - [ ] Load balance requests to node server
+    - [ ] [Node IPFS Implementation](https://github.com/ipfs/node-ipfs)
+    - [ ] [Ethereum Web Implementation](https://github.com/mappum/webcoin)
+- <h3><b>Final Release</b></h3> 
+  - [ ] <b>Everything is built, new features over time</b>
+    - [ ] Testing
+
 
