@@ -13,9 +13,8 @@ We are doing a staged release in alpha / beta format to test our platform and of
 # Roadmap
 
 - Alpha – Complete by 1/1/2016
-  - [ ] [libp2p-website](https://github.com/diasdavid/libp2p-website).
-  - [ ] [node-libp2p](https://github.com/diasdavid/node-libp2p) _(the entry point)_.
-    - [x] [PeerInfo](https://github.com/diasdavid/node-peer-info)
+  - [ ] [Hosted Nodes] reference docs.augur.net/#architecture
+    - [ ] [Maintain ~five public Ethereum nodes.]
     - [x] [PeerId](https://github.com/diasdavid/node-peer-id)
     - Peer Routing
       - [x] [node-ipfs-kad-router](https://github.com/diasdavid/node-ipfs-kad-router). [Discussion issue](https://github.com/ipfs/node-ipfs/issues/18).
