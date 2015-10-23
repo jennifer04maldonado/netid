@@ -17,7 +17,7 @@ X= Completed
 # Roadmap
 
 - <h3><b>Alpha: Target Date 1/1/2016</b></h3>
-  - [ ] <b>Hosted Nodes</b> - reference docs.augur.net/#architecture - [Discussion issue] (https://github.com/ipfs/node-ipfs/issues/19)
+  - [ ] <b>Hosted Nodes</b> - reference docs.augur.net/#architecture - [Discussion issue] (https://github.com/dmcnetid/netid/issues/4)
     - [ ] Maintain ~five public Ethereum nodes.
     - [ ] * Maintain ~five public IPFS nodes - We have one on the server atm
     - [ ] Load balance requests to the nodes to avoid congesting geth and ipfs client
