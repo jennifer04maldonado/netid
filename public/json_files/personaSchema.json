@@ -2,7 +2,7 @@
 [
   {   
       "id" : "1433213",
-      "persona_name": "Shawn",
+      "persona_name": "NatetheGreat",
       "profile_id"  : "12345674896",
       "persona_type": "Social",
       "description": "Hello! I'm single and ready to mingle. Send me an email to connect.",
@@ -41,7 +41,7 @@
       "profile_id"  : "12345674896",
       "persona_type": "Social",
       "description": "Hello! I'm single and ready to mingle. Send me an email to connect.",
-      "image": "images/man1.jpg",
+      "image": "images/man2.jpg",
       "show_sex": true,
       "age": "89",
       "show_age": true,
@@ -72,7 +72,7 @@
   },
   {   
       "id" : "9716211",
-      "persona_name": "AlabasterScott",
+      "persona_name": "DesignerScott",
       "profile_id"  : "12345674896",
       "persona_type": "Social",
       "description": "Hello! I'm single and ready to mingle. Send me an email to connect.",
@@ -107,11 +107,11 @@
   },
   {   
       "id" : "197261",
-      "persona_name": "MustardScott",
+      "persona_name": "BackendScott",
       "profile_id"  : "12345674896",
       "persona_type": "Social",
       "description": "Hello! I'm single and ready to mingle. Send me an email to connect.",
-      "image": "images/man1.jpg",
+      "image": "images/man2.jpg",
       "show_sex": true,
       "age": "37",
       "show_age": true,
