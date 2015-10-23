@@ -38,7 +38,7 @@ X= Completed
     - [ ]	* Wallet Integration
     - [ ] * Searching - Researching DHT broadcasting 
     - [X] Wall feed 
-  - [ ] <b>Local Nodes</b> (Many things will be listed twice and are the same task as the Hosted version, some things differ)
+  - [ ] <b>Local Nodes</b> (Many things will be listed twice and are the same task as the Hosted version) - [Discussion issue] (https://github.com/ipfs/node-ipfs/issues/19)
     - [ ] Load balance requests to node server.
     - [ ] Ethereum Javascript API (same as hosted, can move more to client side now too)
     - [ ] IPFS Javascript API (Same as hosted, more client options again)
