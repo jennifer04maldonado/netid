@@ -7,9 +7,9 @@ This document will contain the full implementation of netid. Currently this hold
 
 We are doing a staged release in alpha / beta format to test our platform and offer more user friendly interfaces to netid as the roadmap is completed. The Alpha release will have two version to its architecture that we are calling hosted nodes and local versions.  The hosted nodes version will work with mobile platforms.  The local version will be the preferred method for our users to test the alpha build since it is less centralized however it will require more technical understanding from the user. The hosted node will be an easier entry point to test until we build the webrtc beta version of netid. This map is tentative and items may be added or checked off over time. 
 
-*= Built but needs testing or some refactors
+- [ ] * = Built but needs testing or some refactors
 
-X= Completed
+- [x] = Completed
 
 
 > **Not ready for prime time yet**
