@@ -1,3 +1,31 @@
+//INPUT: SOCIAL PERSONA LIST FROM AJAX CALL PASSED DOWN TO PARENT
+//OUTPUT: LINKS FOR EACH PERSONA IN SINGLEPERSONAHEADER
+var PersonaMenu = React.createClass({
+	render: function(){
+		return(
+	        <div className="panel-body">
+	           <div className="col-sm-4 col-sm-offset-5 ctrlPanel">
+	              	<span>
+	               		<a>Communities</a>
+	               		<span></span>
+               		</span>
+	               	<span>
+	               		<a>Transactions</a>
+	               		<span></span>
+               		</span>
+	               	<span>
+	               		<a>Messages</a>
+	               		<span></span>
+               		</span>
+	               	<span>
+	               		<a>Friends</a>
+	               		<span></span>
+               		</span>
+	           </div>
+	        </div>
+		)
+	}
+});
 
 
 //INPUT: SOCIAL PERSONA LIST FROM AJAX CALL PASSED DOWN TO PARENT
@@ -9,21 +37,25 @@ var SinglePersonaHeader = React.createClass({
 		}
 	},
 	setActive: function(event){
-		var clickedPersona = event.target.id;
+		
+		var clickedPersona = event.target.dataset.personaId;
 		this.setState({
 			activePersona: clickedPersona
 		});
+		console.log(clickedPersona);
 	},
 	render: function(){
+		console.log('here i am');
 		var self = this;
 		var mapPersonas = this.props.personas.map(function(persona, index){
 			var name = persona.persona_name;
 			var personaId = persona.id;
 			var href = '#' + personaId;
 			var image = persona.image;
-			var myClassName = "panel-collapse collapse in personaInfo";
-			if(self.state.activePersona !== personaId){
-				myClassName= myClassName.replace(' in', '');
+			var myClassName = "panel-collapse fade collapse personaInfo";
+
+			if(self.state.activePersona == personaId){
+				myClassName+=' in';
 			}
 		
 
@@ -35,18 +67,11 @@ var SinglePersonaHeader = React.createClass({
                             <img src={image}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href={href}>{name}</a>
+                            <a data-toggle="collapse" data-parent="#accordion" data-persona-id={personaId} href={href} onClick={self.setActive}>{name}</a>
                         </h4>
                     </div>
                     <div id={personaId} className={myClassName}>
-                        <div className="panel-body">
-                           <div className="col-sm-4 col-sm-offset-5 ctrlPanel">
-                               <span>Communities <span></span></span>
-                               <span>Transactions <span></span></span>
-                               <span>Messages <span></span></span>
-                               <span>Friends <span></span></span>
-                           </div>
-                        </div>
+                    	<PersonaMenu />
                     </div>
                 </div>
 			);
