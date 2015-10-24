@@ -49,7 +49,7 @@ We are doing a staged release in alpha / beta format to test our platform and of
       - [ ] * Design UI/UX - CSS/HTML/Javascript
     - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
       - [ ] Load balance requests to node server.
-    - [ ] User Auth - Blockchain and IPNS possible
+    - [ ] User Auth - Blockchain and IPNS are possible
     - [x]	Wallet Integration
     - [X] Wall feed 
 - <h3><b>Beta: Target Date - </b></h3>
