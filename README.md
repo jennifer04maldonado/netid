@@ -53,7 +53,7 @@ We are doing a staged release to test our platform and offer more user friendly 
     - [x]	Wallet Integration
     - [X] Wall feed 
 - <h3><b>Beta: Target Date - </b></h3>
-  - [ ] <b>One Version</b>
+  - [ ] <b>One Version (WebRTC)</b>
     - [ ] Load balance requests to node server
     - [ ] [Node IPFS Implementation](https://github.com/ipfs/node-ipfs)
     - [ ] [Ethereum Web Implementation](https://github.com/mappum/webcoin)
