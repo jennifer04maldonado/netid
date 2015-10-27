@@ -32,6 +32,8 @@
     "browserify": "~11.2.0",
     "watchify": "~3.4.0",
     "reactify": "~1.1.1",
-    "babel": "~5.8.23"
+    "babel": "~5.8.23",
+    "gulp-load-plugins": "~1.0.0",
+    "require-dir": "~0.3.0"
   }
 }
