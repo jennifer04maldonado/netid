@@ -1,0 +1,29 @@
+[
+	{
+	    "id": "1",
+	    "name": "Lets Go Hiking!",
+	    "created_by": "0001",
+	    "pic": "images/image.jpg",
+	    "description": "Place where hikers can get together",
+	    "community_type": "Public",
+	     "created_date": "01/01/2015"
+	},
+	{
+	    "id": "2",
+	    "name": "Lets Play Tennis!",
+	    "created_by": "0001",
+	    "pic": "images/image.jpg",
+	    "description": "Anyone Up For Some Tennis?",
+	    "community_type": "Private",
+	    "created_date": "01/01/2015"
+	},
+	{
+	    "id": "3",
+	    "name": "Shush Group",
+	    "created_by": "0001",
+	    "pic": "images/image.jpg",
+	    "description": "Lets keep this between us",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015"
+	}
+]

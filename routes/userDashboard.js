@@ -75,9 +75,9 @@ router.post('/', function(req, res, next) {
     console.log("test");
 res.render('userDashboard');
 });
-router.get('/', function(req, res, next) {
-    res.render('userDashboard');
-});
+
+
+
 
 router.get('/', function(req, res, next) {
     res.render('userDashboard');

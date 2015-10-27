@@ -1,0 +1,23 @@
+[
+	{
+		"id": "1",
+		"community_id": "1",
+		"posted_by": "0001",
+		"message": "anyone know a good hiking place in Los Angeles?",
+		"created_date" : "01/02/2015"
+	},
+	{
+	    "id": "2",
+	    "community_id": "2",
+	    "posted_by": "0001",
+	    "message": "anyone know a good hiking place in Los Angeles?",
+	    "created_date" : "01/02/2015"
+	},
+	{
+	    "id": "3",
+	    "community_id": "3",
+	    "posted_by": "0001",
+	    "message": "anyone know a good hiking place in Los Angeles?",
+	    "created_date" : "01/02/2015"
+	}
+]
