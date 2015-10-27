@@ -6774,21 +6774,25 @@ button.close {
 }
 .dashboardContainer #personaIndex div .addPersona {
   margin-bottom: 10px;
-  background-color: grey;
+  background-color: #58585B;
   height: 50px;
+  color: #E6E7E8;
+  padding-top: 13px;
+  padding-left: 25px;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr {
   padding: 0;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr {
   padding: 0;
+  border-radius: 0px;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaColor {
   background-color: grey;
   height: 100%;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaHeading {
-  border-left: 5px solid red;
+  border-left: 5px solid #C31F2E;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaHeading .imgCntnr {
   padding: 0;
@@ -6800,7 +6804,7 @@ button.close {
   width: 100%;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaInfo {
-  border-left: 5px solid red;
+  border-left: 5px solid #C31F2E;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaInfo .ctrlPanel span {
   display: block;
@@ -6808,28 +6812,45 @@ button.close {
 }
 .dashboardContainer .mainView .focusedPersona {
   margin-bottom: 10px;
-  background-color: grey;
+  background-color: #58585B;
+  color: #E6E7E8;
   height: 50px;
+  padding-top: 13px;
+  padding-left: 25px;
 }
 .dashboardContainer .mainView .viewPort {
-  border-top: 5px solid red;
+  border-top: 5px solid #C31F2E;
 }
 .dashboardContainer .rightControlPanel .ratingsPanel {
   margin-bottom: 10px;
-  background-color: grey;
+  background-color: #58585B;
   height: 50px;
+  padding-top: 13px;
+  padding-left: 25px;
+  color: #E6E7E8;
 }
 .dashboardContainer .rightControlPanel #accordion2 {
   padding: 0;
+  border-radius: 0px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .yourOffers {
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel {
   padding: 0;
+  border-radius: 0px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .yourFriends {
-  padding: 0;
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel .accordionHeading {
+  border-radius: 0px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .yourMembers {
-  padding: 0;
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersHeading {
+  background-color: #F37728;
+  color: #E6E7E8;
+  height: 45px;
+  padding-top: 13px;
+}
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsHeading {
+  background-color: #58585B;
+  color: #E6E7E8;
+  height: 45px;
+  padding-top: 13px;
 }
 #commContainer {
   border-bottom: 1px solid #D3D3D3;
@@ -6891,7 +6912,7 @@ button.close {
   padding-left: 15px;
 }
 .row .commPostBtn .btn {
-  background-color: #FF0000;
+  background-color: #C31F2E;
   color: white;
   border-radius: none;
 }

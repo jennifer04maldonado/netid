@@ -7,19 +7,23 @@
         div {
             .addPersona {
                 margin-bottom: 10px;
-                background-color: grey;
+                background-color: #58585B;
                 height: 50px;
+                color:  #E6E7E8;
+                padding-top: 13px;
+                padding-left: 25px;
             }
             .multiPersonaCntnr {
                 padding: 0;
                 .personaCntnr {
                     padding: 0;
+                    border-radius: 0px;
                     .personaColor {
                         background-color: grey;
                         height: 100%;
                     }
                     .personaHeading {
-                        border-left: 5px solid red;
+                        border-left: 5px solid #C31F2E;
                         .imgCntnr {
                             padding: 0;
                             height: 50px;
@@ -34,7 +38,7 @@
                         }
                     }
                     .personaInfo {
-                        border-left: 5px solid red;
+                        border-left: 5px solid #C31F2E;
                         .ctrlPanel {
                             span {
                                 display: block;
@@ -49,41 +53,63 @@
     .mainView {
         .focusedPersona {
             margin-bottom: 10px;
-            background-color: grey;
+            background-color: #58585B;
+            color: #E6E7E8;
             height: 50px;
+            padding-top: 13px;
+            padding-left: 25px;
             p {}
         }
         .netIdSpace {}
         .viewPort {
-            border-top: 5px solid red;
+            border-top: 5px solid #C31F2E;
         }
     }
     .rightControlPanel {
         .ratingsPanel {
             margin-bottom: 10px;
-            background-color: grey;
+            background-color: #58585B;
             height: 50px;
+            padding-top: 13px;
+            padding-left: 25px;
+            color: #E6E7E8;
         }
         #accordion2 {
             padding: 0;
-            .yourOffers {
+            border-radius: 0px;
+            .accordionRightPanel{
                 padding: 0;
-                .offersHeading {
-                    h4 {
-                        a {}
+                border-radius: 0px;
+                .accordionHeading{
+                    border-radius: 0px;
+
+                }
+                &.yourOffers {
+                    .offersHeading {
+                        background-color: #F37728;
+                        color: #E6E7E8;
+                        height: 45px;
+                        padding-top: 13px;
+                        h4 {
+                            a {}
+                        }
+                    }
+                    .offersPanel{
+                        .offersBody{
+                        }
                     }
                 }
-            }
-            .yourFriends {
-                padding: 0;
-                .friendsHeading {
-                    h4 {
-                        a {}
+                &.yourFriends {
+                    .friendsHeading {
+                        background-color: #58585B;
+                        color: #E6E7E8;
+                        height: 45px;
+                        padding-top: 13px;
+                        h4 {
+                            a {}
+                        }
                     }
                 }
-            }
-            .yourMembers {
-                padding: 0;
             }
         }
     }
