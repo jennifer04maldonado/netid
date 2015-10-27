@@ -1,4 +1,5 @@
 .header{
+	background-color: #E6E7E8;
 	position: relative;
 	margin-bottom: 15px;
 	.logoContainer{
@@ -8,6 +9,8 @@
 				.logo{
 					img{
 						width: 30%;
+						margin-top: 4%;
+						margin-bottom: 4%;
 					}
 				}
 			}
@@ -20,97 +23,40 @@
 			}
 		}
 	}
-	.row{
-		nav{
-			.mobile-nav{
-				list-style: none;
-				text-align: center;
-				padding-left: 0px;
-				line-height: 40px;
-				letter-spacing: 0.5px;
-				margin-top: 5%;
-				margin-bottom: 7%;
-				li{
-					&:hover{
-							background-color: #e0e0dc;
- 							color: #77787a;
-					}
-					a{
-							font-weight: 500;
-						    font-size:14px;
-						    color: #77787a;
-						    text-transform: uppercase;
-						    &:hover{
-						    	text-decoration: none;
-						    }
-					}
-				}
-				.dropdown{
-					a{
+	.linkContainer{
+		.headerBalanceBtn{
+			.headerBalance{
+				.btn{
 
-					}
-					.header-dropdown{
-						padding: 8px 0px;
-						li{
-							margin: 17px;
-							&:hover{
-								transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
-							}
-							a{}
-						}
-					}
 				}
 			}
 		}
-	}
-	.linkContainer{
-		.linkInner{
-			float: right;
-			ul{
-				li{
-					float: left;
-					height: 100%;
-				  	display: inline-block;
-					a{
-						transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
-						&:link{
-						    font-weight: 500;
-						    font-size:14px;
-						    color: #77787a;
-						    padding: 0px 15px;
-						    text-decoration: none;
-						}
-						&:hover, :active{
-						    background-color: #e0e0dc;
-						 	color: #77787a;
-						 	height: 50%;
-						}
-						&:visited{
-						    font-weight: 500;
-						    font-size:14px;
-						    color: #77787a;
-						    padding: 0px 15px;
-						    text-decoration: none;
-						}
-					}
-				}
-				.dropdown{
-					a{
+		.headSearchField{
+			form{
+				textarea{
 
-					}
-					ul{
-						li{
-							a{
-								display: block;
-							}
-						}
-					}
 				}
 			}
+		}
+		.headLogOut{
+			a{}
 		}
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+// phone size
 @media (max-width: 768px){
   	.logo img{
 	margin-top: 10%;
@@ -149,13 +95,3 @@
 }
 
 
-/*LARGE DESKTOP*/
-@media (min-width: 992px){
-	.link_container{
-	padding-top: 1.6%;
-	}
-	.logo img{
-	margin-top: 4%;
-	margin-bottom: 4%;
-	}
-}
