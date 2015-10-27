@@ -40,8 +40,8 @@ We are doing a staged release to test our platform and offer more user friendly 
     - [X] Wall feed 
     - [ ] User Auth - Blockchain and IPNS are possible
 - <h3><b>Beta: Target Date - </b></h3>
-  - [ ] <b>One Version (WebRTC as the transport layer)</b>
-    - [ ] Load balance requests to node server
+  - [ ] <b>Remove local clients and build into the browser (WebRTC as the transport layer)</b>
+    - [ ] Load balance requests to node server for static file hosting
     - [ ] [Node IPFS Implementation](https://github.com/ipfs/node-ipfs)
     - [ ] [Ethereum Web Implementation](https://github.com/mappum/webcoin)
 - <h3><b>Final Release</b></h3> 
