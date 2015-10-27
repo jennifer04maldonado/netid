@@ -19,7 +19,7 @@ We are doing a staged release to test our platform and offer more user friendly 
 - <h3><b>Alpha: Target Date 1/1/2016</b></h3>
   - [ ] <b>Hosted Nodes</b> -revising, may do local only due to ipfs and data security - [Discussion issue] (https://github.com/dmcnetid/netid/issues/4)
     - [ ] Maintain ~five public Ethereum nodes.
-    - [ ] * Maintain ~five public IPFS nodes - We have one on the server atm
+    - [ ] * <strike>Maintain ~five public IPFS nodes </strike> - Hosting these nodes would put us in control of user's data, scratch this
     - [x] Mongo DB User Auth - Researching Blockchain ID
     - [ ] * Ethereum Javascript API (Node.js API)
     - [ ] * IPFS Javascript API (Node.js API)
