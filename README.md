@@ -5,7 +5,7 @@
 
 This repo will contain the full implementation of netid. Currently this holds the roadmap laying out what technologies are being used and which are being built in order to have a staged release of netid. 
 
-We are doing a staged release to test our platform and offer more user friendly interfaces to netid as the roadmap is completed. The Alpha release will have two version to its architecture that we are calling hosted nodes and local versions.  The hosted nodes version will work with mobile platforms.  The local version will be the preferred method for our users to test the alpha build since it is less centralized however it will require more technical understanding from the user. The hosted node will be an easier entry point to test until we build the webrtc transport version of netid. This map is tentative and items may be added or checked off over time. 
+We are doing a staged release to test our platform and offer more user friendly interfaces to netid as the roadmap is completed. The Alpha version will require useres to install IPFS and run a Geth node in order to use the site.  The local version will be the preferred method for our users to test the alpha build since it is less centralized however it will require more technical understanding from the user. This map is tentative and items may be added or checked off over time. 
 
 - [ ] * = Built but needs testing or some refactors.
 
@@ -17,8 +17,8 @@ We are doing a staged release to test our platform and offer more user friendly 
 # Roadmap
 
 - <h3><b>Alpha: Target Date 1/1/2016</b></h3>
-  - [ ] <b>Hosted Nodes</b> -revising, may do local only due to ipfs and data security - [Discussion issue] (https://github.com/dmcnetid/netid/issues/4)
-    - [ ] Maintain ~five public Ethereum nodes.
+  - [ ] <b>Local Nodes</b> -revising, may do local only due to ipfs and data security - [Discussion issue] (https://github.com/dmcnetid/netid/issues/4)
+    - [ ] <strike>Maintain ~five public Ethereum nodes.</strike>
     - [ ] * <strike>Maintain ~five public IPFS nodes </strike> - Hosting these nodes would put us in control of user's data, scratch this
     - [x] Mongo DB User Auth - Researching Blockchain ID
     - [ ] * Ethereum Javascript API (Node.js API)
@@ -31,27 +31,14 @@ We are doing a staged release to test our platform and offer more user friendly 
       - [ ] * Design UI/UX - CSS/HTML/Javascript
         - [ ] * Design UI/UX - subtask
     - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
-      - [ ] Load balance requests to the nodes to avoid congesting geth and ipfs client
+      - [ ] <strike>Load balance requests to the nodes to avoid congesting geth and ipfs client</strike>
       - [ ] Load balance requests to node server.
     - [ ] [Chat - webrtc](https://temasys.github.io/how-to/2014/09/02/Building_A_Simple_P2P_chat_with_WebRTC/)
     - [ ] Trusted Source - Or some gateway
-    - [ ]	* Wallet Integration
+    - [ ]	* Wallet Integration - Built but needs UI
     - [ ] * Searching - Researching DHT broadcasting 
     - [X] Wall feed 
-  - [ ] <b>Local Nodes</b> (Many things will be listed twice and are the same task as the Hosted version) - [Discussion issue] (https://github.com/ipfs/node-ipfs/issues/19)
-    - [ ] Ethereum Javascript API (same as hosted, can move more to client side now too)
-    - [ ] IPFS Javascript API (Same as hosted, more client options again)
-    - [ ] Data schema (same as hosted)
-    - [ ] Ratings Smart Contract
-    - [ ] Advertising Smart Contract 
-    - Design - Same as hosted
-      - [ ] Design Graphic
-      - [ ] * Design UI/UX - CSS/HTML/Javascript
-    - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
-      - [ ] Load balance requests to node server.
     - [ ] User Auth - Blockchain and IPNS are possible
-    - [x]	Wallet Integration
-    - [X] Wall feed 
 - <h3><b>Beta: Target Date - </b></h3>
   - [ ] <b>One Version (WebRTC as the transport layer)</b>
     - [ ] Load balance requests to node server
