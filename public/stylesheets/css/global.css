@@ -6831,6 +6831,70 @@ button.close {
 .dashboardContainer .rightControlPanel #accordion2 .yourMembers {
   padding: 0;
 }
+#commContainer {
+  border-bottom: 1px solid #D3D3D3;
+  padding-bottom: 10px;
+}
+#commContainer .commControlBarLeft {
+  margin-top: 10px;
+}
+#commContainer .commControlBarLeft .commProfileInfo .commImage {
+  padding: 0;
+  height: 50px;
+  width: 50px;
+}
+#commContainer .commControlBarLeft .commProfileInfo .commImage img {
+  height: 100%;
+  width: 100%;
+}
+#commContainer .commControlBarLeft .commProfileInfo .commName {
+  margin-top: 15px;
+  padding-right: 0;
+}
+#commContainer .commControlBarLeft .commProfileInfo .commStatus {
+  padding: 0;
+  margin-left: 10px;
+}
+#commContainer .commControlBarLeft .commProfileInfo .commStatus .btn {
+  margin-top: 8px;
+  border-radius: 0px;
+}
+#commContainer .commControlBarRight {
+  margin-top: 10px;
+}
+#commContainer .commControlBarRight .commNavItems ul {
+  list-style-type: none;
+  margin-top: 15px;
+}
+#commContainer .commControlBarRight .commNavItems ul li {
+  display: inline;
+}
+#commContainer .commControlBarRight .commNavItems ul li:first-child {
+  margin-left: 20px;
+}
+#commContainer .commControlBarRight .commIconElements {
+  margin-top: 15px;
+  padding-right: 0;
+}
+#commContainer .commControlBarRight .commIconElements i:first-child {
+  margin-right: 20px;
+  color: #FBAF3F;
+}
+.row .commTextField {
+  margin-top: 25px;
+}
+.row .commTextField .commPostField form textarea {
+  resize: none;
+  width: 100%;
+  height: 90px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+.row .commPostBtn .btn {
+  background-color: #FF0000;
+  color: white;
+  border-radius: none;
+}
 .header {
   position: relative;
   margin-bottom: 15px;
