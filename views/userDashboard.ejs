@@ -19,6 +19,7 @@
     <!-- <link rel="stylesheet" href="/stylesheets/socialPersona.css"></link> -->
     <!-- <link rel="stylesheet" href="/stylesheets/dashboard.css"></link> -->
     <link rel="stylesheet" href="/stylesheets/css/global.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/ratings.css"> -->
     <!-- <link rel="stylesheet" href="/stylesheets/footer.css"></link> -->
     <script src="/javascripts/libraries/react-0.14.0/build/react-with-addons.js"></script>
@@ -93,11 +94,11 @@
                 </div>
                 <div class="col-sm-6 mainView row">
                     <div class="col-sm-12 focusedPersona">
-                        <p>CorporateUnderling105</p>
+                        <p>Your Bio - Complete your Bio!</p>
                     </div>
                     <div class="col-sm-12 netIdSpace"></div>
                     <div class="col-sm-12 viewPort">
-                       
+                        <% include ../../netid/views/individualCommView.ejs %>
                     </div>
                 </div>
                 <div class="col-sm-3 rightControlPanel">
@@ -120,27 +121,16 @@
                         <div class="col-sm-12 panel panel-default yourFriends">
                             <div class="col-sm-12 panel-heading friendsHeading">
                                 <h4 class="col-sm-9 panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">Friends</a>
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">Friends Online</a>
                                 </h4>
                             </div>
                             <div id="collapseFive" class="panel-collapse collapse friendsPanel">
                                 <div class="panel-body">
-                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                                    <p>is this members HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 panel panel-default yourMembers">
-                            <div class="col-sm-12 panel-heading offersHeading">
-                                <h4 class="col-sm-9 panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">Members Online</a>
-                                </h4>
-                            </div>
-                            <div id="collapseSix" class="panel-collapse collapse offersPanel">
-                                <div class="panel-body">
-                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
