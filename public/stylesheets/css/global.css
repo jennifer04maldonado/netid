@@ -6793,6 +6793,7 @@ button.close {
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaHeading {
   border-left: 5px solid #C31F2E;
+  border-radius: 0px;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaHeading .imgCntnr {
   padding: 0;
@@ -6846,11 +6847,21 @@ button.close {
   height: 45px;
   padding-top: 13px;
 }
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersHeading h4 a i {
+  float: right;
+  font-size: 12px;
+  padding-top: 3px;
+}
 .dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsHeading {
   background-color: #58585B;
   color: #E6E7E8;
   height: 45px;
   padding-top: 13px;
+}
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsHeading h4 a i {
+  float: right;
+  font-size: 12px;
+  padding-top: 3px;
 }
 #commContainer {
   border-bottom: 1px solid #D3D3D3;
@@ -6913,10 +6924,98 @@ button.close {
 }
 .row .commPostBtn .btn {
   background-color: #C31F2E;
-  color: white;
-  border-radius: none;
+  color: #F1F1F2;
+  border-radius: 0px;
+}
+.row .commFirstPost {
+  margin-top: 40px;
+}
+.row .commFirstPost .commFirstName .commProfileImage {
+  padding: 0;
+  height: 50px;
+  width: 50px;
+}
+.row .commFirstPost .commFirstName .commProfileImage img {
+  height: 100%;
+  width: 100%;
+}
+.row .commFirstPost .commFirstName .commPersonaPost {
+  margin-top: 15px;
+  padding-right: 0;
+}
+.row .commFirstPost .commFirstName .commPersonaPost span {
+  color: gray;
+}
+.row .commFirstPost .commFirstName .commPostDate {
+  margin-top: 15px;
+  float: right;
+  font-size: 12px;
+  padding: 0px;
+}
+.row .row .commPostImage {
+  padding-top: 15px;
+}
+.row .row .commPostImage a img {
+  height: 350px;
+  width: 100%;
+}
+.row .row .commPostControls {
+  padding-top: 12px;
+}
+.row .row .commPostControls i {
+  color: #FBAF3F;
+  margin-top: 8px;
+  margin-right: -35px;
+}
+.row .row .commPostControls .verticalLine {
+  width: 1px;
+  height: 100%;
+  float: left;
+  background-color: #BBBDC0;
+}
+.row .row .commPostControls .commCommentBtn .btn {
+  background-color: #C31F2E;
+  border-radius: 0px;
+  color: #F1F1F2;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion {
+  border-radius: 0px;
+  padding: 0px;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionHeading {
+  background-color: #C31F2E;
+  border-radius: 0px;
+  color: #F1F1F2;
+  width: 100%;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer {
+  margin-top: 15px;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer .commentImage {
+  padding: 0;
+  height: 50px;
+  width: 50px;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer .commentImage a img {
+  height: 100%;
+  width: 100%;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost span {
+  color: gray;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost .commentControls {
+  margin-top: 15px;
+  padding: 0;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost .commentControls .commentButtonOne {
+  margin-right: 20px;
+}
+.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPostDate {
+  font-size: 12px;
+  float: right;
 }
 .header {
+  background-color: #E6E7E8;
   position: relative;
   margin-bottom: 15px;
 }
@@ -6925,71 +7024,8 @@ button.close {
 }
 .header .logoContainer .logoBox a .logo img {
   width: 30%;
-}
-.header .row nav .mobile-nav {
-  list-style: none;
-  text-align: center;
-  padding-left: 0px;
-  line-height: 40px;
-  letter-spacing: 0.5px;
-  margin-top: 5%;
-  margin-bottom: 7%;
-}
-.header .row nav .mobile-nav li:hover {
-  background-color: #e0e0dc;
-  color: #77787a;
-}
-.header .row nav .mobile-nav li a {
-  font-weight: 500;
-  font-size: 14px;
-  color: #77787a;
-  text-transform: uppercase;
-}
-.header .row nav .mobile-nav li a:hover {
-  text-decoration: none;
-}
-.header .row nav .mobile-nav .dropdown .header-dropdown {
-  padding: 8px 0px;
-}
-.header .row nav .mobile-nav .dropdown .header-dropdown li {
-  margin: 17px;
-}
-.header .row nav .mobile-nav .dropdown .header-dropdown li:hover {
-  transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
-}
-.header .linkContainer .linkInner {
-  float: right;
-}
-.header .linkContainer .linkInner ul li {
-  float: left;
-  height: 100%;
-  display: inline-block;
-}
-.header .linkContainer .linkInner ul li a {
-  transition: color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
-}
-.header .linkContainer .linkInner ul li a:link {
-  font-weight: 500;
-  font-size: 14px;
-  color: #77787a;
-  padding: 0px 15px;
-  text-decoration: none;
-}
-.header .linkContainer .linkInner ul li a:hover,
-.header .linkContainer .linkInner ul li a :active {
-  background-color: #e0e0dc;
-  color: #77787a;
-  height: 50%;
-}
-.header .linkContainer .linkInner ul li a:visited {
-  font-weight: 500;
-  font-size: 14px;
-  color: #77787a;
-  padding: 0px 15px;
-  text-decoration: none;
-}
-.header .linkContainer .linkInner ul .dropdown ul li a {
-  display: block;
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 @media (max-width: 768px) {
   .logo img {
@@ -7025,16 +7061,6 @@ button.close {
   }
   .navbar-toggle {
     float: right !important;
-  }
-}
-/*LARGE DESKTOP*/
-@media (min-width: 992px) {
-  .link_container {
-    padding-top: 1.6%;
-  }
-  .logo img {
-    margin-top: 4%;
-    margin-bottom: 4%;
   }
 }
 .footer {
