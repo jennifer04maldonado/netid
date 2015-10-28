@@ -52,5 +52,75 @@ We are doing a staged release to test our platform and offer more user friendly 
     - [ ] Testing
 
 # Features List
+<b>**(Bold font defines content. rest are links)</b>
+
+ Features on Dashboard:
+news feed (per persona)
+list all personas on side (per netid account)
+edit, delete, add personas
+view online connections
+ability to answer a question per day
+search
+ability to post
+messages link
+transactions link
+ratings link
+disputes link
+create community link
+header & footer (static)
+
+Features on Transactions page:
+Ability to create transaction
+Ability to view history of transactions
+All the links from header & footer will exist
+
+Ratings page:
+Master rating
+Category ratings
+Ratings stats
+if (connected) { view persona score $$ view master score} else if(!connected) { view only persona score}
+All the links from header & footer will exist
+
+Explore communities:
+Ability to create community
+view suggested communities
+search for communities
+popularity on communities (technical requirement)
+All the links from header & footer will exist
+
+View communities:
+community feed
+calendar (maybe ability to add events)
+All the links from header & footer will exist
+
+View someone else’s persona:
+the other person’s score
+their profile picture
+description of their persona
+all the fields that the user agrees to share
+will display master & persona ratings
+create a transaction with that persona link
+All the links from header & footer will exist
+
+Connections page:
+will have a link to your persona connections under “persona bar”
+will have blocking/disconnecting feature
+simple box layout to view the friends list
+
+Advertise portal: TBA
+
+Start up page: tutorial with getting more information
+after sign up take them to selecting social / professional persona
+after selecting a persona category, ask few informative question for displaying communities
+step 3 displays communities based on the selection
+
+
+Create communities:
+will have a option to select a category to represent your community( maybe keywords)
+set communities as public/private/secret
+title for community
+maybe set admin or community based admin(s)
+
+Trusted Sources: TBA
 
 
