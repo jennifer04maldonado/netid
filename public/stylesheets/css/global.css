@@ -6819,10 +6819,10 @@ button.close {
   padding-top: 13px;
   padding-left: 25px;
 }
-.dashboardContainer .mainView .viewPort {
+.dashboardContainer .mainView #viewPort {
   border-top: 5px solid #C31F2E;
 }
-.dashboardContainer .rightControlPanel .ratingsPanel {
+.dashboardContainer #rightControlPanel div .ratingsPanel {
   margin-bottom: 10px;
   background-color: #58585B;
   height: 50px;
@@ -6830,212 +6830,219 @@ button.close {
   padding-left: 25px;
   color: #E6E7E8;
 }
-.dashboardContainer .rightControlPanel .ratingsPanel .masterScore {
+.dashboardContainer #rightControlPanel div .ratingsPanel .masterScore {
   color: #65A5D9;
   font-size: 25px;
   margin-right: 10px;
 }
-.dashboardContainer .rightControlPanel .ratingsPanel .socialScore {
+.dashboardContainer #rightControlPanel div .ratingsPanel .socialScore {
   color: #729E8D;
   font-size: 20px;
   margin-right: 10px;
 }
-.dashboardContainer .rightControlPanel .ratingsPanel .professionalScore {
+.dashboardContainer #rightControlPanel div .ratingsPanel .professionalScore {
   color: #F37728;
   font-size: 20px;
 }
-.dashboardContainer .rightControlPanel #accordion2 {
+.dashboardContainer #rightControlPanel div #accordion2 {
   padding: 0;
   border-radius: 0px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel {
   padding: 0;
   border-radius: 0px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel .accordionHeading {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel .accordionHeading {
   border-radius: 0px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersHeading {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourOffers .offersHeading {
   background-color: #F37728;
   color: #E6E7E8;
   height: 45px;
   padding-top: 13px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersPanel .offersBody {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourOffers .offersPanel {
+  height: auto;
+}
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourOffers .offersPanel .offersBody {
   padding-top: 20px;
   padding-left: 30px;
   border: 1px solid #BBBDC0;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersPanel .offersBody p {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourOffers .offersPanel .offersBody p {
   color: #6D6E70;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsHeading {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourFriends .friendsHeading {
   background-color: #58585B;
   color: #E6E7E8;
   height: 45px;
   padding-top: 13px;
   padding-left: 10px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourFriends .friendsPanel {
+  height: 0;
+}
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody {
   padding-top: 20px;
   padding-left: 30px;
   border: 1px solid #BBBDC0;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody p {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody p {
   color: #6D6E70;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody p a i {
+.dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody p a i {
   float: right;
   margin-right: 20px;
 }
-#commContainer {
+div #commContainer {
   border-bottom: 1px solid #D3D3D3;
   padding-bottom: 10px;
 }
-#commContainer .commControlBarLeft {
+div #commContainer .commControlBarLeft {
   margin-top: 10px;
 }
-#commContainer .commControlBarLeft .commProfileInfo .commImage {
+div #commContainer .commControlBarLeft .commProfileInfo .commImage {
   padding: 0;
   height: 50px;
   width: 50px;
 }
-#commContainer .commControlBarLeft .commProfileInfo .commImage img {
+div #commContainer .commControlBarLeft .commProfileInfo .commImage img {
   height: 100%;
   width: 100%;
 }
-#commContainer .commControlBarLeft .commProfileInfo .commName {
+div #commContainer .commControlBarLeft .commProfileInfo .commName {
   margin-top: 15px;
   padding-right: 0;
 }
-#commContainer .commControlBarLeft .commProfileInfo .commStatus {
+div #commContainer .commControlBarLeft .commProfileInfo .commStatus {
   padding: 0;
   margin-left: 10px;
 }
-#commContainer .commControlBarLeft .commProfileInfo .commStatus .btn {
+div #commContainer .commControlBarLeft .commProfileInfo .commStatus .btn {
   margin-top: 8px;
   border-radius: 0px;
 }
-#commContainer .commControlBarRight {
+div #commContainer .commControlBarRight {
   margin-top: 10px;
 }
-#commContainer .commControlBarRight .commNavItems ul {
+div #commContainer .commControlBarRight .commNavItems ul {
   list-style-type: none;
   margin-top: 15px;
 }
-#commContainer .commControlBarRight .commNavItems ul li {
+div #commContainer .commControlBarRight .commNavItems ul li {
   display: inline;
 }
-#commContainer .commControlBarRight .commNavItems ul li:first-child {
+div #commContainer .commControlBarRight .commNavItems ul li:first-child {
   margin-left: 20px;
 }
-#commContainer .commControlBarRight .commIconElements {
+div #commContainer .commControlBarRight .commIconElements {
   margin-top: 15px;
   padding-right: 0;
 }
-#commContainer .commControlBarRight .commIconElements i:first-child {
+div #commContainer .commControlBarRight .commIconElements i:first-child {
   margin-right: 20px;
   color: #FBAF3F;
 }
-.row .commTextField {
+div .row .commTextField {
   margin-top: 25px;
 }
-.row .commTextField .commPostField form textarea {
+div .row .commTextField .commPostField form textarea {
   resize: none;
   width: 100%;
   height: 90px;
   padding-top: 10px;
   padding-left: 15px;
 }
-.row .commPostBtn .btn {
+div .row .commPostBtn .btn {
   background-color: #C31F2E;
   color: #F1F1F2;
   border-radius: 0px;
 }
-.row .commFirstPost {
+div .row .commFirstPost {
   margin-top: 40px;
 }
-.row .commFirstPost .commFirstName .commProfileImage {
+div .row .commFirstPost .commFirstName .commProfileImage {
   padding: 0;
   height: 50px;
   width: 50px;
 }
-.row .commFirstPost .commFirstName .commProfileImage img {
+div .row .commFirstPost .commFirstName .commProfileImage img {
   height: 100%;
   width: 100%;
 }
-.row .commFirstPost .commFirstName .commPersonaPost {
+div .row .commFirstPost .commFirstName .commPersonaPost {
   margin-top: 15px;
   padding-right: 0;
 }
-.row .commFirstPost .commFirstName .commPersonaPost span {
+div .row .commFirstPost .commFirstName .commPersonaPost span {
   color: gray;
 }
-.row .commFirstPost .commFirstName .commPostDate {
+div .row .commFirstPost .commFirstName .commPostDate {
   margin-top: 15px;
   float: right;
   font-size: 12px;
   padding: 0px;
 }
-.row .row .commPostImage {
+div .row .row .commPostImage {
   padding-top: 15px;
 }
-.row .row .commPostImage a img {
+div .row .row .commPostImage a img {
   height: 350px;
   width: 100%;
 }
-.row .row .commPostControls {
+div .row .row .commPostControls {
   padding-top: 12px;
 }
-.row .row .commPostControls i {
+div .row .row .commPostControls i {
   color: #FBAF3F;
   margin-top: 8px;
   margin-right: -35px;
 }
-.row .row .commPostControls .verticalLine {
+div .row .row .commPostControls .verticalLine {
   width: 1px;
   height: 100%;
+  height: 35px;
   float: left;
   background-color: #BBBDC0;
 }
-.row .row .commPostControls .commCommentBtn .btn {
+div .row .row .commPostControls .commCommentBtn .btn {
   background-color: #C31F2E;
   border-radius: 0px;
   color: #F1F1F2;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion {
   border-radius: 0px;
   padding: 0px;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionHeading {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionHeading {
   background-color: #C31F2E;
   border-radius: 0px;
   color: #F1F1F2;
   width: 100%;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer {
   margin-top: 15px;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer .commentImage {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer .commentImage {
   padding: 0;
   height: 50px;
   width: 50px;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer .commentImage a img {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commentContainer .commentImage a img {
   height: 100%;
   width: 100%;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost span {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost span {
   color: gray;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost .commentControls {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost .commentControls {
   margin-top: 15px;
   padding: 0;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost .commentControls .commentButtonOne {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPersonaPost .commentControls .commentButtonOne {
   margin-right: 20px;
 }
-.row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPostDate {
+div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordionBody .commentBodyOpen .commPostDate {
   font-size: 12px;
   float: right;
 }

@@ -9,3 +9,9 @@ gulp.task('dashboard', function(){
 	.pipe(plumber())
 	.pipe(livereload());
 });
+
+gulp.task('individualCommView', function(){
+	gulp.src('javascripts/individualCommView/*.jsx')
+	.pipe(plumber())
+	.pipe(livereload());
+});
