@@ -13,5 +13,6 @@ gulp.task('watch', function(){
 	gulp.watch('stylesheets/less/*.less', ['less']);
 	gulp.watch('../views/*.ejs', ['ejs']);
 	gulp.watch('javascripts/userDashboard/*.jsx', ['dashboard']);
+	gulp.watch('javascripts/individualCommView/*.jsx', ['individualCommView']);
 });
-gulp.task('default', ['less', 'ejs', 'dashboard', 'watch']);
+gulp.task('default', ['less', 'ejs', 'dashboard', 'individualCommView', 'watch']);
