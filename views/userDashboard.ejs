@@ -104,40 +104,55 @@
                 <div class="col-sm-3 rightControlPanel">
                     <div class="col-sm-12 ratingsPanel">
                         My Ratings 
-                        <a href="#" class="masterScore">78</a> 
+                        <a class="col-sm-offset-6 masterScore" href="#">78</a> 
                         <a href="#" class="socialScore">45</a> 
                         <a href="#" class="professionalScore">81</a>
                     </div>
-                    <div class="col-sm-12 panel-group" id="accordion2">
-                        <div class="col-sm-12 panel panel-default yourOffers accordionRightPanel">
-                            <div class="col-sm-12 panel-heading offersHeading accordionHeading">
-                                <h4 class="col-sm-12 panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">My Offers
-                                        <!-- <i class="fa fa-minus"></i> -->
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseFour" class="panel-collapse collapse in offersPanel">
+                    <!-- start accordion -->
+                    <div class="accordion2" id="accordion2">
+                        <div class="col-sm-12 accordion-group yourOffers accordionRightPanel">
+                          <div class="accordion-heading offersHeading accordionHeading">
+                            <h4 class="col-sm-12 panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse4">
+                                  My Offers
+                                </a>
+                            </h4>    
+                          </div>
+                          <div id="collapse4" class="accordion-body in collapse offersPanel" style="height: auto; ">
+                            <div class="accordion-inner">
                                 <div class="panel-body offersBody">
-                                    <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages.</p>
+                                    <p>Bed, Bath & Beyond <a href="#" class="offersLink">Take this quick survey</a></p>
+                                    <p>Apple Store <a href="#" class="offersLink">Take survey. Win stuff.</a></p>
+                                    <p>Smart & Final Extra! <a href="#" class="offersLink">Read this to get your prize</a></p>
+                                    <p>Bed, Bath & Beyond <a href="#" class="offersLink">Take this quick survey</a></p>
                                 </div>
                             </div>
+                          </div>
                         </div>
-                        <div class="col-sm-12 panel panel-default yourFriends accordionRightPanel">
-                            <div class="col-sm-12 panel-heading friendsHeading accordionHeading">
-                                <h4 class="col-sm-12 panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">Friends Online
-                                        <!-- <i class="fa fa-plus"></i> -->
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseFive" class="panel-collapse collapse friendsPanel">
-                                <div class="panel-body">
-                                    <p>is this members HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages.</p>
+                        <div class="col-sm-12 accordion-group yourFriends accordionRightPanel">
+                          <div class="accordion-heading friendsHeading accordionHeading">
+                            <h4 class="col-sm-12 panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse5">
+                                  Friends Online
+                                </a>
+                            </h4>    
+                          </div>
+                          <div id="collapse5" class="accordion-body collapse friendsPanel" style="height: 0px; ">
+                            <div class="accordion-inner">
+                             <div class="panel-body friendsBody">
+                                    <p>Persona1234 <a href="#"><i class="fa fa-envelope-o"></i></a></p>
+                                    <p>JimmyPersona123 <a href="#"><i class="fa fa-envelope-o"></i></a></p>
+                                    <p>CookingPersona1099<a href="#"><i class="fa fa-envelope-o"></i></a></p>
+                                    <p>CheaterHello2000 <a href="#"><i class="fa fa-envelope-o"></i></a></p>
+                                    <p>helloIamFun777 <a href="#"><i class="fa fa-envelope-o"></i></a></p>
+                                    <p>messagemenow411 <a href="#"><i class="fa fa-envelope-o"></i></a></p>
+                                    <p>PersonaAwesome!76 <a href="#"><i class="fa fa-envelope-o"></i></a></p>
+
                                 </div>
                             </div>
+                          </div>
                         </div>
-                    </div>
+                    </div><!-- end accordion -->
                 </div>
             </div>
         </div>       
