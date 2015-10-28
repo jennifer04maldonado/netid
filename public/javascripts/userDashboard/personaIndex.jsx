@@ -113,6 +113,8 @@ var App = React.createClass({
 	getInitialState: function(){
 		return {
             personas : personas
+            personaId: null;
+
         }
 	},
 	render: function(){
