@@ -6826,12 +6826,23 @@ button.close {
   margin-bottom: 10px;
   background-color: #58585B;
   height: 50px;
-  padding-top: 13px;
+  padding-top: 5px;
   padding-left: 25px;
   color: #E6E7E8;
 }
 .dashboardContainer .rightControlPanel .ratingsPanel .masterScore {
-  color: red;
+  color: #65A5D9;
+  font-size: 25px;
+  margin-right: 10px;
+}
+.dashboardContainer .rightControlPanel .ratingsPanel .socialScore {
+  color: #729E8D;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.dashboardContainer .rightControlPanel .ratingsPanel .professionalScore {
+  color: #F37728;
+  font-size: 20px;
 }
 .dashboardContainer .rightControlPanel #accordion2 {
   padding: 0;
@@ -6850,21 +6861,32 @@ button.close {
   height: 45px;
   padding-top: 13px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersHeading h4 a i {
-  float: right;
-  font-size: 12px;
-  padding-top: 3px;
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersPanel .offersBody {
+  padding-top: 20px;
+  padding-left: 30px;
+  border: 1px solid #BBBDC0;
+}
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourOffers .offersPanel .offersBody p {
+  color: #6D6E70;
 }
 .dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsHeading {
   background-color: #58585B;
   color: #E6E7E8;
   height: 45px;
   padding-top: 13px;
+  padding-left: 10px;
 }
-.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsHeading h4 a i {
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody {
+  padding-top: 20px;
+  padding-left: 30px;
+  border: 1px solid #BBBDC0;
+}
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody p {
+  color: #6D6E70;
+}
+.dashboardContainer .rightControlPanel #accordion2 .accordionRightPanel.yourFriends .friendsPanel .friendsBody p a i {
   float: right;
-  font-size: 12px;
-  padding-top: 3px;
+  margin-right: 20px;
 }
 #commContainer {
   border-bottom: 1px solid #D3D3D3;
@@ -7021,6 +7043,7 @@ button.close {
   background-color: #E6E7E8;
   position: relative;
   margin-bottom: 15px;
+  border-bottom: solid 1px #BBBDC0;
 }
 .header .logoContainer .logoBox {
   padding: 0;
