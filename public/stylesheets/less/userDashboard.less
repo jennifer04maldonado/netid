@@ -1,15 +1,15 @@
 .dashboardContainer {
-	min-height: 73vh;
-	position: relative;
+    min-height: 73vh;
+    position: relative;
     #personaIndex {
-    	overflow: auto;
-    	display: block;
+        overflow: auto;
+        display: block;
         div {
             .addPersona {
                 margin-bottom: 10px;
                 background-color: #58585B;
                 height: 50px;
-                color:  #E6E7E8;
+                color: #E6E7E8;
                 padding-top: 13px;
                 padding-left: 25px;
             }
@@ -62,89 +62,90 @@
             p {}
         }
         .netIdSpace {}
-        .viewPort {
+        #viewPort {
             border-top: 5px solid #C31F2E;
         }
     }
-    .rightControlPanel {
-        .ratingsPanel {
-            margin-bottom: 10px;
-            background-color: #58585B;
-            height: 50px;
-            padding-top: 5px;
-            padding-left: 25px;
-            color: #E6E7E8;
-            .masterScore{
-                color: #65A5D9;
-                font-size: 25px;
-                margin-right: 10px;
+    #rightControlPanel {
+        div {
+            .ratingsPanel {
+                margin-bottom: 10px;
+                background-color: #58585B;
+                height: 50px;
+                padding-top: 5px;
+                padding-left: 25px;
+                color: #E6E7E8;
+                .masterScore {
+                    color: #65A5D9;
+                    font-size: 25px;
+                    margin-right: 10px;
+                }
+                .socialScore {
+                    color: #729E8D;
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+                .professionalScore {
+                    color: #F37728;
+                    font-size: 20px;
+                }
             }
-            .socialScore{
-                color: #729E8D;
-                font-size: 20px;
-                margin-right: 10px;
-            }
-            .professionalScore{
-                color: #F37728;
-                font-size: 20px;
-            }
-        }
-        #accordion2 {
-            padding: 0;
-            border-radius: 0px;
-            .accordionRightPanel{
+            #accordion2 {
                 padding: 0;
                 border-radius: 0px;
-                .accordionHeading{
+                .accordionRightPanel {
+                    padding: 0;
                     border-radius: 0px;
-                }
-                &.yourOffers {
-                    .offersHeading {
-                        background-color: #F37728;
-                        color: #E6E7E8;
-                        height: 45px;
-                        padding-top: 13px;
-                        h4 {
-                            a {
+                    .accordionHeading {
+                        border-radius: 0px;
+                    }
+                    &.yourOffers {
+                        .offersHeading {
+                            background-color: #F37728;
+                            color: #E6E7E8;
+                            height: 45px;
+                            padding-top: 13px;
+                            h4 {
+                                a {}
                             }
                         }
-                    }
-                    .offersPanel{
-                        .offersBody{
-                            padding-top: 20px;
-                            padding-left: 30px;
-                            border: 1px solid #BBBDC0;
-                            p{
-                                color: #6D6E70;
-                                a{
+                        .offersPanel {
+                            height: auto;
+                            .offersBody {
+                                padding-top: 20px;
+                                padding-left: 30px;
+                                border: 1px solid #BBBDC0;
+                                p {
+                                    color: #6D6E70;
+                                    a {}
                                 }
                             }
                         }
                     }
-                }
-                &.yourFriends {
-                    .friendsHeading {
-                        background-color: #58585B;
-                        color: #E6E7E8;
-                        height: 45px;
-                        padding-top: 13px;
-                        padding-left: 10px;
-                        h4 {
-                            a {
+                    &.yourFriends {
+                        .friendsHeading {
+                            background-color: #58585B;
+                            color: #E6E7E8;
+                            height: 45px;
+                            padding-top: 13px;
+                            padding-left: 10px;
+                            h4 {
+                                a {}
                             }
                         }
-                    }
-                    .friendsPanel{
-                        .friendsBody{
-                            padding-top: 20px;
-                            padding-left: 30px;
-                            border: 1px solid #BBBDC0;
-                            p{
-                                color: #6D6E70;
-                                a{
-                                    i{
-                                        float: right;
-                                        margin-right: 20px;
+                        .friendsPanel {
+                            height: 0;
+                            .friendsBody {
+                                padding-top: 20px;
+                                padding-left: 30px;
+                                border: 1px solid #BBBDC0;
+                                p {
+                                    color: #6D6E70;
+                                    a {
+                                        i {
+                                            float: right;
+                                            margin-right: 20px;
+                                        }
                                     }
                                 }
                             }
