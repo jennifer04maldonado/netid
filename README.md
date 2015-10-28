@@ -23,6 +23,7 @@ We are doing a staged release to test our platform and offer more user friendly 
     - [ ] <strike>Maintain ~five public Ethereum nodes.</strike>
     - [ ] * <strike>Maintain ~five public IPFS nodes </strike> - Hosting these nodes would put us in control of user's data, scratch this
     - [x] Mongo DB User Auth - Researching Blockchain ID
+    - [ ] IPNS Key Store - [Discussion] (https://github.com/ipfs/specs/tree/master/keystore)
     - [ ] * Ethereum Javascript API (Node.js API)
     - [ ] * IPFS Javascript API (Node.js API built into react components)
     - [ ] * Data schema definitions
