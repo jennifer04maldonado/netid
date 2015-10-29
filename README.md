@@ -102,3 +102,5 @@ TODO: add information about IRC channels and contact avenues for thoughts on imp
 - <h3><b>Final Release</b></h3> 
   - [ ] <b>Everything is built, new features over time</b>
     - [ ] Testing
+
+** Features list and Tasks have been move to https://github.com/dmcnetid/netid-project-management 
