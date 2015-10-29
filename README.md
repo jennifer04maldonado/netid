@@ -54,7 +54,7 @@ TODO: Add notes
 Contributing
 ------------
 
-We think NetID, IPFS, and Ethereum are the helping to build the future of the internet and they're going to change the world. We encourage you to be a part of this.
+We think NetID, IPFS, and Ethereum are helping to build the future of the internet and they're going to change the world. We encourage you to be a part of this.
 
 TODO: add information about IRC channels and contact avenues for thoughts on improving netid
 
