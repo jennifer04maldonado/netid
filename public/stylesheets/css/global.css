@@ -6958,26 +6958,26 @@ div .row .commPostBtn .btn {
   color: #F1F1F2;
   border-radius: 0px;
 }
-div .row .commFirstPost {
+div .row .commPost {
   margin-top: 40px;
 }
-div .row .commFirstPost .commFirstName .commProfileImage {
+div .row .commPost .commName .commProfileImage {
   padding: 0;
   height: 50px;
   width: 50px;
 }
-div .row .commFirstPost .commFirstName .commProfileImage img {
+div .row .commPost .commName .commProfileImage img {
   height: 100%;
   width: 100%;
 }
-div .row .commFirstPost .commFirstName .commPersonaPost {
+div .row .commPost .commName .commPersonaPost {
   margin-top: 15px;
   padding-right: 0;
 }
-div .row .commFirstPost .commFirstName .commPersonaPost span {
+div .row .commPost .commName .commPersonaPost span {
   color: gray;
 }
-div .row .commFirstPost .commFirstName .commPostDate {
+div .row .commPost .commName .commPostDate {
   margin-top: 15px;
   float: right;
   font-size: 12px;
