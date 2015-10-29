@@ -45,7 +45,6 @@ var SinglePersonaHeader = React.createClass({
 		console.log(clickedPersona);
 	},
 	render: function(){
-		console.log('here i am');
 		var self = this;
 		var mapPersonas = this.props.personas.map(function(persona, index){
 			var name = persona.persona_name;
@@ -84,16 +83,26 @@ var SinglePersonaHeader = React.createClass({
 	}
 });
 
-
 //INPUT: SOCIAL PERSONAS AND PROF PERSONAS FROM DASHBOARD-AJAX-CALLS-REACT.JS FILE
 //OUTPUT: PERSONA ELEMENTS IN PERSONA INDEX
 var PersonaIndex = React.createClass({
 	render: function(){
-		return (
-	        <div className="col-sm-12 panel-group multiPersonaCntnr" id="accordion">
-	        	<SinglePersonaHeader personas={this.props.personas}/>
-            </div>
-		)
+		if(this.props.personas.length !== 0){
+			console.log('rendering personas');
+			return (
+		        <div className="col-sm-12 panel-group multiPersonaCntnr" id="accordion">
+		        	<SinglePersonaHeader personas={this.props.personas}/>
+	            </div>
+			)
+		}
+		else{
+			console.log('not rendering personas');
+			return (
+				<div className="col-sm-12 panel-group multiPersonaCntnr" id="accordion">
+					
+				</div>
+			)
+		}
 	}
 });
 
@@ -109,21 +118,36 @@ var AddPersona = React.createClass({
 	}
 });
 
-var App = React.createClass({
+let App = React.createClass({
 	getInitialState: function(){
 		return {
-            personas : personas
-            personaId: null;
+            personas : [],
+            personaId: null
 
         }
 	},
+	grabPersonas: function(){
+		$.get('.././json_files/personaSchema.json', function(result) {
+	     	var personaArray = result;
+		     if (this.isMounted()) {
+		       this.setState({
+		         personas: personaArray
+		       });
+		    }
+	   	}.bind(this));
+	},
+	componentDidMount: function() {
+		this.grabPersonas();   
+  	},
 	render: function(){
+		
 		return (
 			<div>
 				<AddPersona />
 				<PersonaIndex personas={this.state.personas}/>
 			</div>
 		)
+		console.log(this.props.personas);
 	}
 });
 ReactDOM.render(
