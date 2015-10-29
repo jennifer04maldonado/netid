@@ -184,6 +184,23 @@ Acceptance criteria:
 
 Jennifer: completed | Shawn: 3 days | Scott: 2 days | Nathan: TBA | Josh: No contract needed / TBA
 ___
+<b>Contract1</b>: We want the ability to send transactions between 2 connections on NETID
+
+Priority:<b>High</b>
+
+Description:
+
+    Based on ethereum. We want users to be able to send/recieve ethers from each other and therefore be able to rate that same transaction. This should be under localhost, meaning the user will be required to install ethereum on their local computer.
+
+Acceptance Criteria:
+
+    1) From the persona's tranction page, we want the user to send ether to anyone from his connected friends list
+    2) Once the user submits the request, and the other user agrees to reviece that transaction, the funds are transfered
+    3) After a completed transaction, the user must be able to rate that transaction using the ratings page
+    4) Completed transactions should be displayed in ratings page under 'pending rating'
+
+Jennifer: | Shawn:  | Scott: | Nathan: | Josh: 7 days (started on 10-30-15)
+___
 <b>Dash4</b>: I want the ability to ask questions every 24 hours 
 
 Priority: <b>High</b>
