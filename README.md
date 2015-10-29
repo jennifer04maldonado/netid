@@ -128,7 +128,7 @@ Trusted Sources: TBA
 
 <b>Dash1</b>:  I want the ability to post from any persona  and the ability to view community feeds.
 
-<div style="color:red">Priority: High</div>
+Priority: <b>High</b>
 
 Description:
 
@@ -148,7 +148,7 @@ Jenn: 3 days	Shawn: 1 week	Scott: 1 week		Nathan: 1 week
 
 <b>Dash2</b>: I want the ability to create, delete, and edit personas on left navigation bar
 
-Priority: High
+Priority: <b>High</b>
 
 Description:
 
@@ -167,7 +167,7 @@ Jennifer: 3 days 	Shawn: 5 days	Scott: 5 days		Nathan: 5 days
 
 <b>Dash3</b>: I want the ability to view my online connected friends
 
-Priority: High
+Priority: <b>High</b>
 
 Description: 
 
@@ -186,7 +186,7 @@ Jennifer: completed 	Shawn: 3 days	Scott: 2 days		Nathan: TBA
 
 <b>Dash4</b>: I want the ability to ask questions every 24 hours 
 
-Priority: High
+Priority: <b>High</b>
 
 Description: 
 
