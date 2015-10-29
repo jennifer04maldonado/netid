@@ -145,6 +145,7 @@ Acceptance criteria:
     7)  Feed view should be paginated to allow faster load times
     8)  In each feed post, the community name is clickable. the person who posted isn’t clickable
 Jenn: 3 days  | Shawn: 1 week | Scott: 1 week | Nathan: 1 week
+=========
 
 <b>Dash2</b>: I want the ability to create, delete, and edit personas on left navigation bar
 
@@ -164,6 +165,7 @@ Acceptance criteria:
     6)  Ability to set default persona, so when user logs in they will be taken to that persona
 
 Jennifer: 3 days  | Shawn: 5 days | Scott: 5 days | Nathan: 5 days
+=========
 
 <b>Dash3</b>: I want the ability to view my online connected friends
 
@@ -183,6 +185,7 @@ Acceptance criteria:
 **rei notes: the friends list will be static and members online will be somewhere inside content in community page
 
 Jennifer: completed | Shawn: 3 days | Scott: 2 days | Nathan: TBA
+=========
 
 <b>Dash4</b>: I want the ability to ask questions every 24 hours 
 
