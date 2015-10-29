@@ -15,6 +15,49 @@ You still need to run ethereum and ipfs locally; the client will walk you throug
 
 Alternatively, if you want to build the netid client from source, follow the "Building the netid-client" instructions below.
 
+### Running Ethereum
+
+Install [go-ethereum](https://github.com/ethereum/go-ethereum/wiki). 
+
+Add a new account 
+```
+geth account new
+``` 
+and then start the client 
+```
+geth --rpc --rpccorsdomain 'http://netid.com' --shh --unlock 0 console
+```
+
+### Building the netid-client
+
+Install [Node.js](https://nodejs.org/).
+
+```
+git clone https://github.com/dmcnetid/netid.git
+cd netid
+git checkout develop
+TODO: add intrustructions for browserify and gulp
+```
+
+Start the local web server
+```
+cd bin
+node www
+```
+
+[http://localhost:8080](http://localhost:8080)
+
+### Notes for development
+
+TODO: Add notes
+
+Contributing
+------------
+
+We think NetID, IPFS, and Ethereum are the helping to build the future of the internet and they're going to change the world. We encourage you to be a part of this.
+
+TODO: add information about IRC channels and contact avenues for thoughts on improving netid
+
 # Roadmap
 
 - [ ] = Not Built.
