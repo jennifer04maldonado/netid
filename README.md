@@ -19,7 +19,7 @@ We are doing a staged release to test our platform and offer more user friendly 
 # Roadmap
 
 - <h3><b>Alpha: Target Date 1/1/2016</b></h3>
-  - [ ] <b>Local/Hosted Node Server</b> (https://github.com/dmcnetid/netid/issues/4)
+  - [ ] <b>Local/Hosted Node Server</b>
     - [ ] <strike>Maintain ~five public Ethereum nodes.</strike>
     - [ ] * <strike>Maintain ~five public IPFS nodes </strike> - Hosting these nodes would put us in control of user's data, scratch this
     - [x] Mongo DB User Auth - Researching Blockchain ID
