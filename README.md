@@ -128,27 +128,33 @@ Trusted Sources: TBA
 
 <b>Dash1</b>:  I want the ability to post from any persona  and the ability to view community feeds.
 
+Priority: High
+
 Description:
     When a user clicks on his persona, there should be a place for him to post to community. They will also be able to see aggregated feed of all the communities for which the persona is connected with. 
 
 Acceptance criteria:
 
-    The content view should be updated to show empty post field, with a drop down of all the communities and a submit/post button
-    Underneath that you should be able to see see all of the community posts for which the persona is subscribed to
-    The feed itself will be clickable which will take you to that community’s page and anchor to the post
-    There should be a time and date stamp in each post
-    There should be a comments button which will display comments underneath the post in reference
-    Inside the comments view, we should be able to add/post comment
-    Feed view should be paginated to allow faster load times
-    In each feed post, the community name is clickable. the person who posted isn’t clickable
+    1)  The content view should be updated to show empty post field, with a drop down of all the communities and a submit/post button
+    2)  Underneath that you should be able to see see all of the community posts for which the persona is subscribed to
+    3)  The feed itself will be clickable which will take you to that community’s page and anchor to the post
+    4)  There should be a time and date stamp in each post
+    5)  There should be a comments button which will display comments underneath the post in reference
+    6)  Inside the comments view, we should be able to add/post comment
+    7)  Feed view should be paginated to allow faster load times
+    8)  In each feed post, the community name is clickable. the person who posted isn’t clickable
 Jenn: 3 days	Shawn: 1 week	Scott: 1 week		Nathan: 1 week
 
 <b>Dash2</b>: I want the ability to create, delete, and edit personas on left navigation bar
 
+Priority: High
+
 Description:
+
     When a repeat user signs-in. they are presented with the dashboard. On the left will display his personas that he has created, along with the functionality to add new persona and delete or edit already created personas
 
 Acceptance criteria:
+
     1)  Left bar will have a add persona button
     2)  Left bar will have clickable personas which will update the content section of dashboard to display persona picture, name few other details and that persona’s posts
     3)  When clicked on add persona, the user should see add persona page displayed where he can create a new persona
@@ -160,10 +166,14 @@ Jennifer: 3 days 	Shawn: 5 days	Scott: 5 days		Nathan: 5 days
 
 <b>Dash3</b>: I want the ability to view my online connected friends
 
+Priority: High
+
 Description: 
+
     This story is for the user to see online friends in each persona so they can quickly communicate without having to dig through the connected friends list
 
 Acceptance criteria:
+
     1)  When the user clicks on their persona, the friends list will be updated( from task dash2)
     2)  There should be an indicator next to each connected friends to view if he’s online or not
     3)  All online connected friends will be aggregated up to the top of the list for easy connectivity (could be accordion inside of friends div ex. online and offline expandable)
@@ -175,6 +185,9 @@ Jennifer: completed 	Shawn: 3 days	Scott: 2 days		Nathan: TBA
 
 <b>Dash4</b>: I want the ability to ask questions every 24 hours 
 
+Priority: High
+
 Description: 
+
     Every 24 hours users will be displayed a question( either from incomplete profiles or for ads purposes). 
 
