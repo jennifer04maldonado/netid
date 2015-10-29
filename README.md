@@ -128,9 +128,10 @@ Trusted Sources: TBA
 
 <b>Dash1</b>:  I want the ability to post from any persona  and the ability to view community feeds.
 
-Priority: High
+<div style="color:red">Priority: High</div>
 
 Description:
+
     When a user clicks on his persona, there should be a place for him to post to community. They will also be able to see aggregated feed of all the communities for which the persona is connected with. 
 
 Acceptance criteria:
