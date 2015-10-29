@@ -144,7 +144,7 @@ Acceptance criteria:
     6)  Inside the comments view, we should be able to add/post comment
     7)  Feed view should be paginated to allow faster load times
     8)  In each feed post, the community name is clickable. the person who posted isn’t clickable
-Jenn: 3 days  | Shawn: 1 week | Scott: 1 week 
+Jenn: 3 days  | Shawn: 1 week | Scott: 1 week | Nathan: TBA | Josh: TBA (contract might be needed)
 ___
 <b>Dash2</b>: We want the ability to create, delete, and edit personas on left navigation bar
 
@@ -163,7 +163,7 @@ Acceptance criteria:
     5)  Hyperlinks in each personas include: communities, transactions, etc. ( will be created in their own stories)
     6)  Ability to set default persona, so when user logs in they will be taken to that persona
 
-Jennifer: 3 days  | Shawn: 5 days | Scott: 5 days 
+Jennifer: 3 days  | Shawn: 5 days | Scott: 5 days | Nathan: TBA | Josh: No contract needed / TBA
 ___
 <b>Dash3</b>: We want the ability to view my online connected friends
 
@@ -182,7 +182,7 @@ Acceptance criteria:
 **shawn notes: only online friends will be displayed. NOT online and connected together.
 **rei notes: the friends list will be static and members online will be somewhere inside content in community page
 
-Jennifer: completed | Shawn: 3 days | Scott: 2 days
+Jennifer: completed | Shawn: 3 days | Scott: 2 days | Nathan: TBA | Josh: No contract needed / TBA
 ___
 <b>Dash4</b>: I want the ability to ask questions every 24 hours 
 
