@@ -34,3 +34,4 @@ node_modules
 
 #ignore webstorm ide files
 .idea
+.idea/
