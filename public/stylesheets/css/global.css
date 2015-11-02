@@ -7065,13 +7065,8 @@ div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordio
 #addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide1Active .addPersonaImage .addImageBtn img {
   margin-bottom: 15px;
 }
-#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide1Active .addPersonaImage .addImageUpload button {
-  margin-bottom: 5px;
-  border-radius: 0;
-  height: 45px;
-}
-#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide1Active .addPersonaImage .addImageUpload p {
-  font-size: 12px;
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide1Active .addPersonaImage .addImageUpload .addImageUploadBtn p {
+  text-align: center;
 }
 #addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide1Active .addPersonaInputFields {
   margin-top: 20px;
@@ -7095,6 +7090,85 @@ div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordio
 }
 #addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide1Active .addPersonaInputFields textarea {
   border-radius: 0;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide2Active .requiredField1 h4 {
+  margin-bottom: 25px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide2Active .requiredField2 .form-group input {
+  height: 40px;
+  border-radius: 0;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide2Active .requiredField3 select {
+  border-radius: 0;
+  height: 45px;
+  margin-bottom: 20px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide2Active .requiredField4 select {
+  border-radius: 0;
+  height: 45px;
+  margin-bottom: 20px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide3Active .optionalFields h4 .carouselSkip {
+  font-size: 12px;
+  margin-left: 15px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide3Active .interestsChecklist .checklist {
+  margin-top: 20px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide3Active .interestsChecklist .checklist .checklistColumns {
+  padding: 0;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide3Active .interestsChecklist .checklist .checklistColumns label {
+  margin-bottom: 20px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide3Active .interestsChecklist .checklist .checklistColumns label input {
+  width: 15px;
+  height: 15px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide4Active .optionalFields h4 .carouselSkip {
+  font-size: 12px;
+  margin-left: 10px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide4Active .optionalCommunityList a .communitySquareSelectA {
+  border: solid 1px #BBBDC0;
+  height: 250px;
+  width: 250px;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide4Active .optionalCommunityList a .communitySquareSelectB {
+  border: solid 1px #BBBDC0;
+  height: 120px;
+  width: 250px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide4Active .optionalCommunityList .communitySquareSelectC {
+  border: solid 1px #BBBDC0;
+  height: 120px;
+  width: 250px;
+  margin-top: 10px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide4Active .optionalCommunityList .communitySquareSelectD {
+  border: solid 1px #BBBDC0;
+  height: 250px;
+  width: 250px;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide4Active .optionalCommunityList .communitySquareSelectE {
+  border: solid 1px #BBBDC0;
+  height: 120px;
+  width: 250px;
+  margin-top: 10px;
+}
+#addPersonaContainer .addPersonaCarousel .addPersonaInner .addPersonaSlide4Active .optionalCommunityList .communitySquareSelectF {
+  border: solid 1px #BBBDC0;
+  height: 120px;
+  width: 250px;
+  margin-top: 10px;
+}
+#addPersonaContainer .addPersonaSliderControls {
+  margin-top: 40px;
 }
 #addPersonaContainer .addPersonaSliderControls .addPersonaBack button {
   height: 40px;
