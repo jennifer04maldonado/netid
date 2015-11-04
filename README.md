@@ -74,14 +74,14 @@ TODO: add information about IRC channels and contact avenues for thoughts on imp
 - <h3><b>Alpha: Target Date 1/1/2016</b></h3>
   - [ ] <b>Local/Hosted Node Server</b>
     - [ ] <strike>Maintain ~five public Ethereum nodes.</strike>
-    - [ ] * <strike>Maintain ~five public IPFS nodes </strike> - Hosting these nodes would put us in control of user's data, scratch this
+    - [ ] <strike>Maintain ~five public IPFS nodes </strike> - Hosting these nodes would put us in control of user's data, scratch this
     - [x] Mongo DB User Auth - Researching Blockchain ID
     - [ ] IPNS Key Store - [Discussion] (https://github.com/ipfs/specs/tree/master/keystore)
     - [ ] * Ethereum Javascript API (Node.js API)
     - [ ] * IPFS Javascript API (Node.js API built into react components)
     - [ ] * Data schema definitions
     - [ ] * Ratings Smart Contract
-    - [ ] Advertising Smart Contract
+    - [ ] Advertising Smart Contract - [facebook machine learning] (https://research.facebook.com/publications/machinelearning/)
     - Design
       - [ ] Design Graphic - [view designs](https://github.com/dmcnetid/netid-graphics)
       - [ ] * Design UI/UX - CSS/HTML/Javascript
