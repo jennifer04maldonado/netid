@@ -6,16 +6,24 @@ var PersonaMenu = require('./personamenu');
 var SinglePersonaHeader = React.createClass({
 	getInitialState: function(){
 		return {
-			activePersona: this.props.personas[0].id 
+			activePersonaId: ''
 		}
 	},
 	setActive: function(event){
-		
 		var clickedPersona = event.target.dataset.personaId;
 		this.setState({
-			activePersona: clickedPersona
 		});
 		console.log(clickedPersona);
+	},
+	mouseEnterHandler: function(event){
+		this.setState({
+			activePersonaId: event.target.dataset.personaId
+		});
+	},
+	mouseLeaveHandler: function(event){
+		this.setState({
+			activePersonaId: ''
+		});
 	},
 	render: function(){
 		var self = this;
@@ -24,26 +32,23 @@ var SinglePersonaHeader = React.createClass({
 			var personaId = persona.id;
 			var href = '#' + personaId;
 			var image = persona.image;
-			var myClassName = "panel-collapse fade collapse personaInfo";
-
-			if(self.state.activePersona == personaId){
-				myClassName+=' in';
+			var myClassName = "col-sm-12 panel panel-default personaCntnr out";
+			if (!self.props.isOpen) {
+				if (self.state.activePersonaId != personaId) {
+					myClassName = myClassName.replace('out', 'in');
+				}
 			}
-		
+
 
 			return (
-				<div key={personaId} className="col-sm-12 panel panel-default personaCntnr">
+				<div key={personaId} className={myClassName}>
                     <div className="col-sm-12 panel-heading personaHeading">
-                        
-                        <div className="col-sm-3 imgCntnr">
-                            <img src={image}></img>
+                        <div className="col-sm-3 imgCntnr" >
+                            <img src={image} data-persona-id={personaId} key={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-persona-id={personaId} href={href} onClick={self.setActive}>{name}</a>
+                            <a data-persona-id={personaId} href={href} >{name}</a>
                         </h4>
-                    </div>
-                    <div id={personaId} className={myClassName}>
-                    	<PersonaMenu />
                     </div>
                 </div>
 			);
