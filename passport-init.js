@@ -1,5 +1,5 @@
 var LocalStrategy   = require('passport-local').Strategy;
-var bCrypt = require('bcrypt-nodejs');
+//var bCrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
