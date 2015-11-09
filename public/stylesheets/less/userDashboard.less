@@ -2,9 +2,20 @@
     min-height: 73vh;
     position: relative;
     #personaIndex {
-        overflow: auto;
         display: block;
         div {
+            .in {
+                width: 20%;
+                .panel-title {
+                    display: none;
+                }
+            }
+            .out {
+                width: 85%;
+            }
+            .collapseContainer{
+                height: 60px;
+            }
             .addPersona {
                 margin-bottom: 10px;
                 background-color: #58585B;
@@ -13,11 +24,12 @@
                 padding-top: 13px;
                 padding-left: 25px;
             }
-            .multiPersonaCntnr {
+                .multiPersonaCntnr {
                 padding: 0;
                 .personaCntnr {
                     padding: 0;
                     border-radius: 0px;
+                    clear:both;
                     .personaColor {
                         background-color: grey;
                         height: 100%;
