@@ -1,6 +1,6 @@
 var React = require('react');
-var AddPersona = require('./addpersona');
-var PersonaIndex = require('./personaindex');
+var PersonaContainer = require('./personaContainer');
+
 
 let App = React.createClass({
 	getInitialState: function(){
@@ -27,8 +27,8 @@ let App = React.createClass({
 		
 		return (
 			<div>
-				<AddPersona />
-				<PersonaIndex personas={this.state.personas}/>
+				<PersonaContainer personas={this.state.personas} />
+
 			</div>
 		)
 		console.log(this.props.personas);

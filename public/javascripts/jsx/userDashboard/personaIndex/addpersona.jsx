@@ -4,9 +4,13 @@ var React = require('react');
 
 var AddPersona = React.createClass({
 	render: function(){
+		var myClassName = 'col-sm-12 addPersona out';
+		if (!this.props.isOpen) {
+			myClassName = myClassName.replace('out', 'in');
+		}
 		return(
-			<div className="col-sm-12 addPersona">
-				<p>Add New Persona</p>
+			<div className={myClassName}>
+				<p>+<span className='panel-title'> Add New Persona</span></p>
 			</div>
 		)
 	}

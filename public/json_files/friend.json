@@ -1,0 +1,23 @@
+[
+	{
+		"id": "1",
+		"persona_id": "123",
+		"friend_id": "5",
+		"friend_date" : "01/02/2015",
+	  	"status": "online"
+	},
+	{
+	    "id": "2",
+	    "persona_id": "123",
+	    "friend_id": "6",
+	    "friend_date" : "01/02/2015",
+	    "status": "online"
+	},
+	{
+	    "id": "3",
+	  	"persona_id": "123",
+	  	"friend_id": "7",
+	  	"friend_date" : "01/02/2015",
+	    "status": "offline"
+	}
+]

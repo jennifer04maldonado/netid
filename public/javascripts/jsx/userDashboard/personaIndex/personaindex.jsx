@@ -4,19 +4,21 @@ var React = require('react');
 var SinglePersonaHeader = require('./singlepersonaheader');
 
 var PersonaIndex = React.createClass({
+
 	render: function(){
+		var myClassName = 'col-sm-12 panel-group multiPersonaCntnr';
 		if(this.props.personas.length !== 0){
 			console.log('rendering personas');
 			return (
-		        <div className="col-sm-12 panel-group multiPersonaCntnr" id="accordion">
-		        	<SinglePersonaHeader personas={this.props.personas}/>
+		        <div className={myClassName} id="accordion">
+		        	<SinglePersonaHeader isOpen={this.props.isOpen} personas={this.props.personas}/>
 	            </div>
 			)
 		}
 		else{
 			console.log('not rendering personas');
 			return (
-				<div className="col-sm-12 panel-group multiPersonaCntnr" id="accordion">
+				<div className={myClassName} id="accordion">
 					
 				</div>
 			)
