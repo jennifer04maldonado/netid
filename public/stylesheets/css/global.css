@@ -6815,8 +6815,20 @@ button.close {
   font-size: 25px;
 }
 .dashboardContainer #personaIndex {
-  overflow: auto;
   display: block;
+  padding: 0;
+}
+.dashboardContainer #personaIndex div .in {
+  width: 20%;
+}
+.dashboardContainer #personaIndex div .in .panel-title {
+  display: none;
+}
+.dashboardContainer #personaIndex div .out {
+  width: 85%;
+}
+.dashboardContainer #personaIndex div .collapseContainer {
+  height: 60px;
 }
 .dashboardContainer #personaIndex div .addPersona {
   margin-bottom: 10px;
@@ -6832,6 +6844,7 @@ button.close {
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr {
   padding: 0;
   border-radius: 0px;
+  clear: both;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaColor {
   background-color: grey;
