@@ -9,7 +9,7 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var watchify = require('watchify');
 var notifier = require('node-notifier');
-		
+
 // gulp.task('dashboard', function(){
 // 	gulp.src('javascripts/jsx/userDashboard/*.jsx')
 // 	.pipe(plumber())
@@ -20,10 +20,10 @@ var notifier = require('node-notifier');
 //TASK FOR INDEX OF PERSONA IN LEFT ACCORDION ON USER DASHBOARD
 gulp.task('personaIndex', function(){
 	var bundler = watchify(browserify({
-		entries: ['javascripts/jsx/userDashboard/personaIndex/app.jsx'],
+		entries: ['javascripts/jsx/userDashboard/personaIndex/app.jsx',],
 		extensions: ['.jsx'],
 		debug: true,
-		transform:[babelify],
+		transform:['babelify'],
 		cache:{},
 		packageCache: {},
 		fullPaths: true

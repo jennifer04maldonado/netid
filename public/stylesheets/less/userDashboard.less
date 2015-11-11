@@ -79,7 +79,15 @@
         }
     }
     #rightControlPanel {
+        #rightPanelAndMenuContainer.out {
+            display: block;
+            border: 1px solid #58585B;
+            float: right;
+            width: 100%;
+            height: 500px;
+        }
         div {
+            border: thin red dotted;
             .ratingsPanel {
                 margin-bottom: 10px;
                 background-color: #58585B;
@@ -102,9 +110,38 @@
                     font-size: 20px;
                 }
             }
+            #rightPanelContentContainer {
+                border: 1px solid #58585B;
+                width: 250px;
+                float: left;
+                margin: 25px 25px;
+            }
             #accordion2 {
                 padding: 0;
                 border-radius: 0px;
+                border: 1px solid #58585B;
+                width: 10%;
+                float: right;
+                .rightMenu {
+                    border: 1px solid #58585B;
+                    display: inline-block;
+                    .rightMenuItem.selected {
+                        background-color: #FF6600;
+                    }
+                    .rightMenuItem {
+                        border: 1px solid #58585B;
+                        display: block;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+                    .rightMenuFiller {
+                        height:300px;
+                        background-color: #58585B;
+                    }
+                }
                 .accordionRightPanel {
                     padding: 0;
                     border-radius: 0px;

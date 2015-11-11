@@ -6769,8 +6769,19 @@ button.close {
   position: relative;
 }
 .dashboardContainer #personaIndex {
-  overflow: auto;
   display: block;
+}
+.dashboardContainer #personaIndex div .in {
+  width: 20%;
+}
+.dashboardContainer #personaIndex div .in .panel-title {
+  display: none;
+}
+.dashboardContainer #personaIndex div .out {
+  width: 85%;
+}
+.dashboardContainer #personaIndex div .collapseContainer {
+  height: 60px;
 }
 .dashboardContainer #personaIndex div .addPersona {
   margin-bottom: 10px;
@@ -6786,6 +6797,7 @@ button.close {
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr {
   padding: 0;
   border-radius: 0px;
+  clear: both;
 }
 .dashboardContainer #personaIndex div .multiPersonaCntnr .personaCntnr .personaColor {
   background-color: grey;
@@ -6822,6 +6834,16 @@ button.close {
 .dashboardContainer .mainView #viewPort {
   border-top: 5px solid #C31F2E;
 }
+.dashboardContainer #rightControlPanel #rightPanelAndMenuContainer.out {
+  display: block;
+  border: 1px solid #58585B;
+  float: right;
+  width: 100%;
+  height: 500px;
+}
+.dashboardContainer #rightControlPanel div {
+  border: thin red dotted;
+}
 .dashboardContainer #rightControlPanel div .ratingsPanel {
   margin-bottom: 10px;
   background-color: #58585B;
@@ -6844,9 +6866,37 @@ button.close {
   color: #F37728;
   font-size: 20px;
 }
+.dashboardContainer #rightControlPanel div #rightPanelContentContainer {
+  border: 1px solid #58585B;
+  width: 250px;
+  float: left;
+  margin: 25px 25px;
+}
 .dashboardContainer #rightControlPanel div #accordion2 {
   padding: 0;
   border-radius: 0px;
+  border: 1px solid #58585B;
+  width: 10%;
+  float: right;
+}
+.dashboardContainer #rightControlPanel div #accordion2 .rightMenu {
+  border: 1px solid #58585B;
+  display: inline-block;
+}
+.dashboardContainer #rightControlPanel div #accordion2 .rightMenu .rightMenuItem.selected {
+  background-color: #FF6600;
+}
+.dashboardContainer #rightControlPanel div #accordion2 .rightMenu .rightMenuItem {
+  border: 1px solid #58585B;
+  display: block;
+}
+.dashboardContainer #rightControlPanel div #accordion2 .rightMenu .rightMenuItem img {
+  width: 40px;
+  height: 40px;
+}
+.dashboardContainer #rightControlPanel div #accordion2 .rightMenu .rightMenuFiller {
+  height: 300px;
+  background-color: #58585B;
 }
 .dashboardContainer #rightControlPanel div #accordion2 .accordionRightPanel {
   padding: 0;

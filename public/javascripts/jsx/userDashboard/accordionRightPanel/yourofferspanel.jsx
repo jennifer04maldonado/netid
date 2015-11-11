@@ -16,10 +16,10 @@ var YourOffersPanel = React.createClass({
         <div id="collapse4" className="accordion-body in collapse offersPanel">
           <div className="accordion-inner">
               <div className="panel-body offersBody">
-                  <p>Bed, Bath & Beyond <a href="#" className="offersLink">Take this quick survey</a></p>
+                  <p>Bed, Bath &middot; Beyond <a href="#" className="offersLink">Take this quick survey</a></p>
                   <p>Apple Store <a href="#" className="offersLink">Take survey. Win stuff.</a></p>
-                  <p>Smart & Final Extra! <a href="#" className="offersLink">Read this to get your prize</a></p>
-                  <p>Bed, Bath & Beyond <a href="#" className="offersLink">Take this quick survey</a></p>
+                  <p>Smart &middot; Final Extra! <a href="#" className="offersLink">Read this to get your prize</a></p>
+                  <p>Bed, Bath &middot; Beyond <a href="#" className="offersLink">Take this quick survey</a></p>
               </div>
           </div>
         </div>

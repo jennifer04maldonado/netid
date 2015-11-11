@@ -9,12 +9,6 @@ var SinglePersonaHeader = React.createClass({
 			activePersonaId: ''
 		}
 	},
-	setActive: function(event){
-		var clickedPersona = event.target.dataset.personaId;
-		this.setState({
-		});
-		console.log(clickedPersona);
-	},
 	mouseEnterHandler: function(event){
 		this.setState({
 			activePersonaId: event.target.dataset.personaId
