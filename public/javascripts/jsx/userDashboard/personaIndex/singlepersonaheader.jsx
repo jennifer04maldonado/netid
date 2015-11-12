@@ -33,7 +33,9 @@ var SinglePersonaHeader = React.createClass({
 			var href = '#' + personaId;
 			var image = persona.image;
 			var myClassName = "col-sm-12 panel panel-default personaCntnr out";
+			var imageClassName = "";
 			if (!self.props.isOpen) {
+				 imageClassName = "hidden";
 				if (self.state.activePersonaId != personaId) {
 					myClassName = myClassName.replace('out', 'in');
 				}
@@ -42,9 +44,9 @@ var SinglePersonaHeader = React.createClass({
 
 			return (
 				<div key={personaId} className={myClassName}>
-                    <div className="col-sm-12 panel-heading personaHeading">
+                    <div className="col-sm-12 panel-heading personaHeading"data-persona-id={personaId} key={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}>
                         <div className="col-sm-3 imgCntnr" >
-                            <img src={image} data-persona-id={personaId} key={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}></img>
+                            <img className={imageClassName} src={image}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
                             <a data-persona-id={personaId} href={href} >{name}</a>
