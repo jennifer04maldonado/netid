@@ -4,7 +4,7 @@
 var React = require('react');
 var AddPersona = require('./addpersona');
 var PersonaIndex = require('./personaindex');
-var CollapseContainer = require('./collapseContainer');
+
 
 var PersonaContainer = React.createClass({
 	getInitialState: function() {
@@ -13,25 +13,24 @@ var PersonaContainer = React.createClass({
 			arrowDirection: '<<'
 		}
 	},
-	clickHandler: function() {
-		 if(this.state.open) {
-		 	this.setState({
+	clickHandler: function(isOpen) {
+		if(isOpen) {
+			this.setState({
 				open: false,
 				arrowDirection: '>>'
 			});
-		 } else {
-		 	this.setState({
+		} else {
+			this.setState({
 				open: true,
 				arrowDirection: '<<'
 			});
-		 }
+		}
 	},
 	render: function(){
 		return(
 			<div className="personaContainer">
-				<AddPersona isOpen={this.state.open}/>
-				<CollapseContainer arrowDirection={this.state.arrowDirection} collapsePersona={this.clickHandler} />
-				<PersonaIndex isOpen={this.state.open} personas={this.props.personas} />
+				<AddPersona isOpen={this.state.open} clickHandlerCallback={this.clickHandler} arrowDirection={this.state.arrowDirection}/>
+				<PersonaIndex isOpen={this.state.open}  personas={this.props.personas} />
 			</div>
 		)
 	}

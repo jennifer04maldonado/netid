@@ -3,9 +3,11 @@ var React = require('react');
 var MasterSettings = React.createClass({
 
 	render: function(){
+       	var image = '/images/target.jpeg';
+       	var title = 'Master Settings';
         return(
-			<div className='masterSettingsPanel'>
-				<p>place holder of mastersettings </p>
+			<div id='masterSettingsContainer'>
+				<img src={image} title={title}/>
 			</div>
 		)
 	}

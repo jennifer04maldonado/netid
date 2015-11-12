@@ -10,7 +10,7 @@ var RightMenuContainer = React.createClass({
 	render: function(){
 		return(
 			<div className="accordion2" id="accordion2">
-		    	<RightMenu displaySelectedPanel={this.displaySelectedPanel} menuItems={this.props.menuItems}/>
+		    	<RightMenu activeMenuId={this.props.activeMenuId} displaySelectedPanel={this.displaySelectedPanel} menuItems={this.props.menuItems}/>
 			</div>
 		)
 	}

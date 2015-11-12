@@ -1,21 +1,9 @@
 var React = require('react');
 
-//INPUT NONE
-//OUTPUT: CONTAINER FOR ACCORDION
 var RightMenuItem = React.createClass({
-
 	setActive: function(event) {
-		console.log('set active: ' + event.target.dataset.menuId);
-		console.log('classname: ' + event.target.className);
-
 		var activeMenuId = event.target.dataset.menuId;
-		this.setState({activeMenuId: activeMenuId});
 		this.props.selectHandlerCallback(activeMenuId);
-	},
-	getInitialState: function(){
-		return {
-			activeMenuId: ''
-		}
 	},
 	render: function(){
 		var self = this;
@@ -25,16 +13,16 @@ var RightMenuItem = React.createClass({
 		var image = '/images/target.jpeg';
 		var menuId = this.props.menuId;
 
-		console.log(this.state.activeMenuId + "=" + menuId);
+		console.log("selected: " + this.props.activeMenuId + "=" + menuId);
 
-		if (this.state.activeMenuId == menuId) {
-			className+= ' selected';
+		if (this.props.activeMenuId == menuId) {
+			className += ' selected';
 		}
 
 		return(
-			<div className={className}>
-				<a href={href} >
-					<img src={image} onClick={this.setActive} data-menu-id={menuId} title={title} />
+			<div className={className} onClick={this.setActive} data-menu-id={menuId} title={title} >
+				<a href={href} data-menu-id={menuId}>
+					<img src={image} data-menu-id={menuId}/>
 				</a>
 			</div>
 		)

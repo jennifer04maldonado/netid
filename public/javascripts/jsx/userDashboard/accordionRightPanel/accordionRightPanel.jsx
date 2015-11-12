@@ -4,56 +4,43 @@ var RightMenuContainer = require('./rightmenucontainer.jsx');
 var YourOffersPanel = require('./yourofferspanel.jsx');
 var FriendsOnlinePanel = require('./yourfriends.jsx');
 var MembersOnlinePanel = require('./membersonline.jsx');
-var MasterSettingsPanel = require('./mastersettings.jsx');
 
-
-//INPUT NONE
-//OUTPUT: CONTAINER FOR ACCORDION
 var RightPanel = React.createClass({
+	//set default to 'Friends Online'
 	getInitialState: function() {
 		return {
-			activeMenuId: '',
-			className: ''
+			activeMenuId: '2'
 		}
 	},
 	displaySelectedPanel: function(activeMenuId) {
 		this.setState({activeMenuId: activeMenuId});
-		this.setState({className: 'out'});
-		console.log('root : ' + activeMenuId);
 	},
 	render: function() {
 		var menuItems = [
-			{id: 1, title: 'Master Settings'},
-			{id: 2, title: 'Your Offers'},
-			{id: 3, title: 'Members Online'},
-			{id: 4, title: 'Friends Online'}
+			{id: 1, title: 'Members Online'},
+			{id: 2, title: 'Friends Online'}
 		];
 
 		var activePanel;
-		console.log('chosen this: ' + this.state.activeMenuId);
+		console.log('selected menuId: ' + this.state.activeMenuId);
 		switch (this.state.activeMenuId) {
 			case '1':
 				console.log('master settgins');
-				activePanel = <MasterSettingsPanel />;
-				break;
-			case '2':
-				console.log('you offers');
-				activePanel = <YourOffersPanel />;
-				break;
-			case '3':
-				console.log('members online');
 				activePanel = <MembersOnlinePanel />;
 				break;
-			case '4':
+			case '2':
 				console.log('frined onlne');
 				activePanel = <FriendsOnlinePanel />;
 				break;
 		}
 
 		return(
-			<div id='rightPanelAndMenuContainer' className={this.state.className}>
-				<div id='rightPanelContentContainer'> {activePanel} </div>
-				<RightMenuContainer  menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
+			<div id='rightPanelAndMenuContainer'>
+				<div id='rightPanelContentContainer'>
+					{activePanel}
+					<YourOffersPanel />
+				</div>
+				<RightMenuContainer  activeMenuId={this.state.activeMenuId} menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
 	  		</div>
 		)
 	}
