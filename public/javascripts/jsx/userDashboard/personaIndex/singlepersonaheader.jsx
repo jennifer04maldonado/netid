@@ -2,12 +2,16 @@
 //OUTPUT: PERSONA CONTAINERS FOR EACH PERSONA IN ARRAY
 var React = require('react');
 var PersonaMenu = require('./personamenu');
+var CollapseContainer = require('./collapseContainer');
 
 var SinglePersonaHeader = React.createClass({
 	getInitialState: function(){
 		return {
 			activePersonaId: ''
 		}
+	},
+	clickCollapseHandler: function() {
+		this.props.collapsePersona();
 	},
 	mouseEnterHandler: function(event){
 		this.setState({
@@ -26,24 +30,37 @@ var SinglePersonaHeader = React.createClass({
 			var personaId = persona.id;
 			var href = '#' + personaId;
 			var image = persona.image;
+			var circleEmptyImage = './images/circle2.gif';
+			var circleFilledImage = './images/circle2.gif';
 			var myClassName = "col-sm-12 panel panel-default personaCntnr out";
+			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';
 			if (!self.props.isOpen) {
 				if (self.state.activePersonaId != personaId) {
 					myClassName = myClassName.replace('out', 'in');
+					personaHeadingClassName += ' hidden';
 				}
 			}
 
-
+			//render the collapse link on first persona only
+			var collapseContainer;
+			if (index == 0) {
+				collapseContainer = <CollapseContainer collapsePersona={self.clickCollapseHandler} />;
+			}
 			return (
-				<div key={personaId} className={myClassName}>
-                    <div className="col-sm-12 panel-heading personaHeading">
+				<div key={personaId} className={myClassName} data-persona-id={personaId} key={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}>
+					<div className='notificationContainer'>	
+          				<input type='radio' />
+		            </div>
+                    <div className={personaHeadingClassName}>
+
                         <div className="col-sm-3 imgCntnr" >
-                            <img src={image} data-persona-id={personaId} key={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}></img>
+                            <img src={image}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
-                            <a data-persona-id={personaId} href={href} >{name}</a>
+                            <a href={href} >{name}</a>
                         </h4>
                     </div>
+                    {collapseContainer}
                 </div>
 			);
 		});

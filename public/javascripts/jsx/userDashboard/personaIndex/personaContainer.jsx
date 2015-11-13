@@ -5,32 +5,28 @@ var React = require('react');
 var AddPersona = require('./addpersona');
 var PersonaIndex = require('./personaindex');
 
-
 var PersonaContainer = React.createClass({
 	getInitialState: function() {
 		return {
-			open: true,
-			arrowDirection: '<<'
+			open: true
 		}
 	},
-	clickHandler: function(isOpen) {
-		if(isOpen) {
+	clickCollapseHandler: function() {
+		if(this.state.open) {
 			this.setState({
-				open: false,
-				arrowDirection: '>>'
+				open: false
 			});
 		} else {
 			this.setState({
-				open: true,
-				arrowDirection: '<<'
+				open: true
 			});
 		}
 	},
 	render: function(){
 		return(
 			<div className="personaContainer">
-				<AddPersona isOpen={this.state.open} clickHandlerCallback={this.clickHandler} arrowDirection={this.state.arrowDirection}/>
-				<PersonaIndex isOpen={this.state.open}  personas={this.props.personas} />
+				<AddPersona isOpen={this.state.open} />
+				<PersonaIndex isOpen={this.state.open} collapsePersona={this.clickCollapseHandler} personas={this.props.personas} />
 			</div>
 		)
 	}
