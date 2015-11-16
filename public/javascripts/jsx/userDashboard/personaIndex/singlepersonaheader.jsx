@@ -66,6 +66,7 @@ var SinglePersonaHeader = React.createClass({
 		return(
 			<div>
 				{mapPersonas}
+				<div id='personaBarFiller'> </div>
 			</div>
 		)
 	}
