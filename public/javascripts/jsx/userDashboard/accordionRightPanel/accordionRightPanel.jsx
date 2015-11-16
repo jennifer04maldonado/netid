@@ -17,8 +17,8 @@ var RightPanel = React.createClass({
 	},
 	render: function() {
 		var menuItems = [
-			{id: 1, title: 'Members Online'},
-			{id: 2, title: 'Friends Online'}
+			{id: 1, title: 'Members Online', image: '/images/people1.png' },
+			{id: 2, title: 'Friends Online', image: '/images/people1.png'}
 		];
 
 		var activePanel;

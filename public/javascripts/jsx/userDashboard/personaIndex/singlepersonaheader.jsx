@@ -7,20 +7,27 @@ var CollapseContainer = require('./collapseContainer');
 var SinglePersonaHeader = React.createClass({
 	getInitialState: function(){
 		return {
-			activePersonaId: ''
+			hoverPersonaId: '',
+			selectedPersonaId:''
 		}
+	},
+	setActive: function(event){
+		console.log('set active persona ' + event.target.dataset.personaId);
+		this.setState({
+			selectedPersonaId: event.target.dataset.personaId
+		});
 	},
 	clickCollapseHandler: function() {
 		this.props.collapsePersona();
 	},
 	mouseEnterHandler: function(event){
 		this.setState({
-			activePersonaId: event.target.dataset.personaId
+			hoverPersonaId: event.target.dataset.personaId
 		});
 	},
 	mouseLeaveHandler: function(event){
 		this.setState({
-			activePersonaId: ''
+			hoverPersonaId: ''
 		});
 	},
 	render: function(){
@@ -32,12 +39,18 @@ var SinglePersonaHeader = React.createClass({
 			var image = persona.image;
 
 			var myClassName = "col-sm-12 panel panel-default personaCntnr out";
-			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';			
+			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';	
+			var notifcationClassName = 'notificationContainer';
+
 			if (!self.props.isOpen) {
-				if (self.state.activePersonaId != personaId) {
+				if (self.state.hoverPersonaId != personaId) {
 					myClassName = myClassName.replace('out', 'in');
 					personaHeadingClassName += ' hidden';
 				}
+			}
+					console.log('set active persona ' + self.state.selectedPersonaId);
+			if (self.state.selectedPersonaId == personaId) {
+					notifcationClassName += ' selected';
 			}
 
 			//render the collapse link on first persona only
@@ -46,8 +59,8 @@ var SinglePersonaHeader = React.createClass({
 				collapseContainer = <CollapseContainer collapsePersona={self.clickCollapseHandler} />;
 			}
 			return (
-				<div key={personaId} className={myClassName} data-persona-id={personaId} key={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}>
-					<div className='notificationContainer'>	
+				<div key={personaId} className={myClassName} data-persona-id={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}>
+					<div className={notifcationClassName}>	
           				<input type='radio' />
 		            </div>
                     <div className={personaHeadingClassName}>
@@ -56,7 +69,7 @@ var SinglePersonaHeader = React.createClass({
                             <img src={image}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
-                            <a href={href} >{name}</a>
+                            <a data-persona-id={personaId} onClick={self.setActive} href={href} >{name}</a>
                         </h4>
                     </div>
                     {collapseContainer}

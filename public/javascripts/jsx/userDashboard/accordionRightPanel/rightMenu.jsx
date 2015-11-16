@@ -9,7 +9,7 @@ var RightMenu = React.createClass({
         var self = this;
         var menuNodes = this.props.menuItems.map(function(item,index) {
             return (
-                    <RightMenuItem key={index} activeMenuId={self.props.activeMenuId} menuId={item.id} selectHandlerCallback={self.selectedHandler}  title={item.title}/>
+                    <RightMenuItem key={index} activeMenuId={self.props.activeMenuId} item={item} selectHandlerCallback={self.selectedHandler} />
             );
         });
 

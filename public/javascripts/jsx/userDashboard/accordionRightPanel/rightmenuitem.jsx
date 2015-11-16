@@ -8,10 +8,10 @@ var RightMenuItem = React.createClass({
 	render: function(){
 		var self = this;
 		var className = 'rightMenuItem';
-		var href = '#' + this.props.title;
-		var title = this.props.title;
-		var image = '/images/target.jpeg';
-		var menuId = this.props.menuId;
+		var href = '#' + this.props.item.title;
+		var title = this.props.item.title;
+		var image = this.props.item.image;
+		var menuId = this.props.item.id;
 
 		console.log("selected: " + this.props.activeMenuId + "=" + menuId);
 

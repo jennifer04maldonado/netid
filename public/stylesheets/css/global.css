@@ -6846,6 +6846,9 @@ button.close {
   margin-left: 2px;
   margin-right: 2px;
 }
+.container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex div .notificationContainer.selected {
+  background-color: #f37728;
+}
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex div #collapseContainer {
   padding: 0px;
   width: auto;
@@ -7030,6 +7033,7 @@ button.close {
 }
 .container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu .rightMenuItem {
   border: 1px solid #58585B;
+  background-color: #58585B;
   display: block;
   height: 50px;
   width: 50px;
