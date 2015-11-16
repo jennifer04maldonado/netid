@@ -1,0 +1,454 @@
+.container-fluid{
+    padding:0;
+    background-color: #A6A6A6;
+    .mainBody{
+        .dashboardContainer {
+            min-height: 73vh;
+            position: relative;
+            .personaPicker{
+                height: 90px;
+                background-color: #AC0808;
+                border-bottom: 20px solid #636363;
+                .personaPickerLeft{
+                    padding: 0;
+                   .personaActiveImage{
+                        padding: 0;
+                        .personaImage{
+                            height: 70px;
+                            width: 70px;
+                            img{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .moon{
+                        width: 38px;
+                        height: 76px;
+                        border-radius: 50%;
+                        box-shadow: 10px 0 0 0 #E3EDF0; 
+                    } 
+                }
+                .personaPickerRight{
+                    padding: 0;
+                    .personaNavOptions{
+                        margin-top: 1.5%;
+                        float: right;
+                        ul{
+                           list-style-type: none; 
+                            li{
+                                text-transform: uppercase;
+                                color: #E3EDF0;
+                                font-weight: bold;
+                                display: inline;
+                                
+                                i{
+                                    margin-right: 5px;
+
+                                }
+                                 span{
+                                        font-size: 25px;
+                                    }
+                            }
+                        }
+                    }
+                }
+            }
+<<<<<<< HEAD
+        }
+    }
+    #personaIndex {
+        display: block;
+        padding: 0;
+        div {
+            .in {
+                width: 10%;
+            }
+            .out {
+                width: 90%;
+            }
+            .notificationContainer {
+                float: left;
+                background-color: #C31F2E;
+                height: 70px;
+                input {
+                        vertical-align: middle;
+                        margin-left: 2px;
+                        margin-right: 2px;    
+                }
+            }
+            #collapseContainer {
+                padding: 0px;
+                width: auto;
+                position: relative;
+                .collapseLink {
+                    text-decoration: none;
+                    font-weight: bold;
+                    position: absolute;
+                    top: 0px;
+                    right: -36px;
+                }
+            }
+            .addPersona {
+                background-color: #58585B;
+                height: 50px;
+                color: #E6E7E8;
+                padding-top: 13px;
+                padding-left: 25px;
+            }
+                .multiPersonaCntnr {
+                padding: 0;
+                width: 100%;
+
+                .personaCntnr {
+                    padding: 0;
+                    border-radius: 0px;
+                    clear:both;
+                    background-color:#f5f5f5;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    .personaColor {
+                        background-color: grey;
+                        height: 100%;
+                    }
+                    .personaHeading {
+                        /*border-left: 5px solid #C31F2E;*/
+                        border-radius: 0px;
+                        padding-left: 2px;
+                        width: inherit;
+                        .imgCntnr {
+                            padding: 0;
+                            height: 50px;
+                            width: 50px;
+                            img {
+                                height: 100%;
+                                width: 100%;
+=======
+            .mainUserDashboardArea{
+                height: 800px;
+                border-right: 40px solid #636363;
+                border-left: 40px solid #636363;
+                border-bottom: 30px solid #636363;
+                #personaIndex {
+                    display: block;
+                    padding: 0;
+                    div {
+                        .in {
+                            width: 5%;
+                            .panel-title {
+                                display: none;
+>>>>>>> 9f8a4da93197ddde3431504a448c4e3f09b5959d
+                            }
+                        }
+                        .out {
+                            width: 65%;
+                            border: none;
+                        }
+                        .collapseContainer{
+                            height: 60px;
+                            #leftCollapseImg{
+                                background-color: #58585B;
+                                font-size: 20px;
+                                border: none;
+                            }
+                        }
+                        .addPersona {
+                            margin-bottom: 10px;
+                            background-color: #58585B;
+                            height: 50px;
+                            color: #A4A4A4;
+                            padding-top: 13px;
+                            padding-left: 25px;
+                            .panel-title{
+                                background-color: #313131;
+                                border: 2px solid #959595; 
+                                border-radius: 12px;
+                                padding: 5px;
+                                margin-left: 35px;
+                        }
+                            .multiPersonaCntnr {
+                            padding: 0;
+                            .personaCntnr {
+                                padding: 0;
+                                border-radius: 0;
+                                clear:both;
+                                background-color: none;
+                                border: 0;
+                                .personaColor {
+                                    background-color: grey;
+                                    height: 100%;
+                                }
+                                .personaHeading {
+                                    background-color: #AC0808;
+                                    border-radius: 0px;
+                                    .imgCntnr {
+                                        padding: 0;
+                                        height: 50px;
+                                        width: 50px;
+                                        img {
+                                            height: 100%;
+                                            width: 100%;
+                                        }
+                                    }
+                                    h4 {
+                                        a {
+                                        }
+                                    }
+                                }
+                                .personaInfo {
+                                    border-left: 5px solid #C31F2E;
+                                    .ctrlPanel {
+                                        span {
+                                            display: block;
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+<<<<<<< HEAD
+            }
+        }
+    }
+    .mainView {
+        .focusedPersona {
+            margin-bottom: 10px;
+            background-color: #58585B;
+            color: #E6E7E8;
+            height: 50px;
+            padding-top: 13px;
+            padding-left: 25px;
+            p {}
+        }
+        .netIdSpace {}
+        #viewPort {
+            border-top: 5px solid #C31F2E;
+        }
+    }
+    #rightControlPanel {
+        div {
+            #rightPanelAndMenuContainer {
+                display: block;
+                border: 1px solid #58585B;
+                float: right;
+            }
+            .ratingsPanel {
+                margin-bottom: 10px;
+                background-color: #58585B;
+                height: 50px;
+                padding-top: 5px;
+                padding-left: 25px;
+                color: #E6E7E8;
+
+                .masterScore {
+                    color: #65A5D9;
+                    font-size: 25px;
+                    margin-right: 10px;
+=======
+            }    
+            .mainView {
+                .focusedPersona {
+                    margin-bottom: 10px;
+                    background-color: #58585B;
+                    color: #E6E7E8;
+                    height: 50px;
+                    padding-top: 13px;
+                    padding-left: 25px;
+                    p {}
+>>>>>>> 9f8a4da93197ddde3431504a448c4e3f09b5959d
+                }
+                .netIdSpace {}
+                #viewPort {
+                    border-top: 5px solid #C31F2E;
+                }
+            }
+<<<<<<< HEAD
+            #rightPanelContentContainer {
+                width: 90%;
+                float: left;
+                background-color: beige;
+                border-left: 1px solid #58585B;
+                border-top: 1px solid #58585B;
+                border-bottom: 1px solid #58585B;
+                padding-top: 15px;
+                .contentPanel {
+                    height: 310px;
+                }
+                .yourOffers {
+                    .offersHeading {
+                        background-color: #F37728;
+                        color: #E6E7E8;
+                        height: 45px;
+                        padding-top: 13px;
+                        h4 {
+                            a {}
+                        }
+                    }
+                    .offersPanel {
+                        height: auto;
+                        .offersBody {
+                            padding-top: 20px;
+                            padding-left: 30px;
+                            border: 1px solid #BBBDC0;
+                            p {
+                                color: #6D6E70;
+                                a {}
+                            }
+                        }
+                    }
+                }
+                .yourFriends {
+                    .friendsHeading {
+                        background-color: #F37728;
+                        color: #E6E7E8;
+                        height: 45px;
+                        padding-top: 13px;
+                        padding-left: 10px;
+                        h4 {
+                            a {}
+                        }
+                    }
+                    .friendsPanel {
+                        height: 0;
+                        .friendsBody {
+                            padding-top: 20px;
+                            padding-left: 30px;
+                            border: 1px solid #BBBDC0;
+                            p {
+                                color: #6D6E70;
+                                a {
+                                    i {
+                                        float: right;
+                                        margin-right: 20px;
+=======
+            #rightControlPanel {
+                div {
+                    .ratingsPanel {
+                        margin-bottom: 10px;
+                        background-color: #58585B;
+                        height: 50px;
+                        padding-top: 5px;
+                        padding-left: 25px;
+                        color: #E6E7E8;
+                        .masterScore {
+                            color: #65A5D9;
+                            font-size: 25px;
+                            margin-right: 10px;
+                        }
+                        .socialScore {
+                            color: #729E8D;
+                            font-size: 20px;
+                            margin-right: 10px;
+                        }
+                        .professionalScore {
+                            color: #F37728;
+                            font-size: 20px;
+                        }
+                    }
+                    #accordion2 {
+                        padding: 0;
+                        border-radius: 0px;
+                        .accordionRightPanel {
+                            padding: 0;
+                            border-radius: 0px;
+                            .accordionHeading {
+                                border-radius: 0px;
+                            }
+                            &.yourOffers {
+                                .offersHeading {
+                                    background-color: #F37728;
+                                    color: #E6E7E8;
+                                    height: 45px;
+                                    padding-top: 13px;
+                                    h4 {
+                                        a {}
+                                    }
+                                }
+                                .offersPanel {
+                                    height: auto;
+                                    .offersBody {
+                                        padding-top: 20px;
+                                        padding-left: 30px;
+                                        border: 1px solid #BBBDC0;
+                                        p {
+                                            color: #6D6E70;
+                                            a {}
+                                        }
+                                    }
+                                }
+                            }
+                            &.yourFriends {
+                                .friendsHeading {
+                                    background-color: #58585B;
+                                    color: #E6E7E8;
+                                    height: 45px;
+                                    padding-top: 13px;
+                                    padding-left: 10px;
+                                    h4 {
+                                        a {}
+                                    }
+                                }
+                                .friendsPanel {
+                                    height: 0;
+                                    .friendsBody {
+                                        padding-top: 20px;
+                                        padding-left: 30px;
+                                        border: 1px solid #BBBDC0;
+                                        p {
+                                            color: #6D6E70;
+                                            a {
+                                                i {
+                                                    float: right;
+                                                    margin-right: 20px;
+                                                }
+                                            }
+                                        }
+>>>>>>> 9f8a4da93197ddde3431504a448c4e3f09b5959d
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #accordion2 {
+                padding: 0;
+                border-radius: 0px;
+                width: 10%;
+                float: right;
+                .rightMenu {
+                    display: inline-block;
+                    .rightMenuItem {
+                        border: 1px solid #58585B;
+                        display: block;
+                        height: 50px;
+                        width: 50px;
+                        font-size: 6px;
+                        img {
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+                    .selected {
+                        border-left: none;
+                        background-color: beige;
+                    }
+                    .rightMenuFiller {
+                        height:545px;
+                        background-color: #58585B;
+                    }
+                }
+                .accordionRightPanel {
+                    padding: 0;
+                    border-radius: 0px;
+                    .accordionHeading {
+                        border-radius: 0px;
+                    }
+
+                }
+            }
+        }
+    }    
+}

@@ -30,10 +30,9 @@ var SinglePersonaHeader = React.createClass({
 			var personaId = persona.id;
 			var href = '#' + personaId;
 			var image = persona.image;
-			var circleEmptyImage = './images/circle2.gif';
-			var circleFilledImage = './images/circle2.gif';
+
 			var myClassName = "col-sm-12 panel panel-default personaCntnr out";
-			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';
+			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';			
 			if (!self.props.isOpen) {
 				if (self.state.activePersonaId != personaId) {
 					myClassName = myClassName.replace('out', 'in');
