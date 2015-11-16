@@ -2,7 +2,7 @@ var React = require('react');
 var PersonaContainer = require('./personaContainer');
 
 
-let App = React.createClass({
+var App = React.createClass({
 	getInitialState: function(){
 		return {
             personas : [],
