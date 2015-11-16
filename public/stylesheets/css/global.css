@@ -7036,8 +7036,8 @@ button.close {
   font-size: 6px;
 }
 .container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu .rightMenuItem img {
-  width: 48px;
-  height: 48px;
+  width: 100%;
+  height: 100%;
 }
 .container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu .selected {
   border-left: none;
