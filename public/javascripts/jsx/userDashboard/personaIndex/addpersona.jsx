@@ -17,8 +17,7 @@ var AddPersona = React.createClass({
 		}
 		return(
 			<div className={myClassName}>
-				<p><span className='panel-title'> Create New Persona
-					<CollapseContainer arrowDirection={this.props.arrowDirection} collapsePersona={this.clickHandler} />
+				<p>+<span className={this.props.isOpen ? 'panel-title' : 'hidden'}> Add New Persona
 				</span>
 				</p>
 			</div>

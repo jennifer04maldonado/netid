@@ -2,27 +2,32 @@
 //OUTPUT: PERSONA CONTAINERS FOR EACH PERSONA IN ARRAY
 var React = require('react');
 var PersonaMenu = require('./personamenu');
+var CollapseContainer = require('./collapseContainer');
 
 var SinglePersonaHeader = React.createClass({
 	getInitialState: function(){
 		return {
-			activePersonaId: ''
+			hoverPersonaId: '',
+			selectedPersonaId:''
 		}
 	},
 	setActive: function(event){
-		var clickedPersona = event.target.dataset.personaId;
+		console.log('set active persona ' + event.target.dataset.personaId);
 		this.setState({
+			selectedPersonaId: event.target.dataset.personaId
 		});
-		console.log(clickedPersona);
+	},
+	clickCollapseHandler: function() {
+		this.props.collapsePersona();
 	},
 	mouseEnterHandler: function(event){
 		this.setState({
-			activePersonaId: event.target.dataset.personaId
+			hoverPersonaId: event.target.dataset.personaId
 		});
 	},
 	mouseLeaveHandler: function(event){
 		this.setState({
-			activePersonaId: ''
+			hoverPersonaId: ''
 		});
 	},
 	render: function(){
@@ -32,32 +37,49 @@ var SinglePersonaHeader = React.createClass({
 			var personaId = persona.id;
 			var href = '#' + personaId;
 			var image = persona.image;
+
 			var myClassName = "col-sm-12 panel panel-default personaCntnr out";
-			var imageClassName = "";
+			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';	
+			var notifcationClassName = 'notificationContainer';
+
 			if (!self.props.isOpen) {
-				 imageClassName = "hidden";
-				if (self.state.activePersonaId != personaId) {
+				if (self.state.hoverPersonaId != personaId) {
 					myClassName = myClassName.replace('out', 'in');
+					personaHeadingClassName += ' hidden';
 				}
 			}
+					console.log('set active persona ' + self.state.selectedPersonaId);
+			if (self.state.selectedPersonaId == personaId) {
+					notifcationClassName += ' selected';
+			}
 
-
+			//render the collapse link on first persona only
+			var collapseContainer;
+			if (index == 0) {
+				collapseContainer = <CollapseContainer collapsePersona={self.clickCollapseHandler} />;
+			}
 			return (
-				<div key={personaId} className={myClassName}>
-                    <div className="col-sm-12 panel-heading personaHeading"data-persona-id={personaId} key={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}>
+				<div key={personaId} className={myClassName} data-persona-id={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}>
+					<div className={notifcationClassName}>	
+          				<input type='radio' />
+		            </div>
+                    <div className={personaHeadingClassName}>
+
                         <div className="col-sm-3 imgCntnr" >
-                            <img className={imageClassName} src={image}></img>
+                            <img src={image}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
-                            <a data-persona-id={personaId} href={href} >{name}</a>
+                            <a data-persona-id={personaId} onClick={self.setActive} href={href} >{name}</a>
                         </h4>
                     </div>
+                    {collapseContainer}
                 </div>
 			);
 		});
 		return(
 			<div>
 				{mapPersonas}
+				<div id='personaBarFiller'> </div>
 			</div>
 		)
 	}

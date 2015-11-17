@@ -4,14 +4,25 @@ var React = require('react');
 
 
 var CollapseContainer = React.createClass({
-	clickHandler: function() {
+	getInitialState: function() {
+		return {
+			arrowDirection: '<<'
+		}
+	},
+	clickCollapse1: function(event) {
 		this.props.collapsePersona();
-
+		var arrowDir = '<<';
+		if (this.state.arrowDirection == '<<') {
+			arrowDir = '>>';
+		};
+		this.setState({arrowDirection: arrowDir});	
 	},
 	render: function(){
 		return(
-			<div className="collapseContainer">
-				<input id="leftCollapseImg" data-toggle="collapse" type="button" data-target="collapse" value={this.props.arrowDirection} onClick={this.clickHandler}/>
+			<div className='col-sm-9' id='collapseContainer'>
+				<a className='collapseLink' href='#' id='leftCollapseImg' onClick={this.clickCollapse1} > 
+					{this.state.arrowDirection}
+				</a>
 			</div>
 		)
 	}

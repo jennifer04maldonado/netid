@@ -64,21 +64,37 @@
                     padding: 0;
                     div {
                         .in {
-                            width: 5%;
-                            .panel-title {
-                                display: none;
-                            }
+                            width: 10%;
                         }
                         .out {
-                            width: 65%;
+                            width: 90%;
                             border: none;
                         }
-                        .collapseContainer{
-                            height: 60px;
-                            #leftCollapseImg{
-                                background-color: #58585B;
-                                font-size: 20px;
-                                border: none;
+                        .notificationContainer {
+                            float: left;
+                            background-color: #C31F2E;
+                            height: 70px;
+                            input {
+                                    vertical-align: middle;
+                                    margin-left: 2px;
+                                    margin-right: 2px;    
+                            }
+
+                        }         
+
+                        .notificationContainer.selected {
+                                background-color: #f37728; 
+                        }               
+                        #collapseContainer {
+                            padding: 0px;
+                            width: auto;
+                            position: relative;
+                            .collapseLink {
+                                text-decoration: none;
+                                font-weight: bold;
+                                position: absolute;
+                                top: 0px;
+                                right: -30px;
                             }
                         }
                         .addPersona {
@@ -94,22 +110,36 @@
                                 border-radius: 12px;
                                 padding: 5px;
                                 margin-left: 35px;
+                            }
                         }
-                            .multiPersonaCntnr {
+                        .multiPersonaCntnr {
                             padding: 0;
+                            width: 100%;
+                            #personaBarFiller {
+                                    border: thin red dotted;
+                                    height: 200px;
+                                    background-color: #C31F2E;
+                                    width: 17px;
+                                    clear: both;
+                            }
                             .personaCntnr {
                                 padding: 0;
                                 border-radius: 0;
                                 clear:both;
-                                background-color: none;
+                                background-color: #f5f5f5;
                                 border: 0;
+                                margin-top: 1px;
                                 .personaColor {
                                     background-color: grey;
                                     height: 100%;
                                 }
+
                                 .personaHeading {
-                                    background-color: #AC0808;
+                                    /*border-left: 5px solid #C31F2E;*/
                                     border-radius: 0px;
+                                    padding-left: 2px;
+                                    width: inherit;
+                                    background-color: none;
                                     .imgCntnr {
                                         padding: 0;
                                         height: 50px;
@@ -118,9 +148,9 @@
                                             height: 100%;
                                             width: 100%;
                                         }
-                                    }
-                                    h4 {
-                                        a {
+                                        h4 {
+                                            a {
+                                            }
                                         }
                                     }
                                 }
@@ -133,8 +163,10 @@
                                         }
                                     }
                                 }
+
                             }
                         }
+
                     }
                 }
             }    
@@ -155,6 +187,11 @@
             }
             #rightControlPanel {
                 div {
+                    #rightPanelAndMenuContainer {
+                        display: block;
+                        border: 1px solid #58585B;
+                        float: right;
+                    }
                     .ratingsPanel {
                         margin-bottom: 10px;
                         background-color: #58585B;
@@ -177,69 +214,121 @@
                             font-size: 20px;
                         }
                     }
-                    #accordion2 {
-                        padding: 0;
-                        border-radius: 0px;
-                        .accordionRightPanel {
-                            padding: 0;
-                            border-radius: 0px;
-                            .accordionHeading {
-                                border-radius: 0px;
+                    #rightPanelContentContainer {
+                        width: 90%;
+                        float: left;
+                        background-color: #f5f5f5;
+                        border-left: 1px solid #58585B;
+                        border-top: 1px solid #58585B;
+                        border-bottom: 1px solid #58585B;
+                        padding-top: 15px;
+                        .contentPanel {
+                            height: 310px;
+                        }
+                        .yourOffers {
+                            .offersHeading {
+                                background-color: #F37728;
+                                color: #E6E7E8;
+                                height: 45px;
+                                padding-top: 13px;
+                                h4 {
+                                    a {}
+                                }
                             }
-                            &.yourOffers {
-                                .offersHeading {
-                                    background-color: #F37728;
-                                    color: #E6E7E8;
-                                    height: 45px;
-                                    padding-top: 13px;
-                                    h4 {
+                            .offersPanel {
+                                height: auto;
+                                .offersBody {
+                                    padding-top: 20px;
+                                    padding-left: 30px;
+                                    border: 1px solid #BBBDC0;
+                                    p {
+                                        color: #6D6E70;
                                         a {}
                                     }
                                 }
-                                .offersPanel {
-                                    height: auto;
-                                    .offersBody {
-                                        padding-top: 20px;
-                                        padding-left: 30px;
-                                        border: 1px solid #BBBDC0;
-                                        p {
-                                            color: #6D6E70;
-                                            a {}
-                                        }
-                                    }
+                            }
+                        }
+                        .yourFriends {
+                            .friendsHeading {
+                                background-color: #58585B;
+                                color: #E6E7E8;
+                                height: 45px;
+                                padding-top: 13px;
+                                padding-left: 10px;
+                                h4 {
+                                    a {}
                                 }
                             }
-                            &.yourFriends {
-                                .friendsHeading {
-                                    background-color: #58585B;
-                                    color: #E6E7E8;
-                                    height: 45px;
-                                    padding-top: 13px;
-                                    padding-left: 10px;
-                                    h4 {
-                                        a {}
-                                    }
-                                }
-                                .friendsPanel {
-                                    height: 0;
-                                    .friendsBody {
-                                        padding-top: 20px;
-                                        padding-left: 30px;
-                                        border: 1px solid #BBBDC0;
-                                        p {
-                                            color: #6D6E70;
-                                            a {
-                                                i {
-                                                    float: right;
-                                                    margin-right: 20px;
-                                                }
+                            .friendsPanel {
+                                height: 0;
+                                .friendsBody {
+                                    padding-top: 20px;
+                                    padding-left: 30px;
+                                    border: 1px solid #BBBDC0;
+                                    p {
+                                        color: #6D6E70;
+                                        a {
+                                            i {
+                                                float: right;
+                                                margin-right: 20px;
                                             }
                                         }
                                     }
                                 }
                             }
                         }
+
+
+                        #accordion2 {
+                            padding: 0;
+                            border-radius: 0px;
+                            .accordionRightPanel {
+                                padding: 0;
+                                border-radius: 0px;
+                                .accordionHeading {
+                                    border-radius: 0px;
+                                }
+
+                            }
+                        }
                     }
+                }
+            }
+            #accordion2 {
+                padding: 0;
+                border-radius: 0px;
+                width: 10%;
+                float: right;
+                .rightMenu {
+                    display: inline-block;
+                    .rightMenuItem {
+                        border: 1px solid #58585B;
+                        background-color: #58585B;
+                        display: block;
+                        height: 50px;
+                        width: 50px;
+                        font-size: 6px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .selected {
+                        border-left: none;
+                        background-color: #f5f5f5;
+                    }
+                    .rightMenuFiller {
+                        height:545px;
+                        background-color: #58585B;
+                    }
+                }
+                .accordionRightPanel {
+                    padding: 0;
+                    border-radius: 0px;
+                    .accordionHeading {
+                        border-radius: 0px;
+                    }
+
                 }
             }
         }
