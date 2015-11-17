@@ -46,7 +46,4 @@ var RightPanel = React.createClass({
 	}
 });
 
-ReactDOM.render(
-	<RightPanel />, 
-	document.getElementById('rightControlPanel')
-);
+module.exports = RightPanel;

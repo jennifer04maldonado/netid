@@ -24,11 +24,15 @@ var PersonaContainer = React.createClass({
 			});
 		}
 	},
+	setActivePersona: function(activePersonaId) {
+		this.props.setActivePersona(activePersonaId);
+	},	
+
 	render: function(){
 		return(
 			<div className="personaContainer">
 				<AddPersona isOpen={this.state.open} />
-				<PersonaIndex isOpen={this.state.open} collapsePersona={this.clickCollapseHandler} personas={this.props.personas} />
+				<PersonaIndex isOpen={this.state.open} setActivePersona={this.setActivePersona} collapsePersona={this.clickCollapseHandler} personas={this.props.personas} />
 			</div>
 		)
 	}
