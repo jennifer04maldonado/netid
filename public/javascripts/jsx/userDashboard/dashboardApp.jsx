@@ -24,9 +24,6 @@ var DashboardApp = React.createClass({
 	},
 	componentDidMount: function() {
 		this.grabPersonas();   
-		console.log('set default persona' + this.state.personas[0] );
-		this.setState({activePersona: this.state.personas[0]});
-
   	},
 	setActivePersona: function(activePersonaId) {
 		var activePersona = null;
