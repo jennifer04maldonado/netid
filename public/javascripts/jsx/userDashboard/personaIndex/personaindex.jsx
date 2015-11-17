@@ -8,14 +8,16 @@ var PersonaIndex = React.createClass({
 	clickCollapseHandler: function() {
 		this.props.collapsePersona();
 	},
-
+	setActivePersona: function(activePersonaId) {
+		this.props.setActivePersona(activePersonaId);
+	},	
 	render: function(){
 		var myClassName = 'col-sm-12 panel-group multiPersonaCntnr';
 		if(this.props.personas.length !== 0){
 			console.log('rendering personas');
 			return (
 		        <div className={myClassName} id="accordion">
-		        	<SinglePersonaHeader collapsePersona={this.clickCollapseHandler} isOpen={this.props.isOpen} personas={this.props.personas}/>
+		        	<SinglePersonaHeader setActivePersona={this.setActivePersona} collapsePersona={this.clickCollapseHandler} isOpen={this.props.isOpen} personas={this.props.personas}/>
 		   
 	            </div>
 			)

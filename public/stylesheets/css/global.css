@@ -6826,7 +6826,7 @@ button.close {
   border-bottom: 30px solid #636363;
 }
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex {
-  display: block;
+  display: inline;
   padding: 0;
 }
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex div .in {
@@ -7350,51 +7350,15 @@ div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordio
 .header .logoContainer {
   float: right;
 }
-.header .logoContainer .logoBox {
+.header .logoContainer .logoRatingButton {
+  float: right;
   padding: 0;
 }
-.header .logoContainer .logoBox a .logo img {
-  width: 30%;
-  margin-top: 3%;
-  margin-bottom: 3%;
-  margin-right: 6%;
-  float: right;
+.header .logoContainer .logoRatingButton .dropdown-menu {
+  background-color: #313131 !important;
 }
-@media (max-width: 768px) {
-  .logo img {
-    margin-top: 10%;
-    width: 70% !important;
-  }
-  .navbar-toggle {
-    margin-right: 0px;
-    float: left !important;
-    padding: 9px 55px;
-  }
-  .collapse.in {
-    margin-left: 5%;
-  }
-  ul li,
-  li a {
-    width: 100%;
-  }
-  .mobile-nav > li {
-    border-bottom: 1px;
-  }
-  .glyphicon-menu-hamburger {
-    font-size: 20px;
-    color: gray;
-  }
-}
-/*TABLET SIZE*/
-@media (min-width: 769px) and (max-width: 991px) {
-  .logo img {
-    margin-top: 3%;
-    margin-bottom: 3%;
-    width: 25% !important;
-  }
-  .navbar-toggle {
-    float: right !important;
-  }
+.header .logoContainer .logoRatingButton .dropdown-menu li a strong {
+  color: red;
 }
 .footer {
   width: 100%;

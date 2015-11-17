@@ -11,8 +11,10 @@ var SinglePersonaHeader = React.createClass({
 			selectedPersonaId:''
 		}
 	},
-	setActive: function(event){
+	setActivePersona: function(event){
 		console.log('set active persona ' + event.target.dataset.personaId);
+		this.props.setActivePersona(event.target.dataset.personaId);
+		
 		this.setState({
 			selectedPersonaId: event.target.dataset.personaId
 		});
@@ -48,7 +50,7 @@ var SinglePersonaHeader = React.createClass({
 					personaHeadingClassName += ' hidden';
 				}
 			}
-					console.log('set active persona ' + self.state.selectedPersonaId);
+
 			if (self.state.selectedPersonaId == personaId) {
 					notifcationClassName += ' selected';
 			}
@@ -69,7 +71,7 @@ var SinglePersonaHeader = React.createClass({
                             <img src={image}></img>
                         </div> 
                         <h4 className="col-sm-9 panel-title">
-                            <a data-persona-id={personaId} onClick={self.setActive} href={href} >{name}</a>
+                            <a data-persona-id={personaId} onClick={self.setActivePersona} href={href} >{name}</a>
                         </h4>
                     </div>
                     {collapseContainer}
