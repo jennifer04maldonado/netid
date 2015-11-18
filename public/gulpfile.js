@@ -12,8 +12,7 @@ gulp.task('watch', function(){
 	livereload.listen()
 	gulp.watch('stylesheets/less/*.less', ['less']);
 	gulp.watch('../views/*.ejs', ['ejs']);
-	gulp.watch('javascripts/userDashboard/*.jsx', ['personaIndex']);
-	gulp.watch('javascripts/userDashboard/*.jsx', ['rightAccordion']);
+	gulp.watch('javascripts/userDashboard/*.jsx', ['dashboardApp']);
 	gulp.watch('javascripts/individualCommView/*.jsx', ['individualCommView']);
 });
-gulp.task('default', ['less', 'ejs', 'personaIndex', 'rightAccordion', 'individualCommView', 'watch']);
+gulp.task('default', ['less', 'ejs', 'dashboardApp', 'individualCommView', 'watch']);

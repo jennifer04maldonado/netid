@@ -10,17 +10,9 @@ var babelify = require('babelify');
 var watchify = require('watchify');
 var notifier = require('node-notifier');
 
-// gulp.task('dashboard', function(){
-// 	gulp.src('javascripts/jsx/userDashboard/*.jsx')
-// 	.pipe(plumber())
-// 	.pipe(livereload());
-// });
-
-
-//TASK FOR INDEX OF PERSONA IN LEFT ACCORDION ON USER DASHBOARD
-gulp.task('personaIndex', function(){
+gulp.task('dashboardApp', function(){
 	var bundler = watchify(browserify({
-		entries: ['javascripts/jsx/userDashboard/personaIndex/app.jsx',],
+		entries: ['javascripts/jsx/userDashboard/dashboardApp.jsx',],
 		extensions: ['.jsx'],
 		debug: true,
 		transform:['babelify'],
@@ -34,31 +26,7 @@ gulp.task('personaIndex', function(){
 		return bundler
 			.bundle()
 			.on('error', gutil.log.bind(gutil, 'Browserify Error'))
-			.pipe(source('personaIndex.js'))
-			.pipe(gulp.dest('javascripts/js/'));
-	};
-	build()
-	bundler.on('update', build)
-});
-
-// TASK FOR RIGHT ACCORDION ON USER DASHBOARD
-gulp.task('rightAccordion', function(){
-	var bundler = watchify(browserify({
-		entries: ['javascripts/jsx/userDashboard/accordionRightPanel/accordionRightPanel.jsx'],
-		extensions: ['.jsx'],
-		debug: true,
-		transform:[babelify],
-		cache:{},
-		packageCache: {},
-		fullPaths: true
-	}));
-
-	function build(file){
-		if (file) gutil.log('Recompiling ' + file);
-		return bundler
-			.bundle()
-			.on('error', gutil.log.bind(gutil, 'Browserify Error'))
-			.pipe(source('rightAccordion.js'))
+			.pipe(source('dashboardApp.js'))
 			.pipe(gulp.dest('javascripts/js/'));
 	};
 	build()

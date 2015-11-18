@@ -6823,8 +6823,11 @@ button.close {
   height: 800px;
 }
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex {
+<<<<<<< HEAD
   background-color: #1E1E1E;
   border-right: 26px solid gray;
+=======
+>>>>>>> 7bc4779f8990645f7ff31a2a3df0a4f618111f09
   display: inline;
   padding: 0;
 }

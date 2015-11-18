@@ -7,7 +7,7 @@ var CollapseContainer = require('./collapseContainer');
 
 var AddPersona = React.createClass({
 	clickHandler: function() {
-		console.log("calling call back" + this.props.isOpen);
+		//console.log("calling call back" + this.props.isOpen);
 		this.props.clickHandlerCallback(this.props.isOpen);
 	},
 	render: function(){
