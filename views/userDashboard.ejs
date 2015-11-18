@@ -54,7 +54,7 @@
                         </div>    
                     </div>
                 </div>
-                <div class="row mainUserDashboardArea">
+                <div class="mainUserDashboardArea">
                     <div class="col-sm-2" id="personaIndex">
     <!--                     <div class="col-sm-12 addPersona">
                             Add New Persona
@@ -113,16 +113,18 @@
                             </div>
                         </div> -->
                     </div>
-                    <div class="col-sm-7 mainView row">
-                        <div class="col-sm-12 focusedPersona">
-                            <p>Your Bio - Complete your Bio!</p>
-                        </div>
+                    <div class="col-sm-8 mainView row">
                         <div class="col-sm-12 netIdSpace"></div>
                         <div class="col-sm-12" id="viewPort">
-                             <% include splitBarDash.ejs %>
+                             <% include individualCommView.ejs %>
+                             <div class="offersFixedButton">
+                                 <a href="#">
+                                     <button class="btn">7 Offers $5.45</button>
+                                 </a>
+                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3" id="rightControlPanel">
+                    <div class="col-sm-2" id="rightControlPanel">
       <!--              <div class="col-sm-12 ratingsPanel">
                             My Ratings 
                             <a class="col-sm-offset-6 masterScore" href="#">78</a> 

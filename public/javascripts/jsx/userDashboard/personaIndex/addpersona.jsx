@@ -17,9 +17,6 @@ var AddPersona = React.createClass({
 		}
 		return(
 			<div className={myClassName}>
-				<p>+<span className={this.props.isOpen ? 'panel-title' : 'hidden'}> Add New Persona
-				</span>
-				</p>
 			</div>
 		)
 	}

@@ -17,8 +17,12 @@ var RightPanel = React.createClass({
 	},
 	render: function() {
 		var menuItems = [
-			{id: 1, title: 'Members Online', image: '/images/people1.png' },
-			{id: 2, title: 'Friends Online', image: '/images/people1.png'}
+			{id: 1, title: 'Members Online', image: '/images/members.png' },
+			{id: 2, title: 'Friends Online', image: '/images/friends.png'},
+			{id: 3, title: 'Messages', image: '/images/message.png' },
+			{id: 4, title: 'Members Online', image: '/images/members.png' },
+			{id: 5, title: 'Friends Online', image: '/images/friends.png'},
+			{id: 6, title: 'Messages', image: '/images/message.png' }
 		];
 
 		var activePanel;
@@ -32,6 +36,22 @@ var RightPanel = React.createClass({
 				console.log('frined onlne');
 				activePanel = <FriendsOnlinePanel />;
 				break;
+			case '3':
+				console.log('messages');
+				activePanel = <YourOffersPanel />;
+				break;
+			case '4':
+				console.log('messages');
+				activePanel = <YourOffersPanel />;
+				break;
+			case '5':
+				console.log('messages');
+				activePanel = <YourOffersPanel />;
+				break;
+			case '6':
+				console.log('messages');
+				activePanel = <YourOffersPanel />;
+				break;			
 		}
 
 		return(
