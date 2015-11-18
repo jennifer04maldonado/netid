@@ -2,12 +2,16 @@ var React = require('react');
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
+var MessagesComponent = require('./personaPicker/messageContainer');
+var AccountHistoryComponent = require('./personaPicker/accountHistoryContainer');
+var CommunitiesComponent = require('./personaPicker/communitiesContainer');
 
 var DashboardApp = React.createClass({
 	getInitialState: function(){
 		return {
             personas : [],
-            activePersona: null
+            activePersona: null,
+            activeBody: <MessagesComponent />
         }
 	},
 	grabPersonas: function(){
@@ -24,6 +28,28 @@ var DashboardApp = React.createClass({
 	},
 	componentDidMount: function() {
 		this.grabPersonas();   
+  	},
+	setActiveBody: function(headerSelection) {
+		console.log("header selection: " + headerSelection);
+		var activeBody = null;
+
+		switch (headerSelection) {
+			case 'messages':
+				this.setState({activeBody: activeBody});
+				activeBody = <MessagesComponent />;
+				break;
+			case 'accountHistory':
+				activeBody = <AccountHistoryComponent />;
+				break;
+			case 'communities':
+				activeBody = <CommunitiesComponent />;
+				break;
+			default:
+				activeBody = <CommunitiesComponent />;
+
+		}
+
+		this.setState({activeBody: activeBody});
   	},
 	setActivePersona: function(activePersonaId) {
 		var activePersona = null;
@@ -45,7 +71,7 @@ var DashboardApp = React.createClass({
         return (
             <div className="row dashboardContainer">
                 <div id='personaPicker' className="col-sm-12 personaPicker">
-					<PersonaPickerComponent activePersona={this.state.activePersona}/>               
+					<PersonaPickerComponent setActiveBody={this.setActiveBody} activePersona={this.state.activePersona}/>               
 	                <div className="row mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
@@ -59,8 +85,8 @@ var DashboardApp = React.createClass({
 	                        <div className="col-sm-12 netIdSpace"></div>
 	                        <div className="col-sm-12" id="viewPort">
 	                       		<div id="MySplitter">
-   									<div> First content goes here </div>
-   									<div> Second content goes here </div>
+	                       		{this.state.activeBody}
+
  								</div> 
 	                        </div>
 	                    </div>
