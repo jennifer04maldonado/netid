@@ -7,12 +7,6 @@ var PersonaPicker = React.createClass({
         var style = {
             marginRight: '15px'
         };
-
-        var name;
-        if (this.props.activePersona) {
-            name = this.props.activePersona.persona_name;
-        }
-
         return (
             <div className="col-sm-12 personaPicker">
                     <div className="row col-sm-6 personaPickerLeft">
