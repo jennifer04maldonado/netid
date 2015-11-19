@@ -2,11 +2,19 @@ var React = require('react');
 
 var PersonaPicker = React.createClass({
 
+    setActiveBody: function(selectedValue, event){
+        console.log('selected: ' + selectedValue);
+        console.log('event: ' + event);
+        this.props.setActiveBody(selectedValue);
+    },
+
     render: function(){
+        
         var defaultAvatar = '../images/avatar.png';
         var style = {
             marginRight: '15px'
         };
+
         return (
             <div className="col-sm-12 personaPicker">
                     <div className="row col-sm-6 personaPickerLeft">
@@ -28,9 +36,15 @@ var PersonaPicker = React.createClass({
                     <div className="row col-sm-6 personaPickerRight">
                         <div className="personaNavOptions">
                             <ul>
-                                <a href="#"><li style={style}><i className="fa fa-users"></i><span>A</span>ccount History</li></a>
-                                <a href="#"><li style={style}><i className="fa fa-users"></i><span>C</span>ommunities</li></a>
-                                <a href="#"><li><i className="fa fa-envelope-o"></i><span>M</span>essages</li></a>
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'accountHistory')}>
+                                    <li style={style}><i className="fa fa-users"></i><span>A</span>ccount History</li>
+                                </a>
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
+                                    <li style={style}><i className="fa fa-users"></i><span>C</span>ommunities</li>
+                                </a>
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
+                                    <li><i className="fa fa-envelope-o"></i><span>M</span>essages</li>
+                                </a>
                             </ul>
                         </div>    
                     </div>
