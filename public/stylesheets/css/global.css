@@ -6963,11 +6963,12 @@ button.close {
 .container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer {
   width: 90%;
   float: left;
-  background-color: #f5f5f5;
+  background-color: black;
   border-left: 1px solid #58585B;
   border-top: 1px solid #58585B;
   border-bottom: 1px solid #58585B;
   padding-top: 15px;
+  height: 900px;
 }
 .container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .contentPanel {
   height: 310px;

@@ -18,7 +18,6 @@ var PersonaIndex = React.createClass({
 			return (
 		        <div className={myClassName} id="accordion">
 		        	<SinglePersonaHeader setActivePersona={this.setActivePersona} collapsePersona={this.clickCollapseHandler} isOpen={this.props.isOpen} personas={this.props.personas}/>
-		   
 	            </div>
 			)
 		}
