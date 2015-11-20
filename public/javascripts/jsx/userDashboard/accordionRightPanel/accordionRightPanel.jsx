@@ -1,3 +1,4 @@
+
 var React = require('react');
 var RatingsPanel = require('./ratingspanel.jsx');
 var RightMenuContainer = require('./rightmenucontainer.jsx');
@@ -13,15 +14,8 @@ var RightPanel = React.createClass({
 		}
 	},
 	displaySelectedPanel: function(activeMenuId) {
-		console.log('dynaimc call to panel: ' + activeMenuId);
 		this.setState({activeMenuId: activeMenuId});
 	},
-  	//gets called when recieved new props 		
-  	componentWillReceiveProps: function(nextProps) {
-		console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
-		this.setState({activePersona: nextProps.activePersona});
-  	},
-
 	render: function() {
 		var menuItems = [
 			{id: 1, title: 'Members Online', image: '/images/members.png' },
@@ -36,19 +30,19 @@ var RightPanel = React.createClass({
 		console.log('selected menuId: ' + this.state.activeMenuId);
 		switch (this.state.activeMenuId) {
 			case '1':
-				console.log('membersOnline');
-				activePanel = <MembersOnlinePanel {...this.props} />;
+				console.log('master settgins');
+				activePanel = <MembersOnlinePanel />;
 				break;
 			case '2':
-				console.log('friended onlne');
-				activePanel = <FriendsOnlinePanel {...this.props} />;
+				console.log('frined onlne');
+				activePanel = <FriendsOnlinePanel />;
 				break;
 			case '3':
 				console.log('messages');
 				activePanel = <YourOffersPanel />;
 				break;
 			case '4':
-				console.log('messages');
+				console.log('survey');
 				activePanel = <YourOffersPanel />;
 				break;
 			case '5':
@@ -63,14 +57,12 @@ var RightPanel = React.createClass({
 
 		return(
 			<div id='rightPanelAndMenuContainer'>
-				<div id='rightPanelContentContainer'>
+				<div id='rightPanelContentContainer' className='rightCntnr'>
 					{activePanel}
-					<YourOffersPanel />
 				</div>
 				<RightMenuContainer  activeMenuId={this.state.activeMenuId} menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
 	  		</div>
 		)
 	}
 });
-
 module.exports = RightPanel;

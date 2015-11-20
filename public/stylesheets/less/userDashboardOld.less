@@ -1,0 +1,330 @@
+.container-fluid{
+    padding:0;
+    background-color: #A6A6A6;
+    .mainBody{
+        height: 930px;
+        .dashboardContainer {
+            min-height: 73vh;
+            position: relative;
+            .personaPicker{
+                height: 90px;
+                background-color: #AC0808;
+                border-bottom: 20px solid #58585B;
+                .personaPickerLeft{
+                    padding: 0;
+                   .personaActiveImage{
+                        padding: 0;
+                        .personaImage{
+                            height: 70px;
+                            width: 70px;
+                            img{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .moon{
+                        width: 38px;
+                        height: 76px;
+                        border-radius: 50%;
+                        box-shadow: 10px 0 0 0 #E3EDF0; 
+                    } 
+                }
+                .personaPickerRight{
+                    padding: 0;
+                    .personaNavOptions{
+                        margin-top: 18px;
+                        float: right;
+                        ul{
+                           list-style-type: none; 
+                            li{
+                                font-size: 15px;
+                                color: #E3EDF0;
+                                display: inline;
+                                i{
+                                    margin-right: 8px;
+                                }
+                            }         
+                        }
+                    }
+                }
+            }
+            .mainUserDashboardArea{
+                #personaIndex {
+                    height: 840px;
+                    background-color: #1E1E1E;
+                    border-right: 20px solid #58585B;
+                    border-bottom: 20px solid #58585B;
+                    display: inline;
+                    padding: 0;
+                    div {
+                        .in {
+                            width: 12%;
+                        }
+                        .out {
+                            width: 88%;
+                            border: none;
+                        }
+                        .notificationContainer {
+                            float: left;
+                            background-color: #58585B;
+                            height: 95px;
+                            width: 25px;
+                            input {
+                                    vertical-align: middle;
+                                    margin-left: 5px;
+                                    margin-right: 2px;
+                                    margin-top: 28px;    
+                            }
+
+                        }         
+
+                        .notificationContainer.selected {
+                                background-color: #169379; 
+                        }               
+                        #collapseContainer {
+                            padding: 0px;
+                            width: auto;
+                            position: relative;
+                            .collapseLink {
+                                text-decoration: none;
+                                font-weight: bold;
+                                position: absolute;
+                                top: -4px;
+                                right: -40px;
+                            }
+                        }
+                        .addPersona {
+                            
+                            .panel-title{
+                                background-color: #313131;
+                                border: 2px solid #959595; 
+                                border-radius: 12px;
+                                padding: 5px;
+                                margin-left: 35px;
+                            }
+                        }
+                        .multiPersonaCntnr {
+                            padding: 0;
+                            width: 100%;
+                            #personaBarFiller {
+                                    height: 819px;
+                                    background-color: #58585B;
+                                    width: 26px;
+                            }
+                            .personaCntnr {
+                                border-right: 12px solid purple;
+                                padding: 0;
+                                height: 70px;
+                                border-radius: 0;
+                                clear:both;
+                                margin-top: 1px;
+                                .personaColor {
+                                    background-color: grey;
+                                    height: 100%;
+                                }
+
+                                .personaHeading {
+                                    border-radius: 0px;
+                                    background: none;                                    padding-left: 20px;
+                                    width: inherit;
+                                    .imgCntnr {
+                                        padding: 0;
+                                        height: 50px;
+                                        width: 50px;
+                                        img {
+                                            height: 100%;
+                                            width: 100%;
+                                        }
+                                    }    
+                                    h4{
+                                        margin-top: -34px;
+                                        margin-left: 45px;
+                                        a {
+                                        }
+                                    }
+                                }
+                                .personaInfo {
+                                    border-left: 5px solid #C31F2E;
+                                    .ctrlPanel {
+                                        span {
+                                            display: block;
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            }    
+            .mainView {
+                
+                .netIdSpace {}
+                #viewPort {
+                    .offersFixedButton{
+                        position: fixed;
+                        bottom: 0px;
+                        right: 0px;
+                        a{
+                            button{
+                                border-radius: 0px;
+                                padding-left: 100px;
+                                padding-right: 136px;
+                                padding-top: 8px;
+                                padding-bottom: 12px;
+                                border: 10px solid gray;
+                                background-color: #003027;
+                                color: white;
+                            }
+                        }
+                    }
+                } 
+            }
+            #rightControlPanel {
+                padding: 0;
+                    #rightPanelAndMenuContainer {
+                        display: block;
+                        border: 1px solid #58585B;
+                        float: right;
+                    }
+                    .ratingsPanel {
+                        margin-bottom: 10px;
+                        background-color: #58585B;
+                        height: 50px;
+                        padding-top: 5px;
+                        padding-left: 25px;
+                        color: #E6E7E8;
+                        .masterScore {
+                            color: #65A5D9;
+                            font-size: 25px;
+                            margin-right: 10px;
+                        }
+                        .socialScore {
+                            color: #729E8D;
+                            font-size: 20px;
+                            margin-right: 10px;
+                        }
+                        .professionalScore {
+                            color: #F37728;
+                            font-size: 20px;
+                        }
+                    }
+                    #rightPanelContentContainer {
+                        width: 100%;
+                        float: left;
+                        background-color: #1E1E1E;
+                        padding-top: 15px;
+                        height: 840px;
+                        border-bottom: 20px solid #313131;
+                        border-left: 20px solid #313131;
+                        .contentPanel {
+                            height: 310px;
+                        }
+                        .yourOffers {
+                            .offersHeading {
+                                color: #E6E7E8;
+                                padding-top: 13px;
+                                h4 {
+                                    a {}
+                                }
+                            }
+                            .offersPanel {
+                                height: 0;
+                                .offersBody {
+                                    padding-top: 20px;
+                                    padding-left: 30px;
+                                    p {
+                                        color: #6D6E70;
+                                        a {}
+                                    }
+                                }
+                            }
+                        }
+                        .yourFriends {
+                            .friendsHeading {
+                                color: #E6E7E8;
+                                padding-top: 13px;
+                                padding-left: 10px;
+                                h4 {
+                                    a {}
+                                }
+                            }
+                            .friendsPanel {
+                                height: 0;
+                                .friendsBody {
+                                    padding-top: 20px;
+                                    padding-left: 30px;
+                                    p {
+                                        color: #6D6E70;
+                                        a {
+                                            i {
+                                                float: right;
+                                                margin-right: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                        #accordion2 {
+                            padding: 0;
+                            border-radius: 0px;
+                            .accordionRightPanel {
+                                padding: 0;
+                                border-radius: 0px;
+                                .accordionHeading {
+                                    border-radius: 0px;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            #accordion2 {
+                padding: 0;
+                border-radius: 0px;
+                width: 0%;
+                float: right;
+                .rightMenu {
+                    display: inline-block;
+                    .rightMenuItem {
+                        border: 1px solid #58585B;
+                        background-color: #58585B;
+                        display: block;
+                        height: 95px;
+                        width: 30px;
+                        font-size: 6px;
+                        img {
+                            width: 20px;
+                            height: 25px;
+                            margin-left: 4px;
+                            margin-top: 10px;
+                        }
+                    }
+                    .selected {
+                        border-left: none;
+                        background-color: #f5f5f5;
+                    }
+                    .rightMenuFiller {
+                        height:219px;
+                        background-color: #58585B;
+                    }
+                }
+                .accordionRightPanel {
+                    padding: 0;
+                    border-radius: 0px;
+                    .accordionHeading {
+                        border-radius: 0px;
+                    }
+
+                }
+            }
+        }
+    }    
+}

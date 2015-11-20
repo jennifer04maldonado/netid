@@ -6768,6 +6768,9 @@ button.close {
   padding: 0;
   background-color: #A6A6A6;
 }
+.container-fluid .mainBody {
+  height: 930px;
+}
 .container-fluid .mainBody .dashboardContainer {
   min-height: 73vh;
   position: relative;
@@ -6801,30 +6804,25 @@ button.close {
   padding: 0;
 }
 .container-fluid .mainBody .dashboardContainer .personaPicker .personaPickerRight .personaNavOptions {
-  margin-top: 1.5%;
+  margin-top: 18px;
   float: right;
 }
 .container-fluid .mainBody .dashboardContainer .personaPicker .personaPickerRight .personaNavOptions ul {
   list-style-type: none;
 }
 .container-fluid .mainBody .dashboardContainer .personaPicker .personaPickerRight .personaNavOptions ul li {
-  text-transform: uppercase;
+  font-size: 20px;
   color: #E3EDF0;
-  font-weight: bold;
   display: inline;
 }
 .container-fluid .mainBody .dashboardContainer .personaPicker .personaPickerRight .personaNavOptions ul li i {
-  margin-right: 5px;
-}
-.container-fluid .mainBody .dashboardContainer .personaPicker .personaPickerRight .personaNavOptions ul li span {
-  font-size: 25px;
-}
-.container-fluid .mainBody .dashboardContainer .mainUserDashboardArea {
-  height: 800px;
+  margin-right: 8px;
 }
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex {
+  height: 820px;
   background-color: #1E1E1E;
-  border-right: 26px solid gray;
+  border-right: 20px solid #58585B;
+  border-bottom: 20px solid #58585B;
   display: inline;
   padding: 0;
 }
@@ -6874,10 +6872,9 @@ button.close {
   width: 100%;
 }
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex div .multiPersonaCntnr #personaBarFiller {
-  height: 500px;
+  height: 819px;
   background-color: #58585B;
-  width: 25px;
-  clear: both;
+  width: 26px;
 }
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex div .multiPersonaCntnr .personaCntnr {
   border-right: 12px solid purple;
@@ -6917,12 +6914,6 @@ button.close {
   display: block;
   text-align: right;
 }
-.container-fluid .mainBody .dashboardContainer .mainView {
-  background-color: #313131;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 30px;
-}
 .container-fluid .mainBody .dashboardContainer .mainView #viewPort .offersFixedButton {
   position: fixed;
   bottom: 0px;
@@ -6941,12 +6932,12 @@ button.close {
 .container-fluid .mainBody .dashboardContainer #rightControlPanel {
   padding: 0;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelAndMenuContainer {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelAndMenuContainer {
   display: block;
   border: 1px solid #58585B;
   float: right;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div .ratingsPanel {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel .ratingsPanel {
   margin-bottom: 10px;
   background-color: #58585B;
   height: 50px;
@@ -6954,86 +6945,86 @@ button.close {
   padding-left: 25px;
   color: #E6E7E8;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div .ratingsPanel .masterScore {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel .ratingsPanel .masterScore {
   color: #65A5D9;
   font-size: 25px;
   margin-right: 10px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div .ratingsPanel .socialScore {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel .ratingsPanel .socialScore {
   color: #729E8D;
   font-size: 20px;
   margin-right: 10px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div .ratingsPanel .professionalScore {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel .ratingsPanel .professionalScore {
   color: #F37728;
   font-size: 20px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer {
   width: 100%;
   float: left;
   background-color: #1E1E1E;
   padding-top: 15px;
-  height: 790px;
-  border-bottom: 10px solid gray;
-  border-left: 10px solid gray;
+  height: 820px;
+  border-bottom: 20px solid #58585B;
+  border-left: 20px solid #58585B;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .contentPanel {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .contentPanel {
   height: 310px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourOffers .offersHeading {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourOffers .offersHeading {
   color: #E6E7E8;
   padding-top: 13px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourOffers .offersPanel {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourOffers .offersPanel {
   height: 0;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourOffers .offersPanel .offersBody {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourOffers .offersPanel .offersBody {
   padding-top: 20px;
   padding-left: 30px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourOffers .offersPanel .offersBody p {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourOffers .offersPanel .offersBody p {
   color: #6D6E70;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourFriends .friendsHeading {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourFriends .friendsHeading {
   color: #E6E7E8;
   padding-top: 13px;
   padding-left: 10px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourFriends .friendsPanel {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourFriends .friendsPanel {
   height: 0;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourFriends .friendsPanel .friendsBody {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourFriends .friendsPanel .friendsBody {
   padding-top: 20px;
   padding-left: 30px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourFriends .friendsPanel .friendsBody p {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourFriends .friendsPanel .friendsBody p {
   color: #6D6E70;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer .yourFriends .friendsPanel .friendsBody p a i {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer .yourFriends .friendsPanel .friendsBody p a i {
   float: right;
   margin-right: 20px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer #accordion2 {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer #accordion2 {
   padding: 0;
   border-radius: 0px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer #accordion2 .accordionRightPanel {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer #accordion2 .accordionRightPanel {
   padding: 0;
   border-radius: 0px;
 }
-.container-fluid .mainBody .dashboardContainer #rightControlPanel div #rightPanelContentContainer #accordion2 .accordionRightPanel .accordionHeading {
+.container-fluid .mainBody .dashboardContainer #rightControlPanel #rightPanelContentContainer #accordion2 .accordionRightPanel .accordionHeading {
   border-radius: 0px;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 {
+.container-fluid .mainBody #accordion2 {
   padding: 0;
   border-radius: 0px;
   width: 0%;
   float: right;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu {
+.container-fluid .mainBody #accordion2 .rightMenu {
   display: inline-block;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu .rightMenuItem {
+.container-fluid .mainBody #accordion2 .rightMenu .rightMenuItem {
   border: 1px solid #58585B;
   background-color: #58585B;
   display: block;
@@ -7041,25 +7032,25 @@ button.close {
   width: 30px;
   font-size: 6px;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu .rightMenuItem img {
+.container-fluid .mainBody #accordion2 .rightMenu .rightMenuItem img {
   width: 20px;
   height: 25px;
   margin-left: 4px;
   margin-top: 10px;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu .selected {
+.container-fluid .mainBody #accordion2 .rightMenu .selected {
   border-left: none;
   background-color: #f5f5f5;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 .rightMenu .rightMenuFiller {
+.container-fluid .mainBody #accordion2 .rightMenu .rightMenuFiller {
   height: 219px;
   background-color: #58585B;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 .accordionRightPanel {
+.container-fluid .mainBody #accordion2 .accordionRightPanel {
   padding: 0;
   border-radius: 0px;
 }
-.container-fluid .mainBody .dashboardContainer #accordion2 .accordionRightPanel .accordionHeading {
+.container-fluid .mainBody #accordion2 .accordionRightPanel .accordionHeading {
   border-radius: 0px;
 }
 div #commContainer {
@@ -7345,6 +7336,18 @@ div .row .row .commPostControls .commCommentBtnOpen .commAccordion .commAccordio
 #addPersonaContainer .addPersonaSliderControls .addPersonaNext button {
   height: 40px;
   border-radius: 0;
+}
+.bodyContent .interactionsContainer .row button {
+  margin-bottom: 15px;
+  border-radius: 0px;
+}
+.bodyContent .interactionsContainer .panel {
+  border-radius: 0px;
+  padding: 5px;
+}
+.bodyContent .interactionsContainer .panel table tbody tr .btn {
+  border-radius: 0px;
+  text-align: center;
 }
 .header {
   background-color: #313131;

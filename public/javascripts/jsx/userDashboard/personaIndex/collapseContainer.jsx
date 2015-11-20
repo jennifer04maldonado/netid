@@ -1,3 +1,4 @@
+
 //INPUT: NONE
 //OUTPUT: CREATION OF NEW PERSONA IN PERSONA INDEX
 var React = require('react');

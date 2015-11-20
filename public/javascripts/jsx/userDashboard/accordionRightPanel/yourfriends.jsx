@@ -1,3 +1,4 @@
+
 var React = require('react');
 
 //INPUT: EVENTUALLY WILL BE DATA OBJECT W/ YOUR FRIENDS
@@ -60,5 +61,4 @@ var YourFriends = React.createClass({
 		)
 	}
 });
-
 module.exports = YourFriends;

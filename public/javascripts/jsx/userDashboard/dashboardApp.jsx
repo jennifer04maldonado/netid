@@ -1,3 +1,4 @@
+
 var React = require('react');
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
@@ -38,7 +39,7 @@ var DashboardApp = React.createClass({
 				this.setState({activeBody: activeBody});
 				activeBody = <MessagesComponent />;
 				break;
-			case 'accountHistory':
+			case 'interactions':
 				activeBody = <AccountHistoryComponent />;
 				break;
 			case 'communities':
@@ -78,20 +79,16 @@ var DashboardApp = React.createClass({
 	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona}/>
 	                    	</div>
 	                    </div>
-	                    <div className="col-sm-7 mainView row">
-	                        <div className="col-sm-12 focusedPersona">
-	                            <p>Your Bio - Complete your Bio!</p>
-	                        </div>
+	                    <div className="col-sm-8 mainView">
 	                        <div className="col-sm-12 netIdSpace"></div>
 	                        <div className="col-sm-12" id="viewPort">
 	                       		<div id="MySplitter">
 	                       		{this.state.activeBody}
-
  								</div> 
 	                        </div>
 	                    </div>
-	                    <div className="col-sm-3" id="rightControlPanel">
-	   						<RightControlComponent activePersona={this.state.activePersona}/>
+	                    <div className="col-sm-2" id="rightControlPanel">
+	   						<RightControlComponent />
 	                    </div>
 	                </div>
 	            </div>

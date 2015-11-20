@@ -1,3 +1,4 @@
+
 var React = require('react');
 var RightMenu = require('./rightMenu');
 
@@ -15,5 +16,4 @@ var RightMenuContainer = React.createClass({
 		)
 	}
 });
-
 module.exports = RightMenuContainer;

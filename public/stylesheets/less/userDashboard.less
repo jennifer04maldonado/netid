@@ -2,6 +2,7 @@
     padding:0;
     background-color: #A6A6A6;
     .mainBody{
+        height: 930px;
         .dashboardContainer {
             min-height: 73vh;
             position: relative;
@@ -32,33 +33,28 @@
                 .personaPickerRight{
                     padding: 0;
                     .personaNavOptions{
-                        margin-top: 1.5%;
+                        margin-top: 18px;
                         float: right;
                         ul{
                            list-style-type: none; 
                             li{
-                                text-transform: uppercase;
+                                font-size: 20px;
                                 color: #E3EDF0;
-                                font-weight: bold;
                                 display: inline;
-                                
                                 i{
-                                    margin-right: 5px;
-
+                                    margin-right: 8px;
                                 }
-                                 span{
-                                        font-size: 25px;
-                                    }
-                            }
+                            }         
                         }
                     }
                 }
             }
             .mainUserDashboardArea{
-                height: 800px;
                 #personaIndex {
+                    height: 820px;
                     background-color: #1E1E1E;
-                    border-right: 26px solid gray;
+                    border-right: 20px solid #58585B;
+                    border-bottom: 20px solid #58585B;
                     display: inline;
                     padding: 0;
                     div {
@@ -112,10 +108,9 @@
                             padding: 0;
                             width: 100%;
                             #personaBarFiller {
-                                    height: 500px;
+                                    height: 819px;
                                     background-color: #58585B;
-                                    width: 25px;
-                                    clear: both;
+                                    width: 26px;
                             }
                             .personaCntnr {
                                 border-right: 12px solid purple;
@@ -166,11 +161,6 @@
                 }
             }    
             .mainView {
-                background-color: #313131;
-                padding-left: 70px;
-                padding-right: 70px;
-                padding-top: 30px;
-                .netIdSpace {}
                 #viewPort {
                     .offersFixedButton{
                         position: fixed;
@@ -193,7 +183,6 @@
             }
             #rightControlPanel {
                 padding: 0;
-                div {
                     #rightPanelAndMenuContainer {
                         display: block;
                         border: 1px solid #58585B;
@@ -226,9 +215,9 @@
                         float: left;
                         background-color: #1E1E1E;
                         padding-top: 15px;
-                        height: 790px;
-                        border-bottom: 10px solid gray;
-                        border-left: 10px solid gray;
+                        height: 820px;
+                        border-bottom: 20px solid #58585B;
+                        border-left: 20px solid #58585B;
                         .contentPanel {
                             height: 310px;
                         }
@@ -336,4 +325,3 @@
             }
         }
     }    
-}
