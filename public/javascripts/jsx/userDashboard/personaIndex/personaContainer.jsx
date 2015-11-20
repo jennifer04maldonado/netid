@@ -1,5 +1,4 @@
 
-
 //INPUT: NONE
 //OUTPUT: CREATION OF NEW PERSONA IN PERSONA INDEX
 //ACCORDION EFFECT WHEN USER CLICKS ON ARROW OR IMAGE
@@ -39,3 +38,4 @@ var PersonaContainer = React.createClass({
 });
 
 module.exports = PersonaContainer;
+

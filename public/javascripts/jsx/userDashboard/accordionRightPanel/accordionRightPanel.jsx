@@ -1,3 +1,4 @@
+
 var React = require('react');
 var RatingsPanel = require('./ratingspanel.jsx');
 var RightMenuContainer = require('./rightmenucontainer.jsx');
@@ -64,5 +65,4 @@ var RightPanel = React.createClass({
 		)
 	}
 });
-
 module.exports = RightPanel;

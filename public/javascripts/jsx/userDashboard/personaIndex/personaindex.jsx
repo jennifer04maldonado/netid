@@ -1,3 +1,4 @@
+
 //INPUT: SOCIAL PERSONAS AND PROF PERSONAS FROM DASHBOARD-AJAX-CALLS-REACT.JS FILE
 //OUTPUT: PERSONA ELEMENTS IN PERSONA INDEX
 var React = require('react');
@@ -18,7 +19,6 @@ var PersonaIndex = React.createClass({
 			return (
 		        <div className={myClassName} id="accordion">
 		        	<SinglePersonaHeader setActivePersona={this.setActivePersona} collapsePersona={this.clickCollapseHandler} isOpen={this.props.isOpen} personas={this.props.personas}/>
-		   
 	            </div>
 			)
 		}
