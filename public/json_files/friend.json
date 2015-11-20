@@ -1,6 +1,7 @@
 [
 	{
 		"id": "1",
+		"persona_name":"Persona1234",
 		"persona_id": "123",
 		"friend_id": "5",
 		"friend_date" : "01/02/2015",
@@ -8,6 +9,7 @@
 	},
 	{
 	    "id": "2",
+		"persona_name":"JimmyPersona123",
 	    "persona_id": "123",
 	    "friend_id": "6",
 	    "friend_date" : "01/02/2015",
@@ -15,9 +17,42 @@
 	},
 	{
 	    "id": "3",
+		"persona_name":"CookingPersona1099",
 	  	"persona_id": "123",
 	  	"friend_id": "7",
 	  	"friend_date" : "01/02/2015",
 	    "status": "offline"
-	}
+	},
+	{
+	    "id": "4",
+		"persona_name":"CheaterHello2000",
+	  	"persona_id": "123",
+	  	"friend_id": "7",
+	  	"friend_date" : "01/02/2015",
+	    "status": "offline"
+	},
+	{
+	    "id": "5",
+		"persona_name":"helloIamFun777",
+	  	"persona_id": "123",
+	  	"friend_id": "7",
+	  	"friend_date" : "01/02/2015",
+	    "status": "offline"
+	},
+	{
+	    "id": "6",
+		"persona_name":"messagemenow41",
+	  	"persona_id": "123",
+	  	"friend_id": "7",
+	  	"friend_date" : "01/02/2015",
+	    "status": "offline"
+	},
+	{
+	    "id": "7",
+		"persona_name":"PersonaAwesome!76",
+	  	"persona_id": "123",
+	  	"friend_id": "7",
+	  	"friend_date" : "01/02/2015",
+	    "status": "offline"
+	}		
 ]
