@@ -35,3 +35,6 @@ node_modules
 #ignore webstorm ide files
 *.idea
 .idea/*
+
+public/stylesheets/css/global.css
+public/javascripts/js/dashboardApp.js
