@@ -2,7 +2,6 @@
 //OUTPUT: CREATION OF NEW PERSONA IN PERSONA INDEX
 var React = require('react');
 
-
 var CollapseContainer = React.createClass({
 	getInitialState: function() {
 		return {

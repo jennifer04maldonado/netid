@@ -3,10 +3,6 @@
 var React = require('react');
 
 var AddPersona = React.createClass({
-	clickHandler: function() {
-		//console.log("calling call back" + this.props.isOpen);
-		this.props.clickHandlerCallback(this.props.isOpen);
-	},
 	render: function(){
 		var myClassName = 'col-sm-12 addPersona out';
 		if (!this.props.isOpen) {
@@ -14,9 +10,6 @@ var AddPersona = React.createClass({
 		}
 		return(
 			<div className={myClassName}>
-				<p>+<span className={this.props.isOpen ? 'panel-title' : 'hidden'}> Add New Persona
-				</span>
-				</p>
 			</div>
 		)
 	}

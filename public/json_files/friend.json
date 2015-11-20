@@ -54,5 +54,30 @@
 	  	"friend_id": "7",
 	  	"friend_date" : "01/02/2015",
 	    "status": "offline"
-	}		
+	},	
+	{
+		"id": "8",
+		"persona_name":"Blakeey",
+		"persona_id": "1653726",
+		"friend_id": "5",
+		"friend_date" : "01/02/2015",
+	  	"status": "online"
+	},
+	{
+	    "id": "9",
+		"persona_name":"CP3",
+	    "persona_id": "1653726",
+	    "friend_id": "6",
+	    "friend_date" : "01/02/2015",
+	    "status": "online"
+	},
+	{
+	    "id": "10",
+		"persona_name":"TheRaptor",
+	    "persona_id": "1653726",
+	    "friend_id": "6",
+	    "friend_date" : "01/02/2015",
+	    "status": "online"
+	}
+
 ]
