@@ -41,7 +41,7 @@ var RightPanel = React.createClass({
 				activePanel = <YourOffersPanel />;
 				break;
 			case '4':
-				console.log('messages');
+				console.log('survey');
 				activePanel = <YourOffersPanel />;
 				break;
 			case '5':
@@ -56,9 +56,8 @@ var RightPanel = React.createClass({
 
 		return(
 			<div id='rightPanelAndMenuContainer'>
-				<div id='rightPanelContentContainer'>
+				<div id='rightPanelContentContainer' className='rightCntnr'>
 					{activePanel}
-					<YourOffersPanel />
 				</div>
 				<RightMenuContainer  activeMenuId={this.state.activeMenuId} menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
 	  		</div>

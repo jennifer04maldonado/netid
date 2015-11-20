@@ -36,14 +36,14 @@ var PersonaPicker = React.createClass({
                     <div className="row col-sm-6 personaPickerRight">
                         <div className="personaNavOptions">
                             <ul>
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'accountHistory')}>
-                                    <li style={style}><i className="fa fa-users"></i><span>A</span>ccount History</li>
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
+                                    <li><i className="fa fa-arrows-h"></i>Interactions</li>
                                 </a>
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
-                                    <li style={style}><i className="fa fa-users"></i><span>C</span>ommunities</li>
+                                    <li><i className="fa fa-users"></i>Communities</li>
                                 </a>
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
-                                    <li><i className="fa fa-envelope-o"></i><span>M</span>essages</li>
+                                    <li><i className="fa fa-envelope-o"></i>Messages</li>
                                 </a>
                             </ul>
                         </div>    
