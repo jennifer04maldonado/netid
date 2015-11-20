@@ -2,6 +2,7 @@ var React = require('react');
 var RightMenu = require('./rightMenu');
 
 var RightMenuContainer = React.createClass({
+
 	displaySelectedPanel: function(activeMenuId) {
 		this.props.displaySelectedPanel(activeMenuId);
 	},
