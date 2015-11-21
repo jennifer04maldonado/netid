@@ -6851,7 +6851,7 @@ button.close {
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex div #collapseContainer {
   padding: 0px;
   width: auto;
-  position: relative;
+  position: static;
 }
 .container-fluid .mainBody .dashboardContainer .mainUserDashboardArea #personaIndex div #collapseContainer .collapseLink {
   text-decoration: none;
