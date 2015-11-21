@@ -36,5 +36,5 @@ node_modules
 *.idea
 .idea/*
 
-public/stylesheets/css/global.css
-public/javascripts/js/dashboardApp.js
+public/stylesheets/css/*.css
+public/javascripts/js/*.js
