@@ -16,6 +16,11 @@ var RightPanel = React.createClass({
 	displaySelectedPanel: function(activeMenuId) {
 		this.setState({activeMenuId: activeMenuId});
 	},
+  	//gets called when recieved new props 		
+  	componentWillReceiveProps: function(nextProps) {
+		console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
+		this.setState({activePersona: nextProps.activePersona});
+  	},	
 	render: function() {
 		var menuItems = [
 			{id: 1, title: 'Members Online', image: '/images/members.png' },
@@ -30,12 +35,12 @@ var RightPanel = React.createClass({
 		console.log('selected menuId: ' + this.state.activeMenuId);
 		switch (this.state.activeMenuId) {
 			case '1':
-				console.log('master settgins');
+				console.log('membersOnline');
 				activePanel = <MembersOnlinePanel />;
 				break;
 			case '2':
 				console.log('frined onlne');
-				activePanel = <FriendsOnlinePanel />;
+				activePanel = <FriendsOnlinePanel {...this.props}/>;
 				break;
 			case '3':
 				console.log('messages');

@@ -88,7 +88,7 @@ var DashboardApp = React.createClass({
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent />
+	   						<RightControlComponent activePersona={this.state.activePersona}/>
 	                    </div>
 	                </div>
 	            </div>
