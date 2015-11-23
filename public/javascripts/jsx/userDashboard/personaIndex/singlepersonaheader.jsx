@@ -8,7 +8,7 @@ var SinglePersonaHeader = React.createClass({
 	getInitialState: function(){
 		return {
 			hoverPersonaId: '',
-			selectedPersonaId:''
+			selectedPersonaId: this.props.personas[0].id //set first persona as defalt
 		}
 	},
 	setActivePersona: function(event){
@@ -52,7 +52,7 @@ var SinglePersonaHeader = React.createClass({
 			}
 
 			if (self.state.selectedPersonaId == personaId) {
-					notifcationClassName += ' selected';
+				notifcationClassName += ' selected';
 			}
 
 			//render the collapse link on first persona only
