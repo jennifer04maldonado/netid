@@ -29,12 +29,17 @@ build/Release
 node_modules
 
 
-#ignore eclipse ide config file
+# Ignore eclipse ide config file
 .project
 
-#ignore webstorm ide files
+# Ignore webstorm ide files
 *.idea
 .idea/*
 
+# Ignore compiled files
 public/stylesheets/css/*.css
 public/javascripts/js/*.js
+
+# Ignore VSCode ide files
+.vscode
+.vscode/*
