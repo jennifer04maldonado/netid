@@ -4,7 +4,7 @@ var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
 var MessagesComponent = require('./personaPicker/messageContainer');
-var AccountHistoryComponent = require('./personaPicker/accountHistoryContainer');
+var InteractionsComponent = require('./personaPicker/interactionsContainer');
 var CommunitiesComponent = require('./personaPicker/communitiesContainer');
 
 var DashboardApp = React.createClass({
@@ -40,7 +40,7 @@ var DashboardApp = React.createClass({
 				activeBody = <MessagesComponent />;
 				break;
 			case 'interactions':
-				activeBody = <AccountHistoryComponent />;
+				activeBody = <InteractionsComponent />;
 				break;
 			case 'communities':
 				activeBody = <CommunitiesComponent />;
