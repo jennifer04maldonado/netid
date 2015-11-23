@@ -7,7 +7,7 @@ This repo will contain the full implementation of netid. Currently this holds th
 
 We are doing a staged release to test our platform and offer more user friendly interfaces to netid as the roadmap is completed. The Alpha version will require users to install IPFS and run a Geth node in order to use the site.  The local version will be the preferred method for our users to test the alpha build since it is less centralized however it will require more technical understanding from the user. This map is tentative and items may be added or checked off over time. 
 
-# Getting Started
+# Getting Started...
 
 The client is built and hosted at http://netid.com
 
