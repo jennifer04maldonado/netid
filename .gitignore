@@ -43,3 +43,6 @@ public/javascripts/js/*.js
 # Ignore VSCode ide files
 .vscode
 .vscode/*
+
+# Ignore gitignore~ file
+.gitignore~
