@@ -3,6 +3,7 @@ var React = require('react');
 var InteractionsContainer = React.createClass({
 	
 	render: function(){
+	
 		return(
 			<div className='bodyContent'>
 				<div className="row col-sm-10 col-sm-offset-1 interactionsContainer">
