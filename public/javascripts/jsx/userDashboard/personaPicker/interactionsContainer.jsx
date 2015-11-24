@@ -21,7 +21,7 @@ var InteractionsContainer = React.createClass({
 					   </thead>
 					   <tbody>
 					      	<tr>
-						        <td getRows = {this.getAllRows()}>Contract Address</td>
+						        <td>Contract Address</td>
 						        <td><i className="fa fa-commenting"></i></td>
 						        <td className="btn btn-success">Accept</td>
 					     	 </tr>
