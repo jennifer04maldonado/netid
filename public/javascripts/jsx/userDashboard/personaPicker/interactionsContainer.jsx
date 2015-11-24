@@ -1,7 +1,7 @@
 var React = require('react');
 
 var InteractionsContainer = React.createClass({
-	
+
 	render: function(){
 	
 		return(
