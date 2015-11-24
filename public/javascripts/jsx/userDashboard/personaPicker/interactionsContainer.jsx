@@ -1,24 +1,6 @@
 var React = require('react');
 
 var InteractionsContainer = React.createClass({
-	getAllRows: function(){
-		var result = this.grabInteractions();
-	},
-	
-	grabInteractions: function(){
-		console.log('grabbing personas api');
-		$.get('.././json_files/personaSchema.json', function(result) {
-	     	var personaArray = result;
-			 console.log(personaArray);
-			 debugger;
-		     if (this.isMounted()) {
-		       this.setState({
-		         personas: personaArray,
-		         activePersona: personaArray[0]
-		       });
-		    }
-	   	}.bind(this));
-	},
 	
 	render: function(){
 		return(
