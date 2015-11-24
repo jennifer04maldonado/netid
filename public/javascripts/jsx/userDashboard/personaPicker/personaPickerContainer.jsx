@@ -36,6 +36,9 @@ var PersonaPicker = React.createClass({
                     <div className="row col-sm-6 personaPickerRight">
                         <div className="personaNavOptions">
                             <ul>
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
+                                    <li><i className="fa fa-arrows-h"></i>Home</li>
+                                </a>
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
                                     <li><i className="fa fa-arrows-h"></i>Interactions</li>
                                 </a>
