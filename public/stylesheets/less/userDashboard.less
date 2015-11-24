@@ -2,7 +2,7 @@
     padding:0;
     background-color: #A6A6A6;
     .mainBody{
-        height: 930px;
+        height: 910px;
         .dashboardContainer {
             min-height: 73vh;
             position: relative;
@@ -33,18 +33,36 @@
                 .personaPickerRight{
                     padding: 0;
                     .personaNavOptions{
-                        margin-top: 18px;
+                        margin-top: 22px;
                         float: right;
                         ul{
-                           list-style-type: none; 
-                            li{
-                                font-size: 20px;
-                                color: #E3EDF0;
-                                display: inline;
-                                i{
-                                    margin-right: 8px;
+                           list-style-type: none;
+                            a{
+                                &:link{
+                                    text-decoration: none;
                                 }
-                            }         
+                                &:visited{
+                                    text-decoration: none;
+                                }
+                                &:hover{
+                                    text-decoration: none;
+                                }
+                                li{
+                                    font-size: 18px;
+                                    color: gray;
+                                    display: inline;
+                                    &:hover{
+                                        color: #E3EDF0;
+                                    }
+                                    &.active{
+                                        color: white;
+                                    }
+                                    i{
+                                        margin-right: 8px;
+                                        margin-left: 40px;
+                                    }
+                                }
+                            }             
                         }
                     }
                 }
@@ -215,7 +233,7 @@
                         float: left;
                         background-color: #1E1E1E;
                         padding-top: 15px;
-                        height: 820px;
+                        height: 818px;
                         border-bottom: 20px solid #58585B;
                         border-left: 20px solid #58585B;
                         .contentPanel {

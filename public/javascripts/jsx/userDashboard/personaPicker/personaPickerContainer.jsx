@@ -37,10 +37,10 @@ var PersonaPicker = React.createClass({
                         <div className="personaNavOptions">
                             <ul>
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
-                                    <li><i className="fa fa-arrows-h"></i>Home</li>
+                                    <li><i className="fa fa-home"></i>Home</li>
                                 </a>
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
-                                    <li><i className="fa fa-arrows-h"></i>Interactions</li>
+                                    <li className="active"><i className="fa fa-arrows-h"></i>Interactions</li>
                                 </a>
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
                                     <li><i className="fa fa-users"></i>Communities</li>
