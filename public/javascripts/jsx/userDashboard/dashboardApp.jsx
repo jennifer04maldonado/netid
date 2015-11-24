@@ -3,16 +3,14 @@ var React = require('react');
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
-var MessagesComponent = require('./personaPicker/messageContainer');
-var AccountHistoryComponent = require('./personaPicker/accountHistoryContainer');
-var CommunitiesComponent = require('./personaPicker/communitiesContainer');
+var MainBodyComponent = require('./personaPicker/mainBodyContainer');
 
 var DashboardApp = React.createClass({
 	getInitialState: function(){
 		return {
             personas : [],
             activePersona: null,
-            activeBody: <MessagesComponent />
+            headerSelection: 'home'
         }
 	},
 	grabPersonas: function(){
@@ -28,37 +26,20 @@ var DashboardApp = React.createClass({
 	   	}.bind(this));
 	},
 	componentDidMount: function() {
-		this.grabPersonas();   
+		this.grabPersonas(); 
   	},
-	setActiveBody: function(headerSelection) {
-		console.log("header selection: " + headerSelection);
-		var activeBody = null;
-
-		switch (headerSelection) {
-			case 'messages':
-				this.setState({activeBody: activeBody});
-				activeBody = <MessagesComponent />;
-				break;
-			case 'interactions':
-				activeBody = <AccountHistoryComponent />;
-				break;
-			case 'communities':
-				activeBody = <CommunitiesComponent />;
-				break;
-			default:
-				activeBody = <CommunitiesComponent />;
-
-		}
-
-		this.setState({activeBody: activeBody});
+  	setActiveBody: function(headerSelection) {
+  		this.setState({
+  			headerSelection: headerSelection
+  		});
   	},
 	setActivePersona: function(activePersonaId) {
 		var activePersona = null;
 		$.each(this.state.personas, function (index,  persona) {
-			console.log("persona id:" + persona.id);
-			console.log("persona name:" + persona.persona_name);			
+			//console.log("persona id:" + persona.id);
+			//console.log("persona name:" + persona.persona_name);			
 			if (activePersonaId == persona.id) {
-				console.log("activePersonaId=" + persona.id);
+				//console.log("activePersonaId=" + persona.id);
 				activePersona = persona;
 			}
 		});
@@ -68,7 +49,6 @@ var DashboardApp = React.createClass({
 		});
 	},
     render: function(){
-
         return (
             <div className="row dashboardContainer">
                 <div id='personaPicker' className="col-sm-12 personaPicker">
@@ -83,7 +63,7 @@ var DashboardApp = React.createClass({
 	                        <div className="col-sm-12 netIdSpace"></div>
 	                        <div className="col-sm-12" id="viewPort">
 	                       		<div id="MySplitter">
-	                       		{this.state.activeBody}
+	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona}/>
  								</div> 
 	                        </div>
 	                    </div>
