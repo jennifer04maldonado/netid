@@ -33,7 +33,26 @@
       "phys_add_info": "",
       "add_interests_info":"",
       "score": "9/10",
-      "ratings":""
+      "ratings":"",
+      "interactions":[
+            {
+                  "address":"0x1234567890",
+                  "status":"accept",
+                  "chatAddr":"ipfsAddr"
+            },{
+                  "address":"0x1234567890",
+                  "status":"initiate",
+                  "chatAddr":"ipfsAddr"
+            },{
+                  "address":"0x1234567890",
+                  "status":"dispute",
+                  "chatAddr":"ipfsAddr"
+            },{
+                  "address":"0x1234567890",
+                  "status":"finish",
+                  "chatAddr":"ipfsAddr"
+            }
+      ]
   },
   {   
       "id" : "1653726",
