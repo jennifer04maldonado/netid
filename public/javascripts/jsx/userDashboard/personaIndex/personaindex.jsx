@@ -18,6 +18,14 @@ var PersonaIndex = React.createClass({
 			console.log('rendering personas');
 			return (
 		        <div className={myClassName} id="accordion">
+		        	<div className="col-sm-12 personaActiveImage">
+                            <div className="personaImage">
+                                <img src={"/images/kim.jpg"}/>
+                            </div>
+                            <div className="col-sm-12 personaActiveName">
+                            	<h3>Jim Kong Kill</h3>
+                            </div>
+                    </div>
 		        	<SinglePersonaHeader setActivePersona={this.setActivePersona} collapsePersona={this.clickCollapseHandler} isOpen={this.props.isOpen} personas={this.props.personas}/>
 	            </div>
 			)
@@ -34,3 +42,4 @@ var PersonaIndex = React.createClass({
 });
 
 module.exports = PersonaIndex;
+

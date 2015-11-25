@@ -3,7 +3,7 @@
     padding-right: 0px;
     padding-left: 0px;
     .mainBody{
-        height: 910px;
+        height: 960px;
         .dashboardContainer {
             position: relative;
             .personaPicker{
@@ -12,21 +12,11 @@
                 background-color: #AC0808;
                 .personaPickerLeft{
                     padding: 0;
-                   .personaActiveImage{
-                        .personaImage{
-                            height: 160px;
-                            width: 270px;
-                            img{
-                                height: 100%;
-                                width: 100%;
-                            }
-                        }
-                    }
                 }
                 .personaPickerRight{
                     padding: 0;
                     .personaNavOptions{
-                        margin-left: 80px;
+                        margin-left: 180px;
                         ul{
                            list-style-type: none;
                            margin-top: 14px;
@@ -117,8 +107,7 @@
                 padding: 0;
                 #personaIndex {
                     padding: 0;
-                    height: 820px;
-                    background-color: #1E1E1E;
+                    height: 895px;
                     border-right: 15px solid #636363;
                     border-bottom: 15px solid #636363;
                     border-top: 15px solid #636363;
@@ -126,6 +115,7 @@
                     div {
                         .in {
                             width: 12%;
+                            border: none;
                         }
                         .out {
                             width: 88%;
@@ -134,17 +124,13 @@
                         .notificationContainer {
                             float: left;
                             background-color: #636363;
-                            height: 95px;
-                            width: 20px;
+                            height: 50px;
+                            width: 30px;
                             input {
-                                    vertical-align: middle;
-                                    margin-left: 5px;
-                                    margin-right: 2px;
-                                    margin-top: 28px;    
+                                    margin-left: 8px;
+                                    margin-top: 20px;    
                             }
-
                         }         
-
                         .notificationContainer.selected {
                                 background-color: #169379; 
                         }               
@@ -172,40 +158,69 @@
                         .multiPersonaCntnr {
                             padding: 0;
                             width: 100%;
+                            .personaActiveImage{
+                                padding-right: 0;
+                                padding-left: 21px;
+                                .personaImage{
+                                    height: 160px;
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                        border: 3px solid #AC0808;
+                                    }
+                                }
+                                .personaActiveName{
+                                    background-color: #1D1D1D;
+                                    padding: 0;
+                                    h3{
+                                        color: white;
+                                        font-size: 14px;
+                                        border-bottom: 3px solid #AC0808;
+                                        padding-bottom: 5px;
+                                        margin-top: 7px;
+                                        padding-left: 25px;
+                                        margin-bottom: 0px;
+                                    }
+                                }
+                            }
                             #personaBarFiller {
-                                    height: 819px;
+                                    height: 864px;
                                     background-color: #636363;
-                                    width: 20px;
+                                    width: 30px;
                             }
                             .personaCntnr {
                                 border-right: 12px solid purple;
                                 padding: 0;
-                                height: 70px;
+                                height: 50px;
                                 border-radius: 0;
-                                clear:both;
-                                margin-top: 1px;
+                                clear: both;
+                                margin-top: 8px;
+                                background-color: #4F4E4E;
                                 .personaColor {
                                     background-color: grey;
                                     height: 100%;
                                 }
-
                                 .personaHeading {
                                     border-radius: 0px;
                                     background: none;                                    padding-left: 20px;
                                     width: inherit;
+                                    padding-left: 0px;
+                                    padding: 0;
                                     .imgCntnr {
                                         padding: 0;
-                                        height: 50px;
-                                        width: 50px;
+                                        height: 55px;
+                                        width: 70px;
                                         img {
-                                            height: 100%;
+                                            height: 90%;
                                             width: 100%;
                                         }
                                     }    
                                     h4{
-                                        margin-top: -34px;
-                                        margin-left: 45px;
+                                        margin-top: -38px;
+                                        margin-left: 72px;
                                         a {
+                                            color: white;
+                                            font-size: 14px;
                                         }
                                     }
                                 }
@@ -278,7 +293,7 @@
                         float: left;
                         background-color: #1E1E1E;
                         padding-top: 15px;
-                        height: 818px;
+                        height: 895px;
                         border-bottom: 15px solid #636363;
                         border-left: 15px solid #636363;
                         .contentPanel {
@@ -360,7 +375,7 @@
                         background-color: #AC0808;
                     }
                     .rightMenuFiller {
-                        height:219px;
+                        height: 312px;
                         background-color: #636363;
                     }
                 }
