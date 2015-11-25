@@ -17,43 +17,52 @@ var PersonaPicker = React.createClass({
 
         return (
             <div className="col-sm-12 personaPicker">
-                    <div className="row col-sm-6 personaPickerLeft">
-                        <div className="col-sm-1 personaActiveImage">
-                                <div className="personaImage">
-                                    <img src={this.props.activePersona ? this.props.activePersona.image : defaultAvatar}/>
-                                </div>
-                        </div>
-                        <div className="col-sm-1 moon">
-                            
-                        </div>
-                        <div>
-                            <h3>
-                                <span className='panel-title'> {this.props.activePersona ? this.props.activePersona.persona_name : 'name'} :</span>
-                                <span className='panel-title'> {this.props.activePersona ? this.props.activePersona.description : 'description'} </span>
-                            </h3>
-                        </div>
+                <div className="row col-sm-3 personaPickerLeft">
+                    <div className="col-sm-1 personaActiveImage">
+                            <div className="personaImage">
+                                <img src={this.props.activePersona ? this.props.activePersona.image : defaultAvatar}/>
+                            </div>
                     </div>
-                    <div className="row col-sm-6 personaPickerRight">
-                        <div className="personaNavOptions">
-                            <ul>
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
-                                    <li><i className="fa fa-home"></i>Home</li>
-                                </a>
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
-                                    <li className="active"><i className="fa fa-arrows-h"></i>Interactions</li>
-                                </a>
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
-                                    <li><i className="fa fa-users"></i>Communities</li>
-                                </a>
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
-                                    <li><i className="fa fa-envelope-o"></i>Messages</li>
-                                </a>
-                            </ul>
-                        </div>    
+                    <div>
+                        <h3>
+                            <span className='panel-title'> {this.props.activePersona ? this.props.activePersona.persona_name : 'name'} :</span>
+                            <span className='panel-title'> {this.props.activePersona ? this.props.activePersona.description : 'description'} </span>
+                        </h3>
                     </div>
+                </div>
+                <div className="row col-sm-5 personaPickerRight">
+                    <div className="personaNavOptions">
+                        <ul>
+                            <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
+                                <li><i className="fa fa-home"></i>Home</li>
+                            </a>
+                            <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
+                                <li className="active"><i className="fa fa-arrows-h"></i>Interactions</li>
+                            </a>
+                            <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
+                                <li><i className="fa fa-users"></i>Communities</li>
+                            </a>
+                            <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
+                                <li><i className="fa fa-envelope-o"></i>Messages</li>
+                            </a>
+                        </ul>
+                    </div>    
+                </div>
+                <div className="row col-sm-1 logoContainer">
+                    <div className="col-sm-12 btn-group logoRatingButton">
+                        <button type="button" className="btn dropdown-toggle ratingDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <img src='../images/netIDLogo.png'></img>
+                        </button>
+                        <ul className="dropdown-menu">
+                            <li><a href="#">Master <strong>67</strong></a></li>
+                            <li role="separator" className="divider"></li>
+                            <li><a href="#">Social <strong>41</strong></a></li>
+                            <li><a href="#">Professional <strong>58</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         )
-
     }
 });
 
