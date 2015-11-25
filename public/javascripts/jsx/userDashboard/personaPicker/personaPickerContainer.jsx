@@ -18,11 +18,6 @@ var PersonaPicker = React.createClass({
         return (
             <div className="col-sm-12 personaPicker">
                 <div className="row col-sm-2 personaPickerLeft">
-                    <div className="col-sm-1 personaActiveImage">
-                            <div className="personaImage">
-                                <img src={this.props.activePersona ? this.props.activePersona.image : defaultAvatar}/>
-                            </div>
-                    </div>
                     {/*<div>
                         <h3>
                             <span className='panel-title'> {this.props.activePersona ? this.props.activePersona.persona_name : 'name'} :</span>
