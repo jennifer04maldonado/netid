@@ -1,22 +1,21 @@
 .container-fluid{
-    padding:0;
-    background-color: #A6A6A6;
+    background-color: #313131;
+    padding-right: 0px;
+    padding-left: 0px;
     .mainBody{
         height: 910px;
         .dashboardContainer {
-            min-height: 73vh;
             position: relative;
             .personaPicker{
-                height: 72px;
+                padding: 0;
+                height: 55px;
                 background-color: #AC0808;
-                border-bottom: 20px solid #58585B;
                 .personaPickerLeft{
                     padding: 0;
                    .personaActiveImage{
-                        padding: 0;
                         .personaImage{
-                            height: 70px;
-                            width: 70px;
+                            height: 160px;
+                            width: 270px;
                             img{
                                 height: 100%;
                                 width: 100%;
@@ -27,9 +26,11 @@
                 .personaPickerRight{
                     padding: 0;
                     .personaNavOptions{
-                        margin-top: 14px;
+                        margin-left: 80px;
                         ul{
                            list-style-type: none;
+                           margin-top: 14px;
+                           padding-left: 0px;
                             a{
                                 &:link{
                                     text-decoration: none;
@@ -41,13 +42,17 @@
                                     text-decoration: none;
                                 }
                                 li{
-                                    font-size: 18px;
-                                    color: gray;
+                                    font-size: 16px;
+                                    color: white;
                                     display: inline;
+                                    text-transform: uppercase;
+                                    padding: 10px;
+                                    padding-bottom: 20px;
                                     &:hover{
-                                        color: #E3EDF0;
+                                        color: gray;
                                     }
                                     &.active{
+                                        background-color: #770707;
                                         color: white;
                                     }
                                     i{
@@ -55,22 +60,37 @@
                                         margin-left: 40px;
                                     }
                                 }
+                                .logOutLink{
+                                    margin-left: 27px;
+                                }
+                            }
+                            input{
+                                display: inline-block;
+                                width: 23%;
+                                border-radius: 20px;
+                                margin-left: 28px;
+                                height: 28px;
+
                             }             
                         }
                     }
                 }
                 .logoContainer{
-                    float: right;
+                    border-top: 71px solid #313131;
+                    border-left: 52px solid #AC0808;
+                    margin-left: 45px;
                     background-color: #313131;
                     padding: 0;
-                    margin-right: -30px;
                     .logoRatingButton{
-                        float: right;
-                        padding: 0;
-                        button{
+                        margin-right: 75px;
+                        .ratingDropdown{
+                            z-index: 1000;
+                            margin-top: -75px;
+                            margin-left: 20px;
                             background-color: #313131;
+                            border-radius: 0px;
                             img{
-                                width: 110px;    
+                                width: 130px;    
                             }
                         }
                         .dropdown-menu{
@@ -93,13 +113,16 @@
                 }
             }
             .mainUserDashboardArea{
+                border-top: 9px solid #770707;
+                padding: 0;
                 #personaIndex {
+                    padding: 0;
                     height: 820px;
                     background-color: #1E1E1E;
-                    border-right: 20px solid #58585B;
-                    border-bottom: 20px solid #58585B;
+                    border-right: 15px solid #636363;
+                    border-bottom: 15px solid #636363;
+                    border-top: 15px solid #636363;
                     display: inline;
-                    padding: 0;
                     div {
                         .in {
                             width: 12%;
@@ -110,9 +133,9 @@
                         }
                         .notificationContainer {
                             float: left;
-                            background-color: #58585B;
+                            background-color: #636363;
                             height: 95px;
-                            width: 25px;
+                            width: 20px;
                             input {
                                     vertical-align: middle;
                                     margin-left: 5px;
@@ -138,7 +161,6 @@
                             }
                         }
                         .addPersona {
-                            
                             .panel-title{
                                 background-color: #313131;
                                 border: 2px solid #959595; 
@@ -152,8 +174,8 @@
                             width: 100%;
                             #personaBarFiller {
                                     height: 819px;
-                                    background-color: #58585B;
-                                    width: 26px;
+                                    background-color: #636363;
+                                    width: 20px;
                             }
                             .personaCntnr {
                                 border-right: 12px solid purple;
@@ -228,8 +250,6 @@
                 padding: 0;
                     #rightPanelAndMenuContainer {
                         display: block;
-                        border: 1px solid #58585B;
-                        float: right;
                     }
                     .ratingsPanel {
                         margin-bottom: 10px;
@@ -259,8 +279,8 @@
                         background-color: #1E1E1E;
                         padding-top: 15px;
                         height: 818px;
-                        border-bottom: 20px solid #58585B;
-                        border-left: 20px solid #58585B;
+                        border-bottom: 15px solid #636363;
+                        border-left: 15px solid #636363;
                         .contentPanel {
                             height: 310px;
                         }
@@ -320,9 +340,10 @@
                 float: right;
                 .rightMenu {
                     display: inline-block;
+                    margin-top: 0px;
+                    border-bottom: 13px solid #636363;
                     .rightMenuItem {
-                        border: 1px solid #58585B;
-                        background-color: #58585B;
+                        background-color: #636363;
                         display: block;
                         height: 95px;
                         width: 30px;
@@ -336,11 +357,11 @@
                     }
                     .selected {
                         border-left: none;
-                        background-color: #f5f5f5;
+                        background-color: #AC0808;
                     }
                     .rightMenuFiller {
                         height:219px;
-                        background-color: #58585B;
+                        background-color: #636363;
                     }
                 }
                 .accordionRightPanel {
