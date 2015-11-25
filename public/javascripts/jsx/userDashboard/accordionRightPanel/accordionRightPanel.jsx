@@ -18,7 +18,7 @@ var RightPanel = React.createClass({
 	},
   	//gets called when recieved new props 		
   	componentWillReceiveProps: function(nextProps) {
-		console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
+		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
 		this.setState({activePersona: nextProps.activePersona});
   	},	
 	render: function() {
@@ -31,40 +31,19 @@ var RightPanel = React.createClass({
 			{id: 6, title: 'Wallet', image: '/images/wallet.png' }
 		];
 
-		var activePanel;
-		console.log('selected menuId: ' + this.state.activeMenuId);
-		switch (this.state.activeMenuId) {
-			case '1':
-				console.log('membersOnline');
-				activePanel = <MembersOnlinePanel />;
-				break;
-			case '2':
-				console.log('frined onlne');
-				activePanel = <FriendsOnlinePanel {...this.props}/>;
-				break;
-			case '3':
-				console.log('messages');
-				activePanel = <YourOffersPanel />;
-				break;
-			case '4':
-				console.log('offers');
-				activePanel = <YourOffersPanel />;
-				break;
-			case '5':
-				console.log('survey');
-				activePanel = <YourOffersPanel />;
-				break;
-			case '6':
-				console.log('wallet');
-				activePanel = <YourOffersPanel />;
-				break;			
-		}
-
 		return(
 			<div id='rightPanelAndMenuContainer'>
 				<div id='rightPanelContentContainer' className='rightCntnr'>
-					{activePanel}
-				</div>
+					<div className={this.state.activeMenuId !=1 ? 'hidden' : ''} >
+						<MembersOnlinePanel />
+					</div>
+					<div className={this.state.activeMenuId !=2 ? 'hidden' : ''} >
+						<FriendsOnlinePanel {...this.props} />
+					</div>
+					<div className={this.state.activeMenuId !=3 ? 'hidden' : ''} >
+						<YourOffersPanel />
+					</div>
+				</div>	
 				<RightMenuContainer  activeMenuId={this.state.activeMenuId} menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
 	  		</div>
 		)
