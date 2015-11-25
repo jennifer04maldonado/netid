@@ -53,13 +53,13 @@ var DashboardApp = React.createClass({
             <div className="row dashboardContainer">
                 <div id='personaPicker' className="col-sm-12 personaPicker">
 					<PersonaPickerComponent setActiveBody={this.setActiveBody} activePersona={this.state.activePersona}/>               
-	                <div className="row mainUserDashboardArea">
+	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
 	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona}/>
 	                    	</div>
 	                    </div>
-	                    <div className="col-sm-8 mainView">
+	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12 netIdSpace"></div>
 	                        <div className="col-sm-12" id="viewPort">
 	                       		<div id="MySplitter">

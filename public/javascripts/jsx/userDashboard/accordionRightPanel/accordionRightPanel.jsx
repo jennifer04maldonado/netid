@@ -26,9 +26,9 @@ var RightPanel = React.createClass({
 			{id: 1, title: 'Members Online', image: '/images/members.png' },
 			{id: 2, title: 'Friends Online', image: '/images/friends.png'},
 			{id: 3, title: 'Messages', image: '/images/message.png' },
-			{id: 4, title: 'Members Online', image: '/images/members.png' },
-			{id: 5, title: 'Friends Online', image: '/images/friends.png'},
-			{id: 6, title: 'Messages', image: '/images/message.png' }
+			{id: 4, title: 'My Offers', image: '/images/offers.png' },
+			{id: 5, title: 'Survey', image: '/images/survey.png'},
+			{id: 6, title: 'Messages', image: '/images/wallet.png' }
 		];
 
 		return(
