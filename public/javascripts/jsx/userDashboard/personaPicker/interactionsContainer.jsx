@@ -65,7 +65,7 @@ var InteractionsContainer = React.createClass({
 						    </tbody>
 			            </table>
 					</div>
-				</div>	
+				</div>
             </div>
 			</div>
 		)
