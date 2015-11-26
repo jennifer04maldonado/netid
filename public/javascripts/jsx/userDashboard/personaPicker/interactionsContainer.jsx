@@ -1,6 +1,18 @@
 var React = require('react');
 
 var InteractionsContainer = React.createClass({
+  	getInitialState: function() {
+    	return {
+      		open: false
+    	}
+  	},
+	toggleAddForm: function(event) {
+		if (this.state.open) {
+			this.setState({open: false});
+		} else {
+			this.setState({open: true});	
+		}
+  	},
 
 	render: function(){
 	
@@ -9,10 +21,10 @@ var InteractionsContainer = React.createClass({
 				<div className="row col-sm-10 col-sm-offset-1 interactionsContainer">
 	                <div className="row">
 	                	<h3>Interactions</h3>
-	                    <button className="btn"><i className="fa fa-plus-circle"></i>Create New Interaction</button>
-	                    <div className="well col-sm-12">
+	                    <button className="btn" onClick={this.toggleAddForm}><i className="fa fa-plus-circle"></i>Create New Interaction</button>
+	                    <div className={'well col-sm-12 ' + (this.state.open ? '' : 'hidden')} >
 		                    <form action="">
-		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" maxlength="40" rows="1"></textarea>
+		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" maxLength="40" rows="1"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
 							    <button type="submit" className="btn btn-default">Submit</button>
 
