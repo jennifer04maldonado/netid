@@ -13,7 +13,7 @@ var MainBodyContainer = React.createClass({
 	},
   	//gets called when recieved new props 		
   	componentWillReceiveProps: function(nextProps) {
-		console.log('componentWillReceiveProps: ' + nextProps.activePersona.persona_name);
+		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.persona_name);
 		this.setState({activePersona: nextProps.activePersona});
   	},
 	render: function(){

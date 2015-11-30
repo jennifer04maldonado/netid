@@ -3,8 +3,8 @@ var React = require('react');
 var PersonaPicker = React.createClass({
 
     setActiveBody: function(selectedValue, event){
-        console.log('selected: ' + selectedValue);
-        console.log('event: ' + event);
+        //console.log('selected: ' + selectedValue);
+        //console.log('event: ' + event);
         this.props.setActiveBody(selectedValue);
     },
 
