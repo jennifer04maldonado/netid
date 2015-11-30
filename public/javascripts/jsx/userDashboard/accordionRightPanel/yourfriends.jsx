@@ -14,17 +14,12 @@ var YourFriends = React.createClass({
   componentWillReceiveProps: function(nextProps) {
 
     if (nextProps.activePersona !== this.props.activePersona) {
-      console.log('grabbing your friends for persona:' + nextProps.activePersona.persona_name); 
       var personaId = nextProps.activePersona.id;
       $.get('.././json_files/friend.json', function(result) {
            if (this.isMounted()) {
               var thisPersonaFriends = [];
               for (var i=0; i < result.length; i++) {
-                //console.log('iterating friends...' + result[i].persona_id);
-                //console.log('personaId -->' + personaId);
-
                 if (personaId == result[i].persona_id) {
-                  //console.log('frind found: ' + result[i].persona_name);
                   thisPersonaFriends.push(result[i]);
                 }
               }  
@@ -39,7 +34,6 @@ var YourFriends = React.createClass({
   },
 
 	render: function(){   
-    console.log
 
     return(
 			<div className="col-sm-12 accordion-group contentPanel yourFriends accordionRightPanel">

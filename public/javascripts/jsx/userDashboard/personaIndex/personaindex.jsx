@@ -15,7 +15,7 @@ var PersonaIndex = React.createClass({
 	render: function(){
 		var myClassName = 'col-sm-12 panel-group multiPersonaCntnr';
 		if(this.props.personas.length !== 0){
-			console.log('rendering personas');
+			//console.log('rendering personas');
 			return (
 		        <div className={myClassName} id="accordion">
 		        	<div className="col-sm-12 personaActiveImage">
@@ -31,7 +31,7 @@ var PersonaIndex = React.createClass({
 			)
 		}
 		else{
-			console.log('not rendering personas');
+			//console.log('not rendering personas');
 			return (
 				<div className={myClassName} id="accordion">
 					

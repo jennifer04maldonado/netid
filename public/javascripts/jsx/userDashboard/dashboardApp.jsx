@@ -14,7 +14,7 @@ var DashboardApp = React.createClass({
         }
 	},
 	grabPersonas: function(){
-		console.log('grabbing personas api');
+		//console.log('grabbing personas api');
 		$.get('.././json_files/personaSchema.json', function(result) {
 	     	var personaArray = result;
 		     if (this.isMounted()) {
