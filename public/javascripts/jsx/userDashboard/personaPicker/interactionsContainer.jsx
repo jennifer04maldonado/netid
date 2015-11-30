@@ -38,9 +38,9 @@ var InteractionsContainer = React.createClass({
 
 	render: function(){
 		var rows = [];
-		this.state.interactionsData.interactions.forEach(function(interaction) {
+		this.state.interactionsData.interactions.forEach(function(interaction, index) {
 			rows.push(
-				<tr>
+				<tr key={index}>
 					<td>{interaction.address}</td>
 					<td>{interaction.chatAddress}</td>
 					<td className="btn btn-success">{interaction.status}</td>
