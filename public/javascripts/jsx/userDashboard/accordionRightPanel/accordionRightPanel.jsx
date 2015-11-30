@@ -2,6 +2,12 @@
 var React = require('react');
 var RatingsPanel = require('./ratingspanel.jsx');
 var RightMenuContainer = require('./rightmenucontainer.jsx');
+var MessagesContainer = require('./messagesContainer.jsx');
+var CommunitiesContainer = require('./communitiesContainer.jsx');
+var SurveysContainer = require('./surveysContainer.jsx');
+var WalletContainer = require('./walletContainer.jsx');
+var MessagesContainer = require('./messagesContainer.jsx');
+
 var YourOffersPanel = require('./yourofferspanel.jsx');
 var FriendsOnlinePanel = require('./yourfriends.jsx');
 var MembersOnlinePanel = require('./membersonline.jsx');
@@ -34,14 +40,27 @@ var RightPanel = React.createClass({
 		return(
 			<div id='rightPanelAndMenuContainer'>
 				<div id='rightPanelContentContainer' className='rightCntnr'>
-					<div className={this.state.activeMenuId !=1 ? 'hidden' : ''} >
-						<MembersOnlinePanel />
+					<div id='rightPanelTopDiv'>
+						<div className={this.state.activeMenuId == 1 ? 'selected' : ' hidden'} >
+							<MessagesContainer />
+						</div>
+						<div className={this.state.activeMenuId == 2 ? 'selected' : 'hidden'} >
+							<FriendsOnlinePanel {...this.props} />
+						</div>
+						<div className={this.state.activeMenuId == 3 ? 'selected' : 'hidden'} >
+							<CommunitiesContainer />
+						</div>
 					</div>
-					<div className={this.state.activeMenuId !=2 ? 'hidden' : ''} >
-						<FriendsOnlinePanel {...this.props} />
-					</div>
-					<div className={this.state.activeMenuId !=3 ? 'hidden' : ''} >
-						<YourOffersPanel />
+					<div id='rightPanelTopBottom'>
+						<div className={this.state.activeMenuId == 4 ? 'selected' : 'hidden'} >
+							<YourOffersPanel />
+						</div>
+						<div className={this.state.activeMenuId == 5 ? 'selected' : 'hidden'} >
+							<SurveysContainer />
+						</div>
+						<div className={this.state.activeMenuId == 6 ? 'selected' : 'hidden'} >
+							<WalletContainer />
+						</div>					
 					</div>
 				</div>	
 				<RightMenuContainer  activeMenuId={this.state.activeMenuId} menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
