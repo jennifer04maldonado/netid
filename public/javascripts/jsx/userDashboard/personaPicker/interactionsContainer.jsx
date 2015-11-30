@@ -18,19 +18,22 @@ var InteractionsContainer = React.createClass({
 	},	
  
 	componentWillReceiveProps: function(nextProps) {
-			console.log('new persona selectd: ' + nextProps.activePersona.persona_name);
 			this.componentDidMount();
 	},
 	
 	componentDidMount: function() {
-	
-		var interactionsData = null;
+		var caughtData = false;
 		$.get('.././json_files/interactionsSchema.json', function(result) {
 			if (this.isMounted()){
 				for (var i in result){
 					if(result[i].id === this.props.activePersona.id) {
+						caughtData = true;
 						this.setState({interactionsData: result[i]});
 					}
+				}
+				if(caughtData == false){
+					var emptyState = this.getInitialState().interactionsData;
+					this.setState({interactionsData: emptyState});
 				}
 			}
 	   	}.bind(this));
@@ -38,12 +41,22 @@ var InteractionsContainer = React.createClass({
 
 	render: function(){
 		var rows = [];
+		var cssClass = "";
 		this.state.interactionsData.interactions.forEach(function(interaction, index) {
+			switch (interaction.status){
+				case "accept":	cssClass = "btn btn-success interactionsButton";
+					break;
+				case "rate":	cssClass = "btn btn-info interactionsButton";
+					break;
+				case "dispute": cssClass = "btn btn-warning interactionsButtons";
+					break;
+				default: cssClass = "btn btn-default interactionsButton";
+			}
 			rows.push(
 				<tr key={index}>
 					<td>{interaction.address}</td>
-					<td>{interaction.chatAddress}</td>
-					<td className="btn btn-success">{interaction.status}</td>
+					<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
+					<td className={cssClass}>{interaction.status}</td>
 				</tr>
 			);
 		});
