@@ -39,7 +39,6 @@ var YourFriends = React.createClass({
   },
 
 	render: function(){   
-    console.log
 
     return(
 			<div className="col-sm-12 accordion-group contentPanel yourFriends accordionRightPanel">
