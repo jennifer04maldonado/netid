@@ -12,7 +12,7 @@ var SinglePersonaHeader = React.createClass({
 		}
 	},
 	setActivePersona: function(event){
-		console.log('set active persona ' + event.target.dataset.personaId);
+		//console.log('set active persona ' + event.target.dataset.personaId);
 		this.props.setActivePersona(event.target.dataset.personaId);
 		
 		this.setState({
