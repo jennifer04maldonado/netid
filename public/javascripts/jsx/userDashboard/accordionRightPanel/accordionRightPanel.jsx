@@ -51,7 +51,7 @@ var RightPanel = React.createClass({
 							<CommunitiesContainer />
 						</div>
 					</div>
-					<div id='rightPanelTopBottom'>
+					<div id='rightPanelBottomDiv'>
 						<div className={this.state.activeMenuId == 4 ? 'selected' : 'hidden'} >
 							<YourOffersPanel />
 						</div>
