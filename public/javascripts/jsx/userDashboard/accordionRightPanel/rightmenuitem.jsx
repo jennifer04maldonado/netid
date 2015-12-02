@@ -16,15 +16,15 @@ var RightMenuItem = React.createClass({
 		//console.log("selected: " + this.props.activeMenuId + "=" + menuId);
 
 		if (this.props.activeMenuId == menuId) {
-			className += ' selected';
+			className += ' active';
 		}
 
 		return(
-			<div className={className} onClick={this.setActive} data-menu-id={menuId} title={title} >
+			<li className={className} onClick={this.setActive} data-menu-id={menuId} title={title} >
 				<a href={href} data-menu-id={menuId}>
 					<img src={image} data-menu-id={menuId}/>
 				</a>
-			</div>
+			</li>
 		)
 	}
 });
