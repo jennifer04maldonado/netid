@@ -3,9 +3,9 @@
 var PersonaPicker = React.createClass({
 
     setActiveBody: function(selectedValue, event){
-        //console.log('selected: ' + selectedValue);
+        console.log('selected: ' + selectedValue);
         //console.log('event: ' + event);
-        this.props.setActiveBody(selectedValue);
+        this.props.setActiveBody(selectedValue);        
     },
 
     render: function(){
@@ -28,23 +28,23 @@ var PersonaPicker = React.createClass({
                 <div className="row col-sm-6 col-sm-offset-2 personaPickerRight">
                     <div className="personaNavOptions">
                         <ul className='nav nav-pills'>
-                            <li>
+                            <li className={this.props.headerSelection == 'home' ? 'active' : ''}>
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
                                     Home
                                 </a>
                             </li>
-                            <li>                                
+                            <li className={this.props.headerSelection == 'communities' ? 'active' : ''}>                                
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
                                     Communities
                                 </a>
                             </li>
-                            <li>   
+                            <li className={this.props.headerSelection == 'messages' ? 'active' : ''}>   
                                 <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
                                     Messages
                                 </a>
                             </li>
-                            <li>    
-                                <a href="#" className="active" onClick={this.setActiveBody.bind(this, 'interactions')}>
+                            <li className={this.props.headerSelection == 'interactions' ? 'active' : ''}>    
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
                                     Interactions
                                 </a>
                             </li>
