@@ -15,7 +15,7 @@ var RightMenuItem = React.createClass({
 
 		//console.log("selected: " + this.props.activeMenuId + "=" + menuId);
 
-		if (this.props.activeMenuId == menuId) {
+		if (this.props.selectedMenuId == menuId) {
 			className += ' active';
 		}
 
