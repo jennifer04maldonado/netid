@@ -1,7 +1,7 @@
 
 //INPUT: NONE
 //OUTPUT: CREATION OF NEW PERSONA IN PERSONA INDEX
-var React = require('react');
+
 
 var AddPersona = React.createClass({
 	render: function(){

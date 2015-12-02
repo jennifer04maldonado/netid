@@ -1,5 +1,5 @@
 
-var React = require('react');
+
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
@@ -52,7 +52,7 @@ var DashboardApp = React.createClass({
         return (
             <div className="row dashboardContainer">
                 <div id='personaPicker' className="col-sm-12 personaPicker">
-					<PersonaPickerComponent setActiveBody={this.setActiveBody} activePersona={this.state.activePersona}/>               
+					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona}/>               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>

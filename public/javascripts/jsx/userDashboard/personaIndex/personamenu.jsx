@@ -1,6 +1,6 @@
 //INPUT: SOCIAL PERSONA LIST FROM AJAX CALL PASSED DOWN TO PARENT
 //OUTPUT: LINKS FOR EACH PERSONA IN SINGLEPERSONAHEADER
-var React = require('react');
+
 
 var PersonaMenu = React.createClass({
 	render: function(){

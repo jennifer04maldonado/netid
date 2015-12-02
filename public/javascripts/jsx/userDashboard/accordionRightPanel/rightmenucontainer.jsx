@@ -1,6 +1,6 @@
 
-var React = require('react');
-var RightMenu = require('./rightMenu');
+
+var RightMenuItem = require('./rightmenuitem');
 
 var RightMenuContainer = React.createClass({
 
@@ -9,9 +9,18 @@ var RightMenuContainer = React.createClass({
 	},
 
 	render: function(){
+		var self = this;
+        var menuNodes = this.props.menuItems.map(function(item,index) {
+            return (
+                    <RightMenuItem key={index} selectedMenuId={self.props.selectedMenuId} item={item} selectHandlerCallback={self.displaySelectedPanel} />
+            );
+        })
 		return(
 			<div className="accordion2" id="accordion2">
-		    	<RightMenu activeMenuId={this.props.activeMenuId} displaySelectedPanel={this.displaySelectedPanel} menuItems={this.props.menuItems}/>
+				<ul className='rightMenu nav nav-pills nav-stacked' >            
+                	{menuNodes}
+                	<li className="rightMenuFiller"> </li>
+				</ul>		    	
 			</div>
 		)
 	}

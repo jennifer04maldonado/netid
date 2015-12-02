@@ -1,4 +1,4 @@
-var React = require('react');
+
 
 let CommHeading = React.createClass({
 	render: function(){
