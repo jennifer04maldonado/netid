@@ -1,4 +1,4 @@
-var React = require('react');
+
 
 var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');

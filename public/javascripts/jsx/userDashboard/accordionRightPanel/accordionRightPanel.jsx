@@ -1,5 +1,5 @@
 
-var React = require('react');
+
 var RatingsPanel = require('./ratingspanel.jsx');
 var RightMenuContainer = require('./rightmenucontainer.jsx');
 var MessagesContainer = require('./messagesContainer.jsx');
@@ -16,11 +16,19 @@ var RightPanel = React.createClass({
 	//set default to 'Friends Online'
 	getInitialState: function() {
 		return {
-			activeMenuId: '2'
+			selectedMenuId: 2,
+			activeTopMenuId: 2,
+			activeBottomMenuId: 4
 		}
 	},
 	displaySelectedPanel: function(activeMenuId) {
-		this.setState({activeMenuId: activeMenuId});
+		if (parseInt(activeMenuId) > 3) {
+			this.setState({activeBottomMenuId: activeMenuId});
+		} else {
+			this.setState({activeTopMenuId: activeMenuId});
+		}
+		this.setState({selectedMenuId: activeMenuId});
+
 	},
   	//gets called when recieved new props 		
   	componentWillReceiveProps: function(nextProps) {
@@ -41,29 +49,29 @@ var RightPanel = React.createClass({
 			<div id='rightPanelAndMenuContainer'>
 				<div id='rightPanelContentContainer' className='rightCntnr'>
 					<div id='rightPanelTopDiv'>
-						<div className={this.state.activeMenuId == 1 ? 'selected' : ' hidden'} >
+						<div className={this.state.activeTopMenuId == 1 ? 'selected' : ' hidden'} >
 							<MessagesContainer />
 						</div>
-						<div className={this.state.activeMenuId == 2 ? 'selected' : 'hidden'} >
+						<div className={this.state.activeTopMenuId == 2 ? 'selected' : 'hidden'} >
 							<FriendsOnlinePanel {...this.props} />
 						</div>
-						<div className={this.state.activeMenuId == 3 ? 'selected' : 'hidden'} >
+						<div className={this.state.activeTopMenuId == 3 ? 'selected' : 'hidden'} >
 							<CommunitiesContainer />
 						</div>
 					</div>
 					<div id='rightPanelBottomDiv'>
-						<div className={this.state.activeMenuId == 4 ? 'selected' : 'hidden'} >
+						<div className={this.state.activeBottomMenuId == 4 ? 'selected' : 'hidden'} >
 							<YourOffersPanel />
 						</div>
-						<div className={this.state.activeMenuId == 5 ? 'selected' : 'hidden'} >
+						<div className={this.state.activeBottomMenuId == 5 ? 'selected' : 'hidden'} >
 							<SurveysContainer />
 						</div>
-						<div className={this.state.activeMenuId == 6 ? 'selected' : 'hidden'} >
+						<div className={this.state.activeBottomMenuId == 6 ? 'selected' : 'hidden'} >
 							<WalletContainer />
 						</div>					
 					</div>
 				</div>	
-				<RightMenuContainer  activeMenuId={this.state.activeMenuId} menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
+				<RightMenuContainer  selectedMenuId={this.state.selectedMenuId} menuItems={menuItems} displaySelectedPanel={this.displaySelectedPanel}/>
 	  		</div>
 		)
 	}

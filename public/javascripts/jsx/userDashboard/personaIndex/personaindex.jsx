@@ -1,7 +1,7 @@
 
 //INPUT: SOCIAL PERSONAS AND PROF PERSONAS FROM DASHBOARD-AJAX-CALLS-REACT.JS FILE
 //OUTPUT: PERSONA ELEMENTS IN PERSONA INDEX
-var React = require('react');
+
 var SinglePersonaHeader = require('./singlepersonaheader');
 
 

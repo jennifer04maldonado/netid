@@ -1,5 +1,5 @@
 
-var React = require('react');
+
 //var hash = 'QmWwWWE2HuaNjg5CBy9FwuAUC9k5UXT6e9CSjqWbzY3fgw';
 /*var ipfs_api = require('ipfs-api');
 var ipfs = ipfs_api('localhost', '5001');

@@ -1,6 +1,6 @@
 //INPUT: SOCIAL PERSONA LIST FROM AJAX CALL PASSED DOWN TO PARENT
 //OUTPUT: PERSONA CONTAINERS FOR EACH PERSONA IN ARRAY
-var React = require('react');
+
 var PersonaMenu = require('./personamenu');
 var CollapseContainer = require('./collapseContainer');
 
