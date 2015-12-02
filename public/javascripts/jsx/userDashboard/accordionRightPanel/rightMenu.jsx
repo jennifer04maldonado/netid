@@ -14,10 +14,10 @@ var RightMenu = React.createClass({
         });
 
         return(
-			<div className='rightMenu' >
+			<ul className='rightMenu nav nav-pills nav-stacked' >            
                 {menuNodes}
-                <div className="rightMenuFiller"> </div>
-			</div>
+                <li className="rightMenuFiller"> </li>
+			</ul>
 		)
 	}
 });
