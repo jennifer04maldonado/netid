@@ -3,7 +3,7 @@
 var PersonaPicker = React.createClass({
 
     setActiveBody: function(selectedValue, event){
-        console.log('selected: ' + selectedValue);
+        //console.log('selected: ' + selectedValue);
         //console.log('event: ' + event);
         this.props.setActiveBody(selectedValue);        
     },
