@@ -1,4 +1,4 @@
-var React = require('react');
+
 
 var RightMenuItem = React.createClass({
 	setActive: function(event) {

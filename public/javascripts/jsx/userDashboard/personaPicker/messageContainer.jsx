@@ -1,4 +1,4 @@
-var React = require('react');
+
 
 var MessageContainer = React.createClass({
 	render: function(){

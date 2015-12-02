@@ -1,5 +1,5 @@
 
-var React = require('react');
+
 var RatingsPanel = require('./ratingspanel.jsx');
 var RightMenuContainer = require('./rightmenucontainer.jsx');
 var MessagesContainer = require('./messagesContainer.jsx');

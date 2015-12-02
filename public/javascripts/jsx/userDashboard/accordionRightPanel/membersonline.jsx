@@ -1,4 +1,4 @@
-var React = require('react');
+
 
 var MembersOnline = React.createClass({
 	render: function(){

@@ -2,7 +2,7 @@
 //INPUT: NONE
 //OUTPUT: CREATION OF NEW PERSONA IN PERSONA INDEX
 //ACCORDION EFFECT WHEN USER CLICKS ON ARROW OR IMAGE
-var React = require('react');
+
 var AddPersona = require('./addpersona');
 var PersonaIndex = require('./personaindex');
 

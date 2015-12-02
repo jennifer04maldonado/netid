@@ -1,5 +1,5 @@
 
-var React = require('react');
+
 var RightMenuItem = require('./rightmenuitem');
 
 var RightMenuContainer = React.createClass({
