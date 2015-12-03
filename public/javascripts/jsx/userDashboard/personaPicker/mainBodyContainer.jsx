@@ -2,7 +2,7 @@
 
 var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');
-var SettingsComponent = require('./SettingsContainer');
+var SettingsComponent = require('./settingsContainer');
 var CommunitiesComponent = require('./communitiesContainer');
 var HomeComponent = require('./homeContainer');
 
