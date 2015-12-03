@@ -39,6 +39,15 @@ var InteractionsContainer = React.createClass({
 	   	}.bind(this));
 	},
 
+	createInteraction: function() {
+		var web3 = new Web3();
+		web3.setProvider(new web3.providers.HttpProvider());
+		var coinbase = web3.eth.accounts[0];
+		var balance = web3.fromWei(web3.eth.getBalance(coinbase), "ether");
+		console.log(balance);
+		//do some web3 shit here
+	},
+
 	render: function(){
 		var rows = [];
 		var cssClass = "";
@@ -71,7 +80,7 @@ var InteractionsContainer = React.createClass({
 		                    <form action="">
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" maxLength="40" rows="1"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
-							    <button type="submit" className="btn btn-default">Submit</button>
+							    <button type="submit" className="btn btn-default" onClick={this.helloWorld}>Submit</button>
 
 							</form> 
 						</div>	
