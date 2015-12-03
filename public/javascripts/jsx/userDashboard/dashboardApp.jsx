@@ -60,11 +60,8 @@ var DashboardApp = React.createClass({
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
-	                        <div className="col-sm-12 netIdSpace"></div>
 	                        <div className="col-sm-12" id="viewPort">
-	                       		<div id="MySplitter">
 	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona}/>
- 								</div> 
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">

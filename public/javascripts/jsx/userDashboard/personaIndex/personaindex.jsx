@@ -20,10 +20,10 @@ var PersonaIndex = React.createClass({
 		        <div className={myClassName} id="accordion">
 		        	<div className="col-sm-12 personaActiveImage">
                             <div className="personaImage">
-                                <img src={"/images/kim.jpg"}/>
+                                <img src={"/images/ein.jpeg"}/>
                             </div>
                             <div className="col-sm-12 personaActiveName">
-                            	<h3>Jim Kong Kill</h3>
+                            	<h3>NatetheGreat</h3>
                             </div>
                     </div>
 		        	<SinglePersonaHeader setActivePersona={this.setActivePersona} collapsePersona={this.clickCollapseHandler} isOpen={this.props.isOpen} personas={this.props.personas}/>
