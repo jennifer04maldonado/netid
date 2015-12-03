@@ -23,25 +23,33 @@
                                 font-size: 14px;
                                 color: white;
                                 display: inline;
-                                padding-top: 7px;
+                                margin-top: 7px;
+                                &:active{
+                                    background-color: #770707;
+                                }
                                 .logOutLink{
                                     border-left: thin solid #A6A7A7;
                                 }
                                 a{
                                     color: white;
+                                    &:active{
+                                        border-radius: 0px;
+                                        background-color: none;  
+                                    }
                                     &:link{
                                         text-decoration: none;
                                         border-radius: 0px;
                                     }
-                                    &:active{
-                                        border-radius: 0px;     
+                                    &:focus{
+                                        background-color: #770707;
                                     }
                                     &:visited{
                                         text-decoration: none;
+                                        background-color: #770707;
                                     }
                                     &:hover{
-                                        text-decoration: none;
                                         border-radius: 0px;
+                                        background-color: #770707;
                                     } 
                                 }
                                 input{
@@ -368,9 +376,24 @@
                         height: 146px;
                         width: 30px;
                         font-size: 6px;
+                        margin-top: 0px;
                         a {
                             height: inherit;
                             padding: 0px;
+                            &:hover{
+                                background-color: #770707;
+                                border-radius: 0px;
+                            }
+                            &:focus{
+                                background-color: #770707;
+                                border-radius: 0px;
+                            }
+                            &:link{
+                                border-radius: 0px;
+                            }
+                            &:visited{
+                                background-color: #770707;
+                            }
                         }
                         img {
                             width: 20px;
@@ -384,7 +407,7 @@
                     .rightMenuFiller {
                         height: 5px;
                         background-color: #636363;
-                    }
+                        margin-top: 0px;                    }
                 }
                 .accordionRightPanel {
                     padding: 0;
