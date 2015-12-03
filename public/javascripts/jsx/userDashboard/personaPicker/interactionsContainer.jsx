@@ -40,22 +40,24 @@ var InteractionsContainer = React.createClass({
 	},
 
 	createInteraction: function() {
-		//instantiate
+		//instantiate web3 object 
 		var web3 = new Web3();
 		web3.setProvider(new web3.providers.HttpProvider());
-		var coinbase = web3.eth.coinbase;
-		var balance = web3.eth.getBalance(coinbase);
-		console.log(balance);
-		web3.eth.getBlock(48, function(error, result){
-		    if(!error)
-		        console.log(result)
-		    else
-		        console.error(error);
-		})
-
+		//example api code
+		// var coinbase = web3.eth.coinbase;
+		// var balance = web3.eth.getBalance(coinbase);
+		// console.log(balance);
+		// web3.eth.getBlock(48, function(error, result){
+		//     if(!error)
+		//         console.log(result)
+		//     else
+		//         console.error(error);
+		// })
+		
+		//set the account from a selector replace 1 with a variable
 		var thisAccount = web3.eth.accounts[1];
 
-
+		//create interaction
 		var interactionsContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"disputed","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiatorRating","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[],"name":"setToFinal","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"responderConf","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"responder","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[],"name":"confirmRating","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"responderRating","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"dataHash2","outputs":[{"name":"","type":"string"}],"type":"function"},{"constant":true,"inputs":[],"name":"respRated","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"rateCount","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiator","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[],"name":"disputer","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[],"name":"initRated","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"dataHash1","outputs":[{"name":"","type":"string"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiatorConf","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"state","outputs":[{"name":"","type":"uint8"}],"type":"function"},{"constant":false,"inputs":[],"name":"confirmInvite","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"cancelInvite","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"firstPart","type":"string"},{"name":"secondPart","type":"string"}],"name":"setHash","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"rating","type":"uint256"}],"name":"rate","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"dispute","outputs":[],"type":"function"},{"inputs":[],"type":"constructor"}]);
 		var interactions = interactionsContract.new(
 		   {
@@ -66,6 +68,7 @@ var InteractionsContainer = React.createClass({
 		    console.log(e, contract);
 		    if (typeof contract.address != 'undefined') {
 		        console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+		        //send transaction to receiving CMC contract notify of invitation
 		        var cmcContract = 'someABI';
 				var cmcInstance = cmcContract.at(this.ref.form.responderContractAddy);
 				var pendingInter = true;
