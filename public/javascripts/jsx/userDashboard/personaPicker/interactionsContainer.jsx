@@ -74,7 +74,7 @@ var InteractionsContainer = React.createClass({
 				var pendingInter = true;
 				cmcInstance.setInvite(contract.address, pendingInter, {from: thisAccount, gas: 70000});
 		    }
- 		})
+ 		});
 	},
 
 
@@ -128,6 +128,7 @@ var InteractionsContainer = React.createClass({
 				    </tbody>
 	            </table>
 			</div>
+        	</div>
         </div>
 		)
 	}
