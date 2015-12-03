@@ -47,7 +47,7 @@
 						background-color: #313131;
 					}
 					&:hover{
-						background-color: #AC0808;
+						background-color: #770707;
 						border-radius: 0px;
 						border:none;
 						color: white;
@@ -59,16 +59,20 @@
 		.tab-content{
 			.tabExplore{
 				.well{
-					margin: 35px;
+					margin: 25px;
 					padding: 0px 0px 0px 0px;
 					background-color: #636363;
 					border-radius: 0px;
 					border: none;
+					min-height: 315px;
 					a{
+						}
 						img{
 							width: 100%;
 							height: 200px;
 							object-fit: cover;
+							&:hover{
+							outline: 4px solid #AC0808;
 						}
 					}	
 					h5{
@@ -85,13 +89,70 @@
 						background-color: #1E1E1E;
 						padding-top: 8px;
 						padding-bottom: 8px;
-						text-align: right;
+						margin-top: 8px;
+						img{
+							width: 20px;
+							height: 20px;
+							margin-right: 6px;
+							object-fit: cover;
+							&:hover{
+								outline: none;
+							}
+						}
+						a{
 
+						}
+					}
+				}
+			}
+			.tabCommunities{
+				margin-top: 35px;
+				.panel{
+					border: none;
+					.panel-body{
+						background-color: #313131;
+						.media{
+								.media-left{
+									a{
+										img{
+											width: 70px;
+				            				height: 70px;
+				            				object-fit: cover;
+				            				&:hover{
+												border: 2px solid red;
+											}
+										}
+									}
+								}
+							}	
+							.media-body{
+								h5{
+									color: white;
+								}
+								span{
+									color: #6A6E70;
+								}
+								h6{
+									color: #6A6E70;
+									img{
+										width: 20px;
+										height: 20px;
+										margin-right: 6px;
+										object-fit: cover;
+									}
+									i{
+										margin-left: 25px;
+										margin-right: 6px;
+										font-size: 16px;
+										color: #A4A5A5;
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 		}
-	}
 	a{
 		i{
 			color: lightgray;
