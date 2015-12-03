@@ -2,6 +2,7 @@
 
 var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');
+var SettingsComponent = require('./SettingsContainer');
 var CommunitiesComponent = require('./communitiesContainer');
 var HomeComponent = require('./homeContainer');
 
@@ -29,6 +30,9 @@ var MainBodyContainer = React.createClass({
 			case 'interactions':
 				activeBody = <InteractionsComponent activePersona={this.state.activePersona} />;
 				break;
+			case 'settings':
+				activeBody = <SettingsComponent activePersona={this.state.activePersona} />;
+				break;	
 			case 'communities':
 				activeBody = <CommunitiesComponent activePersona={this.state.activePersona} />;
 				break;
