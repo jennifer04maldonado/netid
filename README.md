@@ -77,22 +77,22 @@ TODO: add information about IRC channels and contact avenues for thoughts on imp
     - [ ] <strike>Maintain ~five public IPFS nodes </strike> - Hosting these nodes would put us in control of user's data, scratch this
     - [x] Mongo DB User Auth - Researching Blockchain ID
     - [ ] IPNS Key Store - [Discussion] (https://github.com/ipfs/specs/tree/master/keystore)
-    - [ ] * Ethereum Javascript API (Node.js API)
-    - [ ] * IPFS Javascript API (Node.js API built into react components)
-    - [ ] * Data schema definitions
-    - [ ] * Ratings Smart Contract
+    - [x] * Ethereum Javascript API (Node.js API)
+    - [x] * IPFS Javascript API (Node.js API built into react components)
+    - [ ] * Data schema definitions POST [Discussion] (https://github.com/ipfs/POST)
+    - [x] * Ratings Smart Contract
     - [ ] Advertising Smart Contract - [facebook machine learning] (https://research.facebook.com/publications/machinelearning/)
     - Design
       - [ ] Design Graphic - [view designs](https://github.com/dmcnetid/netid-graphics)
       - [ ] * Design UI/UX - CSS/HTML/Javascript
         - [ ] * Design UI/UX - subtask
-    - [ ] [* Server Architecture] (http://docs.augur.net/#architecture)
+    - [x] [* Server Architecture] (http://docs.augur.net/#architecture)
       - [ ] <strike>Load balance requests to the nodes to avoid congesting geth and ipfs client</strike>
       - [ ] Load balance requests to node server.
-    - [ ] [Chat - webrtc](https://temasys.github.io/how-to/2014/09/02/Building_A_Simple_P2P_chat_with_WebRTC/)
+    - [x] <strike>[Chat - webrtc](https://temasys.github.io/how-to/2014/09/02/Building_A_Simple_P2P_chat_with_WebRTC/)</strike>
     - [ ] Trusted Source - Or some gateway
-    - [ ]	* Wallet Integration - Built but needs UI
-    - [ ] * Searching - Researching DHT broadcasting 
+    - [x]	* Wallet Integration - Built but needs UI
+    - [ ] * Searching - <strike>Researching DHT broadcasting</strike> NOW POST 
     - [X] Wall feed 
     - [ ] User Auth - Blockchain and IPNS are possible
 - <h3><b>Beta: Target Date - </b></h3>
