@@ -3,8 +3,8 @@ var React = require('react');
 var PersonaPicker = React.createClass({
 
     setActiveBody: function(selectedValue, event){
-        console.log('selected: ' + selectedValue);
-        console.log('event: ' + event);
+        //console.log('selected: ' + selectedValue);
+        //console.log('event: ' + event);
         this.props.setActiveBody(selectedValue);
     },
 
@@ -27,23 +27,40 @@ var PersonaPicker = React.createClass({
                 </div>
                 <div className="row col-sm-6 col-sm-offset-2 personaPickerRight">
                     <div className="personaNavOptions">
-                        <ul>
-                            <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
-                                <li>Home</li>
-                            </a>
-                            <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
-                                <li>Communities</li>
-                            </a>
-                            <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
-                                <li>Messages</li>
-                            </a>
-                            <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
-                                <li className="active">Interactions</li>
-                            </a>
-                            <a href="#">
-                                <li className="logOutLink">Log Out</li>
-                            </a>
-                            <input type="text" className="form-control" placeholder="Search"></input>
+                        <ul className='nav nav-pills'>
+                            <li>
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
+                                    Home
+                                </a>
+                            </li>
+                            <li>                                
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
+                                    Communities
+                                </a>
+                            </li>
+                            <li>   
+                                <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
+                                    Messages
+                                </a>
+                            </li>
+                            <li>    
+                                <a href="#" className="active" onClick={this.setActiveBody.bind(this, 'interactions')}>
+                                    Interactions
+                                </a>
+                            </li>
+                            <li>    
+                                <a href="#" className="active" onClick={this.setActiveBody.bind(this, 'settings')}>
+                                    Profile
+                                </a>
+                            </li>
+                            <li>    
+                                <a href="#" className="logOutLink">
+                                    Log Out
+                                </a>
+                            </li>
+                            <li>    
+                                <input type="text" className="form-control" placeholder="Search"></input>
+                            </li>    
                         </ul>
                     </div>    
                 </div>

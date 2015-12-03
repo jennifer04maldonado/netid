@@ -2,6 +2,7 @@ var React = require('react');
 
 var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');
+var SettingsComponent = require('./SettingsContainer');
 var CommunitiesComponent = require('./communitiesContainer');
 var HomeComponent = require('./homeContainer');
 
@@ -13,7 +14,7 @@ var MainBodyContainer = React.createClass({
 	},
   	//gets called when recieved new props 		
   	componentWillReceiveProps: function(nextProps) {
-		console.log('componentWillReceiveProps: ' + nextProps.activePersona.persona_name);
+		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.persona_name);
 		this.setState({activePersona: nextProps.activePersona});
   	},
 	render: function(){
@@ -29,6 +30,9 @@ var MainBodyContainer = React.createClass({
 			case 'interactions':
 				activeBody = <InteractionsComponent activePersona={this.state.activePersona} />;
 				break;
+			case 'settings':
+				activeBody = <SettingsComponent activePersona={this.state.activePersona} />;
+				break;	
 			case 'communities':
 				activeBody = <CommunitiesComponent activePersona={this.state.activePersona} />;
 				break;

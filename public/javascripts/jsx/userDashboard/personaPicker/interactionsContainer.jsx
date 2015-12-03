@@ -1,18 +1,6 @@
 var React = require('react');
 
 var InteractionsContainer = React.createClass({
-  	getInitialState: function() {
-    	return {
-      		open: false
-    	}
-  	},
-	toggleAddForm: function(event) {
-		if (this.state.open) {
-			this.setState({open: false});
-		} else {
-			this.setState({open: true});	
-		}
-  	},
 
 	getInitialState: function() {
 		return {
@@ -30,19 +18,22 @@ var InteractionsContainer = React.createClass({
 	},	
  
 	componentWillReceiveProps: function(nextProps) {
-			console.log('new persona selectd: ' + nextProps.activePersona.persona_name);
 			this.componentDidMount();
 	},
 	
 	componentDidMount: function() {
-	
-		var interactionsData = null;
+		var caughtData = false;
 		$.get('.././json_files/interactionsSchema.json', function(result) {
 			if (this.isMounted()){
 				for (var i in result){
 					if(result[i].id === this.props.activePersona.id) {
+						caughtData = true;
 						this.setState({interactionsData: result[i]});
 					}
+				}
+				if(caughtData == false){
+					var emptyState = this.getInitialState().interactionsData;
+					this.setState({interactionsData: emptyState});
 				}
 			}
 	   	}.bind(this));
@@ -50,12 +41,22 @@ var InteractionsContainer = React.createClass({
 
 	render: function(){
 		var rows = [];
-		this.state.interactionsData.interactions.forEach(function(interaction) {
+		var cssClass = "";
+		this.state.interactionsData.interactions.forEach(function(interaction, index) {
+			switch (interaction.status){
+				case "accept":	cssClass = "btn btn-success interactionsButton";
+					break;
+				case "rate":	cssClass = "btn btn-info interactionsButton";
+					break;
+				case "dispute": cssClass = "btn btn-warning interactionsButtons";
+					break;
+				default: cssClass = "btn btn-default interactionsButton";
+			}
 			rows.push(
-				<tr>
+				<tr key={index}>
 					<td>{interaction.address}</td>
-					<td>{interaction.chatAddress}</td>
-					<td className="btn btn-success">{interaction.status}</td>
+					<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
+					<td className={cssClass}>{interaction.status}</td>
 				</tr>
 			);
 		});
@@ -65,8 +66,8 @@ var InteractionsContainer = React.createClass({
 				<div className="row col-sm-10 col-sm-offset-1 interactionsContainer">
 	                <div className="row">
 	                	<h3>Interactions</h3>
-	                    <button className="btn" onClick={this.toggleAddForm}><i className="fa fa-plus-circle"></i>Create New Interaction</button>
-	                    <div className={'well col-sm-12 ' + (this.state.open ? '' : 'hidden')} >
+	                    <button data-toggle="collapse" data-target="#addInterDiv" className="btn"><i className="fa fa-plus-circle"></i>Create New Interaction</button>
+	                    <div id='addInterDiv' className='collapse well col-sm-12 '>
 		                    <form action="">
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" maxLength="40" rows="1"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>

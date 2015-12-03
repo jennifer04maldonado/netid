@@ -12,7 +12,7 @@ var SinglePersonaHeader = React.createClass({
 		}
 	},
 	setActivePersona: function(event){
-		console.log('set active persona ' + event.target.dataset.personaId);
+		//console.log('set active persona ' + event.target.dataset.personaId);
 		this.props.setActivePersona(event.target.dataset.personaId);
 		
 		this.setState({
@@ -63,7 +63,7 @@ var SinglePersonaHeader = React.createClass({
 			return (
 				<div key={personaId} className={myClassName} data-persona-id={personaId} onMouseEnter={self.mouseEnterHandler} onMouseLeave={self.mouseLeaveHandler}>
 					<div className={notifcationClassName}>	
-          				<input type='radio' />
+						<a href="#"><span className="badge">{index}</span></a>
 		            </div>
                     <div className={personaHeadingClassName}>
 

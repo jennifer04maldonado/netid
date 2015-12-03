@@ -14,7 +14,7 @@ var DashboardApp = React.createClass({
         }
 	},
 	grabPersonas: function(){
-		console.log('grabbing personas api');
+		//console.log('grabbing personas api');
 		$.get('.././json_files/personaSchema.json', function(result) {
 	     	var personaArray = result;
 		     if (this.isMounted()) {
@@ -60,11 +60,8 @@ var DashboardApp = React.createClass({
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
-	                        <div className="col-sm-12 netIdSpace"></div>
 	                        <div className="col-sm-12" id="viewPort">
-	                       		<div id="MySplitter">
 	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona}/>
- 								</div> 
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
