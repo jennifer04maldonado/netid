@@ -49,11 +49,18 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>    
+                                <a href="#" className="active" onClick={this.setActiveBody.bind(this, 'settings')}>
+                                    Profile
+                                </a>
+                            </li>
+                            <li>    
                                 <a href="#" className="logOutLink">
                                     Log Out
                                 </a>
-                            </li>    
+                            </li>
+                            <li>    
                                 <input type="text" className="form-control" placeholder="Search"></input>
+                            </li>    
                         </ul>
                     </div>    
                 </div>
