@@ -111,23 +111,23 @@ var InteractionsContainer = React.createClass({
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" maxLength="40" rows="1" id="responderContractAddy"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
 							    <button type="submit" className="btn btn-default" onClick={this.createInteraction}>Submit</button>
-						</form> 
-					</div>	
-                </div>
-			<div className="row col-sm-12 panel panel-default">
-	            <table className="table table-striped">
-	            	<thead>
-				      	<tr>
-					        <th>Transactions</th>
-					        <th>Chat</th>
-					        <th>Status</th>
-				      	</tr>
-				   </thead>
-				   <tbody>
-				      	{rows}
-				    </tbody>
-	            </table>
-			</div>
+							</form> 
+						</div>	
+                	</div>
+				<div className="row col-sm-12 panel panel-default">
+		            <table className="table table-striped">
+		            	<thead>
+					      	<tr>
+						        <th>Transactions</th>
+						        <th>Chat</th>
+						        <th>Status</th>
+					      	</tr>
+					   </thead>
+					   <tbody>
+					      	{rows}
+					    </tbody>
+		            </table>
+				</div>
         	</div>
         </div>
 		)
