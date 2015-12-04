@@ -38,7 +38,7 @@ var InteractionsContainer = React.createClass({
 			}
 	   	}.bind(this));
 	},
-	
+
 	render: function(){
 		var rows = [];
 		var cssClass = "";
@@ -89,7 +89,6 @@ var InteractionsContainer = React.createClass({
 				    </tbody>
 	            </table>
 			</div>
-        	</div>
         </div>
 		)
 	}
