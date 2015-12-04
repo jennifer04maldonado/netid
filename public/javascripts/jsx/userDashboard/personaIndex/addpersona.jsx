@@ -5,7 +5,7 @@
 
 var AddPersona = React.createClass({
 	render: function(){
-		var myClassName = 'col-sm-12 addPersona out';
+		var myClassName = '';
 		if (!this.props.isOpen) {
 			myClassName = myClassName.replace('out', 'in');
 		}
