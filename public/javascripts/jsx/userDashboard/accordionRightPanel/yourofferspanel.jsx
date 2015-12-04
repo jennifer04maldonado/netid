@@ -6,22 +6,54 @@ var YourOffersPanel = React.createClass({
 	render: function(){
 		return(
       <div className="col-sm-12 contentPanel yourOffers">
-        <div className="accordion-heading offersHeading accordionHeading">
-          <h4 className="col-sm-12 panel-title">
-              <a className="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse4">
-                My Offers
-              </a>
-          </h4>    
+        <div className="col-sm-12 offersTitleCntnr">
+          <h5>Your Offers </h5> 
         </div>
-        <div id="collapse4" className="accordion-body contentPanel offersPanel">
-          <div className="accordion-inner">
-              <div className="panel-body offersBody">
-                  <p>Bed, Bath &middot; Beyond <a href="#" className="offersLink">Take this quick survey</a></p>
-                  <p>Apple Store <a href="#" className="offersLink">Take survey. Win stuff.</a></p>
-                  <p>Smart &middot; Final Extra! <a href="#" className="offersLink">Read this to get your prize</a></p>
-                  <p>Bed, Bath &middot; Beyond <a href="#" className="offersLink">Take this quick survey</a></p>
-              </div>
+        <div className="panel-body offersBody">
+          <div className="col-sm-12 offersComplete">        
+            <div className="col-sm-3 offersAmount">
+              <h5>4 ether</h5>
+            </div>
+            <div className="col-sm-8 offersText">  
+              <ul>
+                <li className="offersName">Bed, Bath and Beyond</li>
+                <li><a href="#" className="offersLink">Take this quick survey</a></li>
+              </ul>
+            </div>
+          </div>  
+          <div className="col-sm-12 offersComplete">
+            <div className="col-sm-3 offersAmount">
+              <h5>0.5 ether</h5>
+            </div>  
+            <div className="col-sm-8 offersText">   
+              <ul>
+                <li className="offersName">Apple Store</li>
+                <li><a href="#" className="offersLink">Take survey. Win stuff.</a></li>
+              </ul>
+            </div>
           </div>
+          <div className="col-sm-12 offersComplete">  
+            <div className="col-sm-3 offersAmount">
+              <h5>1 ether</h5>
+            </div>   
+            <div className="col-sm-8 offersText">   
+              <ul>
+                <li className="offersName">The Body Shop</li>
+                <li><a href="#" className="offersLink">Read this to get your prize</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="col-sm-12 offersComplete">  
+            <div className="col-sm-3 offersAmount">
+              <h5>2.8 ether</h5>
+            </div>   
+            <div className="col-sm-8 offersText">   
+              <ul>
+                <li className="offersName">Mens Warehouse</li>
+                <li><a href="#" className="offersLink">Take this quick survey</a></li>
+              </ul>
+            </div>
+          </div>     
         </div>
       </div>
 		)

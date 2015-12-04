@@ -37,17 +37,18 @@ var YourFriends = React.createClass({
 
     return(
 			<div className="col-sm-12 accordion-group contentPanel yourFriends accordionRightPanel">
-        <div className="accordion-heading friendsHeading accordionHeading">
-          <h4 className="col-sm-12 panel-title">
-              Connections
-          </h4>    
+        <div className="col-sm-12 friendsTitleCntnr">
+          <h5>Connections</h5> 
+        </div>
+        <div className="col-sm-12 friendsSearchCntnr">
+          <input type="text" className="form-control" placeholder="Search"></input> 
         </div>
         <div id="collapse5" className="accordion-body contentPanel friendsPanel">
-          <div className="accordion-inner">
-           <div className="panel-body friendsBody">
-             { this.state.data.map(function(friend)  {
-               return  <p key={friend.id}>{friend.persona_name}<a href="#"><i className="fa fa-envelope-o"></i></a></p>
-             })}
+          <div className="accordion-inner test">
+            <div className="panel-body friendsBody">
+              { this.state.data.map(function(friend)  {
+               return  <p key={friend.id}><a href="#">{friend.persona_name}</a><a href="#"><i className="fa fa-envelope-o"></i></a></p>
+              })}
             </div>
           </div>
         </div>
