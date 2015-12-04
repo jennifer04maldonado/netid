@@ -217,7 +217,31 @@ var CommunitiesContainer = React.createClass({
 							</div>
 						</div>
 						<div role="tabpanel" className="tab-pane tabManage fade" id="manage">...</div>
-						<div role="tabpanel" className="tab-pane tabCreate fade" id="create">...</div>
+						<div role="tabpanel" className="tab-pane tabCreate fade" id="create">
+		                    <div className="well col-sm-12">
+		                    	<div className="row col-sm-4 col-sm-offset-4 addPersonaImage">
+									<div className="col-sm-11 col-sm-offset-1 addImageBtn">
+										<img src={"/images/avatar.png"}/>
+									</div>
+									<div className="col-sm-8 col-sm-offset-1 addImageUpload">
+										<div className = "form-group addImageUploadBtn">
+										    <input type = "file" id = "inputfile"></input>
+										</div>
+									</div>
+								</div>
+								<div className="col-sm-5 col-sm-offset-4 newCommOptions">
+									<h4 className="commRadioTitle">What kind of Community is this?</h4>
+							        <input name="radio" id="radio1" value="option1" type="radio">Public</input>
+							        <input name="radio" id="radio2" value="option2" type="radio">Private</input>
+							        <input name="radio" id="radio3" value="option3" type="radio">Secret</input>
+								</div>
+			                    <form action="">
+			                    	<textarea className="col-sm-8 col-sm-offset-2 commCreateName" placeholder="Community Name" maxLength="40" rows="1"></textarea>
+									<textarea className="col-sm-8 col-sm-offset-2 commCreateAbout" placeholder="What is this Community about?" rows="5"></textarea>
+								</form> 
+								<button type="submit" className="col-sm-offset-8 col-sm-2 btn btn-default">Submit</button>	
+							</div>	
+						</div>
 					</div>
 				</div>
 				<a href="#"><i className="fa fa-search"></i></a>
