@@ -49,7 +49,7 @@
 	},
 	{
 	    "id": "7",
-		"persona_name":"PersonaAwesome!76",
+		"persona_name":"PersonaAwesome76!",
 	  	"persona_id": "123",
 	  	"friend_id": "7",
 	  	"friend_date" : "01/02/2015",
@@ -79,5 +79,4 @@
 	    "friend_date" : "01/02/2015",
 	    "status": "online"
 	}
-
 ]
