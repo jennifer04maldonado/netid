@@ -30,7 +30,7 @@ var CommunitiesContainer = React.createClass({
 								<h5>Disneyland Gangstahs</h5>
 								<p> We own da Majik Kingdum, yo. Come to Disneyland</p>
 								<div className="col-sm-12 memberCount">
-									<img src={"/images/friends.png"}/>
+									<img src="/images/friends.png"/>
 									<a href="#">150 Members</a>
 								</div>
 							</div>
@@ -231,9 +231,9 @@ var CommunitiesContainer = React.createClass({
 								</div>
 								<div className="col-sm-5 col-sm-offset-4 newCommOptions">
 									<h4 className="commRadioTitle">What kind of Community is this?</h4>
-							        <input name="radio" id="radio1" value="option1" type="radio">Public</input>
-							        <input name="radio" id="radio2" value="option2" type="radio">Private</input>
-							        <input name="radio" id="radio3" value="option3" type="radio">Secret</input>
+							        <input name="radio" id="radio1" value="option1" type="radio" />Public
+							        <input name="radio" id="radio2" value="option2" type="radio" />Private
+							        <input name="radio" id="radio3" value="option3" type="radio" />Secret
 								</div>
 			                    <form action="">
 			                    	<textarea className="col-sm-8 col-sm-offset-2 commCreateName" placeholder="Community Name" maxLength="40" rows="1"></textarea>

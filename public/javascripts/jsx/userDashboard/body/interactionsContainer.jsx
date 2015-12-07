@@ -1,7 +1,6 @@
 
 
 var InteractionsContainer = React.createClass({
-
 	getInitialState: function() {
 		return {
 			interactionsData: {
@@ -20,8 +19,8 @@ var InteractionsContainer = React.createClass({
 	componentWillReceiveProps: function(nextProps) {
 			this.componentDidMount();
 	},
-	
-	componentDidMount: function() {
+  	getInteractions: function(done) {
+
 		var caughtData = false;
 		$.get('.././json_files/interactionsSchema.json', function(result) {
 			if (this.isMounted()){
@@ -37,6 +36,43 @@ var InteractionsContainer = React.createClass({
 				}
 			}
 	   	}.bind(this));
+  	},  
+  	getInteractionsIPFS: function(done) {
+	    var hash = this.props.peerIdHash + '/interactionsSchema.json';   
+	    ipfs.cat(hash, function (err, res) {
+	      if (err || !res) return console.log('error:' + err);      
+	      //readable stream
+	      if (res.readable) {
+	          res.pipe('readable stream: ' + process.stdout);
+	          //string          
+	      } else {
+	        var interactionsArray = JSON.parse(res);
+	        done(interactionsArray);  
+	      }
+	    });
+  	},
+  	//this method fetches data from IPFS or AJAX				
+	componentDidMount: function() {
+      	var personaId = this.props.activePersona.id;
+	    var self = this;
+	    if (this.props.useIPFS) {         
+	        this.getInteractionsIPFS(function (result)  {              
+	          	if (self.isMounted()){
+					for (var i in result){
+						if(result[i].id === personaId) {
+							caughtData = true;
+							self.setState({interactionsData: result[i]});
+						}
+					}
+					if(caughtData == false){
+						var emptyState = self.getInitialState().interactionsData;
+						self.setState({interactionsData: emptyState});
+					}
+				}
+	        });
+	    } else {
+	        this.getInteractions();
+	    }
 	},
 
 	render: function(){

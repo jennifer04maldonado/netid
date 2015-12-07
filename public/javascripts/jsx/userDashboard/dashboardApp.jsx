@@ -1,4 +1,5 @@
-
+//var ipfs = window.ipfsAPI('localhost', '5001');
+var ipfs = window.ipfsAPI();
 
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
@@ -10,7 +11,9 @@ var DashboardApp = React.createClass({
 		return {
             personas : [],
             activePersona: null,
-            headerSelection: 'home'
+            headerSelection: 'home',
+            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
+            useIPFS: false
         }
 	},
 	grabPersonas: function(){
@@ -25,8 +28,38 @@ var DashboardApp = React.createClass({
 		    }
 	   	}.bind(this));
 	},
+
+	grabPersonasIPFS: function(done){
+	   	//personaSchema
+		var hash = this.state.peerIdHash + '/personaSchema.json';		
+		var personaArray = [];
+		ipfs.cat(hash, function (err, res) {
+			if (err || !res) return console.log('error:' + err);		  
+			//readable stream
+			if (res.readable) {
+			  	res.pipe('readable stream: ' + process.stdout);
+	        //string        	
+			} else {
+			  	personaArray = JSON.parse(res);
+				done(personaArray);
+			}
+		});
+	},
+
 	componentDidMount: function() {
-		this.grabPersonas(); 
+		if (this.state.useIPFS) {			
+			console.log('using ipfs');
+			var self = this;
+		 	this.grabPersonasIPFS(function (personaArray)  {
+				self.setState({
+					personas: personaArray,
+					activePersona: personaArray[0]
+				});
+			});
+		} else {
+			console.log('ajax ipfs');
+			this.grabPersonas(); 			
+		}
   	},
   	setActiveBody: function(headerSelection) {
   		this.setState({
@@ -52,20 +85,20 @@ var DashboardApp = React.createClass({
         return (
             <div className="row dashboardContainer">
                 <div id='personaPicker' className="col-sm-12 personaPicker">
-					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona}/>               
+					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
-	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona}/>
+	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona}/>
+	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent activePersona={this.state.activePersona}/>
+	   						<RightControlComponent activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
 	                    </div>
 	                </div>
 	            </div>
