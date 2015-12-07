@@ -3,7 +3,7 @@
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
-var MainBodyComponent = require('./personaPicker/mainBodyContainer');
+var MainBodyComponent = require('./body/mainBodyContainer');
 
 var DashboardApp = React.createClass({
 	getInitialState: function(){
