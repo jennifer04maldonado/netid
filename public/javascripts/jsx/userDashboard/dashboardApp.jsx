@@ -56,7 +56,7 @@ var DashboardApp = React.createClass({
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
-	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona}/>
+	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona}/>
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
