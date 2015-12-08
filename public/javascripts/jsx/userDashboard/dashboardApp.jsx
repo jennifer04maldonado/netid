@@ -17,22 +17,22 @@ var DashboardApp = React.createClass({
         }
 	},
 	grabPersonas: function(){
-		//console.log('grabbing personas api');
-		$.get('.././json_files/personaSchema.json', function(result) {
-	     	var personaArray = result;
-		     if (this.isMounted()) {
-		       this.setState({
-		         personas: personaArray,
-		         activePersona: personaArray[0]
-		       });
-		    }
-	   	}.bind(this));
+		var self = this;
+		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
+		  //console.log('status: '  + status);	
+			if (status == 'success') {				
+		 	    if (self.isMounted()) {
+		 	        self.setState({
+		 		    	personas: personaArray,
+		 		        activePersona: personaArray[0]
+		         	});	     
+		 	    }
+		 	}	 
+		});
 	},
 
 	grabPersonasIPFS: function(done){
-	   	//personaSchema
-		var hash = this.state.peerIdHash + '/personaSchema.json';		
-		var personaArray = [];
+		var hash = this.state.peerIdHash + '/personaSchema.json';				
 		ipfs.cat(hash, function (err, res) {
 			if (err || !res) return console.log('error:' + err);		  
 			//readable stream
@@ -40,7 +40,7 @@ var DashboardApp = React.createClass({
 			  	res.pipe('readable stream: ' + process.stdout);
 	        //string        	
 			} else {
-			  	personaArray = JSON.parse(res);
+			  	var personaArray = JSON.parse(res);
 				done(personaArray);
 			}
 		});
@@ -48,7 +48,6 @@ var DashboardApp = React.createClass({
 
 	componentDidMount: function() {
 		if (this.state.useIPFS) {			
-			console.log('using ipfs');
 			var self = this;
 		 	this.grabPersonasIPFS(function (personaArray)  {
 				self.setState({
@@ -57,7 +56,6 @@ var DashboardApp = React.createClass({
 				});
 			});
 		} else {
-			console.log('ajax ipfs');
 			this.grabPersonas(); 			
 		}
   	},

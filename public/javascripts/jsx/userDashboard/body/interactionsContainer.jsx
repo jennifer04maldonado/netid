@@ -19,7 +19,7 @@ var InteractionsContainer = React.createClass({
 	componentWillReceiveProps: function(nextProps) {
 			this.componentDidMount();
 	},
-  	getInteractions: function(done) {
+  	getInteractions: function() {
 
 		var caughtData = false;
 		$.get('.././json_files/interactionsSchema.json', function(result) {
