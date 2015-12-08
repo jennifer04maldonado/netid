@@ -65,8 +65,8 @@ var DashboardApp = React.createClass({
   			headerSelection: headerSelection
   		});
   	},
-	setActivePersona: function(activePersonaId) {
-		var activePersona = null;
+	setActivePersonaCont: function(activePersonaId, callback) {
+		var activePersona = null;		
 		$.each(this.state.personas, function (index,  persona) {
 			//console.log("persona id:" + persona.id);
 			//console.log("persona name:" + persona.persona_name);			
@@ -75,9 +75,14 @@ var DashboardApp = React.createClass({
 				activePersona = persona;
 			}
 		});
-
-		this.setState({
-			activePersona: activePersona
+		callback(activePersona);
+	},
+	setActivePersona: function(activePersonaId) {
+		var self = this;
+		this.setActivePersonaCont(activePersonaId, function(activePersona) {
+			self.setState({
+				activePersona: activePersona
+			});
 		});
 	},
     render: function(){
