@@ -13,14 +13,9 @@ var NetidAPI = function(){
   //create a new netid api object with connection info as param
   this.account = new NetidAPI(ipfs)
   this.account.init()
-  //set state to done if init passes
-  if(this.account.init()){
-    console.log("We have Init");
-    this.done = true
-  }
-
   this.fa.forEach(fn => fn(this.account))
   this.fa = undefined
+  this.done = true
 }
 
 NetidAPI.prototype.use = function(f){
@@ -35,9 +30,9 @@ NetidAPI.prototype.use = function(f){
 var net = new NetidAPI();
     if(net){
       console.log("net")
+      console.log(net.account.getUsers())
       if(net.done){
-        console.log("test");
+        console.log("Initializing");
       }
      } 
-
 module.exports = NetidAPI

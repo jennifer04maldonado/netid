@@ -438,12 +438,12 @@ NetidAPI.prototype.getUserCommentList = function(parent,user,done){
 // API for publishing content and managing to be done later...
 
 // Initialize API
-NetidAPI.prototype.init = function(done){
+NetidAPI.prototype.init = function(){
   if(this.isInit) return
   this.ipfs.id( (err, res) => {
     if(err){
       console.log('Error while getting OWN ID:',err)
-      if(done && done.apply) done(err)
+      return
     } else if(res.ID){
       console.log('I am',res.ID)
       this.id = res.ID
@@ -452,6 +452,7 @@ NetidAPI.prototype.init = function(done){
       this.ipfs.add(new Buffer('ipfs:boards:version:'+this.version),{n: true},(err2,r) => {
         if(err2){
           console.log('Error while calculating version hash:',err2)
+          return
         } else {
           if(r && r.Hash) this.version_hash = r.Hash
           if(r && r[0] && r[0].Hash) this.version_hash = r[0].Hash
@@ -459,14 +460,32 @@ NetidAPI.prototype.init = function(done){
           this.ipfs.version((err,res) => {
             if(err){
               console.log('Error while getting ipfs version:',err)
+              return false
             } else {
               this.ipfs_version = res.Version
               console.log('IPFS Version is',res.Version)
               this.isInit = true
+              console.log(this.isInit)
+              return true
             }
           })
         }
       })
+    }
+  })
+if(this.isInit){
+  return true
+}
+}
+
+NetidAPI.prototype.test = function(){
+  this.ipfs.id( (err, res) => {
+    if(err){
+      console.log('Error while getting OWN ID:',err)
+      return
+    } else if(res.ID){
+      console.log('I am',res.ID)
+      return true
     }
   })
 }
