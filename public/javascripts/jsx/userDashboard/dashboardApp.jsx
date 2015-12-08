@@ -1,32 +1,64 @@
-
+//var ipfs = window.ipfsAPI('localhost', '5001');
+var ipfs = window.ipfsAPI();
 
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
-var MainBodyComponent = require('./personaPicker/mainBodyContainer');
+var MainBodyComponent = require('./body/mainBodyContainer');
 
 var DashboardApp = React.createClass({
 	getInitialState: function(){
 		return {
             personas : [],
             activePersona: null,
-            headerSelection: 'home'
+            headerSelection: 'home',
+            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
+            useIPFS: false
         }
 	},
 	grabPersonas: function(){
-		//console.log('grabbing personas api');
-		$.get('.././json_files/personaSchema.json', function(result) {
-	     	var personaArray = result;
-		     if (this.isMounted()) {
-		       this.setState({
-		         personas: personaArray,
-		         activePersona: personaArray[0]
-		       });
-		    }
-	   	}.bind(this));
+		var self = this;
+		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
+		  //console.log('status: '  + status);	
+			if (status == 'success') {				
+		 	    if (self.isMounted()) {
+		 	        self.setState({
+		 		    	personas: personaArray,
+		 		        activePersona: personaArray[0]
+		         	});	     
+		 	    }
+		 	}	 
+		});
 	},
+
+	grabPersonasIPFS: function(){
+		var hash = this.state.peerIdHash + '/personaSchema.json';				
+		var self = this;
+		ipfs.cat(hash, function (err, res) {
+			if (err || !res) return console.log('error:' + err);		  
+			//readable stream
+			if (res.readable) {
+			  	res.pipe('readable stream: ' + process.stdout);
+	        //string        	
+			} else {
+			  	var personaArray = JSON.parse(res);
+			  	self.setState({
+					personas: personaArray,
+					activePersona: personaArray[0]
+				});
+			}
+		});
+	},
+
 	componentDidMount: function() {
-		this.grabPersonas(); 
+		if (this.state.useIPFS) {			
+			console.log('fetching data from IPFS');
+			var self = this;
+		 	this.grabPersonasIPFS();
+		} else {
+			console.log('fetching data from AJAX');
+			this.grabPersonas(); 			
+		}
   	},
   	setActiveBody: function(headerSelection) {
   		this.setState({
@@ -52,20 +84,20 @@ var DashboardApp = React.createClass({
         return (
             <div className="row dashboardContainer">
                 <div id='personaPicker' className="col-sm-12 personaPicker">
-					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona}/>               
+					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
-	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona}/>
+	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona}/>
+	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent activePersona={this.state.activePersona}/>
+	   						<RightControlComponent activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
 	                    </div>
 	                </div>
 	            </div>

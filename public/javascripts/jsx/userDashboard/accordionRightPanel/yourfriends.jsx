@@ -1,4 +1,4 @@
-
+var ipfs = window.ipfsAPI();
 
 
 //INPUT: EVENTUALLY WILL BE DATA OBJECT W/ YOUR FRIENDS
@@ -10,26 +10,62 @@ var YourFriends = React.createClass({
       data: []
     }
   },
+  getYourFriends: function(personaId, done) {
 
-  componentWillReceiveProps: function(nextProps) {
+    $.get('.././json_files/friend.json', function(result) {
+      if (this.isMounted()) {
+          var thisPersonaFriends = [];
+          for (var i=0; i < result.length; i++) {
+            if (personaId == result[i].persona_id) {
+              thisPersonaFriends.push(result[i]);
+            }
+          }
+          done(thisPersonaFriends);  
+      }
+    }.bind(this));   
 
+
+  },  
+  getYourFriendsIPFS: function(personaId, done) {
+
+    var hash = this.props.peerIdHash + '/friend.json';   
+    ipfs.cat(hash, function (err, res) {
+      if (err || !res) return console.log('error:' + err);      
+      //readable stream
+      if (res.readable) {
+          res.pipe('readable stream: ' + process.stdout);
+          //string          
+      } else {
+        var thisPersonaFriends = [];
+        var friendsArray = JSON.parse(res);
+        for (var i=0; i < friendsArray.length; i++) {
+            if (personaId == friendsArray[i].persona_id) {
+                thisPersonaFriends.push(friendsArray[i]);
+            }
+        }
+        done(thisPersonaFriends);  
+      }
+    });
+  },
+  //this method decides to fetches data from IPFS or AJAX
+  componentWillReceiveProps: function(nextProps) {    
+    
     if (nextProps.activePersona !== this.props.activePersona) {
       var personaId = nextProps.activePersona.id;
-      $.get('.././json_files/friend.json', function(result) {
-           if (this.isMounted()) {
-              var thisPersonaFriends = [];
-              for (var i=0; i < result.length; i++) {
-                if (personaId == result[i].persona_id) {
-                  thisPersonaFriends.push(result[i]);
-                }
-              }  
-
-              this.setState({
-                data: thisPersonaFriends
+      var self = this;
+      if (this.props.useIPFS) {         
+          this.getYourFriendsIPFS(personaId, function (friendsArray)  {
+              self.setState({
+                      data: friendsArray
               });
-
-          }
-        }.bind(this));   
+          });
+      } else {
+        this.getYourFriends(personaId, function(friendsArray) {
+            self.setState({
+              data: friendsArray
+            });
+        });
+      }
     }
   },
 
