@@ -13,7 +13,7 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
-            useIPFS: false
+            useIPFS: true
         }
 	},
 	grabPersonas: function(){
@@ -31,8 +31,9 @@ var DashboardApp = React.createClass({
 		});
 	},
 
-	grabPersonasIPFS: function(done){
+	grabPersonasIPFS: function(){
 		var hash = this.state.peerIdHash + '/personaSchema.json';				
+		var self = this;
 		ipfs.cat(hash, function (err, res) {
 			if (err || !res) return console.log('error:' + err);		  
 			//readable stream
@@ -41,21 +42,21 @@ var DashboardApp = React.createClass({
 	        //string        	
 			} else {
 			  	var personaArray = JSON.parse(res);
-				done(personaArray);
+			  	self.setState({
+					personas: personaArray,
+					activePersona: personaArray[0]
+				});
 			}
 		});
 	},
 
 	componentDidMount: function() {
 		if (this.state.useIPFS) {			
+			console.log('fetching data from IPFS');
 			var self = this;
-		 	this.grabPersonasIPFS(function (personaArray)  {
-				self.setState({
-					personas: personaArray,
-					activePersona: personaArray[0]
-				});
-			});
+		 	this.grabPersonasIPFS();
 		} else {
+			console.log('fetching data from AJAX');
 			this.grabPersonas(); 			
 		}
   	},
