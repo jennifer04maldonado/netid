@@ -1,6 +1,5 @@
 var NetidAPI = function(){
   this.done = false
-  this.fa = []
   this.account
   //can load ipfs options from local storage
   //var opt = require('./options.js').get()
@@ -13,8 +12,6 @@ var NetidAPI = function(){
   //create a new netid api object with connection info as param
   this.account = new NetidAPI(ipfs)
   this.account.init()
-  this.fa.forEach(fn => fn(this.account))
-  this.fa = undefined
   this.done = true
 }
 
@@ -35,4 +32,5 @@ var net = new NetidAPI();
         console.log("Initializing");
       }
      } 
+//net.account.getProfile('QmdprAq8ZvnfpRfFsDUjLbNoZXEzrE8rc4quSaje3m5dgN')
 module.exports = NetidAPI
