@@ -7,14 +7,14 @@ var CommunitiesContainer = React.createClass({
 				<div className="col-sm-2 communityTitle">
 					<h4><img src={"/images/members.png"}/>Communities</h4>
 				</div>
-				<div className="col-sm-9 communityNavTabs">
+				<div className="col-sm-10 communityNavTabs">
 					<ul className="nav nav-tabs" role="tablist">
 						<li role="presentation"><a href="#explore" aria-controls="explore" role="tab" data-toggle="tab">Explore</a></li>
 						<li role="presentation"><a href="#communities" aria-controls="communities" role="tab" data-toggle="tab">My Communities</a></li>
 						<li role="presentation"><a href="#manage" aria-controls="manage" role="tab" data-toggle="tab">Manage</a></li>
 						<li role="presentation"><a href="#create" aria-controls="create" role="tab" data-toggle="tab">Create</a></li>
 					</ul>
-					<div className="tab-content col-sm-12">
+					<div className="tab-content col-sm-10">
 						<div role="tabpanel" className="tab-pane tabExplore fade in active" id="explore">
 							<div className="col-sm-3 well">
 								<a href="#"><img src={"/images/starwars.jpg"}/></a>
@@ -244,7 +244,6 @@ var CommunitiesContainer = React.createClass({
 						</div>
 					</div>
 				</div>
-				<a href="#"><i className="fa fa-search"></i></a>
 			</div>
 		)
 	}
