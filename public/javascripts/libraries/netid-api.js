@@ -95,6 +95,7 @@ NetidAPI.prototype.resolveIPNS = function(n){
         // Communicate error
         console.log('error',err)
       } else {
+        console.log(r)
         var url = r.Path
         if(url === undefined){
           console.log('Could not resolve',n)
@@ -116,7 +117,7 @@ NetidAPI.prototype.resolveIPNS = function(n){
 
 NetidAPI.prototype.isUserProfile = function(addr,done){
   if(addr === undefined) return console.log('Asked to check if undefined is a profile')
-  this.ipfs.cat(addr+this.baseurl+'ipfs-boards-version.txt',(err,r) => {
+  this.ipfs.cat(addr+this.baseurl+'netid-version.txt',(err,r) => {
     if(err) return done(false,err)
     replyAsObj(r,false,(_,res) => {
       if(!res || !res.trim){
