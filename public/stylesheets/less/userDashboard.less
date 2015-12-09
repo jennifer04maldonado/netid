@@ -32,25 +32,29 @@
                                 }
                                 a{
                                     color: white;
-                                    &:active{
-                                        border-radius: 0px;
-                                        background-color: none;  
-                                    }
                                     &:link{
                                         text-decoration: none;
                                         border-radius: 0px;
-                                    }
-                                    &:focus{
-                                        background-color: #770707;
+                                        background-color: #AC0808;
                                     }
                                     &:visited{
                                         text-decoration: none;
-                                        background-color: #770707;
+                                        background-color: #AC0808;
+                                        border: none;
                                     }
                                     &:hover{
                                         border-radius: 0px;
                                         background-color: #770707;
+                                    }
+                                    &:focus{
+                                        background-color: #770707;
+                                        outline: none;
                                     } 
+                                    &:active{
+                                        border-radius: 0px;
+                                        background-color: none;
+                                        border: none;  
+                                    }    
                                 }
                                 input{
                                 display: inline-block;
@@ -252,6 +256,7 @@
                     overflow: auto;
                     max-height: 100vh;
                     min-height: 95vh;
+                    -webkit min-height: 800px;
                     .offersFixedButton{
                         position: fixed;
                         bottom: 0px;
@@ -361,8 +366,7 @@
                                     }
                                 }
                             }
-                        }
-                        
+                        } 
                     }
                 }
             }
@@ -384,6 +388,13 @@
                         a {
                             height: inherit;
                             padding: 0px;
+                            &:link{
+                                border-radius: 0px;
+                                background-color: #636363;
+                            }
+                            &:visited{
+                             background-color: #636363;
+                            }
                             &:hover{
                                 background-color: #770707;
                                 border-radius: 0px;
@@ -391,13 +402,12 @@
                             &:focus{
                                 background-color: #770707;
                                 border-radius: 0px;
+                                outline: none;
                             }
-                            &:link{
+                            &:active{
+                                background-color: #636363;
                                 border-radius: 0px;
-                            }
-                            &:visited{
-                             background-color: #AC0808;
-                            }
+                            }   
                         }
                         img {
                             width: 20px;
