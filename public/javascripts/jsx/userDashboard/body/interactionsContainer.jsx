@@ -99,7 +99,7 @@ var InteractionsContainer = React.createClass({
 		
 		return(
 			<div className='bodyContent'>
-				<div className="row col-sm-10 col-sm-offset-1 interactionsContainer">
+				<div className="row col-sm-8 col-sm-offset-2 interactionsContainer">
 	                <div className="row">
 	                	<h3>Interactions</h3>
 	                    <button data-toggle="collapse" data-target="#addInterDiv" className="btn"><i className="fa fa-plus-circle"></i>Create New Interaction</button>

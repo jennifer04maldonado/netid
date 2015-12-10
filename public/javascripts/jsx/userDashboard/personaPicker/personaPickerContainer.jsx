@@ -58,6 +58,11 @@ var PersonaPicker = React.createClass({
                                     Log Out
                                 </a>
                             </li>
+                            <li>
+                                <a href="#">
+                                    <i className="fa fa-cog"></i>
+                                </a>
+                            </li>
                             <li>    
                                 <input type="text" className="form-control" placeholder="Search"></input>
                             </li>    

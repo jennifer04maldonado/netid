@@ -9,18 +9,12 @@ var SettingsContainer = React.createClass({
 				</div>
 				<div className="col-sm-9 communityNavTabs">
 					<ul className="nav nav-tabs" role="tablist">
-						<li role="presentation"><a href="#posts" aria-controls="posts" role="tab" data-toggle="tab">Posts</a></li>
 						<li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
 						<li role="presentation"><a href="#communities" aria-controls="communities" role="tab" data-toggle="tab">Communities</a></li>
 						<li role="presentation"><a href="#connections" aria-controls="connections" role="tab" data-toggle="tab">Connections</a></li>
-						<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-
 					</ul>
 					<div className="tab-content col-sm-12">
-						<div role="tabpanel" className="tab-pane tabPosts fade" id="posts">
-							<h2>Posts</h2>
-						</div>
-						<div role="tabpanel" className="tab-pane tabAbout fade" id="about">
+						<div role="tabpanel" className="tab-pane tabAbout fade in active" id="about">
 							<div className="col-sm-12 personaProfileAbout">
 		                    	<div className="row col-sm-10 addPersonaImage">
 									<div className="col-sm-6 col-sm-offset-4 editImageBtn">
@@ -252,10 +246,7 @@ var SettingsContainer = React.createClass({
 								  	</div> 
 								</div> 
 							</div>	
-						</div>
-						<div role="tabpanel" className="tab-pane tabSettings fade" id="settings">
-							<h2>Settings</h2>
-						</div>
+						</div> 
 					</div> 
 		        </div> 
 			</div> 

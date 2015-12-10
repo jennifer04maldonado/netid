@@ -50,7 +50,26 @@ node www
 
 ### Notes for development
 
-TODO: Add notes
+TODO: Add more notes
+
+###Data Storage
+Each user will store their data in this folder structure
+```
+netid-account
+  ->personas
+    ->persona1
+      ->posts
+        -1-02-2016-12-25-43.json
+        -...
+      ->friends
+        -keystore.json
+      ->interactions
+        -contractstore.json
+      -personaSchema.json
+    ->persona2...
+  -netid-version.txt  
+```
+We need to create these files on account creation and ipfs add then publish them for the application to work. 
 
 Contributing
 ------------
