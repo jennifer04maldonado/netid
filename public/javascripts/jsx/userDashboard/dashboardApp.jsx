@@ -14,7 +14,8 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
-            useIPFS: false
+            useIPFS: false,
+            showLoading: true
         }
 	},
 	grabPersonas: function(){
@@ -52,7 +53,6 @@ var DashboardApp = React.createClass({
 	},
 
 	componentDidMount: function() {
-		$("#loadingModal").modal("show");
 		if (this.state.useIPFS) {			
 			console.log('fetching data from IPFS');
 			var self = this;
@@ -61,6 +61,7 @@ var DashboardApp = React.createClass({
 			console.log('fetching data from AJAX');
 			this.grabPersonas(); 			
 		}	
+		//this.setState({showLoading: false});
   	},
   	setActiveBody: function(headerSelection) {
   		this.setState({
@@ -89,7 +90,7 @@ var DashboardApp = React.createClass({
 	},
 	componentDidUpdate: function() {
 		//console.log("componentDidUpdate");		
-		$("#loadingModal").modal("hide");
+		//this.setState({showLoading: false});
 	}, 	
     render: function(){		
 
@@ -113,7 +114,7 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                </div>
 	            </div>
-				<LoadingModalComponent>what in the hell is going on</LoadingModalComponent>	  
+				<LoadingModalComponent showLoading={this.state.showLoading}/>
             </div>
         );
     }
