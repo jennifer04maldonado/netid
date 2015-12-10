@@ -54,7 +54,7 @@ function replyAsObj(res,isJson,done){
 
 function NetidAPI(ipfs){
   this.ipfs = ipfs
-  this.version = 'ipfs:boards:version:dev'
+  this.version = 'netid:version:dev'
   this.baseurl = '/netid-account/'
   this.users = {} // userID : profileHash
   this.resolving_ipns = {} // to check if a resolve is already in progress
@@ -95,6 +95,7 @@ NetidAPI.prototype.resolveIPNS = function(n){
         // Communicate error
         console.log('error',err)
       } else {
+        console.log(r)
         var url = r.Path
         if(url === undefined){
           console.log('Could not resolve',n)
@@ -116,7 +117,7 @@ NetidAPI.prototype.resolveIPNS = function(n){
 
 NetidAPI.prototype.isUserProfile = function(addr,done){
   if(addr === undefined) return console.log('Asked to check if undefined is a profile')
-  this.ipfs.cat(addr+this.baseurl+'ipfs-boards-version.txt',(err,r) => {
+  this.ipfs.cat(addr+this.baseurl+'netid-version.txt',(err,r) => {
     if(err) return done(false,err)
     replyAsObj(r,false,(_,res) => {
       if(!res || !res.trim){
@@ -449,7 +450,7 @@ NetidAPI.prototype.init = function(){
       this.id = res.ID
       this.resolveIPNS(res.ID)
       console.log('Version is',this.version)
-      this.ipfs.add(new Buffer('ipfs:boards:version:'+this.version),{n: true},(err2,r) => {
+      this.ipfs.add(new Buffer('netid:version:'+this.version),{n: true},(err2,r) => {
         if(err2){
           console.log('Error while calculating version hash:',err2)
           return
