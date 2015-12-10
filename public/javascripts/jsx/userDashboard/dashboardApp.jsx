@@ -61,7 +61,7 @@ var DashboardApp = React.createClass({
 			console.log('fetching data from AJAX');
 			this.grabPersonas(); 			
 		}	
-		//this.setState({showLoading: false});
+		this.setState({showLoading: false});
   	},
   	setActiveBody: function(headerSelection) {
   		this.setState({

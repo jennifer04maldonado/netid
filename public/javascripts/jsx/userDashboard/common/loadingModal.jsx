@@ -1,25 +1,16 @@
 var LoadingModal = React.createClass({
-	componentDidMount: function() {
-  		// if (this.props.showLoading) {
-  		// 	$('#loadingModal').modal('show');
-  		// } else {
-  		// 	$('#loadingModal').modal('hide');
-  		// }
-  	},
-	componentDidUpdate: function() {
-		//console.log("componentDidUpdate 2");		
-	}, 	
-  	
     render: function(){
     	var style = null;
   		if (this.props.showLoading) {
-  			style = {
-  				display: 'block'
-  			}
+  			$("#loadingModal").modal("show");
+  			// style = {
+  			// 	display: 'block'
+  			// };
   		} else {
-  			style = {
-  				display: 'none'
-  			}
+  			$("#loadingModal").modal("hide");
+  			// style = {
+  			// 	display: 'none'
+  			// };
   		}
 
         return (		   
