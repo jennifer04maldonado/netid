@@ -15,7 +15,7 @@ var DashboardApp = React.createClass({
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
             useIPFS: false,
-            showLoading: true
+            showLoading: false
         }
 	},
 	grabPersonas: function(){
@@ -52,7 +52,7 @@ var DashboardApp = React.createClass({
 		});
 	},
 
-	componentDidMount: function() {
+	componentDidMount: function() {		
 		if (this.state.useIPFS) {			
 			console.log('fetching data from IPFS');
 			var self = this;
@@ -60,8 +60,9 @@ var DashboardApp = React.createClass({
 		} else {
 			console.log('fetching data from AJAX');
 			this.grabPersonas(); 			
-		}	
-		this.setState({showLoading: false});
+		}		
+		//set initial state 'showLoading: true'
+		//this.setState({showLoading: false});
   	},
   	setActiveBody: function(headerSelection) {
   		this.setState({
@@ -87,11 +88,7 @@ var DashboardApp = React.createClass({
 				activePersona: activePersona
 			});
 		});
-	},
-	componentDidUpdate: function() {
-		//console.log("componentDidUpdate");		
-		//this.setState({showLoading: false});
-	}, 	
+	},	
     render: function(){		
 
         return (
