@@ -5,15 +5,17 @@ var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
 var MainBodyComponent = require('./body/mainBodyContainer');
+var LoadingModalComponent = require('./common/loadingModal');
 
-var DashboardApp = React.createClass({
-	getInitialState: function(){
+var DashboardApp = React.createClass({	
+	getInitialState: function(){		
 		return {
             personas : [],
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
-            useIPFS: false
+            useIPFS: false,
+            showLoading: false
         }
 	},
 	grabPersonas: function(){
@@ -50,7 +52,7 @@ var DashboardApp = React.createClass({
 		});
 	},
 
-	componentDidMount: function() {
+	componentDidMount: function() {		
 		if (this.state.useIPFS) {			
 			console.log('fetching data from IPFS');
 			var self = this;
@@ -58,7 +60,9 @@ var DashboardApp = React.createClass({
 		} else {
 			console.log('fetching data from AJAX');
 			this.grabPersonas(); 			
-		}
+		}		
+		//set initial state 'showLoading: true'
+		//this.setState({showLoading: false});
   	},
   	setActiveBody: function(headerSelection) {
   		this.setState({
@@ -84,8 +88,9 @@ var DashboardApp = React.createClass({
 				activePersona: activePersona
 			});
 		});
-	},
-    render: function(){
+	},	
+    render: function(){		
+
         return (
             <div className="row dashboardContainer">
                 <div id='personaPicker' className="col-sm-12 personaPicker">
@@ -106,6 +111,7 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                </div>
 	            </div>
+				<LoadingModalComponent showLoading={this.state.showLoading}/>
             </div>
         );
     }
