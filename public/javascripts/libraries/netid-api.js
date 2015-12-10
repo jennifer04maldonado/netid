@@ -30,7 +30,9 @@ function replyAsObj(res,isJson,done){
     res.setEncoding('utf8')
     var data = ''
     res.on('data',d => {
-      console.log('got stream data:',d)
+      //console.log('got stream data:',d)
+      //dont log the whole stream
+      console.log('got stream data:')
       data += d
     })
     res.on('end',() => {
@@ -81,7 +83,7 @@ function NetidAPI(ipfs){
   }
 }*/
 
-NetidAPI.prototype.resolveIPNS = function(n){
+NetidAPI.prototype.resolveIPNS = function(n, done){
   var cached = this.users[n]
   if(cached){
     console.log(n,'was cached',cached)
@@ -90,6 +92,7 @@ NetidAPI.prototype.resolveIPNS = function(n){
   }
   if(this.resolving_ipns[n] != true){
     this.resolving_ipns[n] = true
+    console.log('Resolving ID...')
     this.ipfs.name.resolve(n,(err,r) => {
       if(err){
         // Communicate error
@@ -99,9 +102,11 @@ NetidAPI.prototype.resolveIPNS = function(n){
         var url = r.Path
         if(url === undefined){
           console.log('Could not resolve',n)
-        } else if(this.users[n] != url) this.isUserProfile(url,(isit,err) => {
+        }
+        //comment this else out to remove version checking 
+        else if(this.users[n] != url) this.isUserProfile(url,(isit,err) => {
           if(isit){
-            console.log(n,'is a user')
+            //console.log(n,'has user '+this.schemaObject[0].persona_name)
             this.users[n] = url
             //this.backupCache()
           } else {
@@ -110,6 +115,7 @@ NetidAPI.prototype.resolveIPNS = function(n){
           this.resolving_ipns[n] = false
           return true // Remove from listeners
         })
+        done(url)
       }
     })
   }
@@ -117,7 +123,27 @@ NetidAPI.prototype.resolveIPNS = function(n){
 
 NetidAPI.prototype.isUserProfile = function(addr,done){
   if(addr === undefined) return console.log('Asked to check if undefined is a profile')
-  this.ipfs.cat(addr+this.baseurl+'netid-version.txt',(err,r) => {
+    this.ipfs.cat(addr+this.baseurl+'netid-version.txt',(err2,r) => {
+      if(err2){
+        console.log(err2)
+      } else {
+        replyAsObj(r,false,(_,res) => {
+          if(!res || !res.trim){
+            console.log('Could not read version from',url)
+          } else {
+              var v = res.trim()
+              console.log('Version in profile snapshot',addr,'is',v)
+              if(v === this.version){
+                done(true)
+              } else {
+                done(false,'version mismatch: is "'+v+'" but should be "'+this.version+'"')
+                }
+              }
+        })
+      }
+    })    
+
+/*  this.ipfs.cat(addr+this.baseurl+'netid-version.txt',(err,r) => {
     if(err) return done(false,err)
     replyAsObj(r,false,(_,res) => {
       if(!res || !res.trim){
@@ -132,7 +158,7 @@ NetidAPI.prototype.isUserProfile = function(addr,done){
         }
       }
     })
-  })
+  })*/
 }
 
 NetidAPI.prototype.searchUsers = function(){
@@ -169,26 +195,31 @@ NetidAPI.prototype.searchUsers = function(){
   return this.ee
 }
 
-NetidAPI.prototype.getProfile = function(userID,done){
+NetidAPI.prototype.getProfile = function(userID){
   this.resolveIPNS(userID,(url,err) => {
     if(err){
-      this.ee.emit('error',err)
       done(err,null)
     } else {
+      //console.log('return from resolve function: '+url)
       // Download actual profile
-      this.ipfs.cat(url+this.baseurl+'profile.json',(err2,res) => {
+      this.ipfs.cat(url+this.baseurl+'personas/personaSchema.json',(err2,r) => {
         if(err2){
-          this.ee.emit('error',err2)
-          done(err2,null)
+          console.log(err2)
         } else {
-          // TODO: JSON parse error handling
-          var p = JSON.parse(res.toString())
-          this.ee.emit('profile for '+userID,p)
-          done(null,p)
+          replyAsObj(r,false,(_,res) => {
+            if(!res || !res.trim){
+              console.log('Could not read profile from',url)
+            } else {
+              this.schemaObject = JSON.parse(res.trim())
+              //this.schemaObj = JSON.parse(this.schemaObject)
+              console.log(this.id+' has user '+this.schemaObject[0].persona_name)
+
+            }
+          })
         }
       })
       // Get other info
-      this.ipfs.ls(url+this.baseurl+'boards/',(err2,res) => {
+/*      this.ipfs.ls(url+this.baseurl+'boards/',(err2,res) => {
         if(!err2){
           var l = res.Objects[0].Links.map(i => {
             return { name: i.Name, hash: i.Hash }
@@ -197,11 +228,11 @@ NetidAPI.prototype.getProfile = function(userID,done){
         } else {
           this.ee.emit('error',err2)
         }
-      })
+      })*/
     }
     return true // remove myself from listeners
   })
-  return this.ee
+  return this.schemaObject
 }
 
 NetidAPI.prototype.getBoardSettings = function(userID,board){
@@ -448,8 +479,16 @@ NetidAPI.prototype.init = function(){
     } else if(res.ID){
       console.log('I am',res.ID)
       this.id = res.ID
-      this.resolveIPNS(res.ID)
-      console.log('Version is',this.version)
+      //this.resolveIPNS(res.ID) 
+      //now with call back with url
+      this.resolveIPNS(res.ID,(url,err) => {
+        if(err){
+          done(err,null)
+      } else {
+          console.log('return from resolve function: '+url)
+          console.log('Version is',this.version)
+        }
+      })  
       this.ipfs.add(new Buffer('netid:version:'+this.version),{n: true},(err2,r) => {
         if(err2){
           console.log('Error while calculating version hash:',err2)
@@ -466,27 +505,11 @@ NetidAPI.prototype.init = function(){
               this.ipfs_version = res.Version
               console.log('IPFS Version is',res.Version)
               this.isInit = true
-              console.log(this.isInit)
               return true
             }
           })
         }
       })
-    }
-  })
-if(this.isInit){
-  return true
-}
-}
-
-NetidAPI.prototype.test = function(){
-  this.ipfs.id( (err, res) => {
-    if(err){
-      console.log('Error while getting OWN ID:',err)
-      return
-    } else if(res.ID){
-      console.log('I am',res.ID)
-      return true
     }
   })
 }
