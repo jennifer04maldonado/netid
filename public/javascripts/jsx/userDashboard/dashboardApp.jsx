@@ -35,36 +35,9 @@ var DashboardApp = React.createClass({
 	},
 
 	grabPersonasIPFS: function(){
-		var hash = this.state.peerIdHash + '/personaSchema.json';				
-		var self = this;
-		
-
-/*		ipfs.cat(hash, function (err, res) {
-			if (err || !res) return console.log('error:' + err);		  
-			//readable stream
-			if (res.readable) {
-			  	res.pipe('readable stream: ' + process.stdout);
-	        //string        	
-			} else {
-			  	var personaArray = JSON.parse(res);
-			  	self.setState({
-					personas: personaArray,
-					activePersona: personaArray[0]
-				});
-			}
-		});*/
-	},
-
-    componentDidMount: function(){
 	    var net = new NetidAPI();
 		var self = this 
-	    /*
-	    When a component inside the component being rendered by the router also needs
-	    access to the boards api, it appears unitialized and never initializes to it
-	    for no apparent reason. Calling init twice (one automgically and one
-	    when the root component mounts) works as a cheap, horrible workaround
-	    */
-	    //net.account.init()
+
 	    if(!this.isMounted()) return
 	    var ee = net.account.getEventEmitter()
 	    ee.on('init',err => {
@@ -77,22 +50,18 @@ var DashboardApp = React.createClass({
 	        	personas: test,
 	        	activePersona: test[0]
 	        })
-	        //this.init(net.account)
 	      }
 	      if(err){
 	      	console.log(err)
 	      }
-	    })
-	    /*ee.on('settings for '+this.props.params.boardname+'@'+this.props.params.userid, (res) => {
-	      if(!this.isMounted()) return true
-	      console.log('Found name:',res.fullname)
-	      this.setState({ name: res.fullname.trim(), description: res.description })
-	    })
-	    if(boards.isInit || this.state.api){
-	      this.setState({api: true})
-	      this.init(boards)
-	      boards.getBoardSettings(this.props.params.userid,this.props.params.boardname)
-	    }*/
+	    })	
+	},
+
+    componentDidMount: function(){
+    	if(this.state.useIPFS){
+    		this.grabPersonasIPFS()
+    	}
+    	this.grabPersonas()
 
     },
   	setActiveBody: function(headerSelection) {
