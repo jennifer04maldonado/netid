@@ -1,4 +1,5 @@
 var NetidAPI = function(){
+  console.log("Initializing");
   this.done = false
   this.account
   //can load ipfs options from local storage
@@ -11,7 +12,8 @@ var NetidAPI = function(){
 
   //create a new netid api object with connection info as param
   this.account = new NetidAPI(ipfs)
-  this.account.init()
+  //this.account.init()
+  this.account.getProfile()
   this.done = true
 }
 
@@ -24,13 +26,16 @@ NetidAPI.prototype.use = function(f){
   }
 }
 
-var net = new NetidAPI();
-    if(net){
-      console.log("net")
-      console.log(net.account.getUsers())
-      if(net.done){
-        console.log("Initializing");
-      }
-     } 
+
+var net = new NetidAPI()
+
+/*if(net){
+  console.log("Object Created")
+  //console.log(net.account.getUsers())
+}*/ 
+
+/*net.use(account => {
+  account.getProfile(234234)
+})*/
 //net.account.getProfile('QmdprAq8ZvnfpRfFsDUjLbNoZXEzrE8rc4quSaje3m5dgN')
 module.exports = NetidAPI

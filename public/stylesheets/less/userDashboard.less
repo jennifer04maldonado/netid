@@ -4,7 +4,7 @@
     .mainBody{
        background-color: #313131;
         .dashboardContainer {
-            position: fixed;
+            position: absolute;
             .personaPicker{
                 padding: 0;
                 height: 55px;
@@ -15,7 +15,7 @@
                 .personaPickerRight{
                     padding: 0;
                     .personaNavOptions{
-                        margin-left: 180px;
+                        margin-left: 145px;
                         ul{
                            list-style-type: none;
                            padding-left: 0px;
@@ -54,12 +54,15 @@
                                         border-radius: 0px;
                                         background-color: none;
                                         border: none;  
+                                    }
+                                    i{
+                                        font-size: 18px;
                                     }    
                                 }
                                 input{
                                 display: inline-block;
                                 border-radius: 20px;
-                                margin-left: 28px;
+                                margin-left: 15px;
                                 height: 28px;
                                 margin-top: 5px;
                                 } 
@@ -128,7 +131,7 @@
                             float: left;
                             background-color: #636363;
                             height: 50px;
-                            width: 30px;
+                            width: 10%;
                           a{
                             span{
                                 margin-top: 15px;
@@ -152,19 +155,43 @@
                                 color: #169379;
                             }
                         }
-                        .addPersona {
-                            .panel-title{
-                                background-color: #313131;
-                                border: 2px solid #959595; 
-                                border-radius: 12px;
-                                padding: 5px;
-                                margin-left: 35px;
-                            }
-                        }
                         .multiPersonaCntnr {
+                            ul {
+                                list-style-type: none;
+                            }
                             padding: 0;
                             margin-bottom: 0px;
                             background-color: #1E1E1E;
+                            #socialPersonaContainer{
+                                h4 {
+                                    text-align: center;
+                                    color: white;
+                                }
+                                height: 300px;
+                                float: left;
+                                position: relative;
+                            }
+                            #professionalPersonaContainer {
+                                h4 {
+                                    text-align: center;
+                                    color: white;
+                                }
+
+                                border-top: 15px solid #636363;
+                                height: 350px;
+                                float: left;
+                                position: relative;                                                           
+
+                            }
+                           .addPersona {
+                                position: absolute;
+                                bottom: 0;
+                                left: 0px;                               
+                                width: 100%;                                
+                                h4 {
+                                    text-align: center;
+                                }                               
+                            }                             
                             .personaActiveImage{
                                 padding-right: 0;
                                 padding-left: 30px;
@@ -204,6 +231,7 @@
                                 clear: both;
                                 margin-top: 8px;
                                 background-color: #4F4E4E;
+                                width: 95%;
                                 .personaColor {
                                     background-color: grey;
                                     height: 100%;
@@ -211,7 +239,7 @@
                                 .personaHeading {
                                     border-radius: 0px;
                                     background: none;                                    padding-left: 20px;
-                                    width: inherit;
+                                    width: 80%;
                                     padding-left: 0px;
                                     padding: 0;
                                     .imgCntnr {
@@ -241,8 +269,7 @@
                                             text-align: right;
                                         }
                                     }
-                                }
-
+                                }                                
                             }
                         }
 

@@ -29,33 +29,38 @@ var PersonaPicker = React.createClass({
                     <div className="personaNavOptions">
                         <ul className='nav nav-pills'>
                             <li className={this.props.headerSelection == 'home' ? 'active' : ''}>
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'home')}>
+                                <a href="#home" onClick={this.setActiveBody.bind(this, 'home')}>
                                     Home
                                 </a>
                             </li>
                             <li className={this.props.headerSelection == 'communities' ? 'active' : ''}>                                
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'communities')}>
+                                <a href="#communities" onClick={this.setActiveBody.bind(this, 'communities')}>
                                     Communities
                                 </a>
                             </li>
                             <li className={this.props.headerSelection == 'messages' ? 'active' : ''}>   
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'messages')}>
+                                <a href="#messages" onClick={this.setActiveBody.bind(this, 'messages')}>
                                     Messages
                                 </a>
                             </li>
                             <li className={this.props.headerSelection == 'interactions' ? 'active' : ''}>    
-                                <a href="#" onClick={this.setActiveBody.bind(this, 'interactions')}>
+                                <a href="#interactions" onClick={this.setActiveBody.bind(this, 'interactions')}>
                                     Interactions
                                 </a>
                             </li>
                             <li>    
-                                <a href="#" className="active" onClick={this.setActiveBody.bind(this, 'settings')}>
+                                <a href="#settings" onClick={this.setActiveBody.bind(this, 'settings')}>
                                     Profile
                                 </a>
                             </li>
                             <li>    
-                                <a href="#" className="logOutLink">
+                                <a href="#logOutLink" className="logOutLink">
                                     Log Out
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i className="fa fa-cog"></i>
                                 </a>
                             </li>
                             <li>    
