@@ -1,9 +1,3 @@
-/* this is the start of the less campaign */
-
-/* __________START NAVBAR__________ */
-import url(http://fonts.googleapis.com/css?family=Roboto:100,300,500,700)
-body{
-	font-family: "Roboto" !important;
 .header{
 	.logoContainer{
 		.logoBox{
@@ -11,7 +5,8 @@ body{
 			a{
 				.logo{
 					img{
-						width: 30%;
+						width: 30px;
+						height: 30px;
 					}
 				}
 			}
@@ -19,7 +14,6 @@ body{
 	}	
 	.link_container{
 		.link_inner{
-			float: right;
 			ul{
 				list-style-type: none;
 				li{
@@ -60,57 +54,6 @@ body{
 		}
 	}
 }
-/*MOBILE DEVICES*/
-@media (max-width: 768px){
-  	.logo img{
-	width: 60% !important;
-	margin-left: 0px;
-	}
-	.navbar-toggle{
-	margin-top: -6px !important;
-	float: left !important;
-	padding-left: 25px !important;
-	}
-	.collapse.in{
-	margin-left: 5%;
-	}
-	ul li, li a{
-	width: 100%;
-	}
-	.mobile-nav>li{
-	border-bottom: 1px;
-	}
-	.glyphicon-menu-hamburger{
-	font-size: 20px;
-	color: gray;
-	}
-}
-
-/*TABLET SIZE*/
-@media (min-width: 769px) and (max-width:991px){
-	.logo img{
-	margin-top: 3%;
-	margin-bottom: 3%;
-	width: 25% !important;
-	}
-	.navbar-toggle{
-	float: right !important;
-	}
-}
-
-/*LARGE DESKTOP*/
-@media (min-width: 992px){ 
-	.link_container{
-	padding-top: 1.6%;
-	}
-	.logo img{
-	margin-top: 4%;
-	margin-bottom: 4%;
-	}
-}
-
-/* __________START LOGIN FIELDS__________ */
-
 .mainFirstContent{
 	background-attachment:fixed;
 	background-image:url('../../images/hands.jpg');
