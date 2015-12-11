@@ -6,13 +6,27 @@ var SinglePersonaHeader = require('./singlepersonaheader');
 
 
 var PersonaIndex = React.createClass({
-	clickCollapseHandler: function() {
-		this.props.collapsePersona();
+	getDefaultProps: function() {
+		return {
+			socialPersonaHeading: 'Social',
+			professionalPersonaHeading: 'Professional',
+		}
 	},
 	setActivePersona: function(activePersonaId) {
 		this.props.setActivePersona(activePersonaId);
 	},	
 	render: function(){
+		var socialPersonas = [];
+		var profPersonas = [];
+		$.each(this.props.personas, function(index, persona) {
+			if (persona.persona_type == 'Social') {
+				socialPersonas.push(persona);
+			} else 
+			if (persona.persona_type == 'Professional') {
+				profPersonas.push(persona);
+			}		
+		});		
+
 		var myClassName = 'col-sm-12 panel-group multiPersonaCntnr';
 		if(this.props.personas.length !== 0){
 			//console.log('rendering personas');
@@ -20,14 +34,19 @@ var PersonaIndex = React.createClass({
 		        <div className={myClassName} id="accordion">
 		        	<div className="col-sm-12 personaActiveImage">
                             <div className="personaImage">
-
                                 <img src={this.props.activePersona.image}/>
                             </div>
                             <div className="col-sm-12 personaActiveName">
                             	<h3>{this.props.activePersona.persona_name}</h3>
                             </div>
                     </div>
-		        	<SinglePersonaHeader setActivePersona={this.setActivePersona} collapsePersona={this.clickCollapseHandler} isOpen={this.props.isOpen} personas={this.props.personas}/>
+                    <div id='socialPersonaContainer'>
+		        		<SinglePersonaHeader personaType='social' activePersona={this.props.activePersona} headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} />
+					</div>
+					<div id='professionalPersonaContainer'>
+		        		<SinglePersonaHeader personaType='prof' activePersona={this.props.activePersona} headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} />
+		        	</div>
+					<div id='personaBarFiller'> </div>
 	            </div>
 			)
 		}
