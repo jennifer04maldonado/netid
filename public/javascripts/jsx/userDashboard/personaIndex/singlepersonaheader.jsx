@@ -51,6 +51,7 @@ var SinglePersonaHeader = React.createClass({
 		});
 		return(
 			<div>
+				<h4>{this.props.headingTitle}</h4>
 				<ul>
 				{mapPersonas}	
 				</ul>

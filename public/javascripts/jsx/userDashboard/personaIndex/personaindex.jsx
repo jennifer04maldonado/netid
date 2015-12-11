@@ -6,6 +6,12 @@ var SinglePersonaHeader = require('./singlepersonaheader');
 
 
 var PersonaIndex = React.createClass({
+	getDefaultProps: function() {
+		return {
+			socialPersonaHeading: 'Social',
+			professionalPersonaHeading: 'Professional',
+		}
+	},
 	setActivePersona: function(activePersonaId) {
 		this.props.setActivePersona(activePersonaId);
 	},	
@@ -37,10 +43,10 @@ var PersonaIndex = React.createClass({
                             </div>
                     </div>
                     <div id='socialPersonaContainer'>
-		        		<SinglePersonaHeader setActivePersona={this.setActivePersona} personas={socialPersonas} />
+		        		<SinglePersonaHeader headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} />
 					</div>
 					<div id='professionalPersonaContainer'>
-		        		<SinglePersonaHeader setActivePersona={this.setActivePersona} personas={profPersonas} />
+		        		<SinglePersonaHeader headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} />
 		        	</div>
 					<div id='personaBarFiller'> </div>
 	            </div>
