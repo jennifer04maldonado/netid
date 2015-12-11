@@ -1,10 +1,5 @@
-/*
-This file contains the IPFS Boards API. It's a simple abstraction over the
-js-ipfs-api that also provides an additional level of caching for this
-particular application. Let's hope it turns out decent
-Needs to be browserified to work in the browser
-*/
-
+var EventEmitter = require('wolfy87-eventemitter')
+var asyncjs = require('async')
 
 function asObj(str,done){
   if(str.toString) str = str.toString()
@@ -30,9 +25,7 @@ function replyAsObj(res,isJson,done){
     res.setEncoding('utf8')
     var data = ''
     res.on('data',d => {
-      //console.log('got stream data:',d)
-      //dont log the whole stream
-      console.log('got stream data:')
+      console.log('got stream data:',d)
       data += d
     })
     res.on('end',() => {
@@ -60,8 +53,8 @@ function NetidAPI(ipfs){
   this.baseurl = '/netid-account/'
   this.users = {} // userID : profileHash
   this.resolving_ipns = {} // to check if a resolve is already in progress
-  //use local storage
-/*  if(localStorage !== undefined){
+  this.ee = new EventEmitter()
+  if(localStorage !== undefined){
     // Use localStorage to store the IPNS cache
     var stored = localStorage.getItem('ipfs-boards-user-cache')
     try {
@@ -72,93 +65,71 @@ function NetidAPI(ipfs){
     } catch(e){
       this.users = {}
     }
-  }*/
+  }
 }
 
-//more local storage examples
-/*NetidAPI.prototype.backupCache = function(){
+NetidAPI.prototype.backupCache = function(){
   if(localStorage !== undefined){
     // Use localStorage to store the IPNS cache
     localStorage.setItem('ipfs-boards-user-cache',JSON.stringify(this.users))
   }
-}*/
+}
 
-NetidAPI.prototype.resolveIPNS = function(n, done){
+// Rewrote this to use event emitters. Should also add periodic rechecking
+NetidAPI.prototype.resolveIPNS = function(n,handler){
+  if(handler && handler.apply) this.ee.on(n,handler)
   var cached = this.users[n]
   if(cached){
+    //this.ee.emit(n,cached)
     console.log(n,'was cached',cached)
   } else {
     console.log(n,'not cached')
   }
   if(this.resolving_ipns[n] != true){
     this.resolving_ipns[n] = true
-    console.log('Resolving ID...')
     this.ipfs.name.resolve(n,(err,r) => {
       if(err){
         // Communicate error
-        console.log('error',err)
+        console.log(err)
+        //this.ee.emit('error',err)
       } else {
         console.log(r)
+
         var url = r.Path
         if(url === undefined){
           console.log('Could not resolve',n)
-        }
-        //comment this else out to remove version checking 
-        else if(this.users[n] != url) this.isUserProfile(url,(isit,err) => {
+          this.ee.emit('error',r.Message)
+        } else this.isUserProfile(url,(isit,err) => {
+          //this was getting pulled from temp storage
+          //else if(this.users[n] != url) this.isUserProfile(url,(isit,err) => {
           if(isit){
-            //console.log(n,'has user '+this.schemaObject[0].persona_name)
+            console.log(n,'is a user')
+            if(this.users[n] === undefined) this.ee.emit('user',n,url)
             this.users[n] = url
-            //this.backupCache()
+            this.ee.emit(n,url)
+            this.backupCache()
           } else {
             console.log(n,'not a valid profile:',err)
+            this.ee.emit(n,undefined,'not a valid profile: '+err)
           }
           this.resolving_ipns[n] = false
           return true // Remove from listeners
         })
-        done(url)
       }
     })
   }
+  return this.ee
 }
 
 NetidAPI.prototype.isUserProfile = function(addr,done){
   if(addr === undefined) return console.log('Asked to check if undefined is a profile')
-    this.ipfs.cat(addr+this.baseurl+'netid-version.txt',(err2,r) => {
-      if(err2){
-        console.log(err2)
-      } else {
-        replyAsObj(r,false,(_,res) => {
-          if(!res || !res.trim){
-            console.log('Could not read version from',url)
-          } else {
-              var v = res.trim()
-              console.log('Version in profile snapshot',addr,'is',v)
-              if(v === this.version){
-                done(true)
-              } else {
-                done(false,'version mismatch: is "'+v+'" but should be "'+this.version+'"')
-                }
-              }
-        })
-      }
-    })    
-
-/*  this.ipfs.cat(addr+this.baseurl+'netid-version.txt',(err,r) => {
+  this.ipfs.cat(addr+this.baseurl+'personas/personaSchema.json',(err,r) => {
     if(err) return done(false,err)
-    replyAsObj(r,false,(_,res) => {
-      if(!res || !res.trim){
-        console.log('Could not read version from',addr)
-      } else {
-        var v = res.trim()
-        console.log('Version in profile snapshot',addr,'is',v)
-        if(v === this.version){
-          done(true)
-        } else {
-          done(false,'version mismatch: is "'+v+'" but should be "'+this.version+'"')
-        }
-      }
-    })
-  })*/
+      console.log(r[0].id)
+      this.schemaObject = r
+      done(true)
+      this.ee.emit('init',undefined)
+  })
 }
 
 NetidAPI.prototype.searchUsers = function(){
@@ -195,31 +166,26 @@ NetidAPI.prototype.searchUsers = function(){
   return this.ee
 }
 
-NetidAPI.prototype.getProfile = function(userID){
+NetidAPI.prototype.getProfile = function(userID,done){
   this.resolveIPNS(userID,(url,err) => {
     if(err){
+      this.ee.emit('error',err)
       done(err,null)
     } else {
-      //console.log('return from resolve function: '+url)
       // Download actual profile
-      this.ipfs.cat(url+this.baseurl+'personas/personaSchema.json',(err2,r) => {
+      this.ipfs.cat(url+this.baseurl+'profile.json',(err2,res) => {
         if(err2){
-          console.log(err2)
+          this.ee.emit('error',err2)
+          done(err2,null)
         } else {
-          replyAsObj(r,false,(_,res) => {
-            if(!res || !res.trim){
-              console.log('Could not read profile from',url)
-            } else {
-              this.schemaObject = JSON.parse(res.trim())
-              //this.schemaObj = JSON.parse(this.schemaObject)
-              console.log(this.id+' has user '+this.schemaObject[0].persona_name)
-
-            }
-          })
+          // TODO: JSON parse error handling
+          var p = JSON.parse(res.toString())
+          this.ee.emit('profile for '+userID,p)
+          done(null,p)
         }
       })
       // Get other info
-/*      this.ipfs.ls(url+this.baseurl+'boards/',(err2,res) => {
+      this.ipfs.ls(url+this.baseurl+'boards/',(err2,res) => {
         if(!err2){
           var l = res.Objects[0].Links.map(i => {
             return { name: i.Name, hash: i.Hash }
@@ -228,11 +194,11 @@ NetidAPI.prototype.getProfile = function(userID){
         } else {
           this.ee.emit('error',err2)
         }
-      })*/
+      })
     }
     return true // remove myself from listeners
   })
-  return this.schemaObject
+  return this.ee
 }
 
 NetidAPI.prototype.getBoardSettings = function(userID,board){
@@ -470,48 +436,51 @@ NetidAPI.prototype.getUserCommentList = function(parent,user,done){
 // API for publishing content and managing to be done later...
 
 // Initialize API
-NetidAPI.prototype.init = function(){
+NetidAPI.prototype.init = function(done){
   if(this.isInit) return
   this.ipfs.id( (err, res) => {
     if(err){
       console.log('Error while getting OWN ID:',err)
-      return
+      this.ee.emit('error',err)
+      this.ee.emit('init',err)
+      if(done && done.apply) done(err)
     } else if(res.ID){
       console.log('I am',res.ID)
       this.id = res.ID
-      //this.resolveIPNS(res.ID) 
-      //now with call back with url
-      this.resolveIPNS(res.ID,(url,err) => {
-        if(err){
-          done(err,null)
-      } else {
-          console.log('return from resolve function: '+url)
-          console.log('Version is',this.version)
-        }
-      })  
+      this.resolveIPNS(res.ID)
+      console.log('Version is',this.version)
       this.ipfs.add(new Buffer('netid:version:'+this.version),{n: true},(err2,r) => {
         if(err2){
+          this.ee.emit('error',err2)
           console.log('Error while calculating version hash:',err2)
-          return
+          this.ee.emit('init',err2)
+          if(done && done.apply) done(err2)
         } else {
           if(r && r.Hash) this.version_hash = r.Hash
           if(r && r[0] && r[0].Hash) this.version_hash = r[0].Hash
           console.log('Version hash is',this.version_hash)
           this.ipfs.version((err,res) => {
             if(err){
+              this.ee.emit('error',err)
+              this.ee.emit('init',err)
               console.log('Error while getting ipfs version:',err)
-              return false
+              if(done && done.apply) done(err)
             } else {
               this.ipfs_version = res.Version
               console.log('IPFS Version is',res.Version)
+              //this.ee.emit('init',undefined)
               this.isInit = true
-              return true
+              if(done && done.apply) done(null)
             }
           })
         }
       })
     }
   })
+}
+
+NetidAPI.prototype.getEventEmitter = function(){
+  return this.ee
 }
 
 NetidAPI.prototype.getUsers = function(){

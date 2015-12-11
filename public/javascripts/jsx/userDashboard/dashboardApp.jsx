@@ -1,5 +1,6 @@
 //var ipfs = window.ipfsAPI('localhost', '5001');
 var ipfs = window.ipfsAPI();
+var NetidAPI = require('../../libraries/netid-api-wrapper.js')
 
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
@@ -13,9 +14,9 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
-            useIPFS: false,
-            showLoading: false
+            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
+            useIPFS: true,
+            showLoading: true
         }
 	},
 	grabPersonas: function(){
@@ -36,7 +37,9 @@ var DashboardApp = React.createClass({
 	grabPersonasIPFS: function(){
 		var hash = this.state.peerIdHash + '/personaSchema.json';				
 		var self = this;
-		ipfs.cat(hash, function (err, res) {
+		
+
+/*		ipfs.cat(hash, function (err, res) {
 			if (err || !res) return console.log('error:' + err);		  
 			//readable stream
 			if (res.readable) {
@@ -49,21 +52,49 @@ var DashboardApp = React.createClass({
 					activePersona: personaArray[0]
 				});
 			}
-		});
+		});*/
 	},
 
-	componentDidMount: function() {		
-		if (this.state.useIPFS) {			
-			console.log('fetching data from IPFS');
-			var self = this;
-		 	this.grabPersonasIPFS();
-		} else {
-			console.log('fetching data from AJAX');
-			this.grabPersonas(); 			
-		}		
-		//set initial state 'showLoading: true'
-		//this.setState({showLoading: false});
-  	},
+    componentDidMount: function(){
+	    var net = new NetidAPI();
+		var self = this 
+	    /*
+	    When a component inside the component being rendered by the router also needs
+	    access to the boards api, it appears unitialized and never initializes to it
+	    for no apparent reason. Calling init twice (one automgically and one
+	    when the root component mounts) works as a cheap, horrible workaround
+	    */
+	    //net.account.init()
+	    if(!this.isMounted()) return
+	    var ee = net.account.getEventEmitter()
+	    ee.on('init',err => {
+	      if(!err && this.isMounted()){
+	      	var test = net.account.schemaObject
+	      	console.log(test)
+
+	        self.setState({ 
+	        	showLoading: false,
+	        	personas: test,
+	        	activePersona: test[0]
+	        })
+	        //this.init(net.account)
+	      }
+	      if(err){
+	      	console.log(err)
+	      }
+	    })
+	    /*ee.on('settings for '+this.props.params.boardname+'@'+this.props.params.userid, (res) => {
+	      if(!this.isMounted()) return true
+	      console.log('Found name:',res.fullname)
+	      this.setState({ name: res.fullname.trim(), description: res.description })
+	    })
+	    if(boards.isInit || this.state.api){
+	      this.setState({api: true})
+	      this.init(boards)
+	      boards.getBoardSettings(this.props.params.userid,this.props.params.boardname)
+	    }*/
+
+    },
   	setActiveBody: function(headerSelection) {
   		this.setState({
   			headerSelection: headerSelection
