@@ -54,7 +54,7 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>    
-                                <a href="#logOutLink" className="logOutLink">
+                                <a href="/" className="logOutLink">
                                     Log Out
                                 </a>
                             </li>
