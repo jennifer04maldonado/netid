@@ -60,8 +60,9 @@ var DashboardApp = React.createClass({
     componentDidMount: function(){
     	if(this.state.useIPFS){
     		this.grabPersonasIPFS()
+    	}else {
+    		this.grabPersonas()
     	}
-    	this.grabPersonas()
 
     },
   	setActiveBody: function(headerSelection) {
