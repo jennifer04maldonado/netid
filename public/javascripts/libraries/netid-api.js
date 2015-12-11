@@ -125,8 +125,7 @@ NetidAPI.prototype.isUserProfile = function(addr,done){
   if(addr === undefined) return console.log('Asked to check if undefined is a profile')
   this.ipfs.cat(addr+this.baseurl+'personas/personaSchema.json',(err,r) => {
     if(err) return done(false,err)
-      console.log(r[0].id)
-      this.schemaObject = r
+      this.schemaObject = JSON.parse(r)
       done(true)
       this.ee.emit('init',undefined)
   })

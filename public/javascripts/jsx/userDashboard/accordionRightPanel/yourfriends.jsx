@@ -1,4 +1,4 @@
-var ipfs = window.ipfsAPI();
+//var ipfs = window.ipfsAPI();
 
 
 //INPUT: EVENTUALLY WILL BE DATA OBJECT W/ YOUR FRIENDS
@@ -27,9 +27,10 @@ var YourFriends = React.createClass({
 
   },  
   getYourFriendsIPFS: function(personaId, done) {
-
+    var net = this.props.api
+    console.log(net.account.schemaObject)
     var hash = this.props.peerIdHash + '/friend.json';   
-    ipfs.cat(hash, function (err, res) {
+/*    ipfs.cat(hash, function (err, res) {
       if (err || !res) return console.log('error:' + err);      
       //readable stream
       if (res.readable) {
@@ -45,11 +46,10 @@ var YourFriends = React.createClass({
         }
         done(thisPersonaFriends);  
       }
-    });
+    });*/
   },
   //this method decides to fetches data from IPFS or AJAX
   componentWillReceiveProps: function(nextProps) {    
-    
     if (nextProps.activePersona !== this.props.activePersona) {
       var personaId = nextProps.activePersona.id;
       var self = this;

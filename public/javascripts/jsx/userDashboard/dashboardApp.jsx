@@ -1,5 +1,5 @@
 //var ipfs = window.ipfsAPI('localhost', '5001');
-var ipfs = window.ipfsAPI();
+//var ipfs = window.ipfsAPI();
 var NetidAPI = require('../../libraries/netid-api-wrapper.js')
 
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
@@ -15,8 +15,9 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
-            showLoading: true
+            useIPFS: true,
+            showLoading: true,
+            api: {}
         }
 	},
 	grabPersonas: function(){
@@ -39,14 +40,16 @@ var DashboardApp = React.createClass({
 	grabPersonasIPFS: function(){
 	    var net = new NetidAPI();
 		var self = this 
-
+		self.setState({
+			api: net
+		})
 	    if(!this.isMounted()) return
 	    var ee = net.account.getEventEmitter()
 	    ee.on('init',err => {
+	    	console.log(net)
 	      if(!err && this.isMounted()){
 	      	var test = net.account.schemaObject
 	      	console.log(test)
-
 	        self.setState({ 
 	        	showLoading: false,
 	        	personas: test,
@@ -110,7 +113,7 @@ var DashboardApp = React.createClass({
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
+	   						<RightControlComponent activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash} api={this.state.api}/>
 	                    </div>
 	                </div>
 	            </div>

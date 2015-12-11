@@ -2,10 +2,10 @@ var NetidAPI = function(){
   this.done = false
   this.fa = []
   this.account
-
   var NetidAPI = require('./netid-api.js')
   //var ipfs = require('ipfs-api')(opt.addr || 'localhost',opt.port || 5001)
-  var ipfs = require('ipfs-api')('localhost', 5001);
+  //var ipfs = require('ipfs-api')('localhost', 5001);
+  var ipfs = window.ipfsAPI('localhost', 5001);
   this.account = new NetidAPI(ipfs)
   this.account.init()
   this.done = true
