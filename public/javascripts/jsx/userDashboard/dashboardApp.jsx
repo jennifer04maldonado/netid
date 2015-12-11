@@ -1,5 +1,6 @@
 //var ipfs = window.ipfsAPI('localhost', '5001');
 var ipfs = window.ipfsAPI();
+var NetidAPI = require('../../libraries/netid-api-wrapper.js')
 
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
@@ -13,18 +14,20 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGruc',
+            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
             useIPFS: false,
-            showLoading: false
+            showLoading: true
         }
 	},
 	grabPersonas: function(){
+		console.log("Loading from ajax")
 		var self = this;
 		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
 		  //console.log('status: '  + status);	
 			if (status == 'success') {				
 		 	    if (self.isMounted()) {
 		 	        self.setState({
+		 	        	showLoading: false,
 		 		    	personas: personaArray,
 		 		        activePersona: personaArray[0]
 		         	});	     
@@ -34,36 +37,36 @@ var DashboardApp = React.createClass({
 	},
 
 	grabPersonasIPFS: function(){
-		var hash = this.state.peerIdHash + '/personaSchema.json';				
-		var self = this;
-		ipfs.cat(hash, function (err, res) {
-			if (err || !res) return console.log('error:' + err);		  
-			//readable stream
-			if (res.readable) {
-			  	res.pipe('readable stream: ' + process.stdout);
-	        //string        	
-			} else {
-			  	var personaArray = JSON.parse(res);
-			  	self.setState({
-					personas: personaArray,
-					activePersona: personaArray[0]
-				});
-			}
-		});
+	    var net = new NetidAPI();
+		var self = this 
+
+	    if(!this.isMounted()) return
+	    var ee = net.account.getEventEmitter()
+	    ee.on('init',err => {
+	      if(!err && this.isMounted()){
+	      	var test = net.account.schemaObject
+	      	console.log(test)
+
+	        self.setState({ 
+	        	showLoading: false,
+	        	personas: test,
+	        	activePersona: test[0]
+	        })
+	      }
+	      if(err){
+	      	console.log(err)
+	      }
+	    })	
 	},
 
-	componentDidMount: function() {		
-		if (this.state.useIPFS) {			
-			console.log('fetching data from IPFS');
-			var self = this;
-		 	this.grabPersonasIPFS();
-		} else {
-			console.log('fetching data from AJAX');
-			this.grabPersonas(); 			
-		}		
-		//set initial state 'showLoading: true'
-		//this.setState({showLoading: false});
-  	},
+    componentDidMount: function(){
+    	if(this.state.useIPFS){
+    		this.grabPersonasIPFS()
+    	}else {
+    		this.grabPersonas()
+    	}
+
+    },
   	setActiveBody: function(headerSelection) {
   		this.setState({
   			headerSelection: headerSelection

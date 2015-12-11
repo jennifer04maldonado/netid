@@ -53,7 +53,12 @@ node www
 TODO: Add more notes
 
 ###Data Storage
-Each user will store their data in this folder structure
+Each user will store their data in this folder structure. Until we build a script to initialize this file structure each user needs to add it to IPFS then publish the root hash to their IPNS ID
+```
+cd to folder containing netid-account folder
+ipfs add . -r
+ipfs name publish <root hash returned from add>
+```
 ```
 netid-account
   ->personas
@@ -112,9 +117,9 @@ TODO: add information about IRC channels and contact avenues for thoughts on imp
     - [ ] [Chat - webrtc](https://temasys.github.io/how-to/2014/09/02/Building_A_Simple_P2P_chat_with_WebRTC/)
     - [ ] Trusted Source - Or some gateway
     - [x]	* Wallet Integration - Built but needs UI
-    - [ ] * Searching - <strike>Researching DHT broadcasting</strike> Not ready until Beta
+    - [X] * Searching - <strike>Researching DHT broadcasting</strike> <strike>Not ready until Beta</strike> can search peers and resolve ipns ids for data for now
     - [X] Wall feed 
-    - [ ] User Auth - Blockchain and IPNS are possible
+    - [X] User Auth - Blockchain and IPNS are possible
 - <h3><b>Beta: Target Date - </b></h3>
   - [ ] <b>Remove local clients and build into the browser (WebRTC as the transport layer)</b>
     - [ ] POST [Discussion] (https://github.com/ipfs/POST) 

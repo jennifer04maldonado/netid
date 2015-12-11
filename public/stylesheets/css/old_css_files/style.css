@@ -8,14 +8,9 @@ body{
 /* ________________THIS STARTS THE NAVBAR__________________ */
 
 
-.logo{
-	width:35%;
-	height:90px;
-	background-image:url('../images/NetID_png_1433452694.png');
-	background-position: center;
-	background-size:contain;
-	background-repeat:no-repeat;
-	float: right;
+.logo img{
+	width:30px;
+	height:30px;
 }
 
 .logoBox{
