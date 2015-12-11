@@ -26,8 +26,6 @@ var PersonaIndex = React.createClass({
 				profPersonas.push(persona);
 			}		
 		});		
-		console.log('social personas' + socialPersonas);
-		console.log('professional personas' + profPersonas);
 
 		var myClassName = 'col-sm-12 panel-group multiPersonaCntnr';
 		if(this.props.personas.length !== 0){
@@ -43,10 +41,10 @@ var PersonaIndex = React.createClass({
                             </div>
                     </div>
                     <div id='socialPersonaContainer'>
-		        		<SinglePersonaHeader headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} />
+		        		<SinglePersonaHeader personaType='social' activePersona={this.props.activePersona} headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} />
 					</div>
 					<div id='professionalPersonaContainer'>
-		        		<SinglePersonaHeader headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} />
+		        		<SinglePersonaHeader personaType='prof' activePersona={this.props.activePersona} headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} />
 		        	</div>
 					<div id='personaBarFiller'> </div>
 	            </div>

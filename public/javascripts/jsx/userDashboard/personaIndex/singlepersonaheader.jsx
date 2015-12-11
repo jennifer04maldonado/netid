@@ -4,18 +4,8 @@ var CollapseContainer = require('./collapseContainer');
 var AddPersona = require('./addpersona');
 
 var SinglePersonaHeader = React.createClass({
-	getInitialState: function(){
-		return {
-			selectedPersonaId: this.props.personas[0].id //set first persona as defalt
-		}
-	},
 	setActivePersona: function(event){
-		//console.log('set active persona ' + event.target.dataset.personaId);
 		this.props.setActivePersona(event.target.dataset.personaId);
-		
-		this.setState({
-			selectedPersonaId: event.target.dataset.personaId
-		});
 	},
 	render: function(){
 		var self = this;
@@ -29,7 +19,7 @@ var SinglePersonaHeader = React.createClass({
 			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';	
 			var notifcationClassName = 'notificationContainer';
 
-			if (self.state.selectedPersonaId == personaId) {
+			if (self.props.activePersona.id == personaId) {
 				notifcationClassName += ' selected';
 			}
 
@@ -49,6 +39,8 @@ var SinglePersonaHeader = React.createClass({
                 </li>
 			);
 		});
+
+		
 		return(
 			<div>
 				<h4>{this.props.headingTitle}</h4>
