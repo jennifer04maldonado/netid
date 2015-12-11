@@ -53,7 +53,12 @@ node www
 TODO: Add more notes
 
 ###Data Storage
-Each user will store their data in this folder structure
+Each user will store their data in this folder structure. Until we build a script to initialize this file structure each user needs to add it to IPFS then publish the root hash to their IPNS ID
+```
+cd to folder containing netid-account folder
+ipfs add . -r
+ipfs name publish <root hash returned from add>
+```
 ```
 netid-account
   ->personas
