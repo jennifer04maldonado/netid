@@ -15,17 +15,19 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: true,
+            useIPFS: false,
             showLoading: true
         }
 	},
 	grabPersonas: function(){
+		console.log("Loading from ajax")
 		var self = this;
 		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
 		  //console.log('status: '  + status);	
 			if (status == 'success') {				
 		 	    if (self.isMounted()) {
 		 	        self.setState({
+		 	        	showLoading: false,
 		 		    	personas: personaArray,
 		 		        activePersona: personaArray[0]
 		         	});	     
