@@ -5,12 +5,9 @@
 
 var AddPersona = React.createClass({
 	render: function(){
-		var myClassName = '';
-		if (!this.props.isOpen) {
-			myClassName = myClassName.replace('out', 'in');
-		}
 		return(
-			<div className={myClassName}>
+			<div className="addPersona">
+				<h4><a href="#addPersona"> + add persona </a></h4>
 			</div>
 		)
 	}
