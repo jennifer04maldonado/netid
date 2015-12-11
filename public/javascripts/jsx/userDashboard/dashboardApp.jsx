@@ -1,7 +1,4 @@
-//var ipfs = window.ipfsAPI('localhost', '5001');
-//var ipfs = window.ipfsAPI();
 var NetidAPI = require('../../libraries/netid-api-wrapper.js')
-
 var PersonaContainerComponent = require('./personaIndex/personaContainer');
 var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
@@ -20,7 +17,7 @@ var DashboardApp = React.createClass({
             api: {}
         }
 	},
-	grabPersonas: function(){
+	initialize: function(){
 		console.log("Loading from ajax")
 		var self = this;
 		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
@@ -37,8 +34,12 @@ var DashboardApp = React.createClass({
 		});
 	},
 
-	grabPersonasIPFS: function(){
+
+	initializeIPFS: function(){
 	    var net = new NetidAPI();
+	    //example of using the netid api to get the eth balance
+	    var web3test = net.account.getBalance();
+	    console.log(web3test)
 		var self = this 
 		self.setState({
 			api: net
@@ -46,14 +47,13 @@ var DashboardApp = React.createClass({
 	    if(!this.isMounted()) return
 	    var ee = net.account.getEventEmitter()
 	    ee.on('init',err => {
-	    	console.log(net)
+	    	console.log('Net Object '+ net)
 	      if(!err && this.isMounted()){
-	      	var test = net.account.schemaObject
-	      	console.log(test)
+	      	var schemObj = net.account.schemaObject
 	        self.setState({ 
 	        	showLoading: false,
-	        	personas: test,
-	        	activePersona: test[0]
+	        	personas: schemObj,
+	        	activePersona: schemObj[0]
 	        })
 	      }
 	      if(err){
@@ -64,9 +64,9 @@ var DashboardApp = React.createClass({
 
     componentDidMount: function(){
     	if(this.state.useIPFS){
-    		this.grabPersonasIPFS()
+    		this.initializeIPFS()
     	}else {
-    		this.grabPersonas()
+    		this.initialize()
     	}
 
     },

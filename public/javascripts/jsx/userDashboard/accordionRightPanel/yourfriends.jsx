@@ -28,7 +28,7 @@ var YourFriends = React.createClass({
   },  
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
-    console.log(net.account.schemaObject)
+    console.log('Friend Component received '+net.account.schemaObject)
     var hash = this.props.peerIdHash + '/friend.json';   
 /*    ipfs.cat(hash, function (err, res) {
       if (err || !res) return console.log('error:' + err);      

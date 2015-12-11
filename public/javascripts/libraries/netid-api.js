@@ -47,8 +47,9 @@ function replyAsObj(res,isJson,done){
   }
 }
 
-function NetidAPI(ipfs){
+function NetidAPI(ipfs, web3){
   this.ipfs = ipfs
+  this.web3 = web3
   this.version = 'netid:version:dev'
   this.baseurl = '/netid-account/'
   this.users = {} // userID : profileHash
@@ -437,6 +438,7 @@ NetidAPI.prototype.getUserCommentList = function(parent,user,done){
 // Initialize API
 NetidAPI.prototype.init = function(done){
   if(this.isInit) return
+  this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545')); 
   this.ipfs.id( (err, res) => {
     if(err){
       console.log('Error while getting OWN ID:',err)
@@ -488,6 +490,12 @@ NetidAPI.prototype.getUsers = function(){
 
 NetidAPI.prototype.getMyID = function(){
   return this.id
+}
+
+NetidAPI.prototype.getBalance = function(){
+  var coinbase = this.web3.eth.coinbase;
+  var originalBalance = this.web3.eth.getBalance(coinbase).toNumber();
+  return originalBalance
 }
 
 module.exports = NetidAPI
