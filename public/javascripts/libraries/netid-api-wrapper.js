@@ -2,11 +2,14 @@ var NetidAPI = function(){
   this.done = false
   this.fa = []
   this.account
-
   var NetidAPI = require('./netid-api.js')
   //var ipfs = require('ipfs-api')(opt.addr || 'localhost',opt.port || 5001)
-  var ipfs = require('ipfs-api')('localhost', 5001);
-  this.account = new NetidAPI(ipfs)
+  //var ipfs = require('ipfs-api')('localhost', 5001);
+  var ipfs = window.ipfsAPI('localhost', 5001);
+/*  this needs to be in the html for now, gulp cant require the full web3.js
+  var Web3 = require('web3')
+  var web3 = new Web3()*/
+  this.account = new NetidAPI(ipfs, web3)
   this.account.init()
   this.done = true
   this.fa.forEach(fn => fn(this.account))
