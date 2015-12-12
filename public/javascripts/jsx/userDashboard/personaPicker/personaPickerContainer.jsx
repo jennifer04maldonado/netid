@@ -18,12 +18,6 @@ var PersonaPicker = React.createClass({
         return (
             <div className="col-sm-12 personaPicker">
                 <div className="row col-sm-2 personaPickerLeft">
-                    {/*<div>
-                        <h3>
-                            <span className='panel-title'> {this.props.activePersona ? this.props.activePersona.persona_name : 'name'} :</span>
-                            <span className='panel-title'> {this.props.activePersona ? this.props.activePersona.description : 'description'} </span>
-                        </h3>
-                    </div> */}
                 </div>
                 <div className="row col-sm-6 col-sm-offset-2 personaPickerRight">
                     <div className="personaNavOptions">
@@ -54,7 +48,7 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>    
-                                <a href="#logOutLink" className="logOutLink">
+                                <a href="/" className="logOutLink">
                                     Log Out
                                 </a>
                             </li>
