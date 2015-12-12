@@ -15,7 +15,7 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: true,
+            useIPFS: false,
             showLoading: true,
             api: {}
         }
@@ -98,8 +98,8 @@ var DashboardApp = React.createClass({
     render: function(){		
 
         return (
-            <div className="row dashboardContainer">
-                <div id='personaPicker' className="col-sm-12 personaPicker">
+            <div className="dashboardContainer">
+                <div id="personaPicker" className="personaPicker">
 					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
