@@ -1,29 +1,72 @@
 [
 	{
 	    "id": "123",
-	    "name": "Lets Go Hiking!",
+	    "name": "Star Wars Fans",
 	    "created_by": "0001",
-	    "pic": "images/image.jpg",
-	    "description": "Place where hikers can get together",
+	    "pic": "/images/starwars.jpg",
+	    "description": "A community of Star Wars fans. Join the Dark Side",
 	    "community_type": "Public",
-	     "created_date": "01/01/2015"
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583"
 	},
 	{
 	    "id": "214132",
-	    "name": "Lets Play Tennis!",
+	    "name": "Disneyland Gangstahs",
 	    "created_by": "0001",
-	    "pic": "images/image.jpg",
-	    "description": "Anyone Up For Some Tennis?",
+	    "pic": "/images/disney.jpg",
+	    "description": "We own da Majik Kingdum, yo. Come to Disneyland",
 	    "community_type": "Private",
-	    "created_date": "01/01/2015"
+	    "created_date": "01/01/2015",
+	    "members_count": "1,583"
 	},
 	{
 	    "id": "3",
-	    "name": "Shush Group",
+	    "name": "Coffee Addicts",
 	    "created_by": "0001",
-	    "pic": "images/image.jpg",
-	    "description": "Lets keep this between us",
+	    "pic": "/images/coffee.png",
+	    "description": "Join us and drink some coffee or something",
 	    "community_type": "Secret",
-	    "created_date": "01/01/2015"
+	    "created_date": "01/01/2015",
+	    "members_count": "52,58"
+	},
+	{
+	    "id": "4",
+	    "name": "Coffee Addicts",
+	    "created_by": "0001",
+	    "pic": "/images/coffee.png",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "2,583"
+	},
+	{
+	    "id": "5",
+	    "name": "Coffee Addicts",
+	    "created_by": "0001",
+	    "pic": "/images/coffee.png",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583"
+	},
+	{
+	    "id": "6",
+	    "name": "Coffee Addicts",
+	    "created_by": "0001",
+	    "pic": "/images/coffee.png",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583"
+	},
+	{
+	    "id": "7",
+	    "name": "Coffee Addicts",
+	    "created_by": "0001",
+	    "pic": "/images/coffee.png",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583"
 	}
 ]
