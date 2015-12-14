@@ -9,6 +9,9 @@ var CommunityListContainer = React.createClass({
 		var communityId = event.target.dataset.communityId;
 		this.props.viewDetail(communityId);
 	},		
+	viewMembers: function(communityId){				
+		this.props.setActiveCommunity(communityId);
+	},			
 	render: function(){
 		var self = this;
 		var communitiesNode = this.props.communities.map(function(community, index)  {
@@ -19,7 +22,7 @@ var CommunityListContainer = React.createClass({
 										<p>{community.description}</p>
 										<div className="col-sm-12 memberCount">
 											<img src={"/images/friends.png"}/>
-											<a href="#">{community.members_count} Members</a>
+											<a href="#" onClick={self.viewMembers.bind(self, community.id)} data-community-id={community.id} data-toggle="modal" data-target='#membersListModal'>{community.members_count} Members</a>
 										</div>
 									</div>
 								)

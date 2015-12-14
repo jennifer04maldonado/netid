@@ -4,6 +4,7 @@ var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
 var MainBodyComponent = require('./body/mainBodyContainer');
 var LoadingModalComponent = require('./common/loadingModal');
+var AddPersonaModal = require('./common/addPersonaModal');
 
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
@@ -135,6 +136,8 @@ var DashboardApp = React.createClass({
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
+				<AddPersonaModal personaType="Social" />		        		
+				<AddPersonaModal personaType="Professional" />		        		
             </div>
         );
     }

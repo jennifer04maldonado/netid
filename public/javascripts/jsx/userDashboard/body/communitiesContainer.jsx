@@ -1,5 +1,6 @@
 var CommunityListComponent = require('./communityListContainer');
 var CommunityDetailComponent = require('./communityDetailContainer');
+var	MembersListModal = require('./../common/membersListModal');
 
 var CommunitiesContainer = React.createClass({
 	getInitialState: function(){		
@@ -27,12 +28,12 @@ var CommunitiesContainer = React.createClass({
 		if (this.state.isDetail) {
 			this.setState({isDetail: false});	
 		} else {
-			this.getActiveCommunity(communityId);
+			this.setActiveCommunity(communityId);
 			this.setState({isDetail: true});		
 		}
 	},	
 
-	getActiveCommunity: function(communityId) {
+	setActiveCommunity: function(communityId) {
 		var activeCommunity = null;		
 		$.each(this.state.communities, function (index,  row) {
 			if (communityId == row.id) {
@@ -40,6 +41,7 @@ var CommunitiesContainer = React.createClass({
 				activeCommunity = row;
 			}
 		});
+		//console.log('active community:' + activeCommunity.name);
 		this.setState({activeCommunity: activeCommunity});
 
   }, 	
@@ -48,11 +50,12 @@ var CommunitiesContainer = React.createClass({
 		if (this.state.isDetail) {
 			communityBody = <CommunityDetailComponent activeCommunity={this.state.activeCommunity} viewList={this.toggleView} />;
 		} else {
-			communityBody = <CommunityListComponent communities={this.state.communities} viewDetail={this.toggleView} />;
+			communityBody = <CommunityListComponent setActiveCommunity={this.setActiveCommunity} communities={this.state.communities} viewDetail={this.toggleView} />;
 		}
 		return(						
 			<div>
 				{communityBody}
+				<MembersListModal activeCommunity={this.state.activeCommunity} />		        		
 			</div>
 		)
 	}

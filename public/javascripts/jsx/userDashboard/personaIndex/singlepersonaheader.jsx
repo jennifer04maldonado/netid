@@ -47,7 +47,7 @@ var SinglePersonaHeader = React.createClass({
 				<ul>
 				{mapPersonas}	
 				</ul>
-				<AddPersona />
+				<AddPersona personaType={this.props.personaType}/>				
 			</div>
 		)
 	}

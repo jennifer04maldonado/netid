@@ -1,17 +1,19 @@
-
 //INPUT: SOCIAL PERSONAS AND PROF PERSONAS FROM DASHBOARD-AJAX-CALLS-REACT.JS FILE
 //OUTPUT: PERSONA ELEMENTS IN PERSONA INDEX
-
 var SinglePersonaHeader = require('./singlepersonaheader');
-
 
 var PersonaIndex = React.createClass({
 	getDefaultProps: function() {
 		return {
-			socialPersonaHeading: 'Social',
-			professionalPersonaHeading: 'Professional',
+			personaTypeSocial: 'social',
+			personaTypeProfessional: 'professional'
 		}
 	},
+	getInitialState: function(){		
+		return {
+            personaType : this.props.personaTypeSocial
+        }
+	},	
 	setActivePersona: function(activePersonaId) {
 		this.props.setActivePersona(activePersonaId);
 	},	
@@ -46,7 +48,7 @@ var PersonaIndex = React.createClass({
 					<div id='professionalPersonaContainer'>
 		        		<SinglePersonaHeader personaType='prof' activePersona={this.props.activePersona} headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} />
 		        	</div>
-					<div id='personaBarFiller'> </div>
+					<div id='personaBarFiller'> </div>				
 	            </div>
 			)
 		}
