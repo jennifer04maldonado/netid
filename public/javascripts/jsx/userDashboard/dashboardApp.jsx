@@ -6,6 +6,23 @@ var MainBodyComponent = require('./body/mainBodyContainer');
 var LoadingModalComponent = require('./common/loadingModal');
 
 var DashboardApp = React.createClass({	
+	getDefaultProps: function() {
+	    return {
+	      value: 'default value'
+	    };
+	},
+	getInitialState: function(){		
+		return {
+            personas : [],
+            activePersona: null,
+            headerSelection: 'home',
+            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
+            useIPFS: false,
+            showLoading: true,
+            api: {}
+        }
+	},
+
 	getInitialState: function(){		
 		return {
             personas : [],
