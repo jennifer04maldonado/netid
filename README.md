@@ -35,9 +35,10 @@ Install [Node.js](https://nodejs.org/).
 ```
 git clone https://github.com/dmcnetid/netid.git
 cd netid
-git checkout develop
 npm install
-TODO: add intrustructions for browserify and gulp
+cd public
+gulp
+TODO: Create App version without node.js
 ```
 
 Start the local web server
