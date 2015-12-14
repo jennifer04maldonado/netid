@@ -131,4 +131,4 @@ TODO: add information about IRC channels and contact avenues for thoughts on imp
   - [ ] <b>Everything is built, new features over time</b>
     - [ ] Testing
 
-** Features list and Tasks have been move to https://github.com/dmcnetid/netid-project-management 
+** Features list and Tasks have been move to https://github.com/dmcnetid/netid-project-management shit
