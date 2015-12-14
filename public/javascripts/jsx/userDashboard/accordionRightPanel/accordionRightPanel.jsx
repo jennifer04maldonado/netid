@@ -46,8 +46,8 @@ var RightPanel = React.createClass({
 		];
 
 		return(
-			<div id='rightPanelAndMenuContainer'>
-				<div id='rightPanelContentContainer' className='rightCntnr'>
+			<div id="rightPanelAndMenuContainer">
+				<div id="rightPanelContentContainer" className="rightCntnr">
 					<div id='rightPanelTopDiv'>
 						<div className={this.state.activeTopMenuId == 1 ? 'selected' : ' hidden'} >
 							<MessagesContainer useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash}/>
