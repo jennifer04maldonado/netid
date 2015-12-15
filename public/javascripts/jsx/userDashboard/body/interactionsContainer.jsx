@@ -38,18 +38,18 @@ var InteractionsContainer = React.createClass({
 	   	}.bind(this));
   	},  
   	getInteractionsIPFS: function(done) {
-	    var hash = this.props.peerIdHash + '/interactionsSchema.json';   
-	    ipfs.cat(hash, function (err, res) {
-	      if (err || !res) return console.log('error:' + err);      
-	      //readable stream
-	      if (res.readable) {
-	          res.pipe('readable stream: ' + process.stdout);
-	          //string          
-	      } else {
-	        var interactionsArray = JSON.parse(res);
-	        done(interactionsArray);  
-	      }
-	    });
+	    // var hash = this.props.peerIdHash + '/interactionsSchema.json';   
+	    // ipfs.cat(hash, function (err, res) {
+	    //   if (err || !res) return console.log('error:' + err);      
+	    //   //readable stream
+	    //   if (res.readable) {
+	    //       res.pipe('readable stream: ' + process.stdout);
+	    //       //string          
+	    //   } else {
+	    //     var interactionsArray = JSON.parse(res);
+	    //     done(interactionsArray);  
+	    //   }
+	    // });
   	},
   	//this method fetches data from IPFS or AJAX				
 	componentDidMount: function() {

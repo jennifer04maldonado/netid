@@ -48,7 +48,6 @@ var YourFriends = React.createClass({
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
     console.log('Friend Component received '+net.account.schemaObject)
-    var hash = this.props.peerIdHash + '/friend.json';   
     var fr = net.account.getFriends();
     if(!this.isMounted()) return
       var ee = net.account.getEventEmitter()

@@ -53,24 +53,24 @@ var RightPanel = React.createClass({
 				<div id="rightPanelContentContainer" className="rightCntnr">
 					<div id='rightPanelTopDiv'>
 						<div className={this.state.activeTopMenuId == 1 ? 'selected' : ' hidden'} >
-							<MessagesContainer useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash}/>
+							<MessagesContainer useIPFS={this.props.useIPFS} />
 						</div>
 						<div className={this.state.activeTopMenuId == 2 ? 'selected' : 'hidden'} >
 							<FriendsOnlinePanel {...this.props} setMemberPersonaId={this.setMemberPersonaId} />
 						</div>
 						<div className={this.state.activeTopMenuId == 3 ? 'selected' : 'hidden'} >
-							<CommunitiesContainer useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash} />
+							<CommunitiesContainer useIPFS={this.props.useIPFS} />
 						</div>
 					</div>
 					<div id='rightPanelBottomDiv'>
 						<div className={this.state.activeBottomMenuId == 4 ? 'selected' : 'hidden'} >
-							<YourOffersPanel useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash}/>
+							<YourOffersPanel useIPFS={this.props.useIPFS} />
 						</div>
 						<div className={this.state.activeBottomMenuId == 5 ? 'selected' : 'hidden'} >
-							<SurveysContainer useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash}/>
+							<SurveysContainer useIPFS={this.props.useIPFS} />
 						</div>
 						<div className={this.state.activeBottomMenuId == 6 ? 'selected' : 'hidden'} >
-							<WalletContainer useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash}/>
+							<WalletContainer useIPFS={this.props.useIPFS}/>
 						</div>					
 					</div>
 				</div>	
