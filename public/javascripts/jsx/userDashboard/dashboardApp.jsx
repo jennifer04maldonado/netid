@@ -18,19 +18,7 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
-            showLoading: true,
-            api: {}
-        }
-	},
-
-	getInitialState: function(){		
-		return {
-            personas : [],
-            activePersona: null,
-            headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
+            useIPFS: true,
             showLoading: true,
             api: {}
         }
