@@ -1,8 +1,64 @@
-
-
 var MessagesContainer = React.createClass({
+	getDefaultProps: function() {
+	    return {
+	      value: 'default value'
+	    };
+	},
+	getInitialState: function(){		
+		return {
+            allMessages : [],
+            personaMessages: []
+        }
+	},
+  	componentWillReceiveProps: function(nextProps) {
+		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
+	    var activePersonaId = nextProps.activePersona.id;
+    	if(this.props.useIPFS){
+    		this.getMessagesIPFS(activePersonaId);
+    	} else {
+    		this.getMessages(activePersonaId);
+    	}	
+  	},	    
+    componentDidMount: function(){
+    },
+    setEmail: function(){
+    	//TODO:
+    	//console.log('view emailss');
+    },
 
+    getMessages: function(personaId) {    
+    	var thisPersonaMessages = [];
+    	var self = this;
+	    $.get('.././json_files/data/netid-account/personas/messages.json', function(result) {
+	    	if (self.isMounted()) {  					             	          
+	        	for (var i=0; i < result.length; i++) {
+	            	if (personaId == result[i].to_persona_id) {
+	            		//console.log('1 personaid: ' + result[i].from_persona_name);
+	              		thisPersonaMessages.push(result[i]);	              	
+	            	}
+	          	}
+	    		self.setState({personaMessages: thisPersonaMessages});
+	      	}
+    	});
+    	
+  	}, 
+    getMessagesIPFS: function(personaId) {    
+	
+	},
 	render: function(){
+			var self = this;
+			var messageNodes = this.state.personaMessages.map(function(message, index){
+				return (
+						<div className="col-sm-12 messageInd" key={message.id}>
+							<ul>
+								<li className="messageName"><a onClick={self.setEmail} data-from-persona-id={message.from_persona_id} href="#">{message.from_persona_name}</a></li>
+								<li>{message.date}</li>
+								<li>{message.body}</li>
+							</ul>
+						</div>				
+				);
+			});
+
         return(
 			<div id='messagesContainer'>
 				<div className="col-sm-12 messageTitleCntnr">
@@ -16,34 +72,7 @@ var MessagesContainer = React.createClass({
 					<input type="text" className="form-control" placeholder="Search"></input>	
 				</div>
 				<div className="col-sm-12 messageRightContent">
-					<div className="col-sm-12 messageInd">
-						<ul>
-							<li className="messageName"><a href="#">JenniFury</a></li>
-							<li>Today 9:15am</li>
-							<li>Why do you make my life harder than it has to be?</li>
-						</ul>
-					</div>
-					<div className="col-sm-12 messageInd">	
-						<ul>
-							<li className="messageName"><a href="#">Naterade</a></li>
-							<li>Monday 2:45pm</li>
-							<li>This is the worst thing I have ever seen.</li>
-						</ul>
-					</div>	
-					<div className="col-sm-12 messageInd">
-						<ul>
-							<li className="messageName"><a href="#">JoshtheBoss</a></li>
-							<li>Frday 11/23/15 11:04pm</li>
-							<li>Hey man, I see that we have a lot of similar communities. Do you want to make a transaction with me?</li>
-						</ul>
-					</div>	
-					<div className="col-sm-12 messageInd">
-						<ul>
-							<li className="messageName"><a href="#">JenniFury</a></li>
-							<li>Today 9:15am</li>
-							<li>Why do you make my life harder than it has to be?</li>
-						</ul>
-					</div>
+					{messageNodes}
 				</div>
 			</div>
 		)

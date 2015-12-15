@@ -17,7 +17,7 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            useIPFS: true,
+            useIPFS: false,
             showLoading: true,
             api: {},
             memberPersona: null,
@@ -27,7 +27,7 @@ var DashboardApp = React.createClass({
 	initialize: function(){
 		console.log("Loading from ajax")
 		var self = this;
-		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
+		$.get( ".././json_files/data/netid-account/personas/personaSchema.json", function( personaArray, status ) {
 		  //console.log('status: '  + status);	
 			if (status == 'success') {				
 		 	    if (self.isMounted()) {

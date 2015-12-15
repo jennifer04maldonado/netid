@@ -13,7 +13,7 @@ var YourFriends = React.createClass({
     }
   },
   getYourFriends: function(personaId, done) {    
-    $.get('.././json_files/friend.json', function(allFriends) {
+    $.get('.././json_files/data/netid-account/personas/friend.json', function(allFriends) {
       if (this.isMounted()) {          
           var thisPersonaFriends = [];
           for (var i=0; i < allFriends.length; i++) {
