@@ -14,179 +14,170 @@
 			}
 		}
 	}
-	.communityNavTabs{
-		padding-left: 0px;
-		ul{
-			border-bottom: 4px solid #AC0808;
-
-			li{
-				border: none;
-				margin-bottom: 0px;
+	.profileDetailBody{
+		margin-top: 30px;
+		.profileImage{
+			height: 10em;
+			margin-left: 38%;
+			object-fit: cover;
+		}
+		.profileDetailText{
+			text-align: center;
+			padding-bottom: 10px;
+			border-bottom: 2px solid gray;
+			h3{
+				padding-top: 5px;
+				padding-left: 10px;
+				padding-bottom: 0px;
 				a{
-					border-radius: 0px;
-					color: #636363;
-					background-color: #313131;
-					border: none;
-					padding-left: 15px;
-					padding-right: 15px;
-					&:link{
-						border-radius: 0px;
-					}
-					&:visited{
-						background-color: #313131;
-					}
-					&:hover{
-						background-color: #770707;
-						border-radius: 0px;
-						border:none;
-						color: white;
-						margin-bottom: 0px;
-					}	
-					&:focus{
-						background-color: #AC0808;
-						outline: none;
-						color: white;
-						border: none;
-					}
-					&:active{
-						border-radius: 0px;
-						border: none;
+					i{
+						margin-left: 10px;
+						font-size: 14px;
+						color: #169379;
 					}
 				}
+				.profileScoreList{
+				list-style-type: none;
+				font-size: 14px;
+				padding-left: 40px;
+				margin-top: 10px;
+					li{
+						color: lightgray;
+						line-height: 1.3em;
+						display: inline;
+						margin-right: 15px;
+					}
+				}	
+			}
+			p{
+				color: lightgray;
 			}
 		}	
-		.tab-content{
-			padding-top: 10px;
-			.tabAbout{
-				padding-top: 50px;
-				.personaProfileAbout{
-					.addPersonaImage{
-						.editImageBtn{
-							img{
-								width: 200px;
-								height: 200px;
-								object-fit: cover;
-							}
-						}
-						.editImageUpload{
-							h4{
-								padding-left: 50px;
-								padding-bottom: 10px;
-								border-bottom: 2px solid lightgray;
-								a{
-									i{
-										margin-left: 10px;
-										font-size: 14px;
-										color: #169379;
-									}
-								}
-							}
-							ul{
-								border: none;
-								.masterScoreListItem{
-									list-style-type: none;
-									color: #169379;
-								}
-								li{
-									margin-left: 45px;
-									color: lightgray;
-								}
-							}
-							h5{
-								line-height: 1.5;
-							}
-						}
-					}
+	}
+	.profileInputField{
+		.well{
+			margin-top: 20px;
+			background-color: #1E1E1E;
+			border: none;
+			border-radius: 0px;
+			form{
+				margin-top: 5px;
+				input{
+					width: 100%;
+					height: 40px;
+					color: black;
+					padding-top: 25px;
+					padding-bottom: 85px;
+					border-radius: 0px;
 				}
-			}	
-			.tabCommunities{	
-				.settingsCommunities{
-					margin-top: 30px;
-					padding-left: 45px;
-					.panel{
-						border: none;
-						.panel-body{
-							background-color: #313131;
-							.media{
-								.media-left{
-									a{
-										img{
-											width: 70px;
-				            				height: 70px;
-				            				object-fit: cover;
-										}
-									}
-								}
-								.media-body{
-									h5{
-										color: white;
-									}
-									span{
-										color: #6A6E70;
-									}
-									h6{
-										color: #6A6E70;
-										img{
-											width: 20px;
-											height: 20px;
-											margin-right: 6px;
-											object-fit: cover;
-										}
-										i{
-											margin-left: 25px;
-											margin-right: 6px;
-											font-size: 16px;
-											color: #A4A5A5;
-										}
-									}
-								}
-							}
-						}
-					}
+			}
+			button{
+				margin-top: 10px;
+				border-radius: 0px;
+				background-color: #169379;
+				border: none;
+				padding: 10px;
+			}
+		}	
+	}
+	.profilePostsElementText{
+		margin-bottom: 20px;
+		.media-left{
+			a{
+				img{
+					width: 70px;
+    				height: 70px;
+    				object-fit: cover;
 				}
-			}	
-			.tabConnections{	
-				.settingsConnections{
-					margin-top: 20px;
-					.panel{
-						border: none;
-						.panel-body{
-							background-color: #313131;
-							.media{
-								.profileConnectionsList{
-									list-style-type: none;
-									display: inline-flex;
-									border-bottom: none;
-									li{
-										.media-left{
-											a{
-												background-color: transparent;
-												img{
-													width: 45px;
-													height: 45px;
-													object-fit: cover;
-												}
-											}
-										}
-										.settingsFriendName{
-											vertical-align: middle;
-											h5{
-												vertical-align: middle;
-											}
-											h6{
-												color: gray;
-												i{
-													margin-right: 10px;	
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			} 
+			}
 		}
-	}			
+		.media-body{
+			h4{
+				color: white;
+			}
+			.postContentText{
+				color: lightgray;
+			}
+			.postTimeStamp{
+				color: gray;
+			}
+			h6{
+				color: #6A6E70;
+				img{
+					width: 20px;
+					height: 20px;
+					margin-right: 6px;
+					object-fit: cover;
+				}
+				a{
+
+				}
+				i{
+					margin-left: 25px;
+					margin-right: 6px;
+					font-size: 16px;
+					color: #A4A5A5;
+				}
+			}
+		}
+	}
+	.profilePostsElementPicture{
+		margin-bottom: 20px;
+		.media-left{
+			a{
+				img{
+					width: 70px;
+    				height: 70px;
+    				object-fit: cover;
+				}
+			}
+		}
+		.media-body{
+			h4{
+				color: white;
+			}
+			.postImageCaption{
+				color: lightgray;
+				padding-bottom: 20px;	
+			}
+			.profilePostsElementVideo{
+				margin-top: 10px;
+			}
+			img{
+				width: 100%;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			.postTimeStamp{
+				color: gray;
+				padding-top: 10px;
+			}
+			h6{
+				color: #6A6E70;
+				img{
+					width: 20px;
+					height: 20px;
+					margin-right: 6px;
+					object-fit: cover;
+				}
+				a{
+
+				}
+				i{
+					margin-left: 25px;
+					margin-right: 6px;
+					font-size: 16px;
+					color: #A4A5A5;
+				}
+			}
+		}
+	}
+	.seeMoreBtn{
+		button{
+			width: 100%;
+			background-color: #169379;
+			border-radius: 0px;
+			height: 40px;
+		}
+	}	
 }
