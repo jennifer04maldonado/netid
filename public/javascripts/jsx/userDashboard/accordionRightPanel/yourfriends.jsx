@@ -52,13 +52,14 @@ var YourFriends = React.createClass({
       var ee = net.account.getEventEmitter()
       ee.on('frand',err => {
         console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
+        var allFriends = net.account.friendsList;
         var thisPersonaFriends = [];
         for (var i=0; i < net.account.friendsList.length; i++) {
           if (personaId == net.account.friendsList[i].persona_id) {
-            thisPersonaFriends.push(net.account.friendsList[i]);
+              thisPersonaFriends.push(net.account.friendsList[i]);
           }
         }
-        done(thisPersonaFriends);  
+        done(thisPersonaFriends, allFriends);  
       })  
   },
   //this method decides to fetches data from IPFS or AJAX
