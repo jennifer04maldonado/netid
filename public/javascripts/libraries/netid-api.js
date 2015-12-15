@@ -499,7 +499,7 @@ NetidAPI.prototype.getFriends = function(){
       //done(err2,null)
     } else {
       // TODO: JSON parse error handling
-      this.friendsList = res
+      this.friendsList = JSON.parse(res)
       this.ee.emit('frand',undefined)
       //done(null,p)
     }

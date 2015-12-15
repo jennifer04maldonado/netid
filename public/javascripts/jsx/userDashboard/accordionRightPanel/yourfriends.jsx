@@ -29,31 +29,21 @@ var YourFriends = React.createClass({
   },   
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
-    console.log('Friend Component received '+net.account.schemaObject)
+    //console.log('Friend Component received '+net.account.schemaObject)
     var hash = this.props.peerIdHash + '/friend.json';   
     var fr = net.account.getFriends();
     if(!this.isMounted()) return
       var ee = net.account.getEventEmitter()
       ee.on('frand',err => {
-        console.log('Freind Object Received '+ net.account.friendsList)
-      })  
-/*    ipfs.cat(hash, function (err, res) {
-      if (err || !res) return console.log('error:' + err);      
-      //readable stream
-      if (res.readable) {
-          res.pipe('readable stream: ' + process.stdout);
-          //string          
-      } else {
+        console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
         var thisPersonaFriends = [];
-        var friendsArray = JSON.parse(res);
-        for (var i=0; i < friendsArray.length; i++) {
-            if (personaId == friendsArray[i].persona_id) {
-                thisPersonaFriends.push(friendsArray[i]);
-            }
+        for (var i=0; i < net.account.friendsList.length; i++) {
+          if (personaId == net.account.friendsList[i].persona_id) {
+            thisPersonaFriends.push(net.account.friendsList[i]);
+          }
         }
         done(thisPersonaFriends);  
-      }
-    });*/
+      })  
   },
   //this method decides to fetches data from IPFS or AJAX
   componentWillReceiveProps: function(nextProps) {    
