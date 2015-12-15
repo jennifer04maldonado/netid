@@ -1,0 +1,66 @@
+[
+	{
+		"id" : "123",
+		"interactions":[
+			{
+				"address" : "0xfbb1b73c4f0bda4f67dca266ce6ef42f520fbb98",
+				"status" : "accept",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0x2a65aca4d5fc5b5c859090a6c34d164135398226",
+				"status" : "rate",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
+				"status" : "finalize",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
+				"status" : "rate",
+				"chatAddress" : "0x1234567890"
+			}
+		]
+	},{
+		"id" : "1653726",
+		"interactions":[
+			{
+				"address" : " 0x59362c485fd1ea5b6b5765ff3dbccd5bc870e59d",
+				"status" : "dispute",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : " 0xf4ff07749304dc06b70949c410f675e9a9d73ff4",
+				"status" : "accept",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xfbe9d70747a3e39baae7e1dc616a6a3ede6de8cb",
+				"status" : "rate",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xf8b483dba2c3b7176a3da549ad41a48bb3121069",
+				"status" : "finalize",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
+				"status" : "accept",
+				"chatAddress" : "0x1234567890"
+			}
+		]
+	},{
+		"id" : "9716211",
+		"interactions":[
+			{
+				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
+				"status" : "rate",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xf8b483dba2c3b7176a3da549ad41a48bb3121069",
+				"status" : "finalize",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
+				"status" : "accept",
+				"chatAddress" : "0x1234567890"
+			}
+		]
+	}
+]

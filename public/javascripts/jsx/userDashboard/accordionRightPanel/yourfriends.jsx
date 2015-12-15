@@ -7,30 +7,46 @@ var YourFriends = React.createClass({
   getInitialState: function() {
     return {
       data: [],
+      allFriends: [],
+      activeMemberPersona: null,
       sendTo: ''
     }
   },
-  getYourFriends: function(personaId, done) {
-    $.get('.././json_files/friend.json', function(result) {
-      if (this.isMounted()) {
+  getYourFriends: function(personaId, done) {    
+    $.get('.././json_files/friend.json', function(allFriends) {
+      if (this.isMounted()) {          
           var thisPersonaFriends = [];
-          for (var i=0; i < result.length; i++) {
-            if (personaId == result[i].persona_id) {
-              thisPersonaFriends.push(result[i]);
+          for (var i=0; i < allFriends.length; i++) {
+            if (personaId == allFriends[i].persona_id) {
+              thisPersonaFriends.push(allFriends[i]);
             }
           }
-          done(thisPersonaFriends);  
+          done(thisPersonaFriends,allFriends);  
       }
-    }.bind(this));   
+    }.bind(this));       
   },  
   setSendTo: function(event){
       var sendTo = event.target.dataset.sendTo;      
       this.setState({sendTo: sendTo});
   },   
+  componentDidMount : function(){
+
+  },
+  setMemberPersona: function(event){
+    var memberPersonaId = event.target.dataset.memberPersonaId;
+    //this.setState({sendTo: sendTo});
+    var self = this;
+    //console.log('memberId: ' + memberPersonaId);
+    $.each(this.state.allFriends, function (index,  persona) {
+      if (memberPersonaId == persona.friend_id) {
+        //console.log("activePersonaId=" + persona.id);
+        self.props.setMemberPersona(persona);
+      }
+    });
+      
+  },     
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
-    //console.log('Friend Component received '+net.account.schemaObject)
-    var hash = this.props.peerIdHash + '/friend.json';   
     var fr = net.account.getFriends();
     if(!this.isMounted()) return
       var ee = net.account.getEventEmitter()
@@ -51,15 +67,17 @@ var YourFriends = React.createClass({
       var personaId = nextProps.activePersona.id;
       var self = this;
       if (this.props.useIPFS) {         
-          this.getYourFriendsIPFS(personaId, function (friendsArray)  {
+          this.getYourFriendsIPFS(personaId, function (friendsArray, allFriends)  {
               self.setState({
-                      data: friendsArray
+                      data: friendsArray,
+                      allFriends: allFriends
               });
           });
       } else {
-        this.getYourFriends(personaId, function(friendsArray) {
+        this.getYourFriends(personaId, function(friendsArray,allFriends) {
             self.setState({
-              data: friendsArray
+              data: friendsArray,
+              allFriends: allFriends
             });
         });
       }
@@ -80,7 +98,7 @@ var YourFriends = React.createClass({
           <div className="accordion-inner test">
             <div className="panel-body friendsBody">
               { this.state.data.map(function(friend)  {                                                                                  
-               return  <p key={friend.id}><a href="#">{friend.persona_name}</a><a onClick={self.setSendTo} data-toggle="modal" data-target='#messageModal' href="#"><i data-send-to={friend.persona_name} className="fa fa-envelope-o"></i></a></p>
+               return  <p key={friend.id}><a data-member-persona-id={friend.friend_id} onClick={self.setMemberPersona} href="#">{friend.persona_name}</a><a onClick={self.setSendTo} data-toggle="modal" data-target='#messageModal' href="#"><i data-send-to={friend.persona_name} className="fa fa-envelope-o"></i></a></p>
               })}
             </div>
           </div>
