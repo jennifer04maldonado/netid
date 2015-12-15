@@ -18,7 +18,7 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
+            useIPFS: true,
             showLoading: true,
             api: {},
             memberPersona: null,
@@ -107,7 +107,8 @@ var DashboardApp = React.createClass({
 	},	
 	//when user clicks user link, it renders their information in the profile tab
 	setMemberPersona: function(memberPersona) {
-		//console.log('parent setMemberPersona: ' + memberPersona.persona_name);
+		console.log('parent setMemberPersona: ' + memberPersona.persona_name);
+
 		this.setState({headerSelection: 'settings'});
 		this.setState({viewMemberPersona: true});
 		this.setState({memberPersona: memberPersona});

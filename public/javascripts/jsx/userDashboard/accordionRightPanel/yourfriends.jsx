@@ -49,6 +49,12 @@ var YourFriends = React.createClass({
     var net = this.props.api
     console.log('Friend Component received '+net.account.schemaObject)
     var hash = this.props.peerIdHash + '/friend.json';   
+    var fr = net.account.getFriends();
+    if(!this.isMounted()) return
+      var ee = net.account.getEventEmitter()
+      ee.on('frand',err => {
+        console.log('Freind Object Received '+ net.account.friendsList)
+      })  
 /*    ipfs.cat(hash, function (err, res) {
       if (err || !res) return console.log('error:' + err);      
       //readable stream
