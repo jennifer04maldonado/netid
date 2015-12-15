@@ -1,17 +1,16 @@
 //var ipfs = window.ipfsAPI();
-
-
+var MessageModal = require('./../common/messageModal');
 //INPUT: EVENTUALLY WILL BE DATA OBJECT W/ YOUR FRIENDS
 //OUTPUT: DISPLAY FOR FRIENDS IN ACCORDION
 var YourFriends = React.createClass({
-    //set default to 'Friends Online'
+  //set default to 'Friends Online'
   getInitialState: function() {
     return {
-      data: []
+      data: [],
+      sendTo: ''
     }
   },
   getYourFriends: function(personaId, done) {
-
     $.get('.././json_files/friend.json', function(result) {
       if (this.isMounted()) {
           var thisPersonaFriends = [];
@@ -23,13 +22,21 @@ var YourFriends = React.createClass({
           done(thisPersonaFriends);  
       }
     }.bind(this));   
-
-
   },  
+  setSendTo: function(event){
+      var sendTo = event.target.dataset.sendTo;      
+      this.setState({sendTo: sendTo});
+  },   
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
     console.log('Friend Component received '+net.account.schemaObject)
     var hash = this.props.peerIdHash + '/friend.json';   
+    var fr = net.account.getFriends();
+    if(!this.isMounted()) return
+      var ee = net.account.getEventEmitter()
+      ee.on('frand',err => {
+        console.log('Freind Object Received '+ net.account.friendsList)
+      })  
 /*    ipfs.cat(hash, function (err, res) {
       if (err || !res) return console.log('error:' + err);      
       //readable stream
@@ -70,7 +77,7 @@ var YourFriends = React.createClass({
   },
 
 	render: function(){   
-
+    var self = this;
     return(
 			<div className="col-sm-12 accordion-group contentPanel yourFriends accordionRightPanel">
         <div className="col-sm-12 friendsTitleCntnr">
@@ -82,12 +89,13 @@ var YourFriends = React.createClass({
         <div id="collapse5" className="accordion-body contentPanel friendsPanel">
           <div className="accordion-inner test">
             <div className="panel-body friendsBody">
-              { this.state.data.map(function(friend)  {
-               return  <p key={friend.id}><a href="#">{friend.persona_name}</a><a href="#"><i className="fa fa-envelope-o"></i></a></p>
+              { this.state.data.map(function(friend)  {                                                                                  
+               return  <p key={friend.id}><a href="#">{friend.persona_name}</a><a onClick={self.setSendTo} data-toggle="modal" data-target='#messageModal' href="#"><i data-send-to={friend.persona_name} className="fa fa-envelope-o"></i></a></p>
               })}
             </div>
           </div>
         </div>
+        <MessageModal sendTo={this.state.sendTo} />
       </div>
 		)
 	}

@@ -95,7 +95,7 @@ NetidAPI.prototype.resolveIPNS = function(n,handler){
         //this.ee.emit('error',err)
       } else {
         console.log(r)
-
+        this.idhash = r.Path
         var url = r.Path
         if(url === undefined){
           console.log('Could not resolve',n)
@@ -490,6 +490,22 @@ NetidAPI.prototype.getUsers = function(){
 
 NetidAPI.prototype.getMyID = function(){
   return this.id
+}
+
+NetidAPI.prototype.getFriends = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/friend.json',(err2,res) => {
+    if(err2){
+      this.ee.emit('error',err2)
+      //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.friendsList = res
+      this.ee.emit('frand',undefined)
+      //done(null,p)
+    }
+  })
+
+  return this.friendsList
 }
 
 NetidAPI.prototype.getBalance = function(){

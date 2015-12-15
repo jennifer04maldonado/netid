@@ -4,6 +4,7 @@ var PersonaPickerComponent = require('./personaPicker/personaPickerContainer');
 var RightControlComponent = require('./accordionRightPanel/accordionRightPanel');
 var MainBodyComponent = require('./body/mainBodyContainer');
 var LoadingModalComponent = require('./common/loadingModal');
+var AddPersonaModal = require('./common/addPersonaModal');
 
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
@@ -17,19 +18,7 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
-            showLoading: true,
-            api: {}
-        }
-	},
-
-	getInitialState: function(){		
-		return {
-            personas : [],
-            activePersona: null,
-            headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
+            useIPFS: true,
             showLoading: true,
             api: {}
         }
@@ -135,6 +124,8 @@ var DashboardApp = React.createClass({
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
+				<AddPersonaModal personaType="Social" />		        		
+				<AddPersonaModal personaType="Professional" />		        		
             </div>
         );
     }
