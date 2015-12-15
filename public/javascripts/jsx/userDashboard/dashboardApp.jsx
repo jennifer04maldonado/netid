@@ -20,19 +20,9 @@ var DashboardApp = React.createClass({
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
             useIPFS: false,
             showLoading: true,
-            api: {}
-        }
-	},
-
-	getInitialState: function(){		
-		return {
-            personas : [],
-            activePersona: null,
-            headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
-            showLoading: true,
-            api: {}
+            api: {},
+            memberPersona: null,
+            viewMemberPersona: false
         }
 	},
 	initialize: function(){
@@ -90,7 +80,8 @@ var DashboardApp = React.createClass({
     },
   	setActiveBody: function(headerSelection) {
   		this.setState({
-  			headerSelection: headerSelection
+  			headerSelection: headerSelection,
+  			viewMemberPersona: false //set view members to false
   		});
   	},
 	setActivePersonaCont: function(activePersonaId, callback) {
@@ -109,10 +100,18 @@ var DashboardApp = React.createClass({
 		var self = this;
 		this.setActivePersonaCont(activePersonaId, function(activePersona) {
 			self.setState({
-				activePersona: activePersona
+				activePersona: activePersona,
+				viewMemberPersona:false
 			});
 		});
 	},	
+	//when user clicks user link, it renders their information in the profile tab
+	setMemberPersona: function(memberPersona) {
+		//console.log('parent setMemberPersona: ' + memberPersona.persona_name);
+		this.setState({headerSelection: 'settings'});
+		this.setState({viewMemberPersona: true});
+		this.setState({memberPersona: memberPersona});
+	},		
     render: function(){		
 
         return (
@@ -127,11 +126,11 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
+	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash} api={this.state.api}/>
+	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash} api={this.state.api}/>
 	                    </div>
 	                </div>
 	            </div>

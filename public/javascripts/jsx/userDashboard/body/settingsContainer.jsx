@@ -18,7 +18,7 @@ var SettingsContainer = React.createClass({
 					</ul>
 					<div className="tab-content col-sm-12">
 						<div role="tabpanel" className="tab-pane tabPosts fade" id="posts">
-							<h2>Posts</h2>
+							<h2>Posts for {this.props.activePersona.persona_name}</h2>
 						</div>
 						<div role="tabpanel" className="tab-pane tabAbout fade" id="about">
 							<div className="col-sm-12 personaProfileAbout">

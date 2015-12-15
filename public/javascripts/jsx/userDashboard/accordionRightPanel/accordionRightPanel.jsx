@@ -35,6 +35,9 @@ var RightPanel = React.createClass({
 		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
 		this.setState({activePersona: nextProps.activePersona});
   	},	
+	setMemberPersona: function(memberPersona) {				
+		this.props.setMemberPersona(memberPersona);
+	},
 	render: function() {
 		var menuItems = [
 			{id: 1, title: 'Messages', image: '/images/message.png' },
@@ -53,7 +56,7 @@ var RightPanel = React.createClass({
 							<MessagesContainer useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash}/>
 						</div>
 						<div className={this.state.activeTopMenuId == 2 ? 'selected' : 'hidden'} >
-							<FriendsOnlinePanel {...this.props} />
+							<FriendsOnlinePanel {...this.props} setMemberPersonaId={this.setMemberPersonaId} />
 						</div>
 						<div className={this.state.activeTopMenuId == 3 ? 'selected' : 'hidden'} >
 							<CommunitiesContainer useIPFS={this.props.useIPFS} peerIdHash={this.props.peerIdHash} />
