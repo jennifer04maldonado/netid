@@ -46,9 +46,7 @@ var YourFriends = React.createClass({
       
   },     
   getYourFriendsIPFS: function(personaId, done) {
-    console.log(personaId)
     var net = this.props.api
-    console.log(net)
     var fr = net.account.getFriends();
     if (this.isMounted()) { 
       net.account.ee.on('frand',err => {
