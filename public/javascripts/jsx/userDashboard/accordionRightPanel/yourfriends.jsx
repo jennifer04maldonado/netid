@@ -13,7 +13,7 @@ var YourFriends = React.createClass({
     }
   },
   getYourFriends: function(personaId, done) {    
-    $.get('.././json_files/friend.json', function(allFriends) {
+    $.get('.././json_files/data/netid-account/personas/friend.json', function(allFriends) {
       if (this.isMounted()) {          
           var thisPersonaFriends = [];
           for (var i=0; i < allFriends.length; i++) {
@@ -32,18 +32,9 @@ var YourFriends = React.createClass({
   componentDidMount : function(){
 
   },
-  setMemberPersona: function(event){
-    var memberPersonaId = event.target.dataset.memberPersonaId;
-    //this.setState({sendTo: sendTo});
-    var self = this;
-    //console.log('memberId: ' + memberPersonaId);
-    $.each(this.state.allFriends, function (index,  persona) {
-      if (memberPersonaId == persona.friend_id) {
-        //console.log("activePersonaId=" + persona.id);
-        self.props.setMemberPersona(persona);
-      }
-    });
-      
+  setMemberPersonaId: function(event){
+    var memberPersonaId = event.target.dataset.memberPersonaId;    
+    this.props.setMemberPersonaId(memberPersonaId);
   },     
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
@@ -99,7 +90,7 @@ var YourFriends = React.createClass({
           <div className="accordion-inner test">
             <div className="panel-body friendsBody">
               { this.state.data.map(function(friend)  {                                                                                  
-               return  <p key={friend.id}><a data-member-persona-id={friend.friend_id} onClick={self.setMemberPersona} href="#">{friend.persona_name}</a><a onClick={self.setSendTo} data-toggle="modal" data-target='#messageModal' href="#"><i data-send-to={friend.persona_name} className="fa fa-envelope-o"></i></a></p>
+               return  <p key={friend.id}><a data-member-persona-id={friend.friend_id} onClick={self.setMemberPersonaId} href="#">{friend.persona_name}</a><a onClick={self.setSendTo} data-toggle="modal" data-target='#messageModal' href="#"><i data-send-to={friend.persona_name} className="fa fa-envelope-o"></i></a></p>
               })}
             </div>
           </div>

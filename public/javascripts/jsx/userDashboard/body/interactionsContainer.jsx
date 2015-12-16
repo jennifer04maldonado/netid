@@ -22,7 +22,7 @@ var InteractionsContainer = React.createClass({
   	getInteractions: function() {
 
 		var caughtData = false;
-		$.get('.././json_files/interactionsSchema.json', function(result) {
+		$.get('.././json_files/data/netid-account/personas/interactionsSchema.json', function(result) {
 			if (this.isMounted()){
 				for (var i in result){
 					if(result[i].id === this.props.activePersona.id) {
