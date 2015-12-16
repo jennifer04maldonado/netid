@@ -12,15 +12,18 @@ var MessageModal = React.createClass({
 		    <div className="modal-content">
 		      <div className="modal-header">
 		        <button type="button" className="close" data-dismiss="modal">&times;</button>
-		        <h4 className="modal-title">Modal Header</h4>
+		        <h4 className="modal-title">Send Message</h4>
 		      </div>
 		      <div className="modal-body">
-
-		        <p>Send Message to: {this.props.sendTo} </p>
-
+		      	<form>
+		      		<fieldset className="form-group">
+				    	<label htmlFor="personaDescription"><p>Send to {this.props.sendTo} </p></label>
+				    	<textarea className="form-control" id="personaDescription" rows="4"></textarea>
+				    </fieldset>
+		      	</form>
 		      </div>
 		      <div className="modal-footer">
-		        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" className="btn btn-default col-sm-12" data-dismiss="modal">Send</button>
 		      </div>
 		    </div>
 		  </div>
