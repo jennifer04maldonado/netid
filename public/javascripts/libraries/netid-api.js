@@ -539,9 +539,26 @@ NetidAPI.prototype.getMessages = function(){
       //done(null,p)
     }
   })
-
   return this.messagesList
 }
+
+NetidAPI.prototype.loadPersonaTable = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/personaTable.json',(err2,res) => {
+    console.log('geting personaTable from IPFS');
+    if(err2){
+      this.ee.emit('error',err2)
+      //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.personaTable = JSON.parse(res);
+      this.ee.emit('personaTable',undefined);
+      this.ee.removeEvent('personaTable');
+      //done(null,p)
+    }
+  })
+  return this.personaTable
+}
+
 
 NetidAPI.prototype.getBalance = function(){
   var coinbase = this.web3.eth.coinbase;

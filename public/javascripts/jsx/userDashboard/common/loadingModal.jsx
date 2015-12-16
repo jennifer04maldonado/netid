@@ -38,7 +38,7 @@ var LoadingModal = React.createClass({
 			        <div className="modal-dialog vertical-align-center modal-sm">
 			            <div className="modal-content">
 			                <div className="modal-body">
-			                	<image src={this.props.src}/>
+			                	<image src={this.props.src} style={{marginLeft: '30px'}}/>
 			                </div>
 			            </div>
 			        </div>

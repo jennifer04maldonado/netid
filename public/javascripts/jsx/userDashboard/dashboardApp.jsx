@@ -17,6 +17,7 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
+            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
             useIPFS: true,
             showLoading: true,
             api: {},
@@ -43,7 +44,7 @@ var DashboardApp = React.createClass({
 	},
 
 
-	initializeIPFS: function(){
+	initializeIPFS: function(done){	    
 	    var net = new NetidAPI();
 	    //example of using the netid api to get the eth balance
 	    var web3test = net.account.getBalance();
@@ -62,7 +63,8 @@ var DashboardApp = React.createClass({
 	        	showLoading: false,
 	        	personas: schemObj,
 	        	activePersona: schemObj[0]
-	        })
+	        });
+	        done();	        
 	      }
 	      if(err){
 	      	console.log(err)
@@ -71,8 +73,12 @@ var DashboardApp = React.createClass({
 	},
 
     componentDidMount: function(){
+    	var self  = this;
     	if(this.state.useIPFS){
-    		this.initializeIPFS();
+    		this.initializeIPFS(function() {
+    			self.loadPersonaTableIPFS();	
+    		});
+    		
     	}else {
     		this.initialize();
     		this.loadPersonaTable();
@@ -129,12 +135,21 @@ var DashboardApp = React.createClass({
 		 	}	 
 		});
     },
+    loadPersonaTableIPFS: function(){
+		console.log("Pre loading all persona table from IPFS");	    
+	  	var net = this.state.api;	    
+       	var personaTable = net.account.loadPersonaTable();		    		       	
+	     net.account.ee.on('personaTable',err => {
+	         this.setState({personaTable: net.account.personaTable});
+	     });
+
+    },
+
     getPersonaByPersonaId: function(personaId,done){
-		console.log("getting persona from table. id= " + personaId);
-	    //console.log('memberId: ' + memberPersonaId);
+		//console.log("getting persona from table. id= " + personaId);	    
 	    $.each(this.state.personaTable, function (index,  persona) {
 	      if (personaId == persona.persona_id) {
-	        console.log("activePersonaId=" + persona.persona_id);	        
+	        console.log("found persona activePersonaId=" + persona.persona_id);	        
 	        done(persona);
 	      }
 	    });				
