@@ -9,21 +9,19 @@ var AddPersonaModal = require('./common/addPersonaModal');
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      value: 'default value'
+	      useIPFS: false
 	    };
 	},
 	getInitialState: function(){		
 		return {
             personas : [],
             activePersona: null,
-            headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
-            showLoading: true,
+            headerSelection: 'home',                       
             api: {},
             memberPersona: null,
             viewMemberPersona: false,
-            personaTable: []
+            personaTable: [],
+			showLoading: true
         }
 	},
 	initialize: function(){
@@ -74,7 +72,7 @@ var DashboardApp = React.createClass({
 
     componentDidMount: function(){
     	var self  = this;
-    	if(this.state.useIPFS){
+    	if(this.props.useIPFS){
     		this.initializeIPFS(function() {
     			self.loadPersonaTableIPFS();	
     		});
@@ -160,20 +158,20 @@ var DashboardApp = React.createClass({
         return (
             <div className="dashboardContainer">
                 <div id="personaPicker" className="personaPicker">
-					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />               
+					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
-	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />
+	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />
+	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} api={this.state.api}/>
+	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} api={this.state.api}/>
 	                    </div>
 	                </div>
 	            </div>
