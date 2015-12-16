@@ -163,8 +163,7 @@ var DashboardApp = React.createClass({
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
-				<AddPersonaModal personaType="Social" />		        		
-				<AddPersonaModal personaType="Professional" />		        		
+				<AddPersonaModal activePersonaType="Social" />		        		
             </div>
         );
     }
