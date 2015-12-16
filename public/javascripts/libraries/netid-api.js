@@ -501,6 +501,7 @@ NetidAPI.prototype.getFriends = function(){
       // TODO: JSON parse error handling
       this.friendsList = JSON.parse(res)
       this.ee.emit('frand',undefined)
+      this.ee.removeEvent('frand')
       //done(null,p)
     }
   })
