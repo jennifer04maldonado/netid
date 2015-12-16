@@ -1,16 +1,17 @@
 var AddPersonaModal = React.createClass({		
-	getDefaultProps: function() {
-		return {
-			//src: 'images/loading1.gif'
-		}
-	},
-
+	getInitialState: function() {
+	    return {
+	    	value: ''
+	    }
+  	},
 	createPersona: function(){
-		console.log('test')
+		var net = this.props.api
+		console.log(net)
+		//console.log(this.refs.personaCreateForm.name.value + this.refs.personaCreateForm.personaDescription.value)
 	},
 
     render: function(){
-        return (		           			    
+        return (	           			    
 		<div id="addPersonaModal" className="modal fade" role="dialog">
 		    <div className="modal-dialog">
 		        <div className="modal-content">
@@ -19,28 +20,28 @@ var AddPersonaModal = React.createClass({
 				        <h5 className="modal-title">Add {this.props.personaType} Persona</h5>
 				    </div>
 				    <div className="modal-body">
-				      	<form>
+				      	<form name="myform" ref="personaCreateForm">
 						    <fieldset className="form-group">
-						    	<input type="name" className="form-control" id="exampleName" placeholder="Persona Name"></input>
+						    	<input name="name" type="name" className="form-control" id="exampleName" placeholder="Persona Name"></input>
 						    </fieldset>
 						    <fieldset className="form-group">
 						    	<label htmlFor="personaDescription">What is your Persona like?</label>
-						    	<textarea className="form-control" id="personaDescription" rows="3"></textarea>
+						    	<textarea name="personaDescription" className="form-control" id="personaDescription" rows="3"></textarea>
 						    </fieldset>
 						    <fieldset className="form-group col-sm-6 personaAge">
 						    	<label>Age</label>
-						    	<input type="age" className="form-control" id="personaAge"></input>
+						    	<input name="age" type="age" className="form-control" id="personaAge"></input>
 						    </fieldset>
 						    <fieldset className="form-group">
 						    	<label>Sex</label>
-								    <select className="form-control">
+								    <select name="gender" className="form-control">
 								      <option>Male</option>
 								      <option>Female</option>
 								    </select>
 						    </fieldset>
 						    <fieldset className="form-group ">
 						    	<label>Relationship Status</label>
-								    <select className="form-control">
+								    <select name="relationshipStatus" className="form-control">
 								      <option>Single</option>
 								      <option>Engaged</option>
 								      <option>Married</option>
@@ -50,7 +51,7 @@ var AddPersonaModal = React.createClass({
 						    </fieldset>
 						    <fieldset className="form-group">
 						    	<label>What is your ethnicity?</label>
-							    <select multiple className="form-control">
+							    <select name="ethnicity" multiple className="form-control">
 							      <option>White/ Caucasian</option>
 							      <option>Black/ African Americam</option>
 							      <option>Hispanic/ Latino</option>
@@ -63,16 +64,16 @@ var AddPersonaModal = React.createClass({
 							<fieldset className="form-group">
 						    	<label htmlFor="personaHobbies">List some of your favorite Hobbies</label>
 						    	<p>Separated by commas</p>
-						    	<textarea className="form-control" id="personaHobbies" ></textarea>
+						    	<textarea name="hobbies" className="form-control" id="personaHobbies" ></textarea>
 						    </fieldset>	
 						    <fieldset className="form-group">
 						    	<label htmlFor="personaMovies">List some of your favorite Movies</label>
 						    	<p>Separated by commas</p>
-						    	<textarea className="form-control" id="personaMovies"></textarea>
+						    	<textarea name="movies" className="form-control" id="personaMovies"></textarea>
 						    </fieldset>				  
 						    <fieldset className="form-group">
 							   <label htmlFor="exampleInputFile">Upload an Image</label>
-							   <input type="file" className="form-control-file" id="exampleInputFile"></input>
+							   <input name="file" type="file" className="form-control-file" id="exampleInputFile"></input>
 						    </fieldset>
 						</form>
 				    </div>
