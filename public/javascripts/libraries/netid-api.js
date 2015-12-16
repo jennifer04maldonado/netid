@@ -499,13 +499,31 @@ NetidAPI.prototype.getFriends = function(){
       //done(err2,null)
     } else {
       // TODO: JSON parse error handling
-      this.friendsList = res
+      this.friendsList = JSON.parse(res)
       this.ee.emit('frand',undefined)
+      this.ee.removeEvent('frand')
       //done(null,p)
     }
   })
 
   return this.friendsList
+}
+
+NetidAPI.prototype.getMessages = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/messages.json',(err2,res) => {
+    if(err2){
+      this.ee.emit('error',err2)
+      //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.messagesList = JSON.parse(res)
+      this.ee.emit('message',undefined)
+      this.ee.removeEvent('message')
+      //done(null,p)
+    }
+  })
+
+  return this.messagesList
 }
 
 NetidAPI.prototype.getBalance = function(){

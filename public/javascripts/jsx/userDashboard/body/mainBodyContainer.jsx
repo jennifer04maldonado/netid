@@ -31,7 +31,7 @@ var MainBodyContainer = React.createClass({
 				activeBody = <InteractionsComponent activePersona={this.state.activePersona} />;
 				break;
 			case 'settings':
-				activeBody = <SettingsComponent activePersona={this.state.activePersona} />;
+				activeBody = <SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />;
 				break;	
 			case 'communities':
 				activeBody = <CommunitiesComponent activePersona={this.state.activePersona} />;

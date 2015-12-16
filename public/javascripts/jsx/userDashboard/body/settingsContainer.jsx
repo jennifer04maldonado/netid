@@ -10,7 +10,7 @@ var SettingsContainer = React.createClass({
 				<div className="col-sm-8 col-sm-offset-2 profileDetailBody">
 					<img src={"/images/ein.jpeg"} className="col-sm-offset-2 profileImage"/>
 					<div className="col-sm-offset-2 col-sm-8 profileDetailText">	
-						<h3 className="row ">NatetheGreat
+						<h3 className="row ">{this.props.activePersona.persona_name}
 							<a href="#"><i className="fa fa-pencil-square-o"></i></a>
 							<ul className="col-sm-9 col-sm-offset-1 profileScoreList">
 								<li className="masterScoreListItem">Master Score - 78</li>
@@ -18,7 +18,7 @@ var SettingsContainer = React.createClass({
 								<li>Professional - 81</li>
 							</ul>
 						</h3>
-						<p>In as name to here them deny wise this. As rapid woody my he me which. Men but they fail shew just wish next put. Led all visitor musical calling nor her. Within coming figure sex things are. Pretended concluded did repulsive education smallness yet yet described. Had country man his pressed shewing. No gate dare rose he. Eyes year if miss he as upon. </p>
+						<p>{this.props.activePersona.description}</p>
 					</div>	
 		        </div>
 		        <div className="col-sm-8 col-sm-offset-2 profileInputField">

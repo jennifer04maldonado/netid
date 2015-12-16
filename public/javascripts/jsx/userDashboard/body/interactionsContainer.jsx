@@ -22,7 +22,7 @@ var InteractionsContainer = React.createClass({
   	getInteractions: function() {
 
 		var caughtData = false;
-		$.get('.././json_files/interactionsSchema.json', function(result) {
+		$.get('.././json_files/data/netid-account/personas/interactionsSchema.json', function(result) {
 			if (this.isMounted()){
 				for (var i in result){
 					if(result[i].id === this.props.activePersona.id) {
@@ -38,18 +38,18 @@ var InteractionsContainer = React.createClass({
 	   	}.bind(this));
   	},  
   	getInteractionsIPFS: function(done) {
-	    var hash = this.props.peerIdHash + '/interactionsSchema.json';   
-	    ipfs.cat(hash, function (err, res) {
-	      if (err || !res) return console.log('error:' + err);      
-	      //readable stream
-	      if (res.readable) {
-	          res.pipe('readable stream: ' + process.stdout);
-	          //string          
-	      } else {
-	        var interactionsArray = JSON.parse(res);
-	        done(interactionsArray);  
-	      }
-	    });
+	    // var hash = this.props.peerIdHash + '/interactionsSchema.json';   
+	    // ipfs.cat(hash, function (err, res) {
+	    //   if (err || !res) return console.log('error:' + err);      
+	    //   //readable stream
+	    //   if (res.readable) {
+	    //       res.pipe('readable stream: ' + process.stdout);
+	    //       //string          
+	    //   } else {
+	    //     var interactionsArray = JSON.parse(res);
+	    //     done(interactionsArray);  
+	    //   }
+	    // });
   	},
   	//this method fetches data from IPFS or AJAX				
 	componentDidMount: function() {

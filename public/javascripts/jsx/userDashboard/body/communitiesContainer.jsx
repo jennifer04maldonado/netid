@@ -12,7 +12,7 @@ var CommunitiesContainer = React.createClass({
 	},	
 	componentDidMount: function(){	
 		var self = this;
-		$.get( ".././json_files/community.json", function( dataArray, status ) {
+		$.get( ".././json_files/data/netid-account/personas/community.json", function( dataArray, status ) {
 		  //console.log('status: '  + status);	
 			if (status == 'success') {				
 		 	    if (self.isMounted()) {

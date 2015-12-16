@@ -7,53 +7,51 @@ var YourFriends = React.createClass({
   getInitialState: function() {
     return {
       data: [],
+      allFriends: [],
+      activeMemberPersona: null,
       sendTo: ''
     }
   },
-  getYourFriends: function(personaId, done) {
-    $.get('.././json_files/friend.json', function(result) {
-      if (this.isMounted()) {
+  getYourFriends: function(personaId, done) {    
+    $.get('.././json_files/data/netid-account/personas/friend.json', function(allFriends) {
+      if (this.isMounted()) {          
           var thisPersonaFriends = [];
-          for (var i=0; i < result.length; i++) {
-            if (personaId == result[i].persona_id) {
-              thisPersonaFriends.push(result[i]);
+          for (var i=0; i < allFriends.length; i++) {
+            if (personaId == allFriends[i].persona_id) {
+              thisPersonaFriends.push(allFriends[i]);
             }
           }
-          done(thisPersonaFriends);  
+          done(thisPersonaFriends,allFriends);  
       }
-    }.bind(this));   
+    }.bind(this));       
   },  
   setSendTo: function(event){
       var sendTo = event.target.dataset.sendTo;      
       this.setState({sendTo: sendTo});
   },   
+  componentDidMount : function(){
+
+  },
+  setMemberPersonaId: function(event){
+    var memberPersonaId = event.target.dataset.memberPersonaId;    
+    this.props.setMemberPersonaId(memberPersonaId);
+  },     
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
-    console.log('Friend Component received '+net.account.schemaObject)
-    var hash = this.props.peerIdHash + '/friend.json';   
     var fr = net.account.getFriends();
-    if(!this.isMounted()) return
-      var ee = net.account.getEventEmitter()
-      ee.on('frand',err => {
-        console.log('Freind Object Received '+ net.account.friendsList)
-      })  
-/*    ipfs.cat(hash, function (err, res) {
-      if (err || !res) return console.log('error:' + err);      
-      //readable stream
-      if (res.readable) {
-          res.pipe('readable stream: ' + process.stdout);
-          //string          
-      } else {
+    if (this.isMounted()) { 
+      net.account.ee.on('frand',err => {
+        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
+        var allFriends = net.account.friendsList;
         var thisPersonaFriends = [];
-        var friendsArray = JSON.parse(res);
-        for (var i=0; i < friendsArray.length; i++) {
-            if (personaId == friendsArray[i].persona_id) {
-                thisPersonaFriends.push(friendsArray[i]);
-            }
+        for (var i=0; i < net.account.friendsList.length; i++) {
+          if (personaId == net.account.friendsList[i].persona_id) {
+              thisPersonaFriends.push(net.account.friendsList[i]);
+          }
         }
-        done(thisPersonaFriends);  
-      }
-    });*/
+        done(thisPersonaFriends, allFriends);
+      }) 
+    } 
   },
   //this method decides to fetches data from IPFS or AJAX
   componentWillReceiveProps: function(nextProps) {    
@@ -61,15 +59,17 @@ var YourFriends = React.createClass({
       var personaId = nextProps.activePersona.id;
       var self = this;
       if (this.props.useIPFS) {         
-          this.getYourFriendsIPFS(personaId, function (friendsArray)  {
+          this.getYourFriendsIPFS(personaId, function (friendsArray, allFriends)  {
               self.setState({
-                      data: friendsArray
+                      data: friendsArray,
+                      allFriends: allFriends
               });
           });
       } else {
-        this.getYourFriends(personaId, function(friendsArray) {
+        this.getYourFriends(personaId, function(friendsArray,allFriends) {
             self.setState({
-              data: friendsArray
+              data: friendsArray,
+              allFriends: allFriends
             });
         });
       }
@@ -90,7 +90,7 @@ var YourFriends = React.createClass({
           <div className="accordion-inner test">
             <div className="panel-body friendsBody">
               { this.state.data.map(function(friend)  {                                                                                  
-               return  <p key={friend.id}><a href="#">{friend.persona_name}</a><a onClick={self.setSendTo} data-toggle="modal" data-target='#messageModal' href="#"><i data-send-to={friend.persona_name} className="fa fa-envelope-o"></i></a></p>
+               return  <p key={friend.id}><a data-member-persona-id={friend.friend_id} onClick={self.setMemberPersonaId} href="#">{friend.persona_name}</a><a onClick={self.setSendTo} data-toggle="modal" data-target='#messageModal' href="#"><i data-send-to={friend.persona_name} className="fa fa-envelope-o"></i></a></p>
               })}
             </div>
           </div>

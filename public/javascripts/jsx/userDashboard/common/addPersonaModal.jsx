@@ -6,15 +6,8 @@ var AddPersonaModal = React.createClass({
 	},
 
     render: function(){
-		var divId = '';
-		//console.log("personaType: " + this.props.personaType);
-		if (this.props.personaType.indexOf('Social')  > -1 ) {
-			divId += 'addSocialPersonaModal';
-		} else {
-			divId += 'addProfessionalPersonaModal';
-		}    	
         return (		           			    
-		<div id={divId} className="modal fade" role="dialog">
+		<div id="addPersonaModal" className="modal fade" role="dialog">
 		  <div className="modal-dialog">
 		    <div className="modal-content">
 		      <div className="modal-header">

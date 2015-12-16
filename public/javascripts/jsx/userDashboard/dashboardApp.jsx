@@ -20,13 +20,16 @@ var DashboardApp = React.createClass({
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
             useIPFS: false,
             showLoading: true,
-            api: {}
+            api: {},
+            memberPersona: null,
+            viewMemberPersona: false,
+            personaTable: []
         }
 	},
 	initialize: function(){
 		console.log("Loading from ajax")
 		var self = this;
-		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
+		$.get( ".././json_files/data/netid-account/personas/personaSchema.json", function( personaArray, status ) {
 		  //console.log('status: '  + status);	
 			if (status == 'success') {				
 		 	    if (self.isMounted()) {
@@ -53,7 +56,7 @@ var DashboardApp = React.createClass({
 	    if(!this.isMounted()) return
 	    var ee = net.account.getEventEmitter()
 	    ee.on('init',err => {
-	    	console.log('Net Object '+ net)
+	    	console.log('Net API Object Created '+ net)
 	      if(!err && this.isMounted()){
 	      	var schemObj = net.account.schemaObject
 	        self.setState({ 
@@ -70,15 +73,17 @@ var DashboardApp = React.createClass({
 
     componentDidMount: function(){
     	if(this.state.useIPFS){
-    		this.initializeIPFS()
+    		this.initializeIPFS();
     	}else {
-    		this.initialize()
+    		this.initialize();
+    		this.loadPersonaTable();
     	}
 
     },
   	setActiveBody: function(headerSelection) {
   		this.setState({
-  			headerSelection: headerSelection
+  			headerSelection: headerSelection,
+  			viewMemberPersona: false //set view members to false
   		});
   	},
 	setActivePersonaCont: function(activePersonaId, callback) {
@@ -97,35 +102,69 @@ var DashboardApp = React.createClass({
 		var self = this;
 		this.setActivePersonaCont(activePersonaId, function(activePersona) {
 			self.setState({
-				activePersona: activePersona
+				activePersona: activePersona,
+				viewMemberPersona:false
 			});
 		});
 	},	
+	//when user clicks user link, it renders their information in the profile tab
+	setMemberPersona: function(personaId) {
+		console.log('getting persona for personaId: ' + personaId);
+		var self = this;
+		this.getPersonaByPersonaId(personaId, function(persona) {			
+			self.setState({headerSelection: 'settings'});
+			self.setState({viewMemberPersona: true});
+			self.setState({memberPersona: persona});
+		});
+
+	},		
+    loadPersonaTable: function(){
+		console.log("Pre loading all persona table from ajax")
+		var self = this;
+		$.get( ".././json_files/data/netid-account/personas/personaTable.json", function( result, status ) {
+		  //console.log('status: '  + status);	
+			if (status == 'success') {				
+	 	        self.setState({
+	 		    	personaTable: result
+	         	});	     
+		 	}	 
+		});
+    },
+    getPersonaByPersonaId: function(personaId,done){
+		console.log("getting persona from table. id= " + personaId);
+	    //console.log('memberId: ' + memberPersonaId);
+	    $.each(this.state.personaTable, function (index,  persona) {
+	      if (personaId == persona.persona_id) {
+	        console.log("activePersonaId=" + persona.persona_id);	        
+	        done(persona);
+	      }
+	    });				
+    },
+
     render: function(){		
 
         return (
             <div className="dashboardContainer">
                 <div id="personaPicker" className="personaPicker">
-					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>               
+					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
-	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
+	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash}/>
+	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} peerIdHash={this.state.peerIdHash} api={this.state.api}/>
+	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} api={this.state.api}/>
 	                    </div>
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
-				<AddPersonaModal personaType="Social" />		        		
-				<AddPersonaModal personaType="Professional" />		        		
+				<AddPersonaModal activePersonaType="Social" />		        		
             </div>
         );
     }
