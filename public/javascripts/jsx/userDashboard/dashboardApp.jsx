@@ -17,17 +17,18 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            useIPFS: true,
+            useIPFS: false,
             showLoading: true,
             api: {},
             memberPersona: null,
-            viewMemberPersona: false
+            viewMemberPersona: false,
+            personaTable: []
         }
 	},
 	initialize: function(){
 		console.log("Loading from ajax")
 		var self = this;
-		$.get( ".././json_files/personaSchema.json", function( personaArray, status ) {
+		$.get( ".././json_files/data/netid-account/personas/personaSchema.json", function( personaArray, status ) {
 		  //console.log('status: '  + status);	
 			if (status == 'success') {				
 		 	    if (self.isMounted()) {
@@ -71,9 +72,10 @@ var DashboardApp = React.createClass({
 
     componentDidMount: function(){
     	if(this.state.useIPFS){
-    		this.initializeIPFS()
+    		this.initializeIPFS();
     	}else {
-    		this.initialize()
+    		this.initialize();
+    		this.loadPersonaTable();
     	}
 
     },
@@ -105,13 +107,39 @@ var DashboardApp = React.createClass({
 		});
 	},	
 	//when user clicks user link, it renders their information in the profile tab
-	setMemberPersona: function(memberPersona) {
-		console.log('parent setMemberPersona: ' + memberPersona.persona_name);
+	setMemberPersona: function(personaId) {
+		console.log('getting persona for personaId: ' + personaId);
+		var self = this;
+		this.getPersonaByPersonaId(personaId, function(persona) {			
+			self.setState({headerSelection: 'settings'});
+			self.setState({viewMemberPersona: true});
+			self.setState({memberPersona: persona});
+		});
 
-		this.setState({headerSelection: 'settings'});
-		this.setState({viewMemberPersona: true});
-		this.setState({memberPersona: memberPersona});
 	},		
+    loadPersonaTable: function(){
+		console.log("Pre loading all persona table from ajax")
+		var self = this;
+		$.get( ".././json_files/data/netid-account/personas/personaTable.json", function( result, status ) {
+		  //console.log('status: '  + status);	
+			if (status == 'success') {				
+	 	        self.setState({
+	 		    	personaTable: result
+	         	});	     
+		 	}	 
+		});
+    },
+    getPersonaByPersonaId: function(personaId,done){
+		console.log("getting persona from table. id= " + personaId);
+	    //console.log('memberId: ' + memberPersonaId);
+	    $.each(this.state.personaTable, function (index,  persona) {
+	      if (personaId == persona.persona_id) {
+	        console.log("activePersonaId=" + persona.persona_id);	        
+	        done(persona);
+	      }
+	    });				
+    },
+
     render: function(){		
 
         return (
