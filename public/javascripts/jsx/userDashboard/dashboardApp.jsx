@@ -17,7 +17,7 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            useIPFS: false,
+            useIPFS: true,
             showLoading: true,
             api: {},
             memberPersona: null,

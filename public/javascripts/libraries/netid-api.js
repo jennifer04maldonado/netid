@@ -509,6 +509,23 @@ NetidAPI.prototype.getFriends = function(){
   return this.friendsList
 }
 
+NetidAPI.prototype.getMessages = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/messages.json',(err2,res) => {
+    if(err2){
+      this.ee.emit('error',err2)
+      //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.messagesList = JSON.parse(res)
+      this.ee.emit('message',undefined)
+      this.ee.removeEvent('message')
+      //done(null,p)
+    }
+  })
+
+  return this.messagesList
+}
+
 NetidAPI.prototype.getBalance = function(){
   var coinbase = this.web3.eth.coinbase;
   var originalBalance = this.web3.eth.getBalance(coinbase).toNumber();
