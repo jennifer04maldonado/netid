@@ -35,8 +35,8 @@ var RightPanel = React.createClass({
 		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
 		this.setState({activePersona: nextProps.activePersona});
   	},	
-	setMemberPersona: function(memberPersona) {				
-		this.props.setMemberPersona(memberPersona);
+	setMemberPersonaId: function(memberPersonaId) {				
+		this.props.setMemberPersona(memberPersonaId);
 	},
 	render: function() {
 		var menuItems = [
@@ -53,7 +53,7 @@ var RightPanel = React.createClass({
 				<div id="rightPanelContentContainer" className="rightCntnr">
 					<div id='rightPanelTopDiv'>
 						<div className={this.state.activeTopMenuId == 1 ? 'selected' : ' hidden'} >
-							<MessagesContainer useIPFS={this.props.useIPFS} {...this.props} />
+							<MessagesContainer useIPFS={this.props.useIPFS} {...this.props}  setMemberPersonaId={this.setMemberPersonaId}/>
 						</div>
 						<div className={this.state.activeTopMenuId == 2 ? 'selected' : 'hidden'} >
 							<FriendsOnlinePanel {...this.props} setMemberPersonaId={this.setMemberPersonaId} />

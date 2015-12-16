@@ -21,9 +21,11 @@ var MessagesContainer = React.createClass({
   	},	    
     componentDidMount: function(){
     },
-    setEmail: function(){
+    setMemberPersonaId: function(event){
     	//TODO:
-    	//console.log('view emailss');
+    	console.log('view emails from:' + event.target.dataset.fromPersonaId);   
+    	var personaId = event.target.dataset.fromPersonaId;
+    	this.props.setMemberPersonaId(personaId);
     },
 
     getMessages: function(personaId) {    
@@ -43,7 +45,7 @@ var MessagesContainer = React.createClass({
     	
   	}, 
     getMessagesIPFS: function(personaId) {    
-	
+
 	},
 	render: function(){
 			var self = this;
@@ -51,7 +53,7 @@ var MessagesContainer = React.createClass({
 				return (
 						<div className="col-sm-12 messageInd" key={message.id}>
 							<ul>
-								<li className="messageName"><a onClick={self.setEmail} data-from-persona-id={message.from_persona_id} href="#">{message.from_persona_name}</a></li>
+								<li className="messageName"><a onClick={self.setMemberPersonaId} data-from-persona-id={message.from_persona_id} href="#">{message.from_persona_name}</a></li>
 								<li>{message.date}</li>
 								<li>{message.body}</li>
 							</ul>
