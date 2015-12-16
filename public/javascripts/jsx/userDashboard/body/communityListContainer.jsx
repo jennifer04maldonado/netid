@@ -182,7 +182,7 @@ var CommunityListContainer = React.createClass({
 								        <input name="radio" id="radio3" value="option3" type="radio"/>Secret
 									</div>
 				                    <form action="">
-				                    	<textarea className="col-sm-8 col-sm-offset-2 commCreateName" placeholder="Community Name" maxLength="40" rows="1"></textarea>
+				                    	<textarea className="col-sm-8 col-sm-offset-2 commCreateName" placeholder="Community Name" rows="1"></textarea>
 										<textarea className="col-sm-8 col-sm-offset-2 commCreateAbout" placeholder="What is this Community about?" rows="5"></textarea>
 									</form> 
 									<button type="submit" className="col-sm-offset-8 col-sm-2 btn btn-default">Submit</button>	

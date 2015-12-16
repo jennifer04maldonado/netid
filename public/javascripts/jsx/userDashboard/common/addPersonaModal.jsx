@@ -59,12 +59,12 @@ var AddPersonaModal = React.createClass({
 							<fieldset className="form-group">
 						    	<label for="personaHobbies">List some of your favorite Hobbies</label>
 						    	<p>Separated by commas</p>
-						    	<textarea className="form-control" id="personaHobbies" maxlength="150"></textarea>
+						    	<textarea className="form-control" id="personaHobbies" ></textarea>
 						    </fieldset>	
 						    <fieldset className="form-group">
 						    	<label for="personaMovies">List some of your favorite Movies</label>
 						    	<p>Separated by commas</p>
-						    	<textarea className="form-control" id="personaMovies" maxlength="150"></textarea>
+						    	<textarea className="form-control" id="personaMovies"></textarea>
 						    </fieldset>				  
 						    <fieldset className="form-group">
 							    <label for="exampleInputFile">Upload an Image</label>
