@@ -169,7 +169,7 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />
+	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} api={this.state.api} />
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">

@@ -509,6 +509,23 @@ NetidAPI.prototype.getFriends = function(){
   return this.friendsList
 }
 
+NetidAPI.prototype.getInteractions = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/interactionsSchema.json',(err2,res) => {
+    if(err2){
+      this.ee.emit('error',err2)
+      //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.interactionsList = JSON.parse(res)
+      this.ee.emit('frand',undefined)
+      this.ee.removeEvent('frand')
+      //done(null,p)
+    }
+  })
+
+  return this.interactionsList
+}
+
 NetidAPI.prototype.getMessages = function(){
   this.ipfs.cat(this.idhash+this.baseurl+'personas/messages.json',(err2,res) => {
     if(err2){

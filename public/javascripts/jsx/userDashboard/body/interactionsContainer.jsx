@@ -20,59 +20,30 @@ var InteractionsContainer = React.createClass({
 			this.componentDidMount();
 	},
   	getInteractions: function() {
-
-		var caughtData = false;
 		$.get('.././json_files/data/netid-account/personas/interactionsSchema.json', function(result) {
-			if (this.isMounted()){
-				for (var i in result){
-					if(result[i].id === this.props.activePersona.id) {
-						caughtData = true;
-						this.setState({interactionsData: result[i]});
-					}
-				}
-				if(caughtData == false){
-					var emptyState = this.getInitialState().interactionsData;
-					this.setState({interactionsData: emptyState});
-				}
-			}
+			return result;
 	   	}.bind(this));
-  	},  
-  	getInteractionsIPFS: function(done) {
-	    // var hash = this.props.peerIdHash + '/interactionsSchema.json';   
-	    // ipfs.cat(hash, function (err, res) {
-	    //   if (err || !res) return console.log('error:' + err);      
-	    //   //readable stream
-	    //   if (res.readable) {
-	    //       res.pipe('readable stream: ' + process.stdout);
-	    //       //string          
-	    //   } else {
-	    //     var interactionsArray = JSON.parse(res);
-	    //     done(interactionsArray);  
-	    //   }
-	    // });
   	},
+	  
   	//this method fetches data from IPFS or AJAX				
 	componentDidMount: function() {
       	var personaId = this.props.activePersona.id;
 	    var self = this;
-	    if (this.props.useIPFS) {         
-	        this.getInteractionsIPFS(function (result)  {              
-	          	if (self.isMounted()){
-					for (var i in result){
-						if(result[i].id === personaId) {
-							caughtData = true;
-							self.setState({interactionsData: result[i]});
-						}
+		var caughtData = false;
+		var result = null;
+		result = (this.props.useIPFS) ? this.props.api.account.getInteractions() : this.getInteractions();
+		if(self.isMounted()){
+			for (var i in result){
+					if(result[i].id === this.props.activePersona.id) {
+						caughtData = true;
+						self.setState({interactionsData: result[i]});
 					}
-					if(caughtData == false){
-						var emptyState = self.getInitialState().interactionsData;
-						self.setState({interactionsData: emptyState});
-					}
-				}
-	        });
-	    } else {
-	        this.getInteractions();
-	    }
+			}
+			if(caughtData == false){
+				var emptyState = this.getInitialState().interactionsData;
+				self.setState({interactionsData: emptyState});
+			}
+		}
 	},
 
 	render: function(){
