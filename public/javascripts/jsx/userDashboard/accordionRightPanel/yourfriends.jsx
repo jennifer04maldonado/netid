@@ -51,10 +51,8 @@ var YourFriends = React.createClass({
     console.log(net)
     var fr = net.account.getFriends();
     if (this.isMounted()) { 
-      //var ee = net.account.getEventEmitter()
       net.account.ee.on('frand',err => {
-        //console.log('event from get listeners '+net.account.ee.getListeners('frand'))
-        console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
+        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
         var allFriends = net.account.friendsList;
         var thisPersonaFriends = [];
         for (var i=0; i < net.account.friendsList.length; i++) {
@@ -63,7 +61,6 @@ var YourFriends = React.createClass({
           }
         }
         done(thisPersonaFriends, allFriends);
-        net.account.ee.removeEvent('frand')  
       }) 
     } 
   },
