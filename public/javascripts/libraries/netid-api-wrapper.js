@@ -2,6 +2,7 @@ var NetidAPI = function(){
   this.done = false
   this.fa = []
   this.account
+  this.id = Math.random()
   var NetidAPI = require('./netid-api.js')
   //var ipfs = require('ipfs-api')(opt.addr || 'localhost',opt.port || 5001)
   //var ipfs = require('ipfs-api')('localhost', 5001);

@@ -46,11 +46,14 @@ var YourFriends = React.createClass({
       
   },     
   getYourFriendsIPFS: function(personaId, done) {
+    console.log(personaId)
     var net = this.props.api
+    console.log(net)
     var fr = net.account.getFriends();
     if (this.isMounted()) { 
-      var ee = net.account.getEventEmitter()
-      ee.on('frand',err => {
+      //var ee = net.account.getEventEmitter()
+      net.account.ee.on('frand',err => {
+        //console.log('event from get listeners '+net.account.ee.getListeners('frand'))
         console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
         var allFriends = net.account.friendsList;
         var thisPersonaFriends = [];
@@ -59,8 +62,10 @@ var YourFriends = React.createClass({
               thisPersonaFriends.push(net.account.friendsList[i]);
           }
         }
-        done(thisPersonaFriends, allFriends);  
-      })  
+        done(thisPersonaFriends, allFriends);
+        net.account.ee.removeEvent('frand')  
+      }) 
+    } 
   },
   //this method decides to fetches data from IPFS or AJAX
   componentWillReceiveProps: function(nextProps) {    

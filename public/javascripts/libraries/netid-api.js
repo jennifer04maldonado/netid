@@ -493,6 +493,7 @@ NetidAPI.prototype.getMyID = function(){
 }
 
 NetidAPI.prototype.getFriends = function(){
+  console.log(this.ee)
   this.ipfs.cat(this.idhash+this.baseurl+'personas/friend.json',(err2,res) => {
     if(err2){
       this.ee.emit('error',err2)
@@ -501,6 +502,7 @@ NetidAPI.prototype.getFriends = function(){
       // TODO: JSON parse error handling
       this.friendsList = JSON.parse(res)
       this.ee.emit('frand',undefined)
+      //this.ee.removeEvent('frand')
       //done(null,p)
     }
   })
