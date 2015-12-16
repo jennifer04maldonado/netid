@@ -5,6 +5,10 @@ var AddPersonaModal = React.createClass({
 		}
 	},
 
+	createPersona: function(){
+		console.log('test')
+	},
+
     render: function(){
         return (		           			    
 		<div id="addPersonaModal" className="modal fade" role="dialog">
@@ -20,7 +24,7 @@ var AddPersonaModal = React.createClass({
 						    	<input type="name" className="form-control" id="exampleName" placeholder="Persona Name"></input>
 						    </fieldset>
 						    <fieldset className="form-group">
-						    	<label for="personaDescription">What is your Persona like?</label>
+						    	<label htmlFor="personaDescription">What is your Persona like?</label>
 						    	<textarea className="form-control" id="personaDescription" rows="3"></textarea>
 						    </fieldset>
 						    <fieldset className="form-group col-sm-6 personaAge">
@@ -57,23 +61,23 @@ var AddPersonaModal = React.createClass({
 							    </select>
 						    </fieldset>
 							<fieldset className="form-group">
-						    	<label for="personaHobbies">List some of your favorite Hobbies</label>
+						    	<label htmlFor="personaHobbies">List some of your favorite Hobbies</label>
 						    	<p>Separated by commas</p>
 						    	<textarea className="form-control" id="personaHobbies" ></textarea>
 						    </fieldset>	
 						    <fieldset className="form-group">
-						    	<label for="personaMovies">List some of your favorite Movies</label>
+						    	<label htmlFor="personaMovies">List some of your favorite Movies</label>
 						    	<p>Separated by commas</p>
 						    	<textarea className="form-control" id="personaMovies"></textarea>
 						    </fieldset>				  
 						    <fieldset className="form-group">
-							    <label for="exampleInputFile">Upload an Image</label>
-							    <input type="file" className="form-control-file" id="exampleInputFile"></input>
+							   <label htmlFor="exampleInputFile">Upload an Image</label>
+							   <input type="file" className="form-control-file" id="exampleInputFile"></input>
 						    </fieldset>
 						</form>
 				    </div>
 				    <div className="modal-footer">
-				    	<button type="submit" className="btn btn-primary col-sm-12">Submit</button>
+				    	<button type="submit" className="btn btn-primary col-sm-12" onClick={this.createPersona}>Submit</button>
 				    </div>
 		    	</div>
 		    </div>

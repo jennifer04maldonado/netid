@@ -527,7 +527,6 @@ NetidAPI.prototype.getMessages = function(){
 
 NetidAPI.prototype.loadPersonaTable = function(){
   this.ipfs.cat(this.idhash+this.baseurl+'personas/personaTable.json',(err2,res) => {
-    console.log('geting personaTable from IPFS');
     if(err2){
       this.ee.emit('error',err2)
       //done(err2,null)

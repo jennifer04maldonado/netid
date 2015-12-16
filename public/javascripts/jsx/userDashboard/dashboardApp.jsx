@@ -147,7 +147,7 @@ var DashboardApp = React.createClass({
 		//console.log("getting persona from table. id= " + personaId);	    
 	    $.each(this.state.personaTable, function (index,  persona) {
 	      if (personaId == persona.persona_id) {
-	        console.log("found persona activePersonaId=" + persona.persona_id);	        
+	        console.log("found persona activePersonaId =" + persona.persona_id);	        
 	        done(persona);
 	      }
 	    });				
