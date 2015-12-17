@@ -544,7 +544,6 @@ NetidAPI.prototype.getMessages = function(){
 
 NetidAPI.prototype.loadPersonaTable = function(){
   this.ipfs.cat(this.idhash+this.baseurl+'personas/personaTable.json',(err2,res) => {
-    console.log('geting personaTable from IPFS');
     if(err2){
       this.ee.emit('error',err2)
       //done(err2,null)
@@ -558,6 +557,7 @@ NetidAPI.prototype.loadPersonaTable = function(){
   })
   return this.personaTable
 }
+
 
 NetidAPI.prototype.addPersona = function(persona, done){
   console.log('Creating new persona')
@@ -605,10 +605,21 @@ NetidAPI.prototype.addPersona = function(persona, done){
   ], done)
   //looking for way to add FS
 /*  this.ipfs.add(new Buffer(JSON.stringify(persona)),(err2,res) => {
+>>>>>>> 10ba3dbc263d3fb0bee40c464a83595f918806fd
     if(err2){
       this.ee.emit('error',err2)
       //done(err2,null)
     } else {
+<<<<<<< HEAD
+      // TODO: JSON parse error handling
+      this.allCommunities = JSON.parse(res);
+      this.ee.emit('allCommunities',undefined);
+      this.ee.removeEvent('allCommunities');
+      //done(null,p)
+    }
+  })
+  return this.allCommunities
+=======
         console.log(res)
         this.ipfs.name.publish(res.Hash,(err,r) => {
           if(err){
@@ -621,6 +632,24 @@ NetidAPI.prototype.addPersona = function(persona, done){
   })
   return this.messagesList*/
 }
+
+
+NetidAPI.prototype.getAllCommunities = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/communities.json',(err2,res) => {
+        if(err2){
+          this.ee.emit('error',err2)
+          //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.allCommunities = JSON.parse(res);
+      this.ee.emit('allCommunities',undefined);
+      this.ee.removeEvent('allCommunities');
+      //done(null,p)
+    }
+  })
+  return this.allCommunities
+}
+
 
 //web3 api endpoints
 NetidAPI.prototype.getBalance = function(){
