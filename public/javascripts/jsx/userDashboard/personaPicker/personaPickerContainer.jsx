@@ -41,7 +41,7 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>    
-                                <a href="#settings" onClick={this.setActiveBody.bind(this, 'settings')}>
+                                <a href="#profile" onClick={this.setActiveBody.bind(this, 'profile')}>
                                     Profile
                                 </a>
                             </li>
@@ -50,8 +50,8 @@ var PersonaPicker = React.createClass({
                                     Log Out
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
+                            <li>                                
+                                <a href="#settings" onClick={this.setActiveBody.bind(this, 'settings')}>
                                     <i className="fa fa-cog"></i>
                                 </a>
                             </li>

@@ -1,0 +1,10 @@
+[
+	{
+	    "persona_id": "123",
+	    "community_ids": ["1", "2", "3", "4"]
+	},
+	{
+	    "persona_id": "1653726",
+	    "community_ids": ["1", "2"]
+	}
+]

@@ -14,7 +14,7 @@ var CommunityListContainer = React.createClass({
 	},			
 	render: function(){
 		var self = this;
-		var communitiesNode = this.props.communities.map(function(community, index)  {
+		var allCommunitiesNode = this.props.allCommunities.map(function(community, index)  {
 	               			return (
 									<div className="col-sm-3 well" key={community.id}>									       
 										<img onClick={self.viewDetail} src={community.pic} data-community-id={community.id}/>
@@ -28,8 +28,33 @@ var CommunityListContainer = React.createClass({
 								)
 							});
 
+		var myCommunitiesNode = this.props.myCommunities.map(function(community, index)  {
+	               			return (
+								  	<div className="panel-body" key={community.id}>								    	
+								    	<div className="media">
+											<div className="media-left">
+											    <a href="#">
+											      <img className="media-object" src={community.pic}/>
+											    </a>
+											</div>
+											<div className="media-body">
+											    <h5 className="media-heading">{community.name}</h5>
+											    <span>{community.description}</span>
+												<h6>
+													<img src={"/images/friends.png"}/>
+														<a href="#">130 Members</a>
+													<i className="fa fa-unlock-alt"></i>
+													Public
+												</h6>
+											</div>
+										</div>
+								  	</div>
+								)
+							});
+
+
 		return(						
-			<div className="col-sm-12 bodyContent">
+				<div className="col-sm-12 bodyContent">
 					<div className="col-sm-2 communityTitle">
 						<h4><img src={"/images/members.png"}/>Communities</h4>
 					</div>
@@ -42,124 +67,13 @@ var CommunityListContainer = React.createClass({
 						</ul>
 						<div className="tab-content col-sm-10">
 							<div role="tabpanel" className="tab-pane tabExplore fade in active" id="explore">
-								{communitiesNode}
+								{allCommunitiesNode}
 							</div>
 							<div role="tabpanel" className="tab-pane tabCommunities fade" id="communities">
 								<div className="panel panel-default">
-								  	<div className="panel-body">
-								    	<div className="media">
-											<div className="media-left">
-											    <a href="#">
-											      <img className="media-object" src={"/images/cooking.jpg"}/>
-											    </a>
-											</div>
-											<div className="media-body">
-											    <h5 className="media-heading">Cooking At Home</h5>
-											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
-											</div>
-										</div>
-								  	</div>
-								  	<div className="panel-body">
-								    	<div className="media">
-											<div className="media-left">
-											    <a href="#">
-											      <img className="media-object" src={"/images/football-fanss.jpg"}/>
-											    </a>
-											</div>
-											<div className="media-body">
-											    <h5 className="media-heading">Football Fans</h5>
-											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
-											</div>
-										</div>
-								  	</div>
-								  	<div className="panel-body">
-								    	<div className="media">
-											<div className="media-left">
-											    <a href="#">
-											      <img className="media-object" src={"/images/coders.jpg"}/>
-											    </a>
-											</div>
-											<div className="media-body">
-											    <h5 className="media-heading">Coders United</h5>
-											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-lock"></i>
-													Private
-												</h6>
-											</div>
-										</div>
-								  	</div>
-								  	<div className="panel-body">
-								    	<div className="media">
-											<div className="media-left">
-											    <a href="#">
-											      <img className="media-object" src={"/images/cooking.jpg"}/>
-											    </a>
-											</div>
-											<div className="media-body">
-											    <h5 className="media-heading">Cooking At Home</h5>
-											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
-											</div>
-										</div>
-								  	</div>
-								  	<div className="panel-body">
-								    	<div className="media">
-											<div className="media-left">
-											    <a href="#">
-											      <img className="media-object" src={"/images/cooking.jpg"}/>
-											    </a>
-											</div>
-											<div className="media-body">
-											    <h5 className="media-heading">Cooking At Home</h5>
-											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
-											</div>
-										</div>
-								  	</div>
-								  	<div className="panel-body">
-								    	<div className="media">
-											<div className="media-left">
-											    <a href="#">
-											      <img className="media-object" src={"/images/cooking.jpg"}/>
-											    </a>
-											</div>
-											<div className="media-body">
-											    <h5 className="media-heading">Cooking At Home</h5>
-											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
-											</div>
-										</div>
-								  	</div>
+									{myCommunitiesNode}
+
+			
 								</div>
 							</div>
 							<div role="tabpanel" className="tab-pane tabManage fade" id="manage">...</div>

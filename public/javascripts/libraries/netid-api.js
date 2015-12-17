@@ -541,6 +541,21 @@ NetidAPI.prototype.loadPersonaTable = function(){
   return this.personaTable
 }
 
+NetidAPI.prototype.getAllCommunities = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/communities.json',(err2,res) => {
+    if(err2){
+      this.ee.emit('error',err2)
+      //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.allCommunities = JSON.parse(res);
+      this.ee.emit('allCommunities',undefined);
+      this.ee.removeEvent('allCommunities');
+      //done(null,p)
+    }
+  })
+  return this.allCommunities
+}
 
 NetidAPI.prototype.getBalance = function(){
   var coinbase = this.web3.eth.coinbase;

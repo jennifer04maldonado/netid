@@ -1,0 +1,125 @@
+[
+	{
+	    "id": "1",
+	    "name": "Star Wars Fans",
+	    "created_by": "0001",
+	    "pic": "/images/starwars.jpg",
+	    "description": "A community of Star Wars fans. Join the Dark Side",
+	    "community_type": "Public",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+	    "members": ["123"]
+	},
+	{
+	    "id": "2",
+	    "name": "Disneyland Gangstahs",
+	    "created_by": "0001",
+	    "pic": "/images/disney.jpg",
+	    "description": "We own da Majik Kingdum, yo. Come to Disneyland",
+	    "community_type": "Private",
+	    "created_date": "01/01/2015",
+	    "members_count": "1,583",
+	    "members": ["123"]
+
+	},
+	{
+	    "id": "3",
+	    "name": "Coffee Addicts",
+	    "created_by": "0001",
+	    "pic": "/images/coffee.png",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,58",
+	    "members": ["123","1653726"]	    
+	},
+	{
+	    "id": "4",
+	    "name": "Cooking At Home",
+	    "created_by": "0001",
+	    "pic": "/images/cooking.jpg",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "2,583",
+	    "members": ["1653726"]	    
+	},
+	{
+	    "id": "5",
+	    "name": "Mac Cosmetics Lovers",
+	    "created_by": "0001",
+	    "pic": "/images/mac.png",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+	    "members": ["1653726"]	    
+	},
+	{
+	    "id": "6",
+	    "name": "Cheese Community",
+	    "created_by": "0001",
+	    "pic": "/images/cheese.jpg",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+	    "members": []	    
+	},
+	{
+	    "id": "7",
+	    "name": "Backpackers, Unite!",
+	    "created_by": "0001",
+	    "pic": "/images/backpack.jpg",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+	    "members": []	    
+	},
+	{
+	    "id": "8",
+	    "name": "Mcdonald Fans",
+	    "created_by": "0001",
+	    "pic": "/images/mcd.png",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+		"members": []	    	    
+	},
+	{
+	    "id": "9",
+	    "name": "Hipsters Here",
+	    "created_by": "0001",
+	    "pic": "/images/hip.jpg",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+		"members": []	    	    
+	},
+	{
+	    "id": "10",
+	    "name": "Football Fans",
+	    "created_by": "0001",
+	    "pic": "/images/football-fanss.jpg",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+	    "members": []	    
+	},
+	{
+	    "id": "11",
+	    "name": "Coders United",
+	    "created_by": "0001",
+	    "pic": "/images/coders.jpg",
+	    "description": "Join us and drink some coffee or something",
+	    "community_type": "Secret",
+	    "created_date": "01/01/2015",
+	    "members_count": "52,583",
+	    "members": []	    
+	}
+
+]

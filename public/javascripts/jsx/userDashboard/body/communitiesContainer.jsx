@@ -6,22 +6,19 @@ var CommunitiesContainer = React.createClass({
 	getInitialState: function(){		
 		return {
             isDetail: false,
-            communities : [],
             activeCommunity: null
         }
 	},	
+  	componentWillReceiveProps: function(nextProps) {    
+	    // if (nextProps.activePersona !== this.props.activePersona) {
+	    // 	console.log('setting comms in center2' + nextProps.allCommunities);
+	    // 	this.setState({ communities: this.props.allCommunities });
+	    // }
+  	},	
 	componentDidMount: function(){	
-		var self = this;
-		$.get( ".././json_files/data/netid-account/personas/community.json", function( dataArray, status ) {
-		  //console.log('status: '  + status);	
-			if (status == 'success') {				
-		 	    if (self.isMounted()) {
-		 	        self.setState({
-		 		    	communities: dataArray
-		         	});	     
-		 	    }
-		 	}	 
-		});
+ 		//console.log('communites contianer: ' + this.props.activePersona.id); 														   
+ 		//console.log('communites contianer2: ' + this.props.allCommunities.length); 		
+ 		//this.setState({ allCommunities: this.props.allCommunities });
 	},	
 	toggleView: function(communityId){		
 		//console.log('communityName:' + communityId);		
@@ -35,7 +32,7 @@ var CommunitiesContainer = React.createClass({
 
 	setActiveCommunity: function(communityId) {
 		var activeCommunity = null;		
-		$.each(this.state.communities, function (index,  row) {
+		$.each(this.props.allCommunities, function (index,  row) {
 			if (communityId == row.id) {
 				//console.log("activePersonaId=" + persona.id);
 				activeCommunity = row;
@@ -50,7 +47,7 @@ var CommunitiesContainer = React.createClass({
 		if (this.state.isDetail) {
 			communityBody = <CommunityDetailComponent activeCommunity={this.state.activeCommunity} viewList={this.toggleView} />;
 		} else {
-			communityBody = <CommunityListComponent setActiveCommunity={this.setActiveCommunity} communities={this.state.communities} viewDetail={this.toggleView} />;
+			communityBody = <CommunityListComponent setActiveCommunity={this.setActiveCommunity} allCommunities={this.props.allCommunities} myCommunities={this.props.myCommunities} viewDetail={this.toggleView} />;
 		}
 		return(						
 			<div>

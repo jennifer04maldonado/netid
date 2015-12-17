@@ -6,10 +6,12 @@ var MainBodyComponent = require('./body/mainBodyContainer');
 var LoadingModalComponent = require('./common/loadingModal');
 var AddPersonaModal = require('./common/addPersonaModal');
 
+var CommunityDaoComponent = require('./dao/communityDao');
+
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: false
+	      useIPFS: true
 	    };
 	},
 	getInitialState: function(){		
@@ -21,8 +23,10 @@ var DashboardApp = React.createClass({
             memberPersona: null,
             viewMemberPersona: false,
             personaTable: [],
-			showLoading: true
-        }
+			showLoading: true,
+			allCommunities: [],
+			myCommunities: []
+			}
 	},
 	initialize: function(){
 		console.log("Loading from ajax")
@@ -74,10 +78,9 @@ var DashboardApp = React.createClass({
     	var self  = this;
     	if(this.props.useIPFS){
     		this.initializeIPFS(function() {
-    			self.loadPersonaTableIPFS();	
-    		});
-    		
-    	}else {
+    			self.loadPersonaTableIPFS();    			
+    		});    		
+    	} else {
     		this.initialize();
     		this.loadPersonaTable();
     	}
@@ -115,7 +118,7 @@ var DashboardApp = React.createClass({
 		console.log('getting persona for personaId: ' + personaId);
 		var self = this;
 		this.getPersonaByPersonaId(personaId, function(persona) {			
-			self.setState({headerSelection: 'settings'});
+			self.setState({headerSelection: 'profile'});
 			self.setState({viewMemberPersona: true});
 			self.setState({memberPersona: persona});
 		});
@@ -142,7 +145,6 @@ var DashboardApp = React.createClass({
 	     });
 
     },
-
     getPersonaByPersonaId: function(personaId,done){
 		//console.log("getting persona from table. id= " + personaId);	    
 	    $.each(this.state.personaTable, function (index,  persona) {
@@ -152,9 +154,15 @@ var DashboardApp = React.createClass({
 	      }
 	    });				
     },
-
+    setMyCommunities: function(myCommunities){
+    	//console.log('my community records:' + myCommunities.length);
+    	this.setState({myCommunities: myCommunities});
+    },    
+    setAllCommunities: function(allCommunities){
+    	//console.log('community records:' + allCommunities.length);
+    	this.setState({allCommunities: allCommunities});
+    },        
     render: function(){		
-
         return (
             <div className="dashboardContainer">
                 <div id="personaPicker" className="personaPicker">
@@ -167,16 +175,17 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />
+	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} myCommunities={this.state.myCommunities} allCommunities={this.state.allCommunities}/>
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} api={this.state.api}/>
+	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} api={this.state.api} myCommunities={this.state.myCommunities} />
 	                    </div>
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
 				<AddPersonaModal activePersonaType="Social" />		        		
+				<CommunityDaoComponent ipfsInit={this.state.ipfsInit} activePersona={this.state.activePersona} setMyCommunities = {this.setMyCommunities} setAllCommunities = {this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		        		
             </div>
         );
     }
