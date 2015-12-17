@@ -29,8 +29,8 @@ var CommunityListContainer = React.createClass({
 							});
 
 		var myCommunitiesNode = this.props.myCommunities.map(function(community, index)  {
-	               			return (
-								  	<div className="panel-body" key={community.id}>								    	
+	               			return (								  								    	
+								  	<div className="panel-body" key={community.id}>
 								    	<div className="media">
 											<div className="media-left">
 											    <a href="#">
@@ -40,12 +40,7 @@ var CommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5 className="media-heading">{community.name}</h5>
 											    <span>{community.description}</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
+												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>
@@ -71,9 +66,7 @@ var CommunityListContainer = React.createClass({
 							</div>
 							<div role="tabpanel" className="tab-pane tabCommunities fade" id="communities">
 								<div className="panel panel-default">
-									{myCommunitiesNode}
-
-			
+								{myCommunitiesNode}									
 								</div>
 							</div>
 							<div role="tabpanel" className="tab-pane tabManage fade" id="manage">...</div>

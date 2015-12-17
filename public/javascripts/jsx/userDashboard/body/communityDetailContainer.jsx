@@ -1,3 +1,4 @@
+var CalendarModal = require('.././common/commCalendarModal');
 var CommunityDetailContainer = React.createClass({
 	viewList: function(event){				
 		this.props.viewList();
@@ -8,18 +9,58 @@ var CommunityDetailContainer = React.createClass({
 				<div className="col-sm-12 commDetailTitle">	
 					<h4><a onClick={this.viewList} href="#back"><i className="fa fa-arrow-left"></i>Back to Explore Communities</a></h4>
 				</div>	
-				<div className="col-sm-10 col-sm-offset-2 commDetailBody">
-					<img src={"/images/starwars.jpg"} className="col-sm-offset-2"/>
-					<div className="col-sm-offset-2 col-sm-6 commDetailText">	
-						<h3>{this.props.activeCommunity.name}</h3>
-						<p>{this.props.activeCommunity.id}</p>
+				<div className="col-sm-12 commDetailBody">
+					<img src={"/images/coders.jpg"} className="col-sm-4 col-sm-offset-2"/>
+					<div className="col-sm-4 commDetailText">	
+						<h3>{this.props.activeCommunity.name}<a href="#"><i className="fa fa-plus-circle"></i></a></h3>
 						<p>{this.props.activeCommunity.description}</p>
-						<h6>
-							<img src={"/images/friends.png"}/>
-								<a href="#">130 Members</a>
-						</h6>
+						<p> Community ID: {this.props.activeCommunity.id}</p>
+						<p>Public/ Private</p>
+						<p><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a></p>
+						<p><a href="#commCalendar" data-toggle="modal" data-target="#commCalendarModal"><i className="fa fa-calendar"></i>Calendar</a></p>
 					</div>	
-				</div>	
+				</div>
+				<div className="col-sm-12 commDetailFeed">
+					<div className="col-sm-offset-2 col-sm-8 media commDetailPostBody">
+						<div className="well">	
+							<form>
+								<input type="text" className="form-control" placeholder="Post something here" ></input>
+							</form>
+							<button className="btn">Post to Community Wall</button>
+						</div>
+						<div className="media-left">
+						    <a href="#">
+						      <img className="media-object" src={"/images/arnold.jpg"}/>
+						    </a>
+						</div>
+						<div className="media-body">
+						    <h4 className="media-heading">ArnoldLovesDisney</h4>
+						    <span className="postContentText">Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
+							<br></br>
+							<span className="postTimeStamp">2 hours ago</span>
+							<form>
+								<input type="text" className="form-control" placeholder="Your comment here" ></input>
+							</form>
+							<button className="btn">Comment</button>
+						</div>
+					</div>
+					<div className="col-sm-offset-2 col-sm-8 media commDetailPostBody2">
+						<div className="media-left">
+						    <a href="#">
+						      <img className="media-object" src={"/images/girl2.jpg"}/>
+						    </a>
+						</div>
+						<div className="media-body">
+						    <h4 className="media-heading">MileyLover</h4>
+						    <span className="postContentText">Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
+							<br></br>
+							<span className="postTimeStamp">10 days ago</span>
+							<br></br>
+							<button className="btn">Comment</button>
+						</div>
+					</div>
+				</div>
+				<CalendarModal/>	
 			</div>
 		)
 	}

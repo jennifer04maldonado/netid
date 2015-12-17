@@ -18,7 +18,8 @@ var DashboardApp = React.createClass({
 		return {
             personas : [],
             activePersona: null,
-            headerSelection: 'home',                       
+            headerSelection: 'home',
+            useIPFS: true,
             api: {},
             memberPersona: null,
             viewMemberPersona: false,
@@ -162,6 +163,13 @@ var DashboardApp = React.createClass({
     	//console.log('community records:' + allCommunities.length);
     	this.setState({allCommunities: allCommunities});
     },        
+    updatePersonas: function(tempSchema){
+    	console.log(tempSchema)
+    	self = this
+    	self.setState({ 
+        	personas: tempSchema
+        });
+    },
     render: function(){		
         return (
             <div className="dashboardContainer">
@@ -176,6 +184,7 @@ var DashboardApp = React.createClass({
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
 	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} myCommunities={this.state.myCommunities} allCommunities={this.state.allCommunities}/>
+
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
@@ -184,8 +193,8 @@ var DashboardApp = React.createClass({
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
-				<AddPersonaModal activePersonaType="Social" />		        		
-				<CommunityDaoComponent ipfsInit={this.state.ipfsInit} activePersona={this.state.activePersona} setMyCommunities = {this.setMyCommunities} setAllCommunities = {this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		        		
+				<AddPersonaModal activePersonaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas}/>		        		
+				<CommunityDaoComponent ipfsInit={this.state.ipfsInit} activePersona={this.state.activePersona} setMyCommunities = {this.setMyCommunities} setAllCommunities = {this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
             </div>
         );
     }

@@ -29,7 +29,7 @@ var MainBodyContainer = React.createClass({
 				activeBody = <MessagesComponent activePersona={this.state.activePersona} />;
 				break;
 			case 'interactions':
-				activeBody = <InteractionsComponent activePersona={this.state.activePersona} />;
+				activeBody = <InteractionsComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} api={this.props.api} />;
 				break;
 			case 'profile':
 				activeBody = <ProfileComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />;
