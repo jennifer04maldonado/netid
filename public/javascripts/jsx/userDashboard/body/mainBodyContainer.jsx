@@ -3,6 +3,7 @@
 var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');
 var SettingsComponent = require('./settingsContainer');
+var ProfileComponent = require('./profileContainer');
 var CommunitiesComponent = require('./communitiesContainer');
 var HomeComponent = require('./homeContainer');
 
@@ -30,12 +31,15 @@ var MainBodyContainer = React.createClass({
 			case 'interactions':
 				activeBody = <InteractionsComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} api={this.props.api} />;
 				break;
-			case 'settings':
-				activeBody = <SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />;
+			case 'profile':
+				activeBody = <ProfileComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />;
 				break;	
 			case 'communities':
-				activeBody = <CommunitiesComponent activePersona={this.state.activePersona} />;
+				activeBody = <CommunitiesComponent activePersona={this.state.activePersona} myCommunities={this.props.myCommunities} allCommunities={this.props.allCommunities}/>;
 				break;
+			case 'settings':
+				activeBody = <SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />;
+				break;					
 			default:
 				activeBody = <HomeComponent activePersona={this.state.activePersona} />;
 		}

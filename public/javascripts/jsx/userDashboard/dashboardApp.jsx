@@ -6,10 +6,12 @@ var MainBodyComponent = require('./body/mainBodyContainer');
 var LoadingModalComponent = require('./common/loadingModal');
 var AddPersonaModal = require('./common/addPersonaModal');
 
+var CommunityDaoComponent = require('./dao/communityDao');
+
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      value: 'default value'
+	      useIPFS: true
 	    };
 	},
 	getInitialState: function(){		
@@ -17,14 +19,15 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
             useIPFS: true,
-            showLoading: false,
             api: {},
             memberPersona: null,
             viewMemberPersona: false,
-            personaTable: []
-        }
+            personaTable: [],
+			showLoading: true,
+			allCommunities: [],
+			myCommunities: []
+			}
 	},
 	initialize: function(){
 		console.log("Loading from ajax")
@@ -74,12 +77,11 @@ var DashboardApp = React.createClass({
 
     componentDidMount: function(){
     	var self  = this;
-    	if(this.state.useIPFS){
+    	if(this.props.useIPFS){
     		this.initializeIPFS(function() {
-    			self.loadPersonaTableIPFS();	
-    		});
-    		
-    	}else {
+    			self.loadPersonaTableIPFS();    			
+    		});    		
+    	} else {
     		this.initialize();
     		this.loadPersonaTable();
     	}
@@ -117,7 +119,7 @@ var DashboardApp = React.createClass({
 		console.log('getting persona for personaId: ' + personaId);
 		var self = this;
 		this.getPersonaByPersonaId(personaId, function(persona) {			
-			self.setState({headerSelection: 'settings'});
+			self.setState({headerSelection: 'profile'});
 			self.setState({viewMemberPersona: true});
 			self.setState({memberPersona: persona});
 		});
@@ -144,17 +146,23 @@ var DashboardApp = React.createClass({
 	     });
 
     },
-
     getPersonaByPersonaId: function(personaId,done){
 		//console.log("getting persona from table. id= " + personaId);	    
 	    $.each(this.state.personaTable, function (index,  persona) {
 	      if (personaId == persona.persona_id) {
-	        console.log("found persona activePersonaId=" + persona.persona_id);	        
+	        console.log("found persona activePersonaId =" + persona.persona_id);	        
 	        done(persona);
 	      }
 	    });				
     },
-
+    setMyCommunities: function(myCommunities){
+    	//console.log('my community records:' + myCommunities.length);
+    	this.setState({myCommunities: myCommunities});
+    },    
+    setAllCommunities: function(allCommunities){
+    	//console.log('community records:' + allCommunities.length);
+    	this.setState({allCommunities: allCommunities});
+    },        
     updatePersonas: function(tempSchema){
     	console.log(tempSchema)
     	self = this
@@ -162,31 +170,31 @@ var DashboardApp = React.createClass({
         	personas: tempSchema
         });
     },
-
     render: function(){		
-
         return (
             <div className="dashboardContainer">
                 <div id="personaPicker" className="personaPicker">
-					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />               
+					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
-	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />
+	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} api={this.state.api} />
+	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} myCommunities={this.state.myCommunities} allCommunities={this.state.allCommunities}/>
+
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} api={this.state.api}/>
+	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} api={this.state.api} myCommunities={this.state.myCommunities} />
 	                    </div>
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
 				<AddPersonaModal activePersonaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas}/>		        		
+				<CommunityDaoComponent ipfsInit={this.state.ipfsInit} activePersona={this.state.activePersona} setMyCommunities = {this.setMyCommunities} setAllCommunities = {this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
             </div>
         );
     }
