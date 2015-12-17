@@ -26,7 +26,8 @@ var InteractionsContainer = React.createClass({
   	},
 
   	createInteraction: function() {
-  		net = this.props.api
+  		console.log('test')
+  		var net = this.props.api
   		net.account.createContract()
   	},
 	  

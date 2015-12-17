@@ -19,7 +19,7 @@ var DashboardApp = React.createClass({
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
             useIPFS: true,
-            showLoading: false,
+            showLoading: true,
             api: {},
             memberPersona: null,
             viewMemberPersona: false,
@@ -48,7 +48,7 @@ var DashboardApp = React.createClass({
 	    var net = new NetidAPI();
 	    //example of using the netid api to get the eth balance
 	    var web3test = net.account.getBalance();
-	    console.log(web3test)
+	    console.log('Balance: '+web3test+' Ether')
 		var self = this 
 		self.setState({
 			api: net
