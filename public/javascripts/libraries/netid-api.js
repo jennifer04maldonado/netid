@@ -640,10 +640,17 @@ NetidAPI.prototype.createContract = function(){
     console.log(e, contract);
     if (typeof contract.address != 'undefined') {
         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+        this.contractAddress = contract.address
+        this.saveContract(contract.address)
         this.ee.emit('contract',undefined);
         this.ee.removeEvent('contract');
     }
   })
+}
+
+NetidAPI.prototype.saveContract = function(addr){
+  console.log('Saving new contract address to IPFS')
+
 }
 
 module.exports = NetidAPI
