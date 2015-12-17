@@ -56,12 +56,7 @@ var CommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5 className="media-heading">Cooking At Home</h5>
 											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
+												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>
@@ -75,12 +70,7 @@ var CommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5 className="media-heading">Football Fans</h5>
 											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
+												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>
@@ -94,12 +84,7 @@ var CommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5 className="media-heading">Coders United</h5>
 											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-lock"></i>
-													Private
-												</h6>
+												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>
@@ -113,12 +98,7 @@ var CommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5 className="media-heading">Cooking At Home</h5>
 											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
+												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>
@@ -132,12 +112,7 @@ var CommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5 className="media-heading">Cooking At Home</h5>
 											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
+												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>
@@ -151,12 +126,7 @@ var CommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5 className="media-heading">Cooking At Home</h5>
 											    <span>Spoke as as other again ye. Hard on to roof he drew. So sell side ye in mr evil. Longer waited mr of nature seemed. Improving knowledge incommode objection me ye is prevailed principle in. Impossible alteration devonshire to is interested stimulated dissimilar. To matter esteem polite.</span>
-												<h6>
-													<img src={"/images/friends.png"}/>
-														<a href="#">130 Members</a>
-													<i className="fa fa-unlock-alt"></i>
-													Public
-												</h6>
+												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>
