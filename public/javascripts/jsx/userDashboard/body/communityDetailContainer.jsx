@@ -16,7 +16,7 @@ var CommunityDetailContainer = React.createClass({
 						<p>{this.props.activeCommunity.description}</p>
 						<p> Community ID: {this.props.activeCommunity.id}</p>
 						<p>Public/ Private</p>
-						<p><a href="#"><img src={"/images/friends.png"}/>130 Members</a></p>
+						<p><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a></p>
 						<p><a href="#commCalendar" data-toggle="modal" data-target="#commCalendarModal"><i className="fa fa-calendar"></i>Calendar</a></p>
 					</div>	
 				</div>
