@@ -559,6 +559,19 @@ NetidAPI.prototype.loadPersonaTable = function(){
   return this.personaTable
 }
 
+NetidAPI.prototype.addPersona = function(json){
+  console.log(json)
+  this.ipfs.add(new Buffer(json),(err2,res) => {
+    if(err2){
+      this.ee.emit('error',err2)
+      //done(err2,null)
+    } else {
+      console.log(res)
+    }
+  })
+  return this.messagesList
+}
+
 
 NetidAPI.prototype.getBalance = function(){
   var coinbase = this.web3.eth.coinbase;

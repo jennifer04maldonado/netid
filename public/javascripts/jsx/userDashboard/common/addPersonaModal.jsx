@@ -6,8 +6,46 @@ var AddPersonaModal = React.createClass({
   	},
 	createPersona: function(){
 		var net = this.props.api
-		console.log(net)
-		//console.log(this.refs.personaCreateForm.name.value + this.refs.personaCreateForm.personaDescription.value)
+		var tempSchema = net.account.schemaObject
+		console.log(tempSchema[0])
+		var i = tempSchema.length
+		tempSchema[i] = {
+			id: JSON.stringify(Math.random()*100000000000000000), 
+			persona_name: this.refs.personaCreateForm.name.value, 
+			profile_id: "12345674896", 
+			persona_type: this.props.personaType, 
+			description: this.refs.personaCreateForm.personaDescription.value, 
+			image: "images/ein.jpeg",
+		    show_sex: true,
+		    age: "8",
+		    show_age: true,
+		    phone_number: "888-888-8888",
+		    hometown: "Boston",
+		    add_personal_info: "I have a perverse fear of cats",
+		    education: "",
+		    add_edu_info: "Won 5th grade spelling bee",
+		    employment_history:"",
+		    add_employ_info: "none",
+		    political_affiliation: "democrat",
+		    religion: "agnostic",
+		    relationship_status: "single",
+		    number_children:"9",
+		    gender: "male",
+		    zodiac_sign: "Aquarius",
+		    languages_spoken:"swahili, mandarin, french",
+		    ethnicity: "African-American",
+		    more_info: "",
+		    height: "5'6",
+		    weight: "290 lbs",
+		    hair_color: "blonde",
+		    eye_color: "green",
+		    phys_add_info: "",
+		    add_interests_info:"",
+		    score: "9/10",
+		    ratings:""
+		}
+		console.log(tempSchema[5])
+		net.account.addPersona(tempSchema)
 	},
 
     render: function(){
