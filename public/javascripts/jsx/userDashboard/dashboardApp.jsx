@@ -155,6 +155,14 @@ var DashboardApp = React.createClass({
 	    });				
     },
 
+    updatePersonas: function(tempSchema){
+    	console.log(tempSchema)
+    	self = this
+    	self.setState({ 
+        	personas: tempSchema
+        });
+    },
+
     render: function(){		
 
         return (
@@ -178,7 +186,7 @@ var DashboardApp = React.createClass({
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
-				<AddPersonaModal activePersonaType="Social" api={this.state.api} />		        		
+				<AddPersonaModal activePersonaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas}/>		        		
             </div>
         );
     }

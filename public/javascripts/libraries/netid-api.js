@@ -560,13 +560,15 @@ NetidAPI.prototype.loadPersonaTable = function(){
 }
 
 NetidAPI.prototype.addPersona = function(json){
-  console.log(json)
-  this.ipfs.add(new Buffer(json),(err2,res) => {
+  console.log(JSON.stringify(json))
+  this.ipfs.add(new Buffer(JSON.stringify(json)),(err2,res) => {
     if(err2){
       this.ee.emit('error',err2)
       //done(err2,null)
     } else {
-      console.log(res)
+
+        console.log(res)
+
     }
   })
   return this.messagesList

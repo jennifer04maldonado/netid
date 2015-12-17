@@ -1,10 +1,11 @@
 var AddPersonaModal = React.createClass({		
 	getInitialState: function() {
 	    return {
-	    	value: ''
+	    	personas: this.props.personas
 	    }
   	},
 	createPersona: function(){
+		var self = this 
 		var net = this.props.api
 		var tempSchema = net.account.schemaObject
 		console.log(tempSchema[0])
@@ -46,6 +47,7 @@ var AddPersonaModal = React.createClass({
 		}
 		console.log(tempSchema[5])
 		net.account.addPersona(tempSchema)
+		this.props.updatePersonas(tempSchema)
 	},
 
     render: function(){
