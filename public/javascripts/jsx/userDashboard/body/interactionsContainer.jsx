@@ -24,6 +24,11 @@ var InteractionsContainer = React.createClass({
 			return result;
 	   	}.bind(this));
   	},
+
+  	createInteraction: function() {
+  		net = this.props.api
+  		net.account.createContract()
+  	},
 	  
   	//this method fetches data from IPFS or AJAX				
 	componentDidMount: function() {
