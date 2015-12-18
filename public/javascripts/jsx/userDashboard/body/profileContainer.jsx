@@ -1,4 +1,4 @@
-var React = require('react');
+var EditPersonaModal = require('.././common/editPersonaModal');
 
 var ProfileContainer = React.createClass({
 	render: function(){
@@ -11,7 +11,7 @@ var ProfileContainer = React.createClass({
 					<img src={"/images/ein.jpeg"} className="col-sm-offset-2 profileImage"/>
 					<div className="col-sm-offset-2 col-sm-8 profileDetailText">	
 						<h3 className="row ">{this.props.activePersona.persona_name}
-							<a href="#"><i className="fa fa-pencil-square-o"></i></a>
+							<a href="#editPersonaModal" data-toggle="modal" data-target="#editPersonaModal"><i className="fa fa-pencil-square-o"></i></a>
 							<ul className="col-sm-9 col-sm-offset-1 profileScoreList">
 								<li className="masterScoreListItem">Master Score - 78</li>
 								<li>Social - 39</li>
@@ -75,6 +75,7 @@ var ProfileContainer = React.createClass({
 				<div className="row col-sm-7 col-sm-offset-3 seeMoreBtn">
 					<button className="btn">See more posts</button>
 				</div>
+				<EditPersonaModal/>
 			</div> 
 		)
 	}
