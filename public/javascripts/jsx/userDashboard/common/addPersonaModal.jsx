@@ -14,7 +14,7 @@ var AddPersonaModal = React.createClass({
 		tempSchema[i] = {
 			id: "126465465", 
 			persona_name: this.refs.personaCreateForm.name.value, 
-			profile_id: "12345674896", 
+			profile_id: JSON.stringify(Math.random()*100000000000000000), 
 			persona_type: this.props.personaType, 
 			description: this.refs.personaCreateForm.personaDescription.value, 
 			image: "images/ein.jpeg",
@@ -47,8 +47,7 @@ var AddPersonaModal = React.createClass({
 		    ratings:""
 		}
 		console.log(tempSchema[5])
-		//net.account.addPersona(tempSchema)
-		//this.props.updatePersonas(tempSchema)
+		net.account.addPersona(tempSchema)
 		this.props.addPersona(tempSchema[i]);
 	},
 
