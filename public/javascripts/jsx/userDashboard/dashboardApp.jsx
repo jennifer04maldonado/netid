@@ -12,7 +12,7 @@ var PersonaDaoComponent = require('./dao/personaDao');
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: false
+	      useIPFS: true
 	    };
 	},
 	getInitialState: function(){		
@@ -148,11 +148,20 @@ var DashboardApp = React.createClass({
     },    
     updatePersonas: function(tempSchema){
     	console.log(tempSchema)
-    	self = this
+    	var self = this
     	self.setState({ 
         	personas: tempSchema
         });
     },
+    addPersona: function(tempSchema){
+    	console.log('now adding persona. should of updated netid webui' + tempSchema.persona_name);
+    	var myPersonas = this.state.personas;
+    	myPersonas.push(tempSchema);
+    	this.setState({ 
+        	personas: myPersonas
+        });
+    },
+
     render: function(){		
         return (
             <div className="dashboardContainer">
@@ -176,7 +185,7 @@ var DashboardApp = React.createClass({
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
-				<AddPersonaModal activePersonaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas}/>		        		
+				<AddPersonaModal personaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas} addPersona={this.addPersona}/>		        		
 				
 				<CommunityDaoComponent activePersona={this.state.activePersona} setMyCommunities={this.setMyCommunities} setAllCommunities={this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
 				<PersonaDaoComponent activePersona={this.state.activePersona} setAllPersonas={this.setAllPersonas}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     				
