@@ -7,6 +7,7 @@ var CommunitiesContainer = require('./communitiesContainer.jsx');
 var SurveysContainer = require('./surveysContainer.jsx');
 var WalletContainer = require('./walletContainer.jsx');
 var MessagesContainer = require('./messagesContainer.jsx');
+var ComposeMessageModal = require('./../common/composeMessageModal.jsx');
 
 var YourOffersPanel = require('./yourofferspanel.jsx');
 var FriendsOnlinePanel = require('./yourfriends.jsx');
