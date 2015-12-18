@@ -45,7 +45,6 @@ var AddPersonaModal = React.createClass({
 		    score: "9/10",
 		    ratings:""
 		}
-		console.log('add persona' + temp);
 		console.log(tempSchema[5])
 		net.account.addPersona(tempSchema)
 		this.props.addPersona(tempSchema[i])
