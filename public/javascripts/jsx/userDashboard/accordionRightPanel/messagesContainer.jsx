@@ -1,3 +1,6 @@
+var ComposeMessageModal = require('.././common/composeMessageModal');
+
+
 var MessagesContainer = React.createClass({
 	getDefaultProps: function() {
 	    return {
@@ -69,31 +72,30 @@ var MessagesContainer = React.createClass({
 			var self = this;
 			var messageNodes = this.state.personaMessages.map(function(message, index){
 				return (
-						<div className="col-sm-12 messageInd" key={message.id}>
-							<ul>
-								<li className="messageName"><a onClick={self.setMemberPersonaId} data-from-persona-id={message.from_persona_id} href="#">{message.from_persona_name}</a></li>
-								<li>{message.date}</li>
-								<li>{message.body}</li>
-							</ul>
-						</div>				
+					<div className="col-sm-12 messageInd" key={message.id}>
+						<ul>
+							<li className="messageName"><a onClick={self.setMemberPersonaId} data-from-persona-id={message.from_persona_id} href="#">{message.from_persona_name}</a></li>
+							<li>{message.date}</li>
+							<li>{message.body}</li>
+						</ul>
+					</div>				
 				);
 			});
 
         return(
-			<div id='messagesContainer'>
+			<div id="messagesContainer">
 				<div className="col-sm-12 messageTitleCntnr">
 					<h5>Messages
-						<a href="#">
-							<i className="fa fa-pencil-square-o"></i>
-						</a>	
+						<a href="#composeMessageModal" data-toggle="modal" data-target="#composeMessageModal"><i className="fa fa-pencil-square-o"></i></a>	
 					</h5>	
 				</div>
 				<div className="col-sm-12 messageSearchCntnr">
 					<input type="text" className="form-control" placeholder="Search"></input>	
 				</div>
 				<div className="col-sm-12 messageRightContent">
-					{messageNodes}
+					{messageNodes}	
 				</div>
+				<ComposeMessageModal/>
 			</div>
 		)
 	}
