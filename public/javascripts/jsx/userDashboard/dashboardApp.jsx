@@ -12,7 +12,7 @@ var PersonaDaoComponent = require('./dao/personaDao');
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: false
+	      useIPFS: true
 	    };
 	},
 	getInitialState: function(){		

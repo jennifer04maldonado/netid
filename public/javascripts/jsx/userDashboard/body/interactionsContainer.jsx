@@ -30,14 +30,13 @@ var InteractionsContainer = React.createClass({
 	    if (this.isMounted()) { 
 	      net.account.ee.on('contract',err => {
 	        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
-	        var allFriends = net.account.friendsList;
-	        var thisPersonaFriends = [];
+/*	        console.log('contract created, event emitted')
 	        for (var i=0; i < net.account.friendsList.length; i++) {
 	          if (personaId == net.account.friendsList[i].persona_id) {
 	              thisPersonaFriends.push(net.account.friendsList[i]);
 	          }
 	        }
-	        done(thisPersonaFriends, allFriends);
+	        done(thisPersonaFriends, allFriends);*/
 	      }) 
 	    }   		
   	},
@@ -48,7 +47,8 @@ var InteractionsContainer = React.createClass({
 	    var self = this;
 		var caughtData = false;
 		var result = null;
-		result = (this.props.useIPFS) ? this.props.api.account.getInteractions() : this.getInteractions();
+		//something in this block causes the application to refresh on button click of new tx
+		/*result = (this.props.useIPFS) ? this.props.api.account.getInteractions() : this.getInteractions();
 		if(self.isMounted()){
 			for (var i in result){
 					if(result[i].id === this.props.activePersona.id) {
@@ -60,7 +60,7 @@ var InteractionsContainer = React.createClass({
 				var emptyState = this.getInitialState().interactionsData;
 				self.setState({interactionsData: emptyState});
 			}
-		}
+		}*/
 	},
 
 	render: function(){
