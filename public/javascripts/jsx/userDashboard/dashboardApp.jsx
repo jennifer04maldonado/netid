@@ -6,10 +6,13 @@ var MainBodyComponent = require('./body/mainBodyContainer');
 var LoadingModalComponent = require('./common/loadingModal');
 var AddPersonaModal = require('./common/addPersonaModal');
 
+var CommunityDaoComponent = require('./dao/communityDao');
+var PersonaDaoComponent = require('./dao/personaDao');
+
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      value: 'default value'
+	      useIPFS: false
 	    };
 	},
 	getInitialState: function(){		
@@ -18,13 +21,16 @@ var DashboardApp = React.createClass({
             activePersona: null,
             headerSelection: 'home',
             peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: false,
+            useIPFS: true,
             showLoading: false,
             api: {},
             memberPersona: null,
             viewMemberPersona: false,
-            personaTable: []
-        }
+            allPersonas: [],
+			showLoading: true,
+			allCommunities: [],
+			myCommunities: []
+			}
 	},
 	initialize: function(){
 		console.log("Loading from ajax")
@@ -44,11 +50,11 @@ var DashboardApp = React.createClass({
 	},
 
 
-	initializeIPFS: function(done){	    
+	initializeIPFS: function(){	    
 	    var net = new NetidAPI();
 	    //example of using the netid api to get the eth balance
 	    var web3test = net.account.getBalance();
-	    console.log(web3test)
+	    console.log('Balance: '+web3test+' Ether')
 		var self = this 
 		self.setState({
 			api: net
@@ -64,7 +70,6 @@ var DashboardApp = React.createClass({
 	        	personas: schemObj,
 	        	activePersona: schemObj[0]
 	        });
-	        done();	        
 	      }
 	      if(err){
 	      	console.log(err)
@@ -74,14 +79,10 @@ var DashboardApp = React.createClass({
 
     componentDidMount: function(){
     	var self  = this;
-    	if(this.state.useIPFS){
-    		this.initializeIPFS(function() {
-    			self.loadPersonaTableIPFS();	
-    		});
-    		
-    	}else {
+    	if(this.props.useIPFS){
+    		this.initializeIPFS();
+    	} else {
     		this.initialize();
-    		this.loadPersonaTable();
     	}
 
     },
@@ -117,44 +118,36 @@ var DashboardApp = React.createClass({
 		console.log('getting persona for personaId: ' + personaId);
 		var self = this;
 		this.getPersonaByPersonaId(personaId, function(persona) {			
-			self.setState({headerSelection: 'settings'});
+			self.setState({headerSelection: 'profile'});
 			self.setState({viewMemberPersona: true});
 			self.setState({memberPersona: persona});
 		});
 
 	},		
-    loadPersonaTable: function(){
-		console.log("Pre loading all persona table from ajax")
-		var self = this;
-		$.get( ".././json_files/data/netid-account/personas/personaTable.json", function( result, status ) {
-		  //console.log('status: '  + status);	
-			if (status == 'success') {				
-	 	        self.setState({
-	 		    	personaTable: result
-	         	});	     
-		 	}	 
-		});
-    },
-    loadPersonaTableIPFS: function(){
-		console.log("Pre loading all persona table from IPFS");	    
-	  	var net = this.state.api;	    
-       	var personaTable = net.account.loadPersonaTable();		    		       	
-	     net.account.ee.on('personaTable',err => {
-	         this.setState({personaTable: net.account.personaTable});
-	     });
-
-    },
-
     getPersonaByPersonaId: function(personaId,done){
 		//console.log("getting persona from table. id= " + personaId);	    
-	    $.each(this.state.personaTable, function (index,  persona) {
+	    $.each(this.state.allPersonas, function (index,  persona) {
 	      if (personaId == persona.persona_id) {
-	        console.log("found persona activePersonaId=" + persona.persona_id);	        
+	        console.log("found persona activePersonaId =" + persona.persona_id);	        
 	        done(persona);
 	      }
 	    });				
     },
-
+    //callback from CommunityDao
+    setMyCommunities: function(myCommunities){
+    	//console.log('my community records:' + myCommunities.length);
+    	this.setState({myCommunities: myCommunities});
+    },    
+	//callback from CommunityDao
+    setAllCommunities: function(allCommunities){
+    	//console.log('community records:' + allCommunities.length);
+    	this.setState({allCommunities: allCommunities});
+    },           
+	//callback from PersonaDao
+    setAllPersonas: function(allPersonas){
+    	//console.log('persona2 records:' + allPersonas.length);
+    	this.setState({allPersonas: allPersonas});
+    },    
     updatePersonas: function(tempSchema){
     	console.log(tempSchema)
     	self = this
@@ -162,31 +155,33 @@ var DashboardApp = React.createClass({
         	personas: tempSchema
         });
     },
-
     render: function(){		
-
         return (
             <div className="dashboardContainer">
                 <div id="personaPicker" className="personaPicker">
-					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />               
+					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
-	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} />
+	                    		<PersonaContainerComponent personas={this.state.personas} setActivePersona={this.setActivePersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />
 	                    	</div>
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} api={this.state.api} />
+	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} myCommunities={this.state.myCommunities} allCommunities={this.state.allCommunities}/>
+
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.state.useIPFS} api={this.state.api}/>
+	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} api={this.state.api} myCommunities={this.state.myCommunities} />
 	                    </div>
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
 				<AddPersonaModal activePersonaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas}/>		        		
+				
+				<CommunityDaoComponent activePersona={this.state.activePersona} setMyCommunities={this.setMyCommunities} setAllCommunities={this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
+				<PersonaDaoComponent activePersona={this.state.activePersona} setAllPersonas={this.setAllPersonas}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     				
             </div>
         );
     }

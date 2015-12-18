@@ -1,4 +1,3 @@
-
 [
   {   
       "id" : "123",
@@ -33,8 +32,7 @@
       "phys_add_info": "",
       "add_interests_info":"",
       "score": "9/10",
-      "ratings":"",
-      "cmcAddr":""
+      "ratings":""
   },
   {   
       "id" : "1653726",
@@ -69,8 +67,7 @@
       "phys_add_info": "",
       "add_interests_info":"",
       "score": "9/10",
-      "ratings":"",
-      "cmcAddr":""
+      "ratings":""
   },
   {   
       "id" : "9716211",
@@ -105,8 +102,7 @@
       "phys_add_info": "",
       "add_interests_info":"",
       "score": "9/10",
-      "ratings":"",
-      "cmcAddr":""
+      "ratings":""
   },
   {   
       "id" : "197261",
@@ -141,8 +137,7 @@
       "phys_add_info": "",
       "add_interests_info":"",
       "score": "9/10",
-      "ratings":"",
-      "cmcAddr":""
+      "ratings":""
   },
   {   
       "id" : "14257826",
@@ -177,8 +172,7 @@
       "phys_add_info": "",
       "add_interests_info":"",
       "score": "9/10",
-      "ratings":"",
-      "cmcAddr":""
+      "ratings":""
   }
 ]
 
