@@ -27,6 +27,19 @@ var InteractionsContainer = React.createClass({
   		console.log('test')
   		var net = this.props.api
   		net.account.createContract()
+	    if (this.isMounted()) { 
+	      net.account.ee.on('contract',err => {
+	        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
+	        var allFriends = net.account.friendsList;
+	        var thisPersonaFriends = [];
+	        for (var i=0; i < net.account.friendsList.length; i++) {
+	          if (personaId == net.account.friendsList[i].persona_id) {
+	              thisPersonaFriends.push(net.account.friendsList[i]);
+	          }
+	        }
+	        done(thisPersonaFriends, allFriends);
+	      }) 
+	    }   		
   	},
 	  
   	//this method fetches data from IPFS or AJAX				
@@ -82,7 +95,7 @@ var InteractionsContainer = React.createClass({
 		                    <form action="" ref = "form">
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" rows="1" id="responderContractAddy"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
-							    <button type="submit" className="btn btn-default" onClick={this.createInteraction}>Submit</button>
+							    <button className="btn btn-default" onClick={this.createInteraction}>Submit</button>
 							</form> 
 						</div>	
                 	</div>

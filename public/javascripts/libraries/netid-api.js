@@ -671,6 +671,7 @@ NetidAPI.prototype.createContract = function(){
     if (typeof contract.address != 'undefined') {
         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
         //this.contractAddress = contract.address
+        console.log('address: '+contract.address)
         this.saveContract(contract.address)
         this.ee.emit('contract',undefined);
         this.ee.removeEvent('contract');
