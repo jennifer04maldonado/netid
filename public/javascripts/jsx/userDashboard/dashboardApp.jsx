@@ -12,7 +12,7 @@ var PersonaDaoComponent = require('./dao/personaDao');
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: false
+	      useIPFS: true
 	    };
 	},
 	getInitialState: function(){		
@@ -20,7 +20,6 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            useIPFS: true,
             showLoading: false,
             api: {},
             memberPersona: null,
@@ -167,7 +166,7 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} myCommunities={this.state.myCommunities} allCommunities={this.state.allCommunities}/>
+	                       		 <MainBodyComponent api={this.state.api} viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} myCommunities={this.state.myCommunities} allCommunities={this.state.allCommunities}/>
 
 	                        </div>
 	                    </div>
