@@ -7,11 +7,12 @@ var LoadingModalComponent = require('./common/loadingModal');
 var AddPersonaModal = require('./common/addPersonaModal');
 
 var CommunityDaoComponent = require('./dao/communityDao');
+var PersonaDaoComponent = require('./dao/personaDao');
 
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: true
+	      useIPFS: false
 	    };
 	},
 	getInitialState: function(){		
@@ -23,7 +24,7 @@ var DashboardApp = React.createClass({
             api: {},
             memberPersona: null,
             viewMemberPersona: false,
-            personaTable: [],
+            allPersonas: [],
 			showLoading: true,
 			allCommunities: [],
 			myCommunities: []
@@ -47,7 +48,7 @@ var DashboardApp = React.createClass({
 	},
 
 
-	initializeIPFS: function(done){	    
+	initializeIPFS: function(){	    
 	    var net = new NetidAPI();
 	    //example of using the netid api to get the eth balance
 	    var web3test = net.account.getBalance();
@@ -67,7 +68,6 @@ var DashboardApp = React.createClass({
 	        	personas: schemObj,
 	        	activePersona: schemObj[0]
 	        });
-	        done();	        
 	      }
 	      if(err){
 	      	console.log(err)
@@ -78,12 +78,9 @@ var DashboardApp = React.createClass({
     componentDidMount: function(){
     	var self  = this;
     	if(this.props.useIPFS){
-    		this.initializeIPFS(function() {
-    			self.loadPersonaTableIPFS();    			
-    		});    		
+    		this.initializeIPFS();
     	} else {
     		this.initialize();
-    		this.loadPersonaTable();
     	}
 
     },
@@ -125,44 +122,30 @@ var DashboardApp = React.createClass({
 		});
 
 	},		
-    loadPersonaTable: function(){
-		console.log("Pre loading all persona table from ajax")
-		var self = this;
-		$.get( ".././json_files/data/netid-account/personas/personaTable.json", function( result, status ) {
-		  //console.log('status: '  + status);	
-			if (status == 'success') {				
-	 	        self.setState({
-	 		    	personaTable: result
-	         	});	     
-		 	}	 
-		});
-    },
-    loadPersonaTableIPFS: function(){
-		console.log("Pre loading all persona table from IPFS");	    
-	  	var net = this.state.api;	    
-       	var personaTable = net.account.loadPersonaTable();		    		       	
-	     net.account.ee.on('personaTable',err => {
-	         this.setState({personaTable: net.account.personaTable});
-	     });
-
-    },
     getPersonaByPersonaId: function(personaId,done){
 		//console.log("getting persona from table. id= " + personaId);	    
-	    $.each(this.state.personaTable, function (index,  persona) {
+	    $.each(this.state.allPersonas, function (index,  persona) {
 	      if (personaId == persona.persona_id) {
 	        console.log("found persona activePersonaId =" + persona.persona_id);	        
 	        done(persona);
 	      }
 	    });				
     },
+    //callback from CommunityDao
     setMyCommunities: function(myCommunities){
     	//console.log('my community records:' + myCommunities.length);
     	this.setState({myCommunities: myCommunities});
     },    
+	//callback from CommunityDao
     setAllCommunities: function(allCommunities){
     	//console.log('community records:' + allCommunities.length);
     	this.setState({allCommunities: allCommunities});
-    },        
+    },           
+	//callback from PersonaDao
+    setAllPersonas: function(allPersonas){
+    	//console.log('persona2 records:' + allPersonas.length);
+    	this.setState({allPersonas: allPersonas});
+    },    
     updatePersonas: function(tempSchema){
     	console.log(tempSchema)
     	self = this
@@ -194,7 +177,9 @@ var DashboardApp = React.createClass({
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
 				<AddPersonaModal activePersonaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas}/>		        		
-				<CommunityDaoComponent ipfsInit={this.state.ipfsInit} activePersona={this.state.activePersona} setMyCommunities = {this.setMyCommunities} setAllCommunities = {this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
+				
+				<CommunityDaoComponent activePersona={this.state.activePersona} setMyCommunities={this.setMyCommunities} setAllCommunities={this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
+				<PersonaDaoComponent activePersona={this.state.activePersona} setAllPersonas={this.setAllPersonas}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     				
             </div>
         );
     }

@@ -27,7 +27,7 @@ var CommunityDao = React.createClass({
     componentDidMount: function(){    
 	},    
     getAllCommunities: function(done){
-		console.log("Pre loading all community table from ajax");
+		//console.log("Pre loading all community table from ajax");
 		var self = this;
 		//only load once
 			$.get( ".././json_files/data/netid-account/personas/communities.json", function( result, status ) {
@@ -40,7 +40,7 @@ var CommunityDao = React.createClass({
 		
 	},
     getAllCommunitiesIPFS: function(done) {
-		console.log("Pre loading all community table from IPFS");
+		//console.log("Pre loading all community table from IPFS");
 		//only load once
 		  	var net = this.props.api;	    
 	       	var allCommunities = net.account.getAllCommunities();		    		       	
@@ -61,7 +61,7 @@ var CommunityDao = React.createClass({
 	    		myCommunities.push(community);  	
 	      	}
 	    });	
-	    console.log('done getting communities just for personaId: ' + personaId);
+	    //console.log('done getting communities just for personaId: ' + personaId);
 		self.props.setMyCommunities(myCommunities);
     },
 	render: function(){
