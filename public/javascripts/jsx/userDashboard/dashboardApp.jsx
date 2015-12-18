@@ -156,7 +156,6 @@ var DashboardApp = React.createClass({
         });
     },
     addPersona: function(tempSchema){
-    	console.log('now adding persona. should of updated netid webui' + tempSchema.persona_name);
     	var myPersonas = this.state.personas;
     	myPersonas.push(tempSchema);
     	this.setState({ 
