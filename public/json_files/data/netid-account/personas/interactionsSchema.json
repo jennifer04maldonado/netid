@@ -3,20 +3,16 @@
 		"id" : "123",
 		"interactions":[
 			{
-				"address" : "0xfbb1b73c4f0bda4f67dca266ce6ef42f520fbb98",
-				"status" : "accept",
+				"address" : "0x3bffff0b66d65d684293e9510e0d5e9925150a62",
 				"chatAddress" : "0x1234567890"
 			},{
-				"address" : "0x2a65aca4d5fc5b5c859090a6c34d164135398226",
-				"status" : "rate",
-				"chatAddress" : "0x1234567890"
-			},{
-				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
-				"status" : "finalize",
+				"address" : "0xe4a45534e94b28ff1c57822d0cd2852767038356",
 				"chatAddress" : "0x1234567890"
 			},{
 				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
-				"status" : "rate",
+				"chatAddress" : "0x1234567890"
+			},{
+				"address" : "0xdcf9df3c432d8d69a23a7318ecb87f0a95506af8",
 				"chatAddress" : "0x1234567890"
 			}
 		]
@@ -24,24 +20,16 @@
 		"id" : "1653726",
 		"interactions":[
 			{
-				"address" : " 0x59362c485fd1ea5b6b5765ff3dbccd5bc870e59d",
-				"status" : "dispute",
+				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
 				"chatAddress" : "0x1234567890"
 			},{
-				"address" : " 0xf4ff07749304dc06b70949c410f675e9a9d73ff4",
-				"status" : "accept",
-				"chatAddress" : "0x1234567890"
-			},{
-				"address" : "0xfbe9d70747a3e39baae7e1dc616a6a3ede6de8cb",
-				"status" : "rate",
+				"address" : "0xdcf9df3c432d8d69a23a7318ecb87f0a95506af8",
 				"chatAddress" : "0x1234567890"
 			},{
 				"address" : "0xf8b483dba2c3b7176a3da549ad41a48bb3121069",
-				"status" : "finalize",
 				"chatAddress" : "0x1234567890"
 			},{
 				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
-				"status" : "accept",
 				"chatAddress" : "0x1234567890"
 			}
 		]
@@ -50,15 +38,12 @@
 		"interactions":[
 			{
 				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
-				"status" : "rate",
 				"chatAddress" : "0x1234567890"
 			},{
-				"address" : "0xf8b483dba2c3b7176a3da549ad41a48bb3121069",
-				"status" : "finalize",
+				"address" : "0xdcf9df3c432d8d69a23a7318ecb87f0a95506af8",
 				"chatAddress" : "0x1234567890"
 			},{
 				"address" : "0xc47aaa860008be6f65b58c6c6e02a84e666efe31",
-				"status" : "accept",
 				"chatAddress" : "0x1234567890"
 			}
 		]

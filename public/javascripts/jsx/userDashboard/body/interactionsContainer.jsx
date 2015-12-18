@@ -1,3 +1,4 @@
+var LoadingModalComponent = require('../common/loadingModal');
 var InteractionsContainer = React.createClass({
 	getInitialState: function() {
 		return {
@@ -10,7 +11,8 @@ var InteractionsContainer = React.createClass({
 						"chatAddress":" "
 					}
 				]
-			}
+			},
+			showLoading: false
 		}
 	},	
  
@@ -23,20 +25,21 @@ var InteractionsContainer = React.createClass({
 	   	}.bind(this));
   	},
 
-  	createInteraction: function() {
+  	createInteraction: function(e) {
+  		this.setState({ 
+        	showLoading: true
+        })
+  		e.preventDefault()
   		console.log('test')
   		var net = this.props.api
   		net.account.createContract()
 	    if (this.isMounted()) { 
 	      net.account.ee.on('contract',err => {
 	        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
-/*	        console.log('contract created, event emitted')
-	        for (var i=0; i < net.account.friendsList.length; i++) {
-	          if (personaId == net.account.friendsList[i].persona_id) {
-	              thisPersonaFriends.push(net.account.friendsList[i]);
-	          }
-	        }
-	        done(thisPersonaFriends, allFriends);*/
+	        console.log('contract created, event emitted')
+	        this.setState({ 
+        		showLoading: false
+        	})
 	      }) 
 	    }   		
   	},
@@ -47,8 +50,7 @@ var InteractionsContainer = React.createClass({
 	    var self = this;
 		var caughtData = false;
 		var result = null;
-		//something in this block causes the application to refresh on button click of new tx
-		/*result = (this.props.useIPFS) ? this.props.api.account.getInteractions() : this.getInteractions();
+		result = (this.props.useIPFS) ? this.props.api.account.getInteractions() : this.getInteractions();
 		if(self.isMounted()){
 			for (var i in result){
 					if(result[i].id === this.props.activePersona.id) {
@@ -60,19 +62,27 @@ var InteractionsContainer = React.createClass({
 				var emptyState = this.getInitialState().interactionsData;
 				self.setState({interactionsData: emptyState});
 			}
-		}*/
+		}
+	},
+
+	test: function() {
+		console.log('worked')
 	},
 
 	render: function(){
+		var net = this.props.api
 		var rows = [];
 		var cssClass = "";
 		this.state.interactionsData.interactions.forEach(function(interaction, index) {
-			switch (interaction.status){
-				case "accept":	cssClass = "btn btn-success interactionsButton";
+			var intContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"disputed","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiatorRating","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[],"name":"setToFinal","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"responderConf","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"responder","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[],"name":"confirmRating","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"responderRating","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"dataHash2","outputs":[{"name":"","type":"string"}],"type":"function"},{"constant":true,"inputs":[],"name":"respRated","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"rateCount","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiator","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[],"name":"disputer","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[],"name":"initRated","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"dataHash1","outputs":[{"name":"","type":"string"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiatorConf","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"state","outputs":[{"name":"","type":"uint8"}],"type":"function"},{"constant":false,"inputs":[],"name":"confirmInvite","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"cancelInvite","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"init","type":"address"}],"name":"setInitiator","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"firstPart","type":"string"},{"name":"secondPart","type":"string"}],"name":"setHash","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"rating","type":"uint256"}],"name":"rate","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"dispute","outputs":[],"type":"function"},{"inputs":[{"name":"init","type":"address"}],"type":"constructor"},{"anonymous":false,"inputs":[],"name":"InteractionConfirmed","type":"event"},{"anonymous":false,"inputs":[],"name":"InitRated","type":"event"},{"anonymous":false,"inputs":[],"name":"RespRated","type":"event"},{"anonymous":false,"inputs":[],"name":"Rated","type":"event"},{"anonymous":false,"inputs":[],"name":"Disputed","type":"event"},{"anonymous":false,"inputs":[],"name":"Confirmed","type":"event"}]); 
+ 			var contractState = net.account.getInteractionStatus(interaction.address)
+ 			console.log(contractState.c[0])
+			switch (contractState.c[0]){
+				case 0:	cssClass = "btn btn-success interactionsButton";
 					break;
-				case "rate":	cssClass = "btn btn-info interactionsButton";
+				case 1:	cssClass = "btn btn-info interactionsButton";
 					break;
-				case "dispute": cssClass = "btn btn-warning interactionsButtons";
+				case 2: cssClass = "btn btn-warning interactionsButtons";
 					break;
 				default: cssClass = "btn btn-default interactionsButton";
 			}
@@ -80,7 +90,7 @@ var InteractionsContainer = React.createClass({
 				<tr key={index}>
 					<td>{interaction.address}</td>
 					<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
-					<td className={cssClass}>{interaction.status}</td>
+					<td className={cssClass} onClick={this.test}>{interaction.status}</td>
 				</tr>
 			);
 		});
@@ -103,7 +113,7 @@ var InteractionsContainer = React.createClass({
 		            <table className="table table-striped">
 		            	<thead>
 					      	<tr>
-						        <th>Transactions</th>
+						        <th>Interactions</th>
 						        <th>Chat</th>
 						        <th>Status</th>
 					      	</tr>
@@ -114,6 +124,7 @@ var InteractionsContainer = React.createClass({
 		            </table>
 				</div>
         	</div>
+        	<LoadingModalComponent showLoading={this.state.showLoading}/>
         </div>
 		)
 	}
