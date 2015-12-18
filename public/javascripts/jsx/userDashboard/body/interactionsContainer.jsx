@@ -15,7 +15,14 @@ var InteractionsContainer = React.createClass({
 	},	
  
 	componentWillReceiveProps: function(nextProps) {
-			this.componentDidMount();
+		if (nextProps.activePersona !== this.props.activePersona) {	      	
+	      	var personaId = nextProps.activePersona.id;			
+			if (this.props.useIPFS) {
+				this.getInteractionsIPFS(personaId);
+			} else {
+				this.getInteractions(personaId);
+			}			
+		}
 	},
   	getInteractions: function() {
 		$.get('.././json_files/data/netid-account/personas/interactionsSchema.json', function(result) {
@@ -23,44 +30,54 @@ var InteractionsContainer = React.createClass({
 	   	}.bind(this));
   	},
 
+  	getInteractionsIPFS: function(personaId) {
+	      	
+	    var self = this;
+		var caughtData = false;
+		 
+		this.props.api.account.getInteractions(function(result) { 
+			if(self.isMounted()){
+				for (var i in result){
+						if(result[i].id === personaId) {
+							caughtData = true;
+							self.setState({interactionsData: result[i]});
+						}
+				}
+				if(caughtData == false){
+					var emptyState = this.getInitialState().interactionsData;
+					self.setState({interactionsData: emptyState});
+				}
+			}	
+		})
+  	},
+
   	createInteraction: function() {
+  		//event.preventDefault();
   		console.log('test')
-  		var net = this.props.api
-  		net.account.createContract()
-	    if (this.isMounted()) { 
-	      net.account.ee.on('contract',err => {
-	        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
-/*	        console.log('contract created, event emitted')
-	        for (var i=0; i < net.account.friendsList.length; i++) {
-	          if (personaId == net.account.friendsList[i].persona_id) {
-	              thisPersonaFriends.push(net.account.friendsList[i]);
-	          }
-	        }
-	        done(thisPersonaFriends, allFriends);*/
-	      }) 
-	    }   		
+  		//var net = this.props.api
+  		//net.account.createContract()
+	    // if (this.isMounted()) { 
+	    //   net.account.ee.on('contract',err => {
+	    //     //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
+	    //     console.log('contract created, event emitted')
+	    //     for (var i=0; i < net.account.friendsList.length; i++) {
+	    //       if (personaId == net.account.friendsList[i].persona_id) {
+	    //           thisPersonaFriends.push(net.account.friendsList[i]);
+	    //       }
+	    //     }
+	    //     done(thisPersonaFriends, allFriends);
+	    //   }) 
+	    // }   		
   	},
 	  
   	//this method fetches data from IPFS or AJAX				
 	componentDidMount: function() {
       	var personaId = this.props.activePersona.id;
-	    var self = this;
-		var caughtData = false;
-		var result = null;
-		//something in this block causes the application to refresh on button click of new tx
-		/*result = (this.props.useIPFS) ? this.props.api.account.getInteractions() : this.getInteractions();
-		if(self.isMounted()){
-			for (var i in result){
-					if(result[i].id === this.props.activePersona.id) {
-						caughtData = true;
-						self.setState({interactionsData: result[i]});
-					}
-			}
-			if(caughtData == false){
-				var emptyState = this.getInitialState().interactionsData;
-				self.setState({interactionsData: emptyState});
-			}
-		}*/
+		if (this.props.useIPFS) {
+			this.getInteractionsIPFS(personaId);
+		} else {
+			this.getInteractions(personaId);
+		}
 	},
 
 	render: function(){
