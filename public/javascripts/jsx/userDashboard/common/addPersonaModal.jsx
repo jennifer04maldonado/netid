@@ -43,7 +43,8 @@ var AddPersonaModal = React.createClass({
 		    phys_add_info: "",
 		    add_interests_info:"",
 		    score: "9/10",
-		    ratings:""
+		    ratings:"",
+		    person_type: "Social"
 		}
 		console.log(tempSchema[5])
 		net.account.addPersona(tempSchema)
@@ -89,6 +90,14 @@ var AddPersonaModal = React.createClass({
 								      <option>In an open relationship</option>
 								    </select>
 						    </fieldset>
+						    <fieldset className="form-group ">
+						    	<label>Persona Type</label>
+								    <select name="personType" className="form-control">
+								      <option>Social</option>
+								      <option>Professional</option>
+								    </select>
+						    </fieldset>
+
 						    <fieldset className="form-group">
 						    	<label>What is your ethnicity?</label>
 							    <select name="ethnicity" multiple className="form-control">
