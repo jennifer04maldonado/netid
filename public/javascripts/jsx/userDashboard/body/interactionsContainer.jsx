@@ -1,5 +1,3 @@
-
-
 var InteractionsContainer = React.createClass({
 	getInitialState: function() {
 		return {
