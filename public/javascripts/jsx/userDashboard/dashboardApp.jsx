@@ -27,6 +27,7 @@ var DashboardApp = React.createClass({
             memberPersona: null,
             viewMemberPersona: false,
             allPersonas: [],
+			showLoading: true,
 			allCommunities: [],
 			myCommunities: []
 			}
