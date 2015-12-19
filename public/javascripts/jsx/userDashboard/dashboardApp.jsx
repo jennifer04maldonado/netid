@@ -12,7 +12,7 @@ var PersonaDaoComponent = require('./dao/personaDao');
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: true
+	      useIPFS: false
 	    };
 	},
 	getInitialState: function(){		
@@ -27,6 +27,7 @@ var DashboardApp = React.createClass({
             memberPersona: null,
             viewMemberPersona: false,
             allPersonas: [],
+			showLoading: true,
 			allCommunities: [],
 			myCommunities: []
 			}
