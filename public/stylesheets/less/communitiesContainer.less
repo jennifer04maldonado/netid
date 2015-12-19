@@ -21,9 +21,6 @@
 			li{
 				border: none;
 				margin-bottom: 0px;
-				&:active{
-					background-color: #AC0808;
-				}
 				a{
 					border-radius: 0px;
 					color: #636363;
@@ -54,6 +51,10 @@
 						border-radius: 0px;
 						border: none;
 					}
+				}
+				.current{
+						background-color: #AC0808;
+						color: white;
 				}
 			}
 		}
@@ -160,6 +161,97 @@
 											font-size: 13px;
 											margin-left: 5px;
 										}
+									}
+								}
+							}
+						}
+					}
+				}
+				.tabManage{
+					margin-top: 30px;
+					p{
+						margin-bottom: 25px;
+						color: gray;
+					}
+					#accordion{
+						.panel{
+							border: 2px solid #1E1E1E;
+							border-radius: 0px;
+							.panel-heading{
+								background-color: #313131;
+								color: lightgray;
+								border-radius: 0px;
+								h4{
+									padding-top: 8px;
+									padding-bottom: 8px;
+									a{
+										&:hover{
+											color: lightgray;
+											text-decoration: none;
+										}
+									}
+								}
+							}
+							.panel-collapse{
+								.panel-body{
+									padding-top: 35px;
+									padding-bottom: 35px;
+									background-color: #1E1E1E;
+									border: 1px solid #1E1E1E;
+									.commDetailBody{
+										margin-top: 0px;
+										.changeCommImage{
+											img{
+											height: 10em;
+											width: 100%;
+											object-fit: cover;
+											}
+											label{
+												font-weight: normal;
+												margin-top: 15px;
+												input{
+
+												}
+											}	
+										}
+										.commDetailText{
+											.dropdown{
+												button{
+													span{
+
+													}
+												}
+												.dropdown-menu{
+													border-bottom: none;
+													li{
+														a{
+															background-color: #FFFFFF;
+															&:hover{
+																color: black;
+															}
+														}
+													}
+												}
+											}
+											.form-group{
+												label{
+													margin-top: 15px;
+													font-weight: normal;
+												}
+												textarea{
+
+												}
+											}
+											.updateBtn{
+												background-color: #169379;
+												border-radius: 0px;
+												padding-top: 10px;
+												padding-bottom: 10px;
+												&:hover{
+													color: lightgray;
+												}
+											}
+										}	
 									}
 								}
 							}
