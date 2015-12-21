@@ -9,6 +9,7 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var watchify = require('watchify');
 var notifier = require('node-notifier');
+var webpack = require("webpack");
 
 gulp.task('dashboardApp', function(){
 	var bundler = watchify(browserify({
