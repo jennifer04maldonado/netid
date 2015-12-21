@@ -9,11 +9,13 @@ var PersonaContainer = React.createClass({
 	setActivePersona: function(activePersonaId) {
 		this.props.setActivePersona(activePersonaId);
 	},	
-
+	setAddPersonaType: function(personaType) {
+		this.props.setAddPersonaType(personaType);
+	},
 	render: function(){
 		return(
 			<div className="personaContainer">
-				<PersonaIndex setActivePersona={this.setActivePersona} personas={this.props.personas} activePersona={this.props.activePersona}/>
+				<PersonaIndex setActivePersona={this.setActivePersona} personas={this.props.personas} activePersona={this.props.activePersona} setAddPersonaType={this.setAddPersonaType}/>
 			</div>
 		)
 	}

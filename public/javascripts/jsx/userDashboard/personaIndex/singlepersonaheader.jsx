@@ -7,6 +7,9 @@ var SinglePersonaHeader = React.createClass({
 	setActivePersona: function(event){
 		this.props.setActivePersona(event.target.dataset.personaId);
 	},
+	setAddPersonaType: function(personaType) {
+		this.props.setAddPersonaType(personaType);
+	},	
 	render: function(){
 		var self = this;
 		var mapPersonas = this.props.personas.map(function(persona, index){
@@ -47,7 +50,7 @@ var SinglePersonaHeader = React.createClass({
 				<ul>
 				{mapPersonas}	
 				</ul>
-				<AddPersona personaType={this.props.personaType}/>				
+				<AddPersona personaType={this.props.personaType} setAddPersonaType={this.setAddPersonaType}/>				
 			</div>
 		)
 	}
