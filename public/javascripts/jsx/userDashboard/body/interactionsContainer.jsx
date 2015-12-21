@@ -55,24 +55,27 @@ var InteractionsContainer = React.createClass({
   	},
  		
   	createInteraction: function(e) {
-  		// this.setState({ 
-    //     	showLoading: true
-    //     })
-  		// e.preventDefault()
-  		// console.log('test')
-  		// var net = this.props.api
-  		// net.account.createContract()
-	   //  if (this.isMounted()) { 
-	   //    net.account.ee.on('contract',err => {
-	   //      //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
-	   //      console.log('contract created, event emitted')
-	   //      this.setState({ 
-    //     		showLoading: false
-    //     	})
-	   //    }) 
-	   //  }   		
+  		this.setState({ 
+        	showLoading: true
+        })
+  		e.preventDefault()
+  		console.log('test')
+  		var net = this.props.api
+  		net.account.createContract()
+	    if (this.isMounted()) { 
+	      net.account.ee.on('contract',err => {
+	        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
+	        console.log('contract created, event emitted')
+	        this.setState({ 
+        		showLoading: false
+        	})
+	      }) 
+	    }   		
   	},
-	  
+	
+	test : function(){
+		console.log('it worked')
+	},  
   	//this method fetches data from IPFS or AJAX				
 	componentDidMount: function() {
       	var personaId = this.props.activePersona.id;
@@ -86,6 +89,7 @@ var InteractionsContainer = React.createClass({
 	},
 
 	render: function(){
+		var self = this
 		var net = this.props.api
 		var rows = [];
 		var cssClass = "";
@@ -108,7 +112,7 @@ var InteractionsContainer = React.createClass({
 					<tr key={index}>
 						<td>{interaction.address}</td>
 						<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
-						<td className={cssClass} >{interaction.status}</td>
+						<td className={cssClass} onClick={self.test}>{interaction.status}</td>
 					</tr>
 				);
 			}

@@ -97,6 +97,7 @@ var CommunityListContainer = React.createClass({
 															<ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
 															    <li><a href="#">Public</a></li>
 															    <li><a href="#">Private</a></li>
+															    <li><a href="#">Secret</a></li>
 															</ul>
 														</div>
 														<fieldset className="form-group">
@@ -136,6 +137,7 @@ var CommunityListContainer = React.createClass({
 															<ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
 															    <li><a href="#">Public</a></li>
 															    <li><a href="#">Private</a></li>
+															    <li><a href="#">Secret</a></li>
 															</ul>
 														</div>
 														<fieldset className="form-group">
@@ -175,6 +177,7 @@ var CommunityListContainer = React.createClass({
 															<ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
 															    <li><a href="#">Public</a></li>
 															    <li><a href="#">Private</a></li>
+															    <li><a href="#">Secret</a></li>
 															</ul>
 														</div>
 														<fieldset className="form-group">
@@ -213,7 +216,7 @@ var CommunityListContainer = React.createClass({
 				                    	<textarea className="col-sm-8 col-sm-offset-2 commCreateName" placeholder="Community Name" rows="1"></textarea>
 										<textarea className="col-sm-8 col-sm-offset-2 commCreateAbout" placeholder="What is this Community about?" rows="5"></textarea>
 									</form> 
-									<button type="submit" className="col-sm-offset-8 col-sm-2 btn btn-default">Submit</button>	
+									<button type="submit" className="col-sm-offset-2 col-sm-8 btn btn-default">Submit</button>	
 								</div>	
 							</div>
 						</div>

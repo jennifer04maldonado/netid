@@ -5,17 +5,20 @@ var SinglePersonaHeader = require('./singlepersonaheader');
 var PersonaIndex = React.createClass({
 	getDefaultProps: function() {
 		return {
-			personaTypeSocial: 'social',
-			personaTypeProfessional: 'professional'
+			personaTypeSocial: 'Social',
+			personaTypeProfessional: 'Professional'
 		}
 	},
 	getInitialState: function(){		
 		return {
-            personaType : this.props.personaTypeSocial
+            //personaType : this.props.personaTypeSocial
         }
 	},	
 	setActivePersona: function(activePersonaId) {
 		this.props.setActivePersona(activePersonaId);
+	},
+	setAddPersonaType: function(personaType) {
+		this.props.setAddPersonaType(personaType);
 	},	
 	render: function(){
 		var socialPersonas = [];
@@ -43,10 +46,10 @@ var PersonaIndex = React.createClass({
                             </div>
                     </div>
                     <div id='socialPersonaContainer'>
-		        		<SinglePersonaHeader personaType='social' activePersona={this.props.activePersona} headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} />
+		        		<SinglePersonaHeader personaType={this.props.personaTypeSocial} activePersona={this.props.activePersona} headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} setAddPersonaType={this.setAddPersonaType}/>
 					</div>
 					<div id='professionalPersonaContainer'>
-		        		<SinglePersonaHeader personaType='prof' activePersona={this.props.activePersona} headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} />
+		        		<SinglePersonaHeader personaType={this.props.personaTypeProfessional} activePersona={this.props.activePersona} headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} setAddPersonaType={this.setAddPersonaType}/>
 		        	</div>
 					<div id='personaBarFiller'> </div>				
 	            </div>

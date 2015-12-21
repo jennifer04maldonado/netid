@@ -1,4 +1,4 @@
-.bodyContent{
+.messageContent{
 	padding-top: 10px;
 	padding-bottom: 100px;
 	.msgTitle{
@@ -11,6 +11,119 @@
 				color: #A4A5A5;
 				margin-right: 10px;
 				font-size: 20px;
+			}
+		}
+	}
+	.msgPersonaIndex{
+		.msgLeftList{
+			margin-top: 35px;
+			border-right: 1px solid gray;
+			border-left: 1px solid gray;
+			border-bottom: 1px solid gray;
+			height: 70vh;
+			padding: 0px;
+			input{
+				border-radius: 0px;
+				background-color: transparent;
+				border-top: 1px solid gray;
+				border-bottom: 1px solid gray;
+				border-left: none;
+				border-right: none;
+				color: #626263;
+				padding-left: 17px;
+				height: 50px;
+			}
+			.list-group{
+				a{
+					background-color: transparent;
+					border: none;
+					border-radius: 0px;
+					span{
+						background-color: #AC0808;
+					}
+					img{
+						width: 40px;
+						height: 40px;
+						object-fit: cover;
+						margin-right: 15px;
+					}
+					.personaName{
+						background-color: transparent;
+					}
+				}
+				.active{
+					background-color: #169379;
+					border: none;
+				}
+			}
+		}
+		.msgRightContent{
+			height: 70vh;
+			margin-top: 35px;
+			border-right: 1px solid gray;
+			border-left: 1px solid gray;
+			border-bottom: 1px solid gray;
+			padding-left: 0px;
+			padding-right: 0px;
+			.messageTitle{
+				color: white;
+				font-size: 14px;
+				background-color: #169379;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				padding-left: 15px;
+			}	
+			.list-group{
+				a{
+					background-color: transparent;
+					border: none;
+					border-radius: 0px;
+
+					.time{
+						float: right;
+					}
+					img{
+						width: 40px;
+						height: 40px;
+						object-fit: cover;
+						margin-right: 27px;
+					}
+					.personaName{
+						background-color: transparent;
+						color: gray;
+						vertical-align: top;
+					}
+					.personaNameMsg{
+						color: #169379;
+					}
+					p{
+						margin-right: 11%;
+						color: lightgray;
+						margin-top: -10px;
+					}
+				}
+			}
+			form{
+				padding-top: 30px;
+				padding-bottom: 15px;
+				padding-left: 20px;
+				border-top: 1px solid gray;
+				.msgTextField{
+					width: 84%;
+					display: inline;
+					border-radius: 0px;
+					height: 45px;
+				}
+				.msgTextBtn{
+					width: 13%;
+					border-radius: 0px;
+					height: 45px;
+					margin-bottom: 2px;
+					background-color: #169379;
+					i{
+
+					}
+				}
 			}
 		}
 	}

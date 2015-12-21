@@ -1,12 +1,30 @@
 var AddPersonaModal = React.createClass({		
 	getDefaultProps: function() {
 		return {
-			newPersona: {
-				id: '', 
-				persona_name: '', 
+		}
+	},
+	getInitialState: function() {
+	    return {
+	    	personas: this.props.personas
+	    }
+  	},
+	setForm: function() {
+
+  	},  	
+	createPersonaHandler: function(event){
+		event.preventDefault();
+		if (this.props.useIPFS) {
+			this.createPersonaIPFS();
+		} else {
+			this.createPersona();
+		}
+	},
+	createPersona: function(){
+
+		var id = JSON.stringify(Math.floor(Math.random()*100000000000000000));				
+		//temp
+		var newPersona = {
 				profile_id: "12345674896", 
-				persona_type: '', 
-				description: '', 
 				image: "images/ein.jpeg",
 			    show_sex: true,
 			    age: "8",
@@ -35,32 +53,7 @@ var AddPersonaModal = React.createClass({
 			    add_interests_info:"",
 			    score: "9/10",
 			    ratings:""
-			}	
-		}
-	},
-	getInitialState: function() {
-	    return {
-	    	personas: this.props.personas
-	    }
-  	},
-	setForm: function() {
-
-  	},  	
-	createPersonaHandler: function(event){
-		event.preventDefault();
-		if (this.props.useIPFS) {
-			console.log('use ipfs:' + this.props.useIPFS);
-			this.createPersonaIPFS();
-		} else {
-			console.log('NOT ipfs:' + this.props.useIPFS);
-			this.createPersona();
-		}
-	},
-	createPersona: function(){
-
-		var id = JSON.stringify(Math.floor(Math.random()*100000000000000000));				
-
-		var newPersona = this.props.newPersona;
+			}			
 		newPersona.id = id;
 		newPersona.persona_name = this.refs.personaCreateForm.name.value;
 		newPersona.persona_type = this.props.personaType;
@@ -68,7 +61,7 @@ var AddPersonaModal = React.createClass({
 		this.props.addPersona(newPersona);
 	},	
 	createPersonaIPFS: function(){
-		console.log('time to createIPFS:');
+		//console.log('add personas using IPFS:');
 		var net = this.props.api;
 		var tempSchema = net.account.schemaObject;
 		// console.log(tempSchema[0]);
@@ -76,18 +69,48 @@ var AddPersonaModal = React.createClass({
 		//was giving fractions so added Math.floor
 		var id = JSON.stringify(Math.floor(Math.random()*100000000000000000));				
 		
-		var newPersona = this.props.newPersona;
+		//temp
+		var newPersona = {
+				profile_id: "12345674896", 
+				image: "images/ein.jpeg",
+			    show_sex: true,
+			    age: "8",
+			    show_age: true,
+			    phone_number: "888-888-8888",
+			    hometown: "Boston",
+			    add_personal_info: "I have a perverse fear of cats",
+			    education: "",
+			    add_edu_info: "Won 5th grade spelling bee",
+			    employment_history:"",
+			    add_employ_info: "none",
+			    political_affiliation: "democrat",
+			    religion: "agnostic",
+			    relationship_status: "single",
+			    number_children:"9",
+			    gender: "male",
+			    zodiac_sign: "Aquarius",
+			    languages_spoken:"swahili, mandarin, french",
+			    ethnicity: "African-American",
+			    more_info: "",
+			    height: "5'6",
+			    weight: "290 lbs",
+			    hair_color: "blonde",
+			    eye_color: "green",
+			    phys_add_info: "",
+			    add_interests_info:"",
+			    score: "9/10",
+			    ratings:""
+			}			
+
 
 		newPersona.id = id;
 		newPersona.persona_name = this.refs.personaCreateForm.name.value;
 		newPersona.persona_type = this.props.personaType;
 		newPersona.description = this.refs.personaCreateForm.personaDescription.value;
 
-		//tempSchema[i] = this.props.newPersona;
 		//console.log(tempSchema[5])
-		//net.account.addPersona(tempSchema);
-
-		console.log('new personaId: ' +newPersona.id);
+		tempSchema.push(newPersona);
+		net.account.addPersona(tempSchema);
 		this.props.addPersona(newPersona);	
 	},
     render: function(){
@@ -129,14 +152,6 @@ var AddPersonaModal = React.createClass({
 								      <option>In an open relationship</option>
 								    </select>
 						    </fieldset>
-						    <fieldset className="form-group ">
-						    	<label>Persona Type</label>
-								    <select name="personType" className="form-control">
-								      <option>Social</option>
-								      <option>Professional</option>
-								    </select>
-						    </fieldset>
-
 						    <fieldset className="form-group">
 						    	<label>What is your ethnicity?</label>
 							    <select name="ethnicity" multiple className="form-control">
