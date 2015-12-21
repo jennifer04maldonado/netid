@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "ipfs-api" : "github:ipfs/js-ipfs-api#ba85b3b",
     "async": "^1.5.0",
     "body-parser": "~1.13.2",
     "brfs": "~1.4.0",

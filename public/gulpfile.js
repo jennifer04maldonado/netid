@@ -5,6 +5,7 @@ var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 // var plugins = require('gulp-load-plugins')();
 var requireDir = require('require-dir');
+var webpack = require("webpack");
 requireDir('gulpTasks');
 
 

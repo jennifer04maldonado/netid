@@ -567,26 +567,18 @@ NetidAPI.prototype.addPersona = function(persona, done){
     console.log('Error, invalid persona data:', e)
     return done(e)
   }
+
   asyncjs.waterfall([
     // Create required directories
-    cb => this.ipfs.files.mkdir('/ipfs-boards-profile/boards', { p: true }, cb),
-    (e, cb) => this.ipfs.files.mkdir('/ipfs-boards-profile/comments', { p: true }, cb),
-    (e, cb) => this.ipfs.files.mkdir('/ipfs-boards-profile/posts', { p: true }, cb),
+    cb => this.ipfs.files.mkdir('/netid-account/personas', { p: true }, cb),
     (e, cb) => {
       // Remove old profile files if present
-      var path = '/ipfs-boards-profile/ipfs-boards-version.txt'
+      var path = '/netid-account/personas/personaSchema.json'
       this.ipfs.files.rm(path, { r: true }, res => {
-        var path = '/ipfs-boards-profile/profile.json'
-        this.ipfs.files.rm(path, { r: true }, res => cb())
+        console.log('removed old personaSchema json file...')
       })
     },
-    cb => {
-      // Add profile version file
-      var path = '/ipfs-boards-profile/ipfs-boards-version.txt'
-      var version_hash = '/ipfs/' + this.version_hash
-      this.ipfs.files.cp([version_hash, path], cb)
-    },
-    (e, cb) => {
+    (cb) => {
       // Serialize profile and add to IPFS
       this.ipfs.add(new Buffer(profile_str), cb)
     },
@@ -594,7 +586,7 @@ NetidAPI.prototype.addPersona = function(persona, done){
       // Move profile into mfs
       console.log('added profile to IPFS:', res.Hash)
       var profilepath = '/ipfs/' + res.Hash
-      this.ipfs.files.cp([profilepath, '/ipfs-boards-profile/profile.json'], cb)
+      this.ipfs.files.cp([profilepath, '/netid-account/personas/personaSchema.json'], cb)
     },
     (e, cb) => this.ipfs.files.stat('/', cb),
     (res, cb) => {
@@ -603,34 +595,6 @@ NetidAPI.prototype.addPersona = function(persona, done){
       this.ipfs.name.publish(profile_hash, cb)
     }
   ], done)
-  //looking for way to add FS
-/*  this.ipfs.add(new Buffer(JSON.stringify(persona)),(err2,res) => {
->>>>>>> 10ba3dbc263d3fb0bee40c464a83595f918806fd
-    if(err2){
-      this.ee.emit('error',err2)
-      //done(err2,null)
-    } else {
-<<<<<<< HEAD
-      // TODO: JSON parse error handling
-      this.allCommunities = JSON.parse(res);
-      this.ee.emit('allCommunities',undefined);
-      this.ee.removeEvent('allCommunities');
-      //done(null,p)
-    }
-  })
-  return this.allCommunities
-=======
-        console.log(res)
-        this.ipfs.name.publish(res.Hash,(err,r) => {
-          if(err){
-           console.log(err)
-          } else {
-            console.log(r)
-          }
-        })
-      }
-  })
-  return this.messagesList*/
 }
 
 
