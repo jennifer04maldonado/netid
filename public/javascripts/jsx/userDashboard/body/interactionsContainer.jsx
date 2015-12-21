@@ -47,7 +47,7 @@ var InteractionsContainer = React.createClass({
 						}
 				}
 				if(caughtData == false){
-					var emptyState = this.getInitialState().interactionsData;
+					var emptyState = self.getInitialState().interactionsData;
 					self.setState({interactionsData: emptyState});
 				}
 			}	
@@ -101,18 +101,22 @@ var InteractionsContainer = React.createClass({
 	 			console.log(contractState.c[0])
 				switch (contractState.c[0]){
 					case 0:	cssClass = "btn btn-success interactionsButton";
-						break;
+							interaction.status = "Accept";
+							break;
 					case 1:	cssClass = "btn btn-info interactionsButton";
-						break;
+							interaction.status = "Rate";
+							break;
 					case 2: cssClass = "btn btn-warning interactionsButtons";
-						break;
+							interaction.status = "Dispute";
+							break;
 					default: cssClass = "btn btn-default interactionsButton";
+							 interaction.status = "Done";
 				}
 				rows.push(
 					<tr key={index}>
 						<td>{interaction.address}</td>
 						<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
-						<td className={cssClass} onClick={self.test}>{interaction.status}</td>
+						<td className={cssClass} onClick={self.test}> {interaction.status} </td>
 					</tr>
 				);
 			}
@@ -128,7 +132,7 @@ var InteractionsContainer = React.createClass({
 		                    <form action="" ref = "form">
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" rows="1" id="responderContractAddy"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
-							    <button className="btn btn-default" onClick={this.createInteraction}>Submit</button>
+							    <button className="btn btn-default" onClick={this.createInteraction} >Submit</button>
 							</form> 
 						</div>	
                 	</div>
