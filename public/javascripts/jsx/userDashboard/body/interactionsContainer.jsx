@@ -42,6 +42,7 @@ var InteractionsContainer = React.createClass({
 				for (var i in result){
 						if(result[i].id === personaId) {
 							caughtData = true;
+
 							self.setState({interactionsData: result[i]});
 						}
 				}
@@ -90,24 +91,27 @@ var InteractionsContainer = React.createClass({
 		var cssClass = "";
 		this.state.interactionsData.interactions.forEach(function(interaction, index) {
 			var intContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"disputed","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiatorRating","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[],"name":"setToFinal","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"responderConf","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"responder","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[],"name":"confirmRating","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"responderRating","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"dataHash2","outputs":[{"name":"","type":"string"}],"type":"function"},{"constant":true,"inputs":[],"name":"respRated","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"rateCount","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiator","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[],"name":"disputer","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[],"name":"initRated","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"dataHash1","outputs":[{"name":"","type":"string"}],"type":"function"},{"constant":true,"inputs":[],"name":"initiatorConf","outputs":[{"name":"","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"state","outputs":[{"name":"","type":"uint8"}],"type":"function"},{"constant":false,"inputs":[],"name":"confirmInvite","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"cancelInvite","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"init","type":"address"}],"name":"setInitiator","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"firstPart","type":"string"},{"name":"secondPart","type":"string"}],"name":"setHash","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"rating","type":"uint256"}],"name":"rate","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"dispute","outputs":[],"type":"function"},{"inputs":[{"name":"init","type":"address"}],"type":"constructor"},{"anonymous":false,"inputs":[],"name":"InteractionConfirmed","type":"event"},{"anonymous":false,"inputs":[],"name":"InitRated","type":"event"},{"anonymous":false,"inputs":[],"name":"RespRated","type":"event"},{"anonymous":false,"inputs":[],"name":"Rated","type":"event"},{"anonymous":false,"inputs":[],"name":"Disputed","type":"event"},{"anonymous":false,"inputs":[],"name":"Confirmed","type":"event"}]); 
- 			var contractState = net.account.getInteractionStatus(interaction.address)
- 			console.log(contractState.c[0])
-			switch (contractState.c[0]){
-				case 0:	cssClass = "btn btn-success interactionsButton";
-					break;
-				case 1:	cssClass = "btn btn-info interactionsButton";
-					break;
-				case 2: cssClass = "btn btn-warning interactionsButtons";
-					break;
-				default: cssClass = "btn btn-default interactionsButton";
+ 			var contractState = net.account.getInteractionStatus(interaction.address) 			
+ 			if (contractState) {
+ 				console.log('testing');
+	 			console.log(contractState.c[0])
+				switch (contractState.c[0]){
+					case 0:	cssClass = "btn btn-success interactionsButton";
+						break;
+					case 1:	cssClass = "btn btn-info interactionsButton";
+						break;
+					case 2: cssClass = "btn btn-warning interactionsButtons";
+						break;
+					default: cssClass = "btn btn-default interactionsButton";
+				}
+				rows.push(
+					<tr key={index}>
+						<td>{interaction.address}</td>
+						<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
+						<td className={cssClass} >{interaction.status}</td>
+					</tr>
+				);
 			}
-			rows.push(
-				<tr key={index}>
-					<td>{interaction.address}</td>
-					<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
-					<td className={cssClass} onClick={this.test}>{interaction.status}</td>
-				</tr>
-			);
 		});
 		
 		return(

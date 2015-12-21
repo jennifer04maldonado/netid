@@ -12,7 +12,7 @@ var PersonaDaoComponent = require('./dao/personaDao');
 var DashboardApp = React.createClass({	
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: true
+	      useIPFS: false
 	    };
 	},
 	getInitialState: function(){		
@@ -20,8 +20,6 @@ var DashboardApp = React.createClass({
             personas : [],
             activePersona: null,
             headerSelection: 'home',
-            peerIdHash: 'QmXrWdaoazTSGEs1Y1geBQnCQzrjL7nNvAYRbPMU9EGru',
-            useIPFS: true,
             showLoading: true,
             api: {},
             memberPersona: null,
@@ -94,7 +92,7 @@ var DashboardApp = React.createClass({
 	setActivePersonaCont: function(activePersonaId, callback) {
 		var activePersona = null;		
 		$.each(this.state.personas, function (index,  persona) {
-			//console.log("persona id:" + persona.id);
+			//console.log('"persona id:" + persona.id);
 			//console.log("persona name:" + persona.persona_name);			
 			if (activePersonaId == persona.id) {
 				//console.log("activePersonaId=" + persona.id);
@@ -148,18 +146,27 @@ var DashboardApp = React.createClass({
     	this.setState({allPersonas: allPersonas});
     },    
     updatePersonas: function(tempSchema){
-    	console.log(tempSchema)
+    	console.log("updating personas: " + tempSchema);
     	var self = this
     	self.setState({ 
         	personas: tempSchema
         });
     },
-    addPersona: function(tempSchema){
-    	var myPersonas = this.state.personas;
-    	myPersonas.push(tempSchema);
-    	this.setState({ 
-        	personas: myPersonas
-        });
+    addPersona: function(newPersona){
+    	console.log('new persona: newId: ' + newPersona.id);
+    	
+    	var myPersonas = this.state.personas;        	    	
+
+    	myPersonas.concat(newPersona);
+    	 // this.setState({ 
+      //      	personas: myPersonas
+      //    });
+
+		var updatedPersonas = this.state.personas;
+    	updatedPersonas.forEach(function(persona, index) {
+			console.log('personaId: ' + persona.id + " name: " + persona.persona_name);
+		});
+
     },
 
     render: function(){		
@@ -185,7 +192,7 @@ var DashboardApp = React.createClass({
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
-				<AddPersonaModal personaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas} addPersona={this.addPersona}/>		        		
+				<AddPersonaModal useIPFS={this.props.useIPFS} personaType="Social" api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas} addPersona={this.addPersona}/>		        		
 				
 				<CommunityDaoComponent activePersona={this.state.activePersona} setMyCommunities={this.setMyCommunities} setAllCommunities={this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
 				<PersonaDaoComponent activePersona={this.state.activePersona} setAllPersonas={this.setAllPersonas}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     				

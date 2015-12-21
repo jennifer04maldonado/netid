@@ -1,55 +1,95 @@
 var AddPersonaModal = React.createClass({		
+	getDefaultProps: function() {
+		return {
+			newPersona: {
+				id: '', 
+				persona_name: '', 
+				profile_id: "12345674896", 
+				persona_type: '', 
+				description: '', 
+				image: "images/ein.jpeg",
+			    show_sex: true,
+			    age: "8",
+			    show_age: true,
+			    phone_number: "888-888-8888",
+			    hometown: "Boston",
+			    add_personal_info: "I have a perverse fear of cats",
+			    education: "",
+			    add_edu_info: "Won 5th grade spelling bee",
+			    employment_history:"",
+			    add_employ_info: "none",
+			    political_affiliation: "democrat",
+			    religion: "agnostic",
+			    relationship_status: "single",
+			    number_children:"9",
+			    gender: "male",
+			    zodiac_sign: "Aquarius",
+			    languages_spoken:"swahili, mandarin, french",
+			    ethnicity: "African-American",
+			    more_info: "",
+			    height: "5'6",
+			    weight: "290 lbs",
+			    hair_color: "blonde",
+			    eye_color: "green",
+			    phys_add_info: "",
+			    add_interests_info:"",
+			    score: "9/10",
+			    ratings:""
+			}	
+		}
+	},
 	getInitialState: function() {
 	    return {
 	    	personas: this.props.personas
 	    }
   	},
-	createPersona: function(){
-		var self = this 
-		var net = this.props.api
-		var tempSchema = net.account.schemaObject
-		console.log(tempSchema[0])
-		var i = tempSchema.length
-		tempSchema[i] = {
-			id: JSON.stringify(Math.random()*100000000000000000), 
-			persona_name: this.refs.personaCreateForm.name.value, 
-			profile_id: "12345674896", 
-			persona_type: this.props.personaType, 
-			description: this.refs.personaCreateForm.personaDescription.value, 
-			image: "images/ein.jpeg",
-		    show_sex: true,
-		    age: "8",
-		    show_age: true,
-		    phone_number: "888-888-8888",
-		    hometown: "Boston",
-		    add_personal_info: "I have a perverse fear of cats",
-		    education: "",
-		    add_edu_info: "Won 5th grade spelling bee",
-		    employment_history:"",
-		    add_employ_info: "none",
-		    political_affiliation: "democrat",
-		    religion: "agnostic",
-		    relationship_status: "single",
-		    number_children:"9",
-		    gender: "male",
-		    zodiac_sign: "Aquarius",
-		    languages_spoken:"swahili, mandarin, french",
-		    ethnicity: "African-American",
-		    more_info: "",
-		    height: "5'6",
-		    weight: "290 lbs",
-		    hair_color: "blonde",
-		    eye_color: "green",
-		    phys_add_info: "",
-		    add_interests_info:"",
-		    score: "9/10",
-		    ratings:""
-		}
-		console.log(tempSchema[5])
-		net.account.addPersona(tempSchema)
-		this.props.addPersona(tempSchema[i])
-	},
+	setForm: function() {
 
+  	},  	
+	createPersonaHandler: function(event){
+		event.preventDefault();
+		if (this.props.useIPFS) {
+			console.log('use ipfs:' + this.props.useIPFS);
+			this.createPersonaIPFS();
+		} else {
+			console.log('NOT ipfs:' + this.props.useIPFS);
+			this.createPersona();
+		}
+	},
+	createPersona: function(){
+
+		var id = JSON.stringify(Math.floor(Math.random()*100000000000000000));				
+
+		var newPersona = this.props.newPersona;
+		newPersona.id = id;
+		newPersona.persona_name = this.refs.personaCreateForm.name.value;
+		newPersona.persona_type = this.props.personaType;
+		newPersona.description = this.refs.personaCreateForm.personaDescription.value;
+		this.props.addPersona(newPersona);
+	},	
+	createPersonaIPFS: function(){
+		console.log('time to createIPFS:');
+		var net = this.props.api;
+		var tempSchema = net.account.schemaObject;
+		// console.log(tempSchema[0]);
+		var i = tempSchema.length;		
+		//was giving fractions so added Math.floor
+		var id = JSON.stringify(Math.floor(Math.random()*100000000000000000));				
+		
+		var newPersona = this.props.newPersona;
+
+		newPersona.id = id;
+		newPersona.persona_name = this.refs.personaCreateForm.name.value;
+		newPersona.persona_type = this.props.personaType;
+		newPersona.description = this.refs.personaCreateForm.personaDescription.value;
+
+		//tempSchema[i] = this.props.newPersona;
+		//console.log(tempSchema[5])
+		//net.account.addPersona(tempSchema);
+
+		console.log('new personaId: ' +newPersona.id);
+		this.props.addPersona(newPersona);	
+	},
     render: function(){
         return (	           			    
 		<div id="addPersonaModal" className="modal fade" role="dialog">
@@ -126,7 +166,7 @@ var AddPersonaModal = React.createClass({
 						</form>
 				    </div>
 				    <div className="modal-footer">
-				    	<button type="submit" className="btn btn-primary col-sm-12" onClick={this.createPersona}>Submit</button>
+				    	<button type="submit" className="btn btn-primary col-sm-12" onClick={this.createPersonaHandler}>Submit</button>
 				    </div>
 		    	</div>
 		    </div>
