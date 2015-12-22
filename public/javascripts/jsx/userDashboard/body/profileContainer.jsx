@@ -75,7 +75,7 @@ var ProfileContainer = React.createClass({
 				<div className="row col-sm-7 col-sm-offset-3 seeMoreBtn">
 					<button className="btn">See more posts</button>
 				</div>
-				<EditPersonaModal/>
+				<EditPersonaModal activePersona={this.props.activePersona}/>
 			</div> 
 		)
 	}
