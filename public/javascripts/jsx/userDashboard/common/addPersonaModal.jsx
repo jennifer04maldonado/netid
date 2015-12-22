@@ -10,13 +10,9 @@ var AddPersonaModal = React.createClass({
 	    return {
 	    	personaForm: null,
 	    	personas: this.props.personas,
-	    	newPersona: null,
+	    	newPersona: {}
 	    }
   	},
-    componentDidMount: function(){
-    	console.log("did i tmount?");
-
-    },  	
 	createPersonaHandler: function(event){
 		event.preventDefault();
 		if (this.props.useIPFS) {
