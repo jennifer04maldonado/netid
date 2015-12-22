@@ -3,30 +3,34 @@ var PersonaForm = require('./personaForm');
 var AddPersonaModal = React.createClass({		
 	getDefaultProps: function() {
 		return {
-			initPersona: {
-				persona_name: '',
-				description: ''
-			}			
+			initPersona: {}			
 		}
 	},
 	getInitialState: function() {
 	    return {
 	    	personaForm: null,
 	    	personas: this.props.personas,
-	    	newPersona: null
+	    	newPersona: null,
 	    }
   	},
+    componentDidMount: function(){
+    	console.log("did i tmount?");
+
+    },  	
 	createPersonaHandler: function(event){
 		event.preventDefault();
 		if (this.props.useIPFS) {
 			this.createPersonaIPFS();
 		} else {
 			this.createPersona();
-		}
+		}		
+		//calls child function	
+		this.refs.formRef.resetForm();		
 	},
 	createPersona: function(){
 
 		//temp
+		//cannot use as reactjs inital or default props cause it will return a duplicate object when pushing to an array
 		var newPersona = {
 				profile_id: "12345674896", 
 				image: "images/ein.jpeg",
@@ -72,6 +76,7 @@ var AddPersonaModal = React.createClass({
 		var tempSchema = net.account.schemaObject;				
 		
 		//default temp
+		//cannot use as reactjs inital or default props cause it will return a duplicate object when pushing to an array
 		var newPersona = {
 				profile_id: "12345674896", 
 				image: "images/ein.jpeg",
@@ -118,7 +123,6 @@ var AddPersonaModal = React.createClass({
     setPersona: function(persona){		
     	//inital
     	//TODO: rest of the fields
-    	//console.log('reseting form');
 		this.setState({newPersona: persona});
 
 	},
@@ -133,7 +137,7 @@ var AddPersonaModal = React.createClass({
 				    </div>
 				    <div className="modal-body">
 
-				    <PersonaForm setPersona={this.setPersona} activePersona={this.props.initPersona} />
+				    <PersonaForm ref='formRef'setPersona={this.setPersona} activePersona={this.props.initPersona} />
 
 				    </div>
 				    <div className="modal-footer">

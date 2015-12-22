@@ -1,14 +1,24 @@
+var PersonaValidation = require('./../mixins/personaValidation');
+
 var PersonaForm = React.createClass({		
+	mixins: [PersonaValidation],
+  	//TODO: do the rest of fields
+  	//constratins on fields
    	getInitialState: function() {
 	    return {
 	    	persona: this.props.activePersona
 	    }
 	},
+    //validation
 	onChangeHandler: function(event){
 		// console.log('event: ' + event.target.name);
 		// console.log('value: ' + event.target.value);
+		//TODO: validation
+
 		var persona = this.state.persona;
-		switch (event.target.name)  {
+		var elementName = event.target.name;
+
+		switch (elementName)  {
 			case "name":
 					persona.persona_name = event.target.value;
 					break;
@@ -19,10 +29,10 @@ var PersonaForm = React.createClass({
 					persona.age = event.target.value;
 					break;
 			case "gender":
-					persona.age = event.target.value;
+					persona.gener = event.target.value;
 					break;
 			case "relationshipStatus":
-					persona.age = event.target.value;
+					persona.relationship_status = event.target.value;
 					break;
 			case "personaType":
 					persona.persona_type = event.target.value;
@@ -30,26 +40,14 @@ var PersonaForm = React.createClass({
 			default: 			
 		}
 		this.setState({persona: persona});
-		this.props.setPersona(persona);
-		//this.resetForm();
+		this.props.setPersona(persona);		
 	},
-    resetForm: function(){		
-    	//inital
-    	//TODO: rest of the fields
-    	//console.log('reseting form');
-		var resetPersona = this.state.persona;
-		resetPersona.persona_name = '';
-		resetPersona.description = '';
-		this.setState({persona: resetPersona});
-	},
-
     render: function(){
     	var persona = this.state.persona;
-
         return (	           			    
 				      	<form name="myform" ref="personaCreateForm">
 						    <fieldset className="form-group">
-						    	<input onChange={this.onChangeHandler} value={persona ? persona.persona_name: ''} name="name" type="name" className="form-control" id="exampleName" placeholder="Persona Name"></input>
+						    	<input  onChange={this.onChangeHandler} value={persona ? persona.persona_name: ''} name="name" type="name" className="form-control" id="exampleName" placeholder="Persona Name"></input>
 						    </fieldset>
 						    <fieldset className="form-group">
 						    	<label htmlFor="personaDescription">What is your Persona like?</label>
