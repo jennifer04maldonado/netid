@@ -33,7 +33,7 @@ var SettingsContainer = React.createClass({
 						    <table className="table table-hover">
 						    	<thead>
 						    		<tr>
-						    			<th>Account Number</th>
+						    			<th>Account #</th>
 						    			<th>Balance</th>
 						    		</tr>
 						    	</thead>
