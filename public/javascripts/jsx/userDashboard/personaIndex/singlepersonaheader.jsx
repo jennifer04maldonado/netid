@@ -28,9 +28,6 @@ var SinglePersonaHeader = React.createClass({
 
 			return (
 				<li key={personaId} className={myClassName} data-persona-id={personaId} >
-					<span className={notifcationClassName}>	
-						<a href="#"><span className="badge">{index}</span></a>
-		            </span>
                     <span className={personaHeadingClassName}>
                         <span className="col-sm-3 imgCntnr" >
                             <img src={image}></img>
@@ -38,7 +35,10 @@ var SinglePersonaHeader = React.createClass({
                         <h4 className="col-sm-9 panel-title">
                             <a data-persona-id={personaId} onClick={self.setActivePersona} href={href} >{name}</a>
                         </h4>
-                    </span>                    
+                    </span> 
+                    <span className={notifcationClassName}>	
+						<a href="#"><span className="badge">{index}</span></a>
+		            </span>                   
                 </li>
 			);
 		});
