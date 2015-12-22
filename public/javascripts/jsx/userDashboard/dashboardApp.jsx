@@ -9,7 +9,7 @@ var AddPersonaModal = require('./common/addPersonaModal');
 var CommunityDaoComponent = require('./dao/communityDao');
 var PersonaDaoComponent = require('./dao/personaDao');
 
-var DashboardApp = React.createClass({	
+var DashboardApp = React.createClass({		
 	getDefaultProps: function() {
 	    return {
 	      useIPFS: false,
