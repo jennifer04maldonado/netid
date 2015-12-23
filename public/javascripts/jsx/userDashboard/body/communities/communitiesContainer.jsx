@@ -1,65 +1,41 @@
-var CreateCommunity = require('./communitySub/createCommunity');
+var CommunityListComponent = require('./communityListContainer');
+var MyCommunityListComponent = require('./myCommunityListContainer');
+var CommunityDetailComponent = require('./communityDetailContainer');
+var	MembersListModal = require('./../../common/membersListModal');
+var CreateCommunity = require('./createCommunity');
 
-var CommunityListContainer = React.createClass({
+var CommunitiesContainer = React.createClass({
+	
 	getInitialState: function(){		
 		return {
-            activeCommunty: null
+            isDetail: false,
+            activeCommunity: null
         }
-	},		
-	viewDetail: function(event){		
-		//console.log('viewDetail: ' + event.target.dataset.communityId);
-		var communityId = event.target.dataset.communityId;
-		this.props.viewDetail(communityId);
-	},		
-	viewDetailAfterAdd: function(communityId){		
-		//console.log('viewDetail: ' + event.target.dataset.communityId);
-		this.props.viewDetail(communityId);
-	},		
-	viewMembers: function(communityId){		
-		this.props.setActiveCommunity(communityId);
-	},			
+	},	
+
+	setActiveCommunity: function(communityId) {
+		var activeCommunity = null;		
+		$.each(this.props.allCommunities, function (index,  row) {
+			if (communityId == row.id) {
+				//console.log("activePersonaId=" + persona.id);
+				activeCommunity = row;
+			}
+		});
+		//console.log('active community:' + activeCommunity.name);
+		this.setState({activeCommunity: activeCommunity});
+  	}, 	
+
 	addAllCommunitiesState: function(community){		
-		this.props.addAllCommunitiesState(community);		
+		this.props.addAllCommunitiesState(community);
 	},	
     addMyCommunitiesState: function(community){
     	this.props.addMyCommunitiesState(community);
     },
+	viewMembers: function(communityId){		
+		this.props.setActiveCommunity(communityId);
+	},			    
 	render: function(){
 		var self = this;
-		var allCommunitiesNode = this.props.allCommunities.map(function(community, index)  {
-	               			return (
-									<div className="col-sm-3 well" key={community.id}>									       
-										<img onClick={self.viewDetail} src={community.pic} data-community-id={community.id}/>
-										<h5>{community.name}</h5>
-										<p>{community.description}</p>
-										<div className="col-sm-12 memberCount">
-											<img src={"/images/friends.png"}/>
-											<a href="#" onClick={self.viewDetail.bind(self, community.id)} data-community-id={community.id} data-toggle="modal" data-target='#membersListModal'>{community.members_count} Members</a>
-										</div>
-									</div>
-								)
-							});
-
-		var myCommunitiesNode = this.props.myCommunities.map(function(community, index)  {
-	               			return (								  								    	
-								  	<div className="panel-body" key={community.id}>
-								    	<div className="media">
-											<div className="media-left">
-											    <a href="#">
-											      <img data-community-id={community.id} onClick={self.viewDetail} className="media-object" src={community.pic}/>
-											    </a>
-											</div>
-											<div className="media-body">
-											    <h5> <a data-community-id={community.id} href="#" onClick={self.viewDetail} className="media-heading">{community.name}</a></h5>
-											    <span>{community.description} what is going on</span>
-												<h6><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
-											</div>
-										</div>
-								  	</div>
-								)
-							});
-
-
 		return(						
 				<div className="col-sm-12 bodyContent">
 					<div className="col-sm-2 communityTitle">
@@ -71,14 +47,15 @@ var CommunityListContainer = React.createClass({
 							<li role="presentation"><a href="#communities" aria-controls="communities" role="tab" data-toggle="tab">My Communities</a></li>
 							<li role="presentation"><a href="#manage" aria-controls="manage" role="tab" data-toggle="tab">Manage</a></li>
 							<li role="presentation"><a href="#create" aria-controls="create" role="tab" data-toggle="tab">Create</a></li>
+							<li className="hidden" role="presentation"><a id='communityDetailTab' href="#communityDetail" aria-controls="detail" role="tab" data-toggle="tab"></a></li>
 						</ul>
 						<div className="tab-content col-sm-10">
 							<div role="tabpanel" className="tab-pane tabExplore active " id="explore">
-								{allCommunitiesNode}
+								<CommunityListComponent setActiveCommunity={this.setActiveCommunity} allCommunities={this.props.allCommunities}/>
 							</div>
 							<div role="tabpanel" className="tab-pane tabCommunities fade" id="communities">
 								<div className="panel panel-default">
-								{myCommunitiesNode}							
+									<MyCommunityListComponent setActiveCommunity={this.setActiveCommunity} myCommunities={this.props.myCommunities}/>
 								</div>
 							</div>
 							<div role="tabpanel" className="tab-pane tabManage fade" id="manage">
@@ -208,11 +185,15 @@ var CommunityListContainer = React.createClass({
 							</div>
 							<div role="tabpanel" className="tab-pane tabCreate fade" id="create">
 								<CreateCommunity activePersona={this.props.activePersona}
+												setActiveCommunity={this.setActiveCommunity}
 												addAllCommunitiesState={this.addAllCommunitiesState}
-	                       		 				addMyCommunitiesState={this.addMyCommunitiesState}
-	                       		 				viewDetailAfterAdd={this.viewDetailAfterAdd}
-	                       		 />
+	                       		 				addMyCommunitiesState={this.addMyCommunitiesState} />
+	                       		 				
 							</div>
+							<div role="tabpanel" className="tab-pane tabCreate fade" id="communityDetail">
+								<CommunityDetailComponent activeCommunity={this.state.activeCommunity} />							
+							</div>
+
 						</div>
 					</div>
 			</div>
@@ -220,4 +201,4 @@ var CommunityListContainer = React.createClass({
 	}
 });
 
-module.exports = CommunityListContainer;
+module.exports = CommunitiesContainer;

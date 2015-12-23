@@ -4,7 +4,7 @@ var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');
 var SettingsComponent = require('./settingsContainer');
 var ProfileComponent = require('./profileContainer');
-var CommunitiesComponent = require('./communitiesContainer');
+var CommunitiesComponent = require('./communities/communitiesContainer');
 var HomeComponent = require('./homeContainer');
 
 var MainBodyContainer = React.createClass({

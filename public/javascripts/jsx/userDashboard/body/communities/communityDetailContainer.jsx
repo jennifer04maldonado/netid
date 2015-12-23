@@ -1,20 +1,21 @@
-var CalendarModal = require('.././common/commCalendarModal');
-var CommunityDetailContainer = React.createClass({
+var CalendarModal = require('./../../common/commCalendarModal');
+var CommunityDetailContainer = React.createClass({	
 	viewList: function(event){				
 		this.props.viewList();
 	},		
 	render: function(){
+		var community = this.props.activeCommunity;
 		return(
 			<div className="col-sm-12 bodyContent">
 				<div className="col-sm-12 commDetailTitle">	
-					<h4><a onClick={this.viewList} href="#back"><i className="fa fa-arrow-left"></i>Back to Explore Communities</a></h4>
+
 				</div>	
 				<div className="col-sm-12 commDetailBody">
 					<img src={"/images/coders.jpg"} className="col-sm-4 col-sm-offset-2"/>
 					<div className="col-sm-4 commDetailText">	
-						<h3>{this.props.activeCommunity.name}<a href="#"><i className="fa fa-plus-circle"></i></a></h3>
-						<p>{this.props.activeCommunity.description}</p>
-						<p> Community ID: {this.props.activeCommunity.id}</p>
+						<h3>{community ? community.name : ''}<a href="#"><i className="fa fa-plus-circle"></i></a></h3>
+						<p>{community? community.description : ''}</p>
+						<p> Community ID: {community ? community.id : ''}</p>
 						<p>Public/ Private</p>
 						<p><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>130 Members</a></p>
 						<p><a href="#commCalendar" data-toggle="modal" data-target="#commCalendarModal"><i className="fa fa-calendar"></i>Calendar</a></p>

@@ -119,7 +119,7 @@ var DashboardApp = React.createClass({
 		//console.log("getting persona from table. id= " + personaId);	    
 	    $.each(this.state.allPersonas, function (index,  persona) {
 	      if (personaId == persona.persona_id) {
-	        console.log("found persona activePersonaId =" + persona.persona_id);	        
+	        //console.log("found persona activePersonaId =" + persona.persona_id);	        
 	        done(persona);
 	      }
 	    });				
@@ -135,10 +135,6 @@ var DashboardApp = React.createClass({
     	this.setState({allCommunities: allCommunities});
     },           
 	//callback from CommunityDao
-    setAllCommunities: function(allCommunities){
-    	//console.log('community records:' + allCommunities.length);
-    	this.setState({allCommunities: allCommunities});
-    },               
     addAllCommunitiesState: function(community){
  		var allCommunities = this.state.allCommunities;		
 		allCommunities.push(community);		
