@@ -3,6 +3,8 @@ var PersonaValidation = {
     resetForm: function(){		
     	//console.log('resetting form');
     	var resetPersona = {};
+    	resetPersona.name = '';
+    	resetPersona.description = '';
 		this.setState({persona: resetPersona});
 	},
 };
