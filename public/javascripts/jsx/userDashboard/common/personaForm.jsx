@@ -107,42 +107,7 @@ var PersonaForm = React.createClass({
 						    <fieldset className="form-group">
 							   <label htmlFor="exampleInputFile">Upload an Image</label>
 							   <input name="file" type="file" className="form-control-file" id="exampleInputFile"></input>
-						    </fieldset>
-						    <fieldset className="form-group">
-							    <div className="dropup col-sm-12">
-								    <button className="btn btn-default dropdown-toggle col-sm-3" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								        Change Color
-								        <span className="caret"></span>
-								    </button>
-									    <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-										    <div className="col-sm-12 colorPicker">
-											    <a href="#">	
-											    	<div className="col-sm-4 colorBox1"></div>
-											    </a>	
-										    	<a href="#">	
-											    	<div className="col-sm-4 colorBox2"></div>
-											    </a>	
-										    	<a href="#">	
-											    	<div className="col-sm-4 colorBox3"></div>
-											    </a>		
-										    </div>
-										    <div className="col-sm-12 colorPicker">
-											    <a href="#">	
-											    	<div className="col-sm-4 colorBox4"></div>
-											    </a>	
-										    	<a href="#">	
-											    	<div className="col-sm-4 colorBox5"></div>
-											    </a>	
-										    	<a href="#">	
-											    	<div className="col-sm-4 colorBox6"></div>
-											    </a>		
-										    </div>
-									  	</ul>
-								  	<a href="#">	
-										<div className="colorBoxSelect col-sm-3"></div>
-									</a>
-								</div>
-							</fieldset>	
+						    </fieldset>	
 						</form>
         );
     }

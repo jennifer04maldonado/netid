@@ -38,12 +38,12 @@ var PersonaIndex = React.createClass({
 			return (
 		        <div className={myClassName} id="accordion">
 		        	<div className="col-sm-12 personaActiveImage">
-                            <div className="personaImage">
-                                <img src={this.props.activePersona.image}/>
-                            </div>
-                            <div className="col-sm-12 personaActiveName">
-                            	<h3>{this.props.activePersona.persona_name}</h3>
-                            </div>
+                        <div className="col-sm-12 personaActiveName">
+                        	<h3>{this.props.activePersona.persona_name}</h3>
+                        </div>
+                        <div className="personaImage">
+                            <img src={this.props.activePersona.image}/>
+                        </div>
                     </div>
                     <div id='socialPersonaContainer'>
 		        		<SinglePersonaHeader personaType={this.props.personaTypeSocial} activePersona={this.props.activePersona} headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} setAddPersonaType={this.setAddPersonaType}/>
