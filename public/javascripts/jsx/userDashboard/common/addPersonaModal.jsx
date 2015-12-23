@@ -3,7 +3,7 @@ var PersonaForm = require('./personaForm');
 var AddPersonaModal = React.createClass({		
 	getDefaultProps: function() {
 		return {
-			initPersona: {}			
+			
 		}
 	},
 	getInitialState: function() {
@@ -133,7 +133,7 @@ var AddPersonaModal = React.createClass({
 				    </div>
 				    <div className="modal-body">
 
-				    <PersonaForm ref='formRef'setPersona={this.setPersona} activePersona={this.props.initPersona} />
+				    <PersonaForm ref='formRef' personaType={this.props.personaType} setPersona={this.setPersona} activePersona={null} />
 
 				    </div>
 				    <div className="modal-footer">
