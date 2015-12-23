@@ -46,6 +46,9 @@ var MainBodyContainer = React.createClass({
 											addAllCommunitiesState={this.addAllCommunitiesState}
 	                       		 			addMyCommunitiesState={this.addMyCommunitiesState} />
 			  </div>
+			  <div id="navSettings" className="tab-pane fade">
+					<SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />
+			  </div>
 
 			</div>
 
