@@ -18,14 +18,26 @@
 		ul{
 			border-bottom: 0px;
 			border-bottom: 4px solid #1D1D1D;
+			li.active a{
+                background-color: #006A56;
+                border: 1px solid #313131;
+                color: white;
+            }
 			li{
 				border: none;
 				margin-bottom: 0px;
 				a{
 					padding-bottom: 8px;
 					border-radius: 0px;
-					
+					color: gray;
 				}
+				a:hover{
+                    background-color: #313131;
+                    border: 1px solid #313131;
+                } 
+                a:focus{
+                    background-color: #006A56;
+                }
 			}
 		}
 		.tab-content{

@@ -16,6 +16,10 @@
                         ul{
                            list-style-type: none;
                            padding-left: 0px;
+                            li.active a{
+                                background-color: #006A56;
+                                color: white;
+                            }
                             li{
                                 font-size: 14px;
                                 color: white;
@@ -25,20 +29,28 @@
                                     border-left: thin solid #A6A7A7;
                                 }
                                 a{
-                                    color: white;
+                                    color: lightgray;
                                     border-radius: 0px;
                                     i{
                                         font-size: 18px;
                                     }    
                                 }
+                            
                                 input{
                                 display: inline-block;
                                 border-radius: 20px;
                                 margin-left: 15px;
                                 height: 28px;
                                 margin-top: 5px;
+                                }
+                                a:hover{
+                                    background-color: transparent;
+                                    color: white;
                                 } 
-                            }                   
+                                a:focus{
+                                    background-color: #006A56;
+                                }
+                            }                 
                         }
                     }
                 }
