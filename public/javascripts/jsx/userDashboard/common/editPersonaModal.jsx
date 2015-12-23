@@ -27,9 +27,7 @@ var EditPersonaModal = React.createClass({
 				        <h5 className="modal-title">Edit Persona</h5>
 				    </div>
 				    <div className="modal-body">
-
-				    <PersonaForm activePersona={this.props.activePersona} />
-
+				    	<PersonaForm activePersona={this.props.activePersona} />
 				    </div>
 				    <div className="modal-footer">
 				    	<button data-toggle="modal" data-target="#editPersonaModal" onClick={this.updatePersona} type="submit" className={this.props.readOnly ? "hidden" : "btn btn-primary col-sm-12"}>Update</button>

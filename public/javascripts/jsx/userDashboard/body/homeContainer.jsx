@@ -4,11 +4,11 @@ var HomeContainer = React.createClass({
 	render: function(){
 		return(
 			<div className="homeContent">
-				<div className="col-sm-12 msgTitle">
+				<div className="col-sm-12 homeTitle">
 					<h4><i className="fa fa-rss"></i>{this.props.activePersona ? this.props.activePersona.persona_name: ''}</h4>
 				</div>
-				<div className="col-sm-12 commDetailFeed">
-					<div className="col-sm-offset-2 col-sm-8 media commDetailPostBody">
+				<div className="col-sm-12 homeDetailFeed">
+					<div className="col-sm-offset-2 col-sm-8 media homeDetailPostBody">
 						<div className="well">	
 							<form>
 								<input type="text" className="form-control" placeholder="Post something here" ></input>
@@ -31,7 +31,7 @@ var HomeContainer = React.createClass({
 							<button className="btn">Comment</button>
 						</div>
 					</div>
-					<div className="col-sm-offset-2 col-sm-8 media commDetailPostBody2">
+					<div className="col-sm-offset-2 col-sm-8 media homeDetailPostBody2">
 						<div className="media-left">
 						    <a href="#">
 						      <img className="media-object" src={"/images/girl2.jpg"}/>
@@ -46,7 +46,7 @@ var HomeContainer = React.createClass({
 							<button className="btn">Comment</button>
 						</div>
 					</div>
-					<div className="row col-sm-8 col-sm-offset-2 media profilePostsElementPicture">
+					<div className="row col-sm-8 col-sm-offset-2 media homePostsPicture">
 						<div className="media-left">
 						    <a href="#">
 						      <img className="media-object" src={"/images/ein.jpeg"}/>
