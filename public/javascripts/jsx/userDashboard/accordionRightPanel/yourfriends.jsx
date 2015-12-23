@@ -1,3 +1,5 @@
+var ReactTestUtils = React.addons.TestUtils;
+
 //var ipfs = window.ipfsAPI();
 var MessageModal = require('./../common/messageModal');
 //INPUT: EVENTUALLY WILL BE DATA OBJECT W/ YOUR FRIENDS
@@ -33,9 +35,13 @@ var YourFriends = React.createClass({
 
   },
   setMemberPersonaId: function(event){
-    var memberPersonaId = event.target.dataset.memberPersonaId;    
+
+    //this call clicks the 'profile in main nav'
+    $('#navProfileTab').tab('show');
+
+    var memberPersonaId = event.target.dataset.memberPersonaId;        
     this.props.setMemberPersonaId(memberPersonaId);
-  },     
+  },
   getYourFriendsIPFS: function(personaId, done) {
     var net = this.props.api
     var fr = net.account.getFriends();

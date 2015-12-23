@@ -76,12 +76,11 @@ var PersonaForm = React.createClass({
 			    </fieldset>
 			    <fieldset className="form-group ">
 			    	<label>Persona Type</label>
-					    <select onChange={this.onChangeHandler} name="personType" className="form-control" value={persona ? this.state.persona.persona_type: ''}>
+					    <select onChange={this.onChangeHandler} name="personaType" className="form-control" value={persona ? persona.persona_type: this.props.personaType}>
 					      <option>Social</option>
 					      <option>Professional</option>
 					    </select>
 			    </fieldset>
-
 			    <fieldset className="form-group">
 			    	<label>What is your ethnicity?</label>
 				    <select name="ethnicity" multiple className="form-control" >
