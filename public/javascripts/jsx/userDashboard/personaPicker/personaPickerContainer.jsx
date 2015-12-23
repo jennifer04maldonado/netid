@@ -1,13 +1,6 @@
 
 
 var PersonaPicker = React.createClass({
-
-    setActiveBody: function(selectedValue, event){
-        //console.log('selected: ' + selectedValue);
-        //console.log('event: ' + event);
-        this.props.setActiveBody(selectedValue);        
-    },
-
     render: function(){
         
         var defaultAvatar = '../images/avatar.png';
@@ -20,28 +13,28 @@ var PersonaPicker = React.createClass({
                 <div className="col-sm-6 col-sm-offset-4 personaPickerRight">
                     <div className="personaNavOptions">
                         <ul className='nav nav-pills'>
-                            <li className={this.props.headerSelection == 'home' ? 'active' : ''}>
-                                <a href="#home" onClick={this.setActiveBody.bind(this, 'home')}>
+                            <li className="active">
+                                <a href="#navHome" data-toggle="tab" >
                                     Home
                                 </a>
                             </li>
-                            <li className={this.props.headerSelection == 'communities' ? 'active' : ''}>                                
-                                <a href="#communities" onClick={this.setActiveBody.bind(this, 'communities')}>
+                            <li>                                
+                                <a href="#navCommunities" data-toggle="tab">
                                     Communities
                                 </a>
                             </li>
-                            <li className={this.props.headerSelection == 'messages' ? 'active' : ''}>   
-                                <a href="#messages" onClick={this.setActiveBody.bind(this, 'messages')}>
+                            <li >   
+                                <a href="#navMessages" data-toggle="tab">
                                     Messages
                                 </a>
                             </li>
-                            <li className={this.props.headerSelection == 'interactions' ? 'active' : ''}>    
-                                <a href="#interactions" onClick={this.setActiveBody.bind(this, 'interactions')}>
+                            <li >    
+                                <a href="#navInteractions" data-toggle="tab" >
                                     Interactions
                                 </a>
                             </li>
                             <li>    
-                                <a href="#profile" onClick={this.setActiveBody.bind(this, 'profile')}>
+                                <a id="navProfileTab" href="#navProfile" data-toggle="tab">
                                     Profile
                                 </a>
                             </li>
@@ -51,7 +44,7 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>                                
-                                <a href="#settings" onClick={this.setActiveBody.bind(this, 'settings')}>
+                                <a href="#navSettings" data-toggle="tab">
                                     <i className="fa fa-cog"></i>
                                 </a>
                             </li>

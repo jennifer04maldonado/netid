@@ -19,7 +19,6 @@ var DashboardApp = React.createClass({
 		return {
             personas : [],
             activePersona: null,
-            headerSelection: 'home',
             showLoading: true,
             api: {},
             memberPersona: null,
@@ -85,12 +84,6 @@ var DashboardApp = React.createClass({
     	}
 
     },
-  	setActiveBody: function(headerSelection) {
-  		this.setState({
-  			headerSelection: headerSelection,
-  			viewMemberPersona: false //set view members to false
-  		});
-  	},
 	setActivePersonaCont: function(activePersonaId, callback) {
 		var activePersona = null;		
 		$.each(this.state.personas, function (index,  persona) {
@@ -117,7 +110,6 @@ var DashboardApp = React.createClass({
 		console.log('getting persona for personaId: ' + personaId);
 		var self = this;
 		this.getPersonaByPersonaId(personaId, function(persona) {			
-			self.setState({headerSelection: 'profile'});
 			self.setState({viewMemberPersona: true});
 			self.setState({memberPersona: persona});
 		});
@@ -183,7 +175,7 @@ var DashboardApp = React.createClass({
         return (
             <div className="dashboardContainer">
                 <div id="personaPicker" className="personaPicker">
-					<PersonaPickerComponent headerSelection={this.state.headerSelection} setActiveBody={this.setActiveBody} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />               
+					<PersonaPickerComponent activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} />               
 	                <div className="col-sm-12 mainUserDashboardArea">
 	                    <div className="col-sm-2" id="personaIndex">
 	                    	<div>
@@ -194,8 +186,7 @@ var DashboardApp = React.createClass({
 	                        <div className="col-sm-12" id="viewPort">
 	                       		 <MainBodyComponent api={this.state.api} 
 	                       		 					viewMemberPersona={this.state.viewMemberPersona} 
-	                       		 					memberPersona={this.state.memberPersona} 
-	                       		 					headerSelection={this.state.headerSelection} 
+	                       		 					memberPersona={this.state.memberPersona} 	                       		 					
 	                       		 					activePersona={this.state.activePersona} 
 	                       		 					useIPFS={this.props.useIPFS} 
 	                       		 					myCommunities={this.state.myCommunities} 

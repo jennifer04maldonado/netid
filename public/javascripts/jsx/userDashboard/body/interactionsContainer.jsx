@@ -96,18 +96,6 @@ var InteractionsContainer = React.createClass({
 		this.props.api.account.updateIntStatus(address, status);
 	},  
 	
-  	//this method fetches data from IPFS or AJAX				
-	componentDidMount: function() {
-      	var personaId = this.props.activePersona.id;
-
-		if (this.props.useIPFS) {
-			this.getInteractionsIPFS(personaId);
-		} else {
-			this.getInteractions(personaId);
-		}
-
-	},
-	
 	render: function(){
 		var self = this
 		var net = this.props.api
@@ -122,8 +110,8 @@ var InteractionsContainer = React.createClass({
 					case 1:	cssClass = "btn btn-info interactionsButton";
 							interaction.status = "Rate";
 							break;
-					case 2: cssClass = "btn btn-warning interactionsButtons";
-							interaction.status = "Dispute";
+					case 2: cssClass = "btn btn-warning interactionsButton";
+							interaction.status = "Dispute / Confirm";
 							break;
 					default: cssClass = "btn btn-default interactionsButton";
 							 interaction.status = "Finished";
@@ -131,7 +119,8 @@ var InteractionsContainer = React.createClass({
 				rows.push(
 					<tr key={index}>
 						<td> {interaction.address} </td>
-						<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
+						<td className="interactionRating">5</td>
+						<td className="interactionChat"><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
 						<td className={cssClass} onClick={self.updateStatus.bind(this, interaction.address, interaction.statusCode)} > {interaction.status} </td>
 					</tr>
 				);
@@ -144,7 +133,7 @@ var InteractionsContainer = React.createClass({
 	                <div className="row">
 	                	<h3>Interactions</h3>
 	                    <button data-toggle="collapse" data-target="#addInterDiv" className="btn"><i className="fa fa-plus-circle"></i>Create New Interaction</button>
-	                    <div id='addInterDiv' className='collapse well col-sm-12 '>
+	                    <div id="addInterDiv" className="collapse well col-sm-12">
 		                    <form action="" ref = "form">
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" rows="1" id="responderContractAddy"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
@@ -153,10 +142,11 @@ var InteractionsContainer = React.createClass({
 						</div>	
                 	</div>
 				<div className="row col-sm-12 panel panel-default">
-		            <table ref = "interactionsTable" className="table table-striped">
+		            <table ref = "interactionsTable" className="table table-hover">
 		            	<thead>
 					      	<tr>
-						        <th>Interactions</th>
+						        <th>Interaction Number</th>
+						        <th>Rating</th>
 						        <th>Chat</th>
 						        <th>Status</th>
 					      	</tr>

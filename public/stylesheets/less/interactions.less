@@ -12,29 +12,34 @@
                 margin-right: 8px;
             }
         }
-        .well{
+        #addInterDiv{
             border-radius: 0;
+            width: 96%;
             form{
                 .etherAddress{
-                    height: 30px;
+                    height: 37px;
                     resize: none;
                     margin-bottom: 10px;
                     color: black;
-
+                    padding-top: 7px;
                 }
                 .parametersOfInteraction{
                     resize: none;
                     color: black;
+                    padding-top: 7px;
                 }
                 button{
                     margin-top: 10px;
+                    width: 20%;
+                    height: 35px;
+                    float: right;
                 }
             }
         }
     }
     .panel{
         border-radius: 0px;
-        padding: 5px;
+        padding: 10px;
         table{
             thead{
                 tr{
@@ -43,15 +48,31 @@
             }
             tbody{
                 tr{
+                    border-bottom: 1px solid #ddd;
                     .chatTransactionIcon{
                         padding-left: 8px;
                     }
                     .interactionsButton{
                         border-radius: 0px;
                         padding-left: 8px;
+                        height: 35px;
+                        vertical-align: center;
+                        margin-top: 7px;
+                        width: 100%;
+                        border-top: 1px solid #ddd;
                     }
                     td{
                         color: #313131;
+                        height: 50px;
+                        vertical-align: middle;
+                        border-top: none;
+                    }
+                    .interactionRating{
+                        padding-left: 25px;
+                        width: 15%;
+                    }
+                    .interactionChat{
+                        width: 13%;
                     }
                 }
             }

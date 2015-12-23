@@ -1,7 +1,8 @@
 var EditPersonaModal = require('.././common/editPersonaModal');
 
-var ProfileContainer = React.createClass({
+var ProfileContainer = React.createClass({	
 	render: function(){
+		var persona = this.props.activePersona;
 		return(
 			<div className="col-sm-12 settingsCntnr">
 				<div className="col-sm-12 settingsTitle">
@@ -10,7 +11,7 @@ var ProfileContainer = React.createClass({
 				<div className="col-sm-8 col-sm-offset-2 profileDetailBody">
 					<img src={"/images/ein.jpeg"} className="col-sm-offset-2 profileImage"/>
 					<div className="col-sm-offset-2 col-sm-8 profileDetailText">	
-						<h3 className="row ">{this.props.activePersona.persona_name}
+						<h3 className="row ">{persona ? persona.persona_name : ''}
 							<a href="#editPersonaModal" data-toggle="modal" data-target="#editPersonaModal"><i className="fa fa-pencil-square-o"></i></a>
 							<ul className="col-sm-9 col-sm-offset-1 profileScoreList">
 								<li className="masterScoreListItem">Master Score - 78</li>
@@ -18,7 +19,7 @@ var ProfileContainer = React.createClass({
 								<li>Professional - 81</li>
 							</ul>
 						</h3>
-						<p>{this.props.activePersona.description}</p>
+						<p>{persona ? persona.description : ''}</p>
 					</div>	
 		        </div>
 		        <div className="col-sm-8 col-sm-offset-2 profileInputField">
