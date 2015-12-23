@@ -666,7 +666,6 @@ NetidAPI.prototype.getInteractionStatus = function(addr){
 }
 
 NetidAPI.prototype.updateIntStatus = function (address, status) {
-  debugger;
   var intContAbi = this.setEthereumAbi("interactions");
   var intCont = intContAbi.at(address);
   if(status == 0)
