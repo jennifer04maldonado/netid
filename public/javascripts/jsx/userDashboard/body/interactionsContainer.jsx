@@ -145,7 +145,7 @@ var InteractionsContainer = React.createClass({
 	                <div className="row">
 	                	<h3>Interactions</h3>
 	                    <button data-toggle="collapse" data-target="#addInterDiv" className="btn"><i className="fa fa-plus-circle"></i>Create New Interaction</button>
-	                    <div id='addInterDiv' className='collapse well col-sm-12 '>
+	                    <div id="addInterDiv" className="collapse well col-sm-12">
 		                    <form action="" ref = "form">
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" rows="1" id="responderContractAddy"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
