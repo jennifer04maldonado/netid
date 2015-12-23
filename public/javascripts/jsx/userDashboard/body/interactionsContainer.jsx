@@ -96,18 +96,6 @@ var InteractionsContainer = React.createClass({
 		this.props.api.account.updateIntStatus(address, status);
 	},  
 	
-  	//this method fetches data from IPFS or AJAX				
-	componentDidMount: function() {
-      	var personaId = this.props.activePersona.id;
-
-		if (this.props.useIPFS) {
-			this.getInteractionsIPFS(personaId);
-		} else {
-			this.getInteractions(personaId);
-		}
-
-	},
-	
 	render: function(){
 		var self = this
 		var net = this.props.api
