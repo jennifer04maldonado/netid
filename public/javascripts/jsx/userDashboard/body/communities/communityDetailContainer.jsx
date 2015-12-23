@@ -1,4 +1,4 @@
-var CalendarModal = require('.././common/commCalendarModal');
+var CalendarModal = require('./../../common/commCalendarModal');
 var CommunityDetailContainer = React.createClass({	
 	viewList: function(event){				
 		this.props.viewList();

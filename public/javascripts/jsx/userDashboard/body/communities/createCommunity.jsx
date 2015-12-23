@@ -50,8 +50,8 @@ var CreateCommunity = React.createClass({
 	
 	},
 	onChangeHandler: function(event){
-		console.log('event: ' + event.target.name);
-		console.log('value: ' + event.target.value);
+		// console.log('event: ' + event.target.name);
+		// console.log('value: ' + event.target.value);
 		//TODO: validation
 		var community = this.state.community;
 		var elementName = event.target.name;

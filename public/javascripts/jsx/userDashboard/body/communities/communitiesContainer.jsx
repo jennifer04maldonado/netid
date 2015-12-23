@@ -1,8 +1,8 @@
 var CommunityListComponent = require('./communityListContainer');
 var MyCommunityListComponent = require('./myCommunityListContainer');
 var CommunityDetailComponent = require('./communityDetailContainer');
-var	MembersListModal = require('./../common/membersListModal');
-var CreateCommunity = require('./community/createCommunity');
+var	MembersListModal = require('./../../common/membersListModal');
+var CreateCommunity = require('./createCommunity');
 
 var CommunitiesContainer = React.createClass({
 	

@@ -1,5 +1,3 @@
-var CreateCommunity = require('./communitySub/createCommunity');
-
 var CommunityListContainer = React.createClass({
 	viewDetail: function(event){		
 		//console.log('viewDetail: ' + event.target.dataset.communityId);
