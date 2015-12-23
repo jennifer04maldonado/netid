@@ -26,29 +26,51 @@ var InteractionsContainer = React.createClass({
 			}			
 		}
 	},
-  	getInteractions: function() {
+  	getInteractions: function(personaId) {
+		var self = this;
+		var caughtData = false;
 		$.get('.././json_files/data/netid-account/personas/interactionsSchema.json', function(result) {
+			var data = null;
+			for (var i in result){
+				if(result[i].id == personaId) {
+					caughtData = true;
+					data = result[i];
+					for (var j in data.interactions) {
+						data.interactions[j].statusCode = Math.floor(Math.random() * (4 - 0)) + 0;
+					}
+					self.setState({interactionsData: data});
+				}
+				
+			}
+			if(!caughtData){
+					var emptyState = this.getInitialState().interactionsData;
+					self.setState({interactionsData: emptyState});
+			}
 			return result;
 	   	}.bind(this));
   	},
 
   	getInteractionsIPFS: function(personaId) {
-	      	
+	    var net = this.props.api
 	    var self = this;
 		var caughtData = false;
+		var data = null;
 		 
 		this.props.api.account.getInteractions(function(result) { 
 			if(self.isMounted()){
 				for (var i in result){
-						if(result[i].id === personaId) {
-							caughtData = true;
-
-							self.setState({interactionsData: result[i]});
+					if(result[i].id === personaId) {
+						caughtData = true;
+						data = result[i];
+						for (var j in result[i].interactions){
+							data.interactions[j].statusCode = (net.account.getInteractionStatus(result[i].interactions[j].address)).c[0];
 						}
+						self.setState({interactionsData: data});
+					}
 				}
 				if(caughtData == false){
 					var emptyState = self.getInitialState().interactionsData;
-					self.setState({interactionsData: emptyState});
+					self.setState({interactionsData: emptyState.interactions});
 				}
 			}	
 		})
@@ -92,9 +114,8 @@ var InteractionsContainer = React.createClass({
 		var rows = [];
 		var cssClass = "";
 		this.state.interactionsData.interactions.forEach(function(interaction, index) {
- 			var contractState = net.account.getInteractionStatus(interaction.address);
- 			if(contractState){
-				switch (contractState.c[0]){
+ 			if(interaction.address != " "){
+				switch (interaction.statusCode){
 					case 0:	cssClass = "btn btn-success interactionsButton";
 							interaction.status = "Accept";
 							break;
@@ -105,13 +126,13 @@ var InteractionsContainer = React.createClass({
 							interaction.status = "Dispute";
 							break;
 					default: cssClass = "btn btn-default interactionsButton";
-							 interaction.status = "Done";
+							 interaction.status = "Finished";
 				}
 				rows.push(
 					<tr key={index}>
 						<td> {interaction.address} </td>
 						<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
-						<td className={cssClass} onClick={self.updateStatus.bind(this, interaction.address, contractState.c[0])} > {interaction.status} </td>
+						<td className={cssClass} onClick={self.updateStatus.bind(this, interaction.address, interaction.statusCode)} > {interaction.status} </td>
 					</tr>
 				);
 			}
