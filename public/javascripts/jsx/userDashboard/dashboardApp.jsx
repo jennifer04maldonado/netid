@@ -142,6 +142,21 @@ var DashboardApp = React.createClass({
     	//console.log('community records:' + allCommunities.length);
     	this.setState({allCommunities: allCommunities});
     },           
+	//callback from CommunityDao
+    setAllCommunities: function(allCommunities){
+    	//console.log('community records:' + allCommunities.length);
+    	this.setState({allCommunities: allCommunities});
+    },               
+    addAllCommunitiesState: function(community){
+ 		var allCommunities = this.state.allCommunities;		
+		allCommunities.push(community);		
+    	this.setState({allCommunities: allCommunities});
+    },               
+    addMyCommunitiesState: function(community){
+ 		var myCommunities = this.state.myCommunities;		
+		myCommunities.push(community);		
+    	this.setState({myCommunities: myCommunities});
+    },                   
 	//callback from PersonaDao
     setAllPersonas: function(allPersonas){
     	//console.log('persona2 records:' + allPersonas.length);
@@ -177,7 +192,18 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                    <div className="row col-sm-8 mainView">
 	                        <div className="col-sm-12" id="viewPort">
-	                       		 <MainBodyComponent api={this.state.api} viewMemberPersona={this.state.viewMemberPersona} memberPersona={this.state.memberPersona} headerSelection={this.state.headerSelection} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} myCommunities={this.state.myCommunities} allCommunities={this.state.allCommunities}/>
+	                       		 <MainBodyComponent api={this.state.api} 
+	                       		 					viewMemberPersona={this.state.viewMemberPersona} 
+	                       		 					memberPersona={this.state.memberPersona} 
+	                       		 					headerSelection={this.state.headerSelection} 
+	                       		 					activePersona={this.state.activePersona} 
+	                       		 					useIPFS={this.props.useIPFS} 
+	                       		 					myCommunities={this.state.myCommunities} 
+	                       		 					allCommunities={this.state.allCommunities}
+	                       		 					addAllCommunitiesState={this.addAllCommunitiesState}
+	                       		 					addMyCommunitiesState={this.addMyCommunitiesState}
+
+	                       		 	/>
 
 	                        </div>
 	                    </div>

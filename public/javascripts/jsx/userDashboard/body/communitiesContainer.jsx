@@ -40,14 +40,27 @@ var CommunitiesContainer = React.createClass({
 		});
 		//console.log('active community:' + activeCommunity.name);
 		this.setState({activeCommunity: activeCommunity});
+  	}, 	
 
-  }, 	
+	addAllCommunitiesState: function(community){		
+		this.props.addAllCommunitiesState(community);
+	},	
+    addMyCommunitiesState: function(community){
+    	this.props.addMyCommunitiesState(community);
+    },
 	render: function(){
 		var communityBody = null;
 		if (this.state.isDetail) {
 			communityBody = <CommunityDetailComponent activeCommunity={this.state.activeCommunity} viewList={this.toggleView} />;
 		} else {
-			communityBody = <CommunityListComponent setActiveCommunity={this.setActiveCommunity} allCommunities={this.props.allCommunities} myCommunities={this.props.myCommunities} viewDetail={this.toggleView} />;
+			communityBody = <CommunityListComponent activePersona={this.props.activePersona} 
+													setActiveCommunity={this.setActiveCommunity} 
+													allCommunities={this.props.allCommunities} 
+													myCommunities={this.props.myCommunities} 
+													viewDetail={this.toggleView} 
+													addAllCommunitiesState={this.addAllCommunitiesState}
+	                       		 					addMyCommunitiesState={this.addMyCommunitiesState} 
+	                       	/>
 		}
 		return(						
 			<div>

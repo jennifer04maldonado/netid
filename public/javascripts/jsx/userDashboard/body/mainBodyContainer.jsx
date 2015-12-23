@@ -18,6 +18,12 @@ var MainBodyContainer = React.createClass({
 		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.persona_name);
 		this.setState({activePersona: nextProps.activePersona});
   	},
+    addAllCommunitiesState: function(community){
+    	this.props.addAllCommunitiesState(community);
+    },               
+    addMyCommunitiesState: function(community){
+    	this.props.addMyCommunitiesState(community);
+    },   	  
 	render: function(){
 		var activeBody = null;
 
@@ -35,7 +41,13 @@ var MainBodyContainer = React.createClass({
 				activeBody = <ProfileComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />;
 				break;	
 			case 'communities':
-				activeBody = <CommunitiesComponent activePersona={this.state.activePersona} myCommunities={this.props.myCommunities} allCommunities={this.props.allCommunities}/>;
+				activeBody = <CommunitiesComponent 
+									activePersona={this.state.activePersona} 
+									myCommunities={this.props.myCommunities} 
+									allCommunities={this.props.allCommunities}
+									addAllCommunitiesState={this.addAllCommunitiesState}
+	                       		 	addMyCommunitiesState={this.addMyCommunitiesState}
+	                   			/>;
 				break;
 			case 'settings':
 				activeBody = <SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />;
