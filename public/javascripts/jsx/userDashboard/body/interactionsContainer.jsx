@@ -110,8 +110,8 @@ var InteractionsContainer = React.createClass({
 					case 1:	cssClass = "btn btn-info interactionsButton";
 							interaction.status = "Rate";
 							break;
-					case 2: cssClass = "btn btn-warning interactionsButtons";
-							interaction.status = "Dispute";
+					case 2: cssClass = "btn btn-warning interactionsButton";
+							interaction.status = "Dispute / Confirm";
 							break;
 					default: cssClass = "btn btn-default interactionsButton";
 							 interaction.status = "Finished";
@@ -119,7 +119,8 @@ var InteractionsContainer = React.createClass({
 				rows.push(
 					<tr key={index}>
 						<td> {interaction.address} </td>
-						<td><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
+						<td className="interactionRating">5</td>
+						<td className="interactionChat"><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
 						<td className={cssClass} onClick={self.updateStatus.bind(this, interaction.address, interaction.statusCode)} > {interaction.status} </td>
 					</tr>
 				);
@@ -141,10 +142,11 @@ var InteractionsContainer = React.createClass({
 						</div>	
                 	</div>
 				<div className="row col-sm-12 panel panel-default">
-		            <table ref = "interactionsTable" className="table table-striped">
+		            <table ref = "interactionsTable" className="table table-hover">
 		            	<thead>
 					      	<tr>
-						        <th>Interactions</th>
+						        <th>Interaction Number</th>
+						        <th>Rating</th>
 						        <th>Chat</th>
 						        <th>Status</th>
 					      	</tr>

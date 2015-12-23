@@ -129,7 +129,7 @@ var AddPersonaModal = React.createClass({
 		        <div className="modal-content">
 				    <div className="modal-header">
 				        <button type="button" className="close" data-dismiss="modal">&times;</button>
-				        <h5 className="modal-title">Add {this.props.personaType} Persona</h5>
+				        <h5 className="modal-title">New {this.props.personaType} Persona</h5>
 				    </div>
 				    <div className="modal-body">
 
