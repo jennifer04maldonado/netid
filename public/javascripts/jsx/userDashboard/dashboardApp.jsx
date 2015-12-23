@@ -135,10 +135,6 @@ var DashboardApp = React.createClass({
     	this.setState({allCommunities: allCommunities});
     },           
 	//callback from CommunityDao
-    setAllCommunities: function(allCommunities){
-    	//console.log('community records:' + allCommunities.length);
-    	this.setState({allCommunities: allCommunities});
-    },               
     addAllCommunitiesState: function(community){
  		var allCommunities = this.state.allCommunities;		
 		allCommunities.push(community);		
