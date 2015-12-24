@@ -19,8 +19,8 @@ var CreateCommunity = React.createClass({
 		}		
 		//calls child function	
 		this.resetForm();
-
 		//setview to detail on new community just added
+		$("#communityDetailTab").tab("show");
 	},
 	createCommunityAJAX: function(){		
 		var community = {};
@@ -43,14 +43,15 @@ var CreateCommunity = React.createClass({
 		//update community list		
 		this.props.addAllCommunitiesState(community);		
 		this.props.addMyCommunitiesState(community);	
-		this.props.viewDetailAfterAdd(community.id);
+		this.props.setActiveCommunity(community.id);
+		
 	},
 	createCommunityIPFS: function(){		
 	
 	},
 	onChangeHandler: function(event){
-		console.log('event: ' + event.target.name);
-		console.log('value: ' + event.target.value);
+		// console.log('event: ' + event.target.name);
+		// console.log('value: ' + event.target.value);
 		//TODO: validation
 		var community = this.state.community;
 		var elementName = event.target.name;

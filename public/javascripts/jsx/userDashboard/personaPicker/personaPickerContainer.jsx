@@ -14,7 +14,7 @@ var PersonaPicker = React.createClass({
                     <div className="personaNavOptions">
                         <ul className='nav nav-pills'>
                             <li className="active">
-                                <a href="#navHome" data-toggle="tab" >
+                                <a href="#navHome" data-toggle="tab">
                                     Home
                                 </a>
                             </li>

@@ -4,7 +4,7 @@ var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');
 var SettingsComponent = require('./settingsContainer');
 var ProfileComponent = require('./profileContainer');
-var CommunitiesComponent = require('./communitiesContainer');
+var CommunitiesComponent = require('./communities/communitiesContainer');
 var HomeComponent = require('./homeContainer');
 
 var MainBodyContainer = React.createClass({
@@ -45,6 +45,9 @@ var MainBodyContainer = React.createClass({
 											allCommunities={this.props.allCommunities}
 											addAllCommunitiesState={this.addAllCommunitiesState}
 	                       		 			addMyCommunitiesState={this.addMyCommunitiesState} />
+			  </div>
+			  <div id="navSettings" className="tab-pane fade">
+					<SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />
 			  </div>
 
 			</div>
