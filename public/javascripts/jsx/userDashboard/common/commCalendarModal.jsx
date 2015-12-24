@@ -9,7 +9,7 @@ var commCalendarModal = React.createClass({
 				        <h4 className="modal-title"> Calendar</h4>
 				    </div>
 				    <div className="modal-body">
-				       <img src={"/images/calendarTemp.png"}/>
+				       <img src={"/images/calendarTemp.jpg"}/>
 				       <p className="row"><a href="#"><i className="fa fa-plus"></i>Add Event</a></p>
 				    </div>
 			    </div>
