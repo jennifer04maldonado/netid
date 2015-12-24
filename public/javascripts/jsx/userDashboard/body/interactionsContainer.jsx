@@ -92,7 +92,10 @@ var InteractionsContainer = React.createClass({
 	    }   		
   	},
 	
-	updateStatus : function( address, status){
+	updateStatus : function (address, status, event) {
+		if(status == 1 || status == 2){
+			//expand row here to add buttons/ratings	
+		}
 		this.props.api.account.updateIntStatus(address, status);
 	},  
 	
@@ -137,7 +140,7 @@ var InteractionsContainer = React.createClass({
 		                    <form action="" ref = "form">
 		                    	<textarea className="col-sm-12 etherAddress" placeholder="Ether Address" rows="1" id="responderContractAddy"></textarea>
 								<textarea className="col-sm-12 parametersOfInteraction" placeholder="Parameters of Interaction" rows="3"></textarea>
-							    <button className="btn btn-default" onClick={this.createInteraction} >Submit</button>
+							    <button className="btn btn-default" onClick={this.createInteraction} >Send</button>
 							</form> 
 						</div>	
                 	</div>
