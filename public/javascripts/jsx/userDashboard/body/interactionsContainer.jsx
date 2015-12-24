@@ -92,7 +92,10 @@ var InteractionsContainer = React.createClass({
 	    }   		
   	},
 	
-	updateStatus : function(address, status){
+	updateStatus : function (address, status, event) {
+		if(status == 1 || status == 2){
+			//expand row here to add buttons/ratings	
+		}
 		this.props.api.account.updateIntStatus(address, status);
 	},  
 	
