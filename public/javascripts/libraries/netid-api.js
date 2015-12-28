@@ -563,6 +563,7 @@ NetidAPI.prototype.addPersona = function(persona, done){
   console.log('Creating new persona')
   try {
     var profile_str = JSON.stringify(persona)
+    console.log(profile_str)
   } catch (e) {
     console.log('Error, invalid persona data:', e)
     return done(e)
@@ -574,12 +575,17 @@ NetidAPI.prototype.addPersona = function(persona, done){
     (e, cb) => {
       // Remove old profile files if present
       var path = '/netid-account/personas/personaSchema.json'
-      this.ipfs.files.rm(path, { r: true }, res => {
+      console.log('removing path ' +path)
+      this.ipfs.files.rm(path, { r: true }, (err, res) => {
+        if (err) 
+          cb(err)
         console.log('removed old personaSchema json file...')
+        cb()
       })
     },
     (cb) => {
       // Serialize profile and add to IPFS
+      console.log('testing', cb)
       this.ipfs.add(new Buffer(profile_str), cb)
     },
     (res, cb) => {
