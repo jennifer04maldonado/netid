@@ -68,7 +68,7 @@ var HomeContainer = React.createClass({
 		var mapPosts = this.state.personaPosts.map(function(post, index){
 
 			return (
-				<div key={post.id}>
+				<div key={post.id} className="postBody">
 					<div className="media-left" >
 						<a href="#">
 							<img className="media-object" src={post.pic}/>
