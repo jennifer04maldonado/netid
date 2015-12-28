@@ -124,7 +124,7 @@ var InteractionsContainer = React.createClass({
 						<td> {interaction.address} </td>
 						<td className="interactionRating">5</td>
 						<td className="interactionChat"><a href="#"><i className="fa fa-commenting chatTransactionIcon"></i></a></td>
-						<td className={cssClass} onClick={self.updateStatus.bind(this, interaction.address, interaction.statusCode)} > {interaction.status} </td>
+						<td className={cssClass} onClick={self.updateStatus.bind(null, interaction.address, interaction.statusCode)} > {interaction.status} </td>
 					</tr>
 				);
 			}
