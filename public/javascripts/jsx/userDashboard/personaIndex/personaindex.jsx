@@ -36,7 +36,7 @@ var PersonaIndex = React.createClass({
 		if(this.props.personas.length !== 0){
 			//console.log('rendering personas');
 			return (
-		        <div className={myClassName} id="accordion">
+		        <div className={myClassName}>
 		        	<div className="col-sm-12 personaActiveImage">
                         <div className="col-sm-12 personaActiveName">
                         	<h3>{this.props.activePersona.persona_name}</h3>
@@ -45,13 +45,13 @@ var PersonaIndex = React.createClass({
                             <img src={this.props.activePersona.image}/>
                         </div>
                     </div>
-                    <div id='socialPersonaContainer'>
+                    <div id="socialPersonaContainer">
 		        		<SinglePersonaHeader personaType={this.props.personaTypeSocial} activePersona={this.props.activePersona} headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} setAddPersonaType={this.setAddPersonaType}/>
 					</div>
-					<div id='professionalPersonaContainer'>
+					<div id="professionalPersonaContainer">
 		        		<SinglePersonaHeader personaType={this.props.personaTypeProfessional} activePersona={this.props.activePersona} headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} setAddPersonaType={this.setAddPersonaType}/>
 		        	</div>
-					<div id='personaBarFiller'> </div>				
+					<div id="personaBarFiller"> </div>				
 	            </div>
 			)
 		}

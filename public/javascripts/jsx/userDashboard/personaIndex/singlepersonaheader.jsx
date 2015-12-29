@@ -18,9 +18,9 @@ var SinglePersonaHeader = React.createClass({
 			var href = '#' + personaId;
 			var image = persona.image;
 
-			var myClassName = "col-sm-12 panel panel-default personaCntnr out";
-			var personaHeadingClassName = 'col-sm-12 panel-heading personaHeading';	
-			var notifcationClassName = 'notificationContainer';
+			var myClassName = "col-sm-12 panel panel-default personaCntnr";
+			var personaHeadingClassName = "col-sm-12 panel-heading personaHeading";	
+			var notifcationClassName = "notificationContainer";
 
 			if (self.props.activePersona.id == personaId) {
 				notifcationClassName += ' selected';

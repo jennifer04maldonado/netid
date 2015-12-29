@@ -151,7 +151,7 @@ var InteractionsContainer = React.createClass({
 						        <th>Interaction Number</th>
 						        <th>Rating</th>
 						        <th>Chat</th>
-						        <th>Status</th>
+						        <th className="interactionStatus">Status</th>
 					      	</tr>
 					   </thead>
 					   <tbody>
