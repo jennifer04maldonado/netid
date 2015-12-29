@@ -3,6 +3,7 @@
         "id": "1",
         "to_persona_id":"123",        
         "from_persona_name":"JenniFury",
+        "image": "/images/girl.jpg",
         "from_persona_id": "152",
         "date": "9:15am",
         "body": "Why do you make my life harder than it has to be?"
@@ -11,6 +12,7 @@
         "id": "2",
         "to_persona_id":"123",        
         "from_persona_name":"Naterade",
+        "image": "/images/ein.jpeg",
         "from_persona_id": "153",
         "date": "9:15am",
         "body": "Hey man, I see that we have a lot of similar communities. Do you want to make a transaction"
@@ -20,6 +22,7 @@
         "to_persona_id":"123",        
         "from_persona_name":"JoshtheBoss",
         "from_persona_id": "154",
+        "image": "/images/ein.jpeg",
         "date": "9:15am",
         "body": "Hey Josh is that you?"
         },
@@ -28,6 +31,7 @@
         "to_persona_id":"123",        
         "from_persona_name":"JoshtheBoss",
         "from_persona_id": "154",
+        "image": "/images/ein.jpeg",
         "date": "9:15am",
         "body": "are you getting this message?"
         },
@@ -36,6 +40,7 @@
         "to_persona_id":"123",        
         "from_persona_name":"JoshtheBoss",
         "from_persona_id": "154",
+        "image": "/images/ein.jpeg",
         "date": "9:15am",
         "body": "last message to you"
         }

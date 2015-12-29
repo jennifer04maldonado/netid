@@ -2,25 +2,72 @@ var MessageContainer = React.createClass({
 	getInitialState: function() {
 		return {
 			personas: this.props.personas,
-			fromGroup: []
-
+			fromGroup: [],
+			activeMessage: '',
+			activeFromId: '',
+			activeFromName: '',
+			activePersona: this.props.activePersona
 		}	
 	},	
 	componentWillReceiveProps: function(nextProps) {
 		if (nextProps.activePersona !== this.props.activePersona) {	      	
 	      	var personaId = nextProps.activePersona.id;			
-			if (this.props.useIPFS) {
-				this.getMessagesIPFS(personaId);
-			} else {
-				this.getMessages(personaId);
-			}			
+	      	this.setState({activePersona: nextProps.activePersona});
+			// if (this.props.useIPFS) {
+			// 	this.getMessagesIPFS(personaId);
+			// } else {
+			 	this.getMessages(personaId);
+			//}			
 		}
 	},
     getMessagesIPFS: function(personaId) {    	
 
 	},
+	setActiveFrom: function(fromPersonaId, fromPersonaName) {
+		// console.log('set active from');							 
+  //   	console.log('id: ' + fromPersonaId);
+  //   	console.log('name: ' + fromPersonaName);
+    	this.setState({activeFromId: fromPersonaId});
+    	this.setState({activeFromName: fromPersonaName});    	
+	},
+    sendMessage: function(event) {    	
+    	event.preventDefault();    	
+    	//console.log('message: ' + this.state.activeMessage);
+    	var message = {};
+    	message.id = Math.floor(Math.random()*100000000000000000);
+    	message.body = this.state.activeMessage;
+        message.to_persona_id = this.state.activeFromId;
+        message.from_persona_name = this.state.activePersona.persona_name;
+        message.from_persona_id = this.state.activePersona.id;
+        message.image = this.state.activePersona.image;
+        message.date = new Date();        
+
+        this.appendToMessagesByFrom(message);
+        this.setState({activeMessage: ''});
+
+	},	
+    appendToMessagesByFrom: function(message) {    	
+    	var from = message.to_persona_id;
+		var messages = [];
+		var fromGroup =  this.state.fromGroup;
+
+		if (fromGroup[from]) {
+			messages = fromGroup[from];
+			messages.push(message);
+			fromGroup[from] = messages;
+		} else {
+			messages.push(message);
+			fromGroup[from] = messages;
+		}
+
+    	this.setState({fromGroup: fromGroup});
+	},		
+
+    textHandler: function(event) {    	
+    	this.setState({activeMessage: event.target.value});
+	},		
     getMessages: function(personaId) {        	
-    	var self = this;
+    	var self = this;    	
 	    $.get('.././json_files/data/netid-account/personas/messages.json', function(result) {
 	    	if (self.isMounted()) {  	
 	    		var fromGroup = [];				             	          
@@ -40,19 +87,35 @@ var MessageContainer = React.createClass({
 	            	}
 	          	}
 	    		self.setState({fromGroup: fromGroup});
+	    		self.setFromActive();
 	      	}
     	});
     	
   	}, 	
+  	setFromActive:function() {
+  		//set first to active
+  		var count =  0;
+  		var self = this;
+		this.state.fromGroup.forEach(function(messageArray, key) {
+			if (count == 0) {
+				self.setState({activeFromId: messageArray[0].from_persona_id});
+				self.setState({activeFromName: messageArray[0].from_persona_name});
+			}
+			count++;										
+		});
+  	},
 	render: function(){
+		var count =0;
+		var self = this;
 		var fromList = this.state.fromGroup.map(function(messageArray, index){				
+			count++;
 			return (
-					<li key={messageArray[0].id}><a data-toggle="tab" href={"#" + messageArray[0].from_persona_name} className="list-group-item"><span className="badge">{messageArray.length}</span><img src={""}/><span className="personaName">{messageArray[0].from_persona_name}</span></a></li>
-				)			
+					<li onClick={self.setActiveFrom.bind(self,messageArray[0].from_persona_id, messageArray[0].from_persona_name)}   className={count  == 1 ? 'active' : ''} key={messageArray[0].id}><a data-toggle="tab" href={"#" + messageArray[0].from_persona_name} className="list-group-item"><span className="badge">{messageArray.length}</span><img src={messageArray[0].image}/><span className="personaName">{messageArray[0].from_persona_name}</span></a></li>					
+				)						
 		});
 
-
 		var messageList = [];
+		count = 0;
 		this.state.fromGroup.forEach(function(messageArray, key) {
 			// console.log('key2: ' + key);			
 			// console.log('messageArray length: ' + messageArray.length);			
@@ -62,13 +125,17 @@ var MessageContainer = React.createClass({
 							return (								
 									    <a key={index} href="#" className="list-group-item">
 										    <span className="time">1:44 pm</span>
-										    <img src={"/images/ein.jpeg"}/>
+										    <img src={message.image}/>
 										    <span className="personaName">{message.from_persona_name}</span>
 										    <p className="col-sm-offset-1">{message.body}</p>
 										</a>
 							)
 			});
-			var messageWrapper = <div key={key} id={messageArray[0].from_persona_name} className="list-group tab-pane fade in"> {message} </div>;
+			var cssClass = 'list-group tab-pane fade in';
+			count == 0 ? cssClass += ' active': '';
+			count++;
+
+			var messageWrapper = <div key={key} id={messageArray[0].from_persona_name} className={cssClass}> {message} </div>;
 			messageList.push(messageWrapper);
 		});
 
@@ -85,10 +152,10 @@ var MessageContainer = React.createClass({
 						</ul>
 					</div>	
 					<div className="col-sm-9 msgRightContent tab-content">		
-					{messageList}
-					<form>
-							<input type="text" className="form-control msgTextField" placeholder="Post something here"></input>
-							<button className="btn msgTextBtn"><i className="fa fa-paper-plane"></i></button>
+						{messageList}
+						<form>
+							<input value={this.state.activeMessage} onChange={this.textHandler} type="text" className="form-control msgTextField" placeholder="Post something here"></input>
+							<button onClick={this.sendMessage} className="btn msgTextBtn"><i className="fa fa-paper-plane"></i></button>
 						</form>
 					</div>
 				</div>	
