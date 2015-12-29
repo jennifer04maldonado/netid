@@ -26,7 +26,7 @@ var HomeContainer = React.createClass({
   	getPosts: function(personaId) {    
   		var self = this;
 	    $.get('.././json_files/data/netid-account/personas/wall.json', function(allPosts) {
-	          console.log('personaId:' + personaId);
+	          //console.log('personaId:' + personaId);
 
 	          var thisPersonaPosts = [];
 	          for (var i=0; i < allPosts.length; i++) {

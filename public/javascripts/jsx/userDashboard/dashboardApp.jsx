@@ -167,7 +167,8 @@ var DashboardApp = React.createClass({
     setAddPersonaType: function(personaType) {
     	this.setState({personaType: personaType});
     },
-    render: function(){		
+    render: function(){		    	
+
         return (
             <div className="dashboardContainer">
                 <div id="personaPicker" className="personaPicker">
@@ -182,8 +183,9 @@ var DashboardApp = React.createClass({
 	                        <div className="col-sm-12" id="viewPort">
 	                       		 <MainBodyComponent api={this.state.api} 
 	                       		 					viewMemberPersona={this.state.viewMemberPersona} 
-	                       		 					memberPersona={this.state.memberPersona} 	                       		 					
-	                       		 					activePersona={this.state.activePersona} 
+	                       		 					memberPersona={this.state.memberPersona} 
+	                       		 					personas={this.state.personas}	                       		 					
+	                       		 					activePersona={this.state.activePersona} 	                       		 					
 	                       		 					useIPFS={this.props.useIPFS} 
 	                       		 					myCommunities={this.state.myCommunities} 
 	                       		 					allCommunities={this.state.allCommunities}

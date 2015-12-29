@@ -1,7 +1,77 @@
-
-
 var MessageContainer = React.createClass({
+	getInitialState: function() {
+		return {
+			personas: this.props.personas,
+			fromGroup: []
+
+		}	
+	},	
+	componentWillReceiveProps: function(nextProps) {
+		if (nextProps.activePersona !== this.props.activePersona) {	      	
+	      	var personaId = nextProps.activePersona.id;			
+			if (this.props.useIPFS) {
+				this.getMessagesIPFS(personaId);
+			} else {
+				this.getMessages(personaId);
+			}			
+		}
+	},
+    getMessagesIPFS: function(personaId) {    	
+
+	},
+    getMessages: function(personaId) {        	
+    	var self = this;
+	    $.get('.././json_files/data/netid-account/personas/messages.json', function(result) {
+	    	if (self.isMounted()) {  	
+	    		var fromGroup = [];				             	          
+	        	for (var i=0; i < result.length; i++) {
+	            	if (personaId == result[i].to_persona_id) {
+	            		//console.log('from persona: ' + result[i].from_persona_name);
+	            		var from = result[i].from_persona_id;
+	            		var messages = [];
+	            		if (fromGroup[from]) {
+	            			messages = fromGroup[from];
+	            			messages.push(result[i]);
+	            			fromGroup[from] = messages;
+	            		} else {
+	            			messages.push(result[i]);
+							fromGroup[from] = messages;
+	            		}
+	            	}
+	          	}
+	    		self.setState({fromGroup: fromGroup});
+	      	}
+    	});
+    	
+  	}, 	
 	render: function(){
+		var fromList = this.state.fromGroup.map(function(messageArray, index){				
+			return (
+					<li key={messageArray[0].id}><a data-toggle="tab" href={"#" + messageArray[0].from_persona_name} className="list-group-item"><span className="badge">{messageArray.length}</span><img src={""}/><span className="personaName">{messageArray[0].from_persona_name}</span></a></li>
+				)			
+		});
+
+
+		var messageList = [];
+		this.state.fromGroup.forEach(function(messageArray, key) {
+			// console.log('key2: ' + key);			
+			// console.log('messageArray length: ' + messageArray.length);			
+			var message = messageArray.map(function(message, index) {				
+							// console.log('message from: ' + message.from_persona_name);
+							// console.log('body ' + message.body);
+							return (								
+									    <a key={index} href="#" className="list-group-item">
+										    <span className="time">1:44 pm</span>
+										    <img src={"/images/ein.jpeg"}/>
+										    <span className="personaName">{message.from_persona_name}</span>
+										    <p className="col-sm-offset-1">{message.body}</p>
+										</a>
+							)
+			});
+			var messageWrapper = <div key={key} id={messageArray[0].from_persona_name} className="list-group tab-pane fade in"> {message} </div>;
+			messageList.push(messageWrapper);
+		});
+
 		return(
 			<div className="col-sm-12 messageContent">
 				<div className="col-sm-12 msgTitle">
@@ -10,49 +80,13 @@ var MessageContainer = React.createClass({
 				<div className="col-sm-12 msgPersonaIndex">
 					<div className="col-sm-3 msgLeftList">
 						<input type="text" className="form-control" placeholder="Search"></input>
-						<div className="list-group">
-						    <a href="#" className="list-group-item"><span className="badge">1</span><img src={"/images/girl2.jpg"}/><span className="personaName">NatetheGreat</span></a>
-						    <a href="#" className="list-group-item"><span className="badge">2</span><img src={"/images/girl3.jpg"}/><span className="personaName">JensoCool</span></a>
-						    <a href="#" className="list-group-item active"><img src={"/images/girl.jpg"}/><span className="personaName">PersonaAwesome</span></a>
-						    <a href="#" className="list-group-item"><img src={"/images/kim.jpg"}/><span className="personaName">JamesCameron123</span></a>
-						    <a href="#" className="list-group-item"><span className="badge">1</span><img src={"/images/jenn.jpeg"}/><span className="personaName">ThisIsaPersona</span></a>
-						</div>
+						<ul className="list-group nav nav-pills nav-stacked">
+							{fromList}
+						</ul>
 					</div>	
-					<div className="col-sm-9 msgRightContent">
-						<p className="messageTitle">PersonaAwesome</p>
-						<div className="list-group">
-						    <a href="#" className="list-group-item">
-							    <span className="time">12:01 pm</span>
-							    <img src={"/images/ein.jpeg"}/>
-							    <span className="personaName">NatetheGreat</span>
-							    <p className="col-sm-offset-1">Tiled say decay spoil now walls meant house. My mr interest thoughts screened of outweigh removing. Evening society musical besides inhabit ye my. Lose hill well up will he over on. Increasing sufficient everything men him admiration unpleasing. Around really his use uneasy longer him man. His our pulled nature elinor talked now for excuse result. Admitted add peculiar get joy doubtful. </p>
-						    </a>
-						    <a href="#" className="list-group-item">
-							    <span className="time">12:23 pm</span>
-							    <img src={"/images/girl.jpg"}/>
-							    <span className="personaNameMsg">PersonaAwesome</span>
-							    <p className="col-sm-offset-1">Um, okay.</p>
-						    </a>
-						    <a href="#" className="list-group-item">
-							    <span className="time">1:44 pm</span>
-							    <img src={"/images/ein.jpeg"}/>
-							    <span className="personaName">NatetheGreat</span>
-							    <p className="col-sm-offset-1">Evening society musical besides inhabit ye my. Lose hill well up will he over on. Increasing sufficient everything men him admiration unpleasing. Around really his use uneasy longer him man. His our pulled nature elinor talked now for excuse result. Admitted add peculiar get joy doubtful. </p>
-						    </a>
-						    <a href="#" className="list-group-item">
-							    <span className="time">1:49 pm</span>
-							    <img src={"/images/girl.jpg"}/>
-							    <span className="personaNameMsg">PersonaAwesome</span>
-							    <p className="col-sm-offset-1">dude youre not making sense </p>
-						    </a>
-						    <a href="#" className="list-group-item">
-							    <span className="time">3:03 pm</span>
-							    <img src={"/images/ein.jpeg"}/>
-							    <span className="personaName">NatetheGreat</span>
-							    <p className="col-sm-offset-1">Ok nevermind.</p>
-						    </a>
-						</div>
-						<form>
+					<div className="col-sm-9 msgRightContent tab-content">		
+					{messageList}
+					<form>
 							<input type="text" className="form-control msgTextField" placeholder="Post something here"></input>
 							<button className="btn msgTextBtn"><i className="fa fa-paper-plane"></i></button>
 						</form>

@@ -24,14 +24,14 @@ var MainBodyContainer = React.createClass({
     addMyCommunitiesState: function(community){
     	this.props.addMyCommunitiesState(community);
     },   	  
-	render: function(){
+	render: function(){		
 		return(
 			<div className="tab-content">
 			  <div id="navHome" className="tab-pane fade in active">
 			  		<HomeComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} />
 			  </div>
 			  <div id="navMessages" className="tab-pane fade">
-			  		<MessagesComponent activePersona={this.state.activePersona} />
+			  		<MessagesComponent activePersona={this.state.activePersona} personas={this.props.personas}/>
 			  </div>
 			  <div id="navInteractions" className="tab-pane fade">
 			  		<InteractionsComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} api={this.props.api} />
