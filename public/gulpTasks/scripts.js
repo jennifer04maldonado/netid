@@ -57,3 +57,27 @@ gulp.task('individualCommView', function(){
 	build()
 	bundler.on('update', build)
 });
+
+
+gulp.task('signUpApp', function(){
+	var bundler = watchify(browserify({
+		entries: ['javascripts/jsx/signUp/signUpApp.jsx',],
+		extensions: ['.jsx'],
+		debug: true,
+		transform:['babelify'],
+		cache:{},
+		packageCache: {},
+		fullPaths: true
+	}));
+
+	function build(file){
+		if (file) gutil.log('Recompiling ' + file);
+		return bundler
+			.bundle()
+			.on('error', gutil.log.bind(gutil, 'Browserify Error'))
+			.pipe(source('signUpApp.js'))
+			.pipe(gulp.dest('javascripts/js/'));
+	};
+	build()
+	bundler.on('update', build)
+});
