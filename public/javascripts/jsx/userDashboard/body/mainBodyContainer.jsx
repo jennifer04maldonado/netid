@@ -1,11 +1,11 @@
-
-
 var MessagesComponent = require('./messageContainer');
 var InteractionsComponent = require('./interactionsContainer');
 var SettingsComponent = require('./settingsContainer');
 var ProfileComponent = require('./profileContainer');
 var CommunitiesComponent = require('./communities/communitiesContainer');
 var HomeComponent = require('./homeContainer');
+
+
 
 var MainBodyContainer = React.createClass({
 	getInitialState: function() {
@@ -24,22 +24,27 @@ var MainBodyContainer = React.createClass({
     addMyCommunitiesState: function(community){
     	this.props.addMyCommunitiesState(community);
     },   	  
+    setMembersList: function(communityId){
+    	this.props.setMembersList(communityId);
+    },   	      
 	render: function(){		
 		return(
 			<div className="tab-content">
 			  <div id="navHome" className="tab-pane fade in active">
-			  		<HomeComponent useIPFS={this.props.useIPFS} 
+			  		<HomeComponent useIPFS={this.props.useIPFS}
 			  					   api={this.props.api}
 			  					   activePersona={this.state.activePersona} />
 			  </div>
 			  <div id="navMessages" className="tab-pane fade">
-			  		<MessagesComponent activePersona={this.state.activePersona} 
+			  		<MessagesComponent	activePersona={this.state.activePersona} 
 			  							useIPFS={this.props.useIPFS}
 			  							api={this.props.api}
 			  							personas={this.props.personas}/>
 			  </div>
 			  <div id="navInteractions" className="tab-pane fade">
-			  		<InteractionsComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} api={this.props.api} />
+			  		<InteractionsComponent useIPFS={this.props.useIPFS} 
+			  							   activePersona={this.state.activePersona} 
+			  							   api={this.props.api} />
 			  </div>
 			  <div id="navProfile" className="tab-pane fade">
 			  		<ProfileComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} /> 
@@ -49,12 +54,12 @@ var MainBodyContainer = React.createClass({
 											myCommunities={this.props.myCommunities} 
 											allCommunities={this.props.allCommunities}
 											addAllCommunitiesState={this.addAllCommunitiesState}
+											setMembersList={this.setMembersList}
 	                       		 			addMyCommunitiesState={this.addMyCommunitiesState} />
 			  </div>
 			  <div id="navSettings" className="tab-pane fade">
 					<SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />
 			  </div>
-
 			</div>
 
 		)

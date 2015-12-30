@@ -1,14 +1,13 @@
 var CommunityListComponent = require('./communityListContainer');
 var MyCommunityListComponent = require('./myCommunityListContainer');
 var CommunityDetailComponent = require('./communityDetailContainer');
-var	MembersListModal = require('./../../common/membersListModal');
 var CreateCommunity = require('./createCommunity');
+
 
 var CommunitiesContainer = React.createClass({
 	
 	getInitialState: function(){		
 		return {
-            isDetail: false,
             activeCommunity: null
         }
 	},	
@@ -34,6 +33,9 @@ var CommunitiesContainer = React.createClass({
 	viewMembers: function(communityId){		
 		this.props.setActiveCommunity(communityId);
 	},			    
+	setMembersList: function(communityId){		
+		this.props.setMembersList(communityId);
+	},			    	
 	render: function(){
 		var self = this;
 		return(						
@@ -51,11 +53,15 @@ var CommunitiesContainer = React.createClass({
 						</ul>
 						<div className="tab-content col-sm-10">
 							<div role="tabpanel" className="tab-pane tabExplore active " id="explore">
-								<CommunityListComponent setActiveCommunity={this.setActiveCommunity} allCommunities={this.props.allCommunities}/>
+								<CommunityListComponent setActiveCommunity={this.setActiveCommunity} 
+														setMembersList = {this.setMembersList}
+														allCommunities={this.props.allCommunities}/>
 							</div>
 							<div role="tabpanel" className="tab-pane tabCommunities fade" id="communities">
 								<div className="panel panel-default">
-									<MyCommunityListComponent setActiveCommunity={this.setActiveCommunity} myCommunities={this.props.myCommunities}/>
+									<MyCommunityListComponent setActiveCommunity={this.setActiveCommunity} 
+															  setMembersList = {this.setMembersList}
+															  myCommunities={this.props.myCommunities}/>
 								</div>
 							</div>
 							<div role="tabpanel" className="tab-pane tabManage fade" id="manage">
@@ -187,7 +193,8 @@ var CommunitiesContainer = React.createClass({
 								<CreateCommunity activePersona={this.props.activePersona}
 												setActiveCommunity={this.setActiveCommunity}
 												addAllCommunitiesState={this.addAllCommunitiesState}
-	                       		 				addMyCommunitiesState={this.addMyCommunitiesState} />
+	                       		 				addMyCommunitiesState={this.addMyCommunitiesState} 
+	                       		 				setMembersList={this.setMembersList} />
 	                       		 				
 							</div>
 							<div role="tabpanel" className="tab-pane tabCreate fade" id="communityDetail">
