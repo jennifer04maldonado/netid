@@ -31,7 +31,10 @@ var MainBodyContainer = React.createClass({
 			  		<HomeComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} />
 			  </div>
 			  <div id="navMessages" className="tab-pane fade">
-			  		<MessagesComponent activePersona={this.state.activePersona} personas={this.props.personas}/>
+			  		<MessagesComponent activePersona={this.state.activePersona} 
+			  							useIPFS={this.props.useIPFS}
+			  							api={this.props.api}
+			  							personas={this.props.personas}/>
 			  </div>
 			  <div id="navInteractions" className="tab-pane fade">
 			  		<InteractionsComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} api={this.props.api} />

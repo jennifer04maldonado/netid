@@ -1,3 +1,4 @@
+"use strict"
 var EventEmitter = require('wolfy87-eventemitter')
 var asyncjs = require('async')
 
@@ -620,6 +621,21 @@ NetidAPI.prototype.getAllCommunities = function(){
   return this.allCommunities
 }
 
+NetidAPI.prototype.getAllMessages = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/messages.json',(err2,res) => {
+    if(err2){
+          this.ee.emit('error',err2)
+          //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.allMessages = JSON.parse(res);
+      this.ee.emit('allMessages',undefined);
+      this.ee.removeEvent('allMessages');
+      //done(null,p)
+    }
+  })
+  return this.allMessages
+}
 
 //web3 api endpoints
 NetidAPI.prototype.getBalance = function(){
