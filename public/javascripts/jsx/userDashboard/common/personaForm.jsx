@@ -9,13 +9,24 @@ var PersonaForm = React.createClass({
 	    	persona: this.props.activePersona
 	    }
 	},
+	componentWillReceiveProps: function(nextProps) {
+		if (nextProps.activePersona !== this.props.activePersona) {	      	
+	      	this.setState({persona: nextProps.activePersona});
+		}
+	},	
     //validation
 	onChangeHandler: function(event){
-		// console.log('event: ' + event.target.name);
-		// console.log('value: ' + event.target.value);
+		//console.log('event: ' + event.target.name);
+		//console.log('value: ' + event.target.value);
 		//TODO: validation
 
-		var persona = this.state.persona;
+		var persona;
+		if (this.state.persona == null) {
+			persona = {};
+		} else {
+			persona = this.state.persona;
+		}
+		
 		var elementName = event.target.name;
 
 		switch (elementName)  {
