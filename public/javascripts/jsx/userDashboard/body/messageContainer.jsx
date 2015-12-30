@@ -13,15 +13,21 @@ var MessageContainer = React.createClass({
 		if (nextProps.activePersona !== this.props.activePersona) {	      	
 	      	var personaId = nextProps.activePersona.id;			
 	      	this.setState({activePersona: nextProps.activePersona});
-			// if (this.props.useIPFS) {
-			// 	this.getMessagesIPFS(personaId);
-			// } else {
+			if (this.props.useIPFS) {
+			 	this.getMessagesIPFS(personaId);
+			} else {
 			 	this.getMessages(personaId);
-			//}			
+			}			
 		}
 	},
-    getMessagesIPFS: function(personaId) {    	
+    getMessagesIPFS: function(personaId) {    					
 
+	  	var net = this.props.api;	    
+	   	net.account.getAllMessages();		  
+	    net.account.ee.on('allMessages',err => {		    	
+	    	var result = net.account.allMessages;
+			this.setGroupMessagesByFrom(personaId, result);			
+	     });
 	},
 	setActiveFrom: function(fromPersonaId, fromPersonaName) {
 		// console.log('set active from');							 
@@ -70,30 +76,37 @@ var MessageContainer = React.createClass({
     	var self = this;    	
 	    $.get('.././json_files/data/netid-account/personas/messages.json', function(result) {
 	    	if (self.isMounted()) {  	
-	    		var fromGroup = [];				             	          
-	        	for (var i=0; i < result.length; i++) {
-	            	if (personaId == result[i].to_persona_id) {
-	            		//console.log('from persona: ' + result[i].from_persona_name);
-	            		var from = result[i].from_persona_id;
-	            		var messages = [];
-	            		if (fromGroup[from]) {
-	            			messages = fromGroup[from];
-	            			messages.push(result[i]);
-	            			fromGroup[from] = messages;
-	            		} else {
-	            			messages.push(result[i]);
-							fromGroup[from] = messages;
-	            		}
-	            	}
-	          	}
-	    		self.setState({fromGroup: fromGroup});
-	    		self.setFromActive();
+	    		self.setGroupMessagesByFrom(personaId, result);
 	      	}
     	});
     	
   	}, 	
+    setGroupMessagesByFrom: function(personaId, allMessages) {        
+    	var fromGroup = [];				             	          	   	
+	    var self = this;	
+    	
+    	for (var i=0; i < allMessages.length; i++) {
+        	if (personaId ==  allMessages[i].to_persona_id) {
+        		//console.log('from persona: ' + result[i].from_persona_name);
+        		var from = allMessages[i].from_persona_id;
+        		var messages = [];
+        		if (fromGroup[from]) {
+        			messages = fromGroup[from];
+        			messages.push(allMessages[i]);
+        			fromGroup[from] = messages;
+        		} else {
+        			messages.push(allMessages[i]);
+					fromGroup[from] = messages;
+        		}
+        	}
+      	}
+		self.setState({fromGroup: fromGroup});
+		self.setFromActive();
+
+    },
+  	//this sets first on list to active from email sender
   	setFromActive:function() {
-  		//set first to active
+  		
   		var count =  0;
   		var self = this;
 		this.state.fromGroup.forEach(function(messageArray, key) {
