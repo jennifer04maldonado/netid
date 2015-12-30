@@ -28,7 +28,9 @@ var MainBodyContainer = React.createClass({
 		return(
 			<div className="tab-content">
 			  <div id="navHome" className="tab-pane fade in active">
-			  		<HomeComponent useIPFS={this.props.useIPFS} activePersona={this.state.activePersona} />
+			  		<HomeComponent useIPFS={this.props.useIPFS} 
+			  					   api={this.props.api}
+			  					   activePersona={this.state.activePersona} />
 			  </div>
 			  <div id="navMessages" className="tab-pane fade">
 			  		<MessagesComponent activePersona={this.state.activePersona} 
