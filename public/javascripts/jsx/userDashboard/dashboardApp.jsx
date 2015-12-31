@@ -5,6 +5,7 @@ var RightControlComponent = require('./accordionRightPanel/accordionRightPanel')
 var MainBodyComponent = require('./body/mainBodyContainer');
 var LoadingModalComponent = require('./common/loadingModal');
 var AddPersonaModal = require('./common/addPersonaModal');
+var	MembersListModal = require('./common/membersListModal');
 
 var CommunityDaoComponent = require('./dao/communityDao');
 var PersonaDaoComponent = require('./dao/personaDao');
@@ -27,7 +28,8 @@ var DashboardApp = React.createClass({
 			showLoading: true,
 			allCommunities: [],
 			myCommunities: [],
-			personaType:''
+			personaType:'',
+			activeMembersList: []
 			}
 	},
 	initialize: function(){
@@ -152,21 +154,37 @@ var DashboardApp = React.createClass({
     },    
     updatePersonas: function(tempSchema){
     	//console.log("updating personas: " + tempSchema);
-    	var self = this
+    	var self = this;
     	self.setState({ 
         	personas: tempSchema
         });
     },
     addPersona: function(newPersona){
-
 		var myPersonas = this.state.personas;
 		myPersonas.push(newPersona);
-		this.setState({ personas: myPersonas })    	
-	  		
+		this.setState({ personas: myPersonas })    		  		
     },
     setAddPersonaType: function(personaType) {
     	this.setState({personaType: personaType});
-    },
+    },    
+    setMembersList: function(communityId) {
+    	var self = this;
+		this.state.allCommunities.forEach(function (community, index){
+		 	if (communityId == community.id) {
+		 		self.setMembersListState(community.members);
+		 	}
+		 });
+	},
+    setMembersListState: function(membersIdArray) {
+    	var membersList = [];
+		this.state.allPersonas.forEach(function (persona, index){
+			if (membersIdArray.indexOf(persona.persona_id) > -1) {
+//				console.log("found member info: " + persona.persona_name);
+				membersList.push(persona);
+			}
+		});
+		this.setState({activeMembersList: membersList});
+	},
     render: function(){		    	
 
         return (
@@ -191,7 +209,7 @@ var DashboardApp = React.createClass({
 	                       		 					allCommunities={this.state.allCommunities}
 	                       		 					addAllCommunitiesState={this.addAllCommunitiesState}
 	                       		 					addMyCommunitiesState={this.addMyCommunitiesState}
-
+	                       		 					setMembersList = {this.setMembersList}
 	                       		 	/>
 
 	                        </div>
@@ -203,7 +221,7 @@ var DashboardApp = React.createClass({
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
 				<AddPersonaModal useIPFS={this.props.useIPFS} personaType={this.state.personaType} api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas} addPersona={this.addPersona}/>		        		
-				
+				<MembersListModal activeMembersList={this.state.activeMembersList} />
 				<CommunityDaoComponent activePersona={this.state.activePersona} setMyCommunities={this.setMyCommunities} setAllCommunities={this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
 				<PersonaDaoComponent activePersona={this.state.activePersona} setAllPersonas={this.setAllPersonas}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     				
             </div>

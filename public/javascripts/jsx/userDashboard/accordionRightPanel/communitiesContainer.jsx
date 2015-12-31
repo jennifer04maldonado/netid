@@ -1,5 +1,3 @@
-var MembersListModal = require('.././common/membersListModal');
-
 var CommunitiesContainer = React.createClass({
 
 	render: function(){
@@ -15,8 +13,7 @@ var CommunitiesContainer = React.createClass({
 							<li className="commName"><a href="#">{community.name}</a></li>
 							<li className="commNumber"><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal">18,555 Members</a></li>
 						</ul>
-					</div>
-					<MembersListModal/>
+					</div>					
 				</div>					
 			);
 		});

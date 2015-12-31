@@ -20,15 +20,19 @@ var HomeContainer = React.createClass({
 	    }
   	},	
   	getPostsIPFS: function(personaId) {    
-  		
-
+	  	var net = this.props.api;	    
+	   	net.account.getAllPosts();		  
+	    net.account.ee.on('allPosts',err => {		    	
+	    	var result = net.account.allPosts;
+	    	this.setPersonaPosts(personaId, result);
+	     });
   	},
   	getPosts: function(personaId) {    
   		var self = this;
 	    $.get('.././json_files/data/netid-account/personas/wall.json', function(allPosts) {
 	          //console.log('personaId:' + personaId);
 
-	          var thisPersonaPosts = [];
+	     	  var thisPersonaPosts = [];
 	          for (var i=0; i < allPosts.length; i++) {
 	            if (personaId == allPosts[i].persona_id) {
 	              	thisPersonaPosts.push(allPosts[i]);
@@ -39,6 +43,18 @@ var HomeContainer = React.createClass({
 	          });
 	    });       
   	},  
+  	setPersonaPosts: function(personaId, allPosts) {
+  		  var self = this;
+		  var thisPersonaPosts = [];
+		  for (var i=0; i < allPosts.length; i++) {
+		    if (personaId == allPosts[i].persona_id) {
+		      	thisPersonaPosts.push(allPosts[i]);
+		    }
+		  }
+		  self.setState({
+		        personaPosts: thisPersonaPosts
+		  });
+  	},
   	postMessage: function(event) {    
   		
   		var post = {};

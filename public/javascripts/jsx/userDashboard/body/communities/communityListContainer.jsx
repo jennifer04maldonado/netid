@@ -8,7 +8,10 @@ var CommunityListContainer = React.createClass({
 	    $('#communityDetailTab').tab('show');
 
 	},		
-	render: function(){
+	setMembersList: function(communityId){		
+		this.props.setMembersList(communityId);		
+	},		
+	render: function() {
 		var self = this;
 		var allCommunitiesNode = this.props.allCommunities.map(function(community, index)  {
 	               			return (
@@ -18,15 +21,11 @@ var CommunityListContainer = React.createClass({
 										<p>{community.description}</p>
 										<div className="col-sm-12 memberCount">
 											<img src={"/images/friends.png"}/>
-											<a href="#" onClick={self.viewDetail.bind(self, community.id)} data-community-id={community.id} data-toggle="modal" data-target='#membersListModal'>{community.members_count} Members</a>
+											<a href="#" onClick={self.setMembersList.bind(self,community.id)} data-community-id={community.id} data-toggle="modal" data-target='#membersListModal'>{community.members.length} Members</a>
 										</div>
 									</div>
 								)
 							});
-
-
-
-
 		return(						
 			<div>
 			{allCommunitiesNode}
