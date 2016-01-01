@@ -67,7 +67,7 @@ var ProfileContainer = React.createClass({
 					    <h4 className="media-heading">NatetheGreat</h4>
 					    <span className="postImageCaption">So funny...I love these videos</span>
 					    <div className="embed-responsive embed-responsive-16by9 profilePostsElementVideo">
-						    <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/VJvRtkV5D3Y"></iframe>
+
 						</div>
 						<br></br>
 						<span className="postTimeStamp">10 days ago</span>

@@ -6,6 +6,21 @@ var MembersListModal = React.createClass({
 	},
 
     render: function(){
+
+    	var membersListNodes = this.props.activeMembersList.map(function (persona, index) {
+
+    		return (
+				<tr key={persona.id}>
+					<td><img src={"/images/starwars.jpg"}></img></td>
+					<td><a href="#">{persona.persona_name}</a></td>
+					<td>{persona.persona_type}</td>
+					<td><a href="#"><i className="fa fa-plus"></i></a></td>
+					<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
+				</tr>
+    		)
+    	});
+
+
         return (		   
 		<div id="membersListModal" className="modal fade" role="dialog">
 			<div className="modal-dialog">
@@ -26,62 +41,7 @@ var MembersListModal = React.createClass({
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td><img src={"/images/starwars.jpg"}></img></td>
-									<td><a href="#">NatetheGreat</a></td>
-									<td>Social</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>
-								<tr>
-									<td><img src={"/images/arnold.jpg"}></img></td>
-									<td><a href="#">JennyFury</a></td>
-									<td>Social</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>
-								<tr>
-									<td><img src={"/images/carrottop.jpg"}></img></td>
-									<td><a href="#">JoshtheBoss</a></td>
-									<td>Professional</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>
-								<tr>
-									<td><img src={"/images/dolph.png"}></img></td>
-									<td><a href="#">AsianScott</a></td>
-									<td>Social</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>
-								<tr>
-									<td><img src={"/images/girl.jpg"}></img></td>
-									<td><a href="#">NewGuyGage</a></td>
-									<td>Social</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>
-								<tr>
-									<td><img src={"/images/girl3.jpg"}></img></td>
-									<td><a href="#">ScottDotCom</a></td>
-									<td>Professional</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>
-								<tr>
-									<td><img src={"/images/hip.jpg"}></img></td>
-									<td><a href="#">CoolPersona</a></td>
-									<td>Social</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>
-								<tr>
-									<td><img src={"/images/kim.jpg"}></img></td>
-									<td><a href="#">WeirdPersona</a></td>
-									<td>Social</td>
-									<td><a href="#"><i className="fa fa-plus"></i></a></td>
-									<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
-								</tr>	
+							{membersListNodes}
 							</tbody>
 						</table>
 				    </div>
