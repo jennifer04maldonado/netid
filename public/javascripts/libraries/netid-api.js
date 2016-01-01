@@ -448,6 +448,7 @@ NetidAPI.prototype.init = function(done){
     } else if(res.ID){
       console.log('I am',res.ID)
       this.id = res.ID
+      //this can probably be replaced with 'ipfs files stat /' for all local queries to own database 
       this.resolveIPNS(res.ID)
       console.log('Version is',this.version)
       this.ipfs.add(new Buffer('netid:version:'+this.version),{n: true},(err2,r) => {
@@ -574,6 +575,7 @@ NetidAPI.prototype.addPersona = function(persona, done){
     cb => this.ipfs.files.mkdir('/netid-account/personas', { p: true }, cb),
     (e, cb) => {
       // Remove old profile files if present
+      //removing the path is not needed, just cp the new hash to the path
       var path = '/netid-account/personas/personaSchema.json'
       console.log('removing path ' +path)
       this.ipfs.files.rm(path, { r: true }, (err, res) => {
