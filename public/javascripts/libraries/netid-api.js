@@ -565,7 +565,6 @@ NetidAPI.prototype.addPersona = function(persona, done){
   console.log('Creating new persona')
   try {
     var profile_str = JSON.stringify(persona)
-    console.log(profile_str)
   } catch (e) {
     console.log('Error, invalid persona data:', e)
     return done(e)
@@ -573,10 +572,10 @@ NetidAPI.prototype.addPersona = function(persona, done){
 
   asyncjs.waterfall([
     // Create required directories
+    // Might do this in the account creation process and hope that it doesn't get lost, could need checks here
     cb => this.ipfs.files.mkdir('/netid-account/personas', { p: true }, cb),
     (e, cb) => {
       // Remove old profile files if present
-      //removing the path is not needed, just cp the new hash to the path
       var path = '/netid-account/personas/personaSchema.json'
       console.log('removing path ' +path)
       this.ipfs.files.rm(path, { r: true }, (err, res) => {
@@ -588,7 +587,6 @@ NetidAPI.prototype.addPersona = function(persona, done){
     },
     (cb) => {
       // Serialize profile and add to IPFS
-      console.log('testing', cb)
       this.ipfs.add(new Buffer(profile_str), cb)
     },
     (res, cb) => {

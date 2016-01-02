@@ -13,7 +13,7 @@ var PersonaDaoComponent = require('./dao/personaDao');
 var DashboardApp = React.createClass({		
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: false
+	      useIPFS: true
 		}      
 	},
 	getInitialState: function(){		
@@ -62,7 +62,6 @@ var DashboardApp = React.createClass({
 	    if(!this.isMounted()) return
 	    var ee = net.account.getEventEmitter()
 	    ee.on('init',err => {
-	    	console.log('Net API Object Created '+ net)
 	      if(!err && this.isMounted()){
 	      	var schemObj = net.account.schemaObject
 	        self.setState({ 
