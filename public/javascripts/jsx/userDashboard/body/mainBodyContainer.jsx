@@ -24,8 +24,8 @@ var MainBodyContainer = React.createClass({
     addMyCommunitiesState: function(community){
     	this.props.addMyCommunitiesState(community);
     },   	  
-    setMembersList: function(communityId){
-    	this.props.setMembersList(communityId);
+    setActiveCommunity: function(communityId){
+    	this.props.setActiveCommunity(communityId);
     },   	      
 	render: function(){		
 		return(
@@ -52,9 +52,10 @@ var MainBodyContainer = React.createClass({
 			  <div id="navCommunities" className="tab-pane fade">
 			  		<CommunitiesComponent 	activePersona={this.state.activePersona} 
 											myCommunities={this.props.myCommunities} 
+											activeCommunity={this.props.activeCommunity} 
 											allCommunities={this.props.allCommunities}
 											addAllCommunitiesState={this.addAllCommunitiesState}
-											setMembersList={this.setMembersList}
+											setActiveCommunity={this.setActiveCommunity}
 	                       		 			addMyCommunitiesState={this.addMyCommunitiesState} />
 			  </div>
 			  <div id="navSettings" className="tab-pane fade">

@@ -29,7 +29,8 @@ var DashboardApp = React.createClass({
 			allCommunities: [],
 			myCommunities: [],
 			personaType:'',
-			activeMembersList: []
+			activeCommunity: null,
+			activeCommunityMembers: []
 			}
 	},
 	initialize: function(){
@@ -167,15 +168,16 @@ var DashboardApp = React.createClass({
     setAddPersonaType: function(personaType) {
     	this.setState({personaType: personaType});
     },    
-    setMembersList: function(communityId) {
+    setActiveCommunity: function(communityId) {
     	var self = this;
 		this.state.allCommunities.forEach(function (community, index){
-		 	if (communityId == community.id) {
-		 		self.setMembersListState(community.members);
+		 	if (communityId == community.id) {		 		
+		 		self.setState({activeCommunity: community});
+		 		self.setActiveCommunityMembers(community.members);
 		 	}
 		 });
 	},
-    setMembersListState: function(membersIdArray) {
+    setActiveCommunityMembers: function(membersIdArray) {
     	var membersList = [];
 		this.state.allPersonas.forEach(function (persona, index){
 			if (membersIdArray.indexOf(persona.persona_id) > -1) {
@@ -183,7 +185,7 @@ var DashboardApp = React.createClass({
 				membersList.push(persona);
 			}
 		});
-		this.setState({activeMembersList: membersList});
+		this.setState({activeCommunityMembers: membersList});
 	},
     render: function(){		    	
 
@@ -209,19 +211,24 @@ var DashboardApp = React.createClass({
 	                       		 					allCommunities={this.state.allCommunities}
 	                       		 					addAllCommunitiesState={this.addAllCommunitiesState}
 	                       		 					addMyCommunitiesState={this.addMyCommunitiesState}
-	                       		 					setMembersList = {this.setMembersList}
-	                       		 	/>
+	                       		 					activeCommunity={this.state.activeCommunity}	                       		 					
+	                       		 					setActiveCommunity = {this.setActiveCommunity} />
 
 	                        </div>
 	                    </div>
 	                    <div className="col-sm-2" id="rightControlPanel">
-	   						<RightControlComponent setMemberPersona={this.setMemberPersona} activePersona={this.state.activePersona} useIPFS={this.props.useIPFS} api={this.state.api} myCommunities={this.state.myCommunities} />
+	   						<RightControlComponent setMemberPersona={this.setMemberPersona} 
+	   											   activePersona={this.state.activePersona} 
+	   											   useIPFS={this.props.useIPFS} 
+	   											   api={this.state.api} 
+	   											   setActiveCommunity={this.setActiveCommunity}
+	   											   myCommunities={this.state.myCommunities} />
 	                    </div>
 	                </div>
 	            </div>
 				<LoadingModalComponent showLoading={this.state.showLoading}/>
 				<AddPersonaModal useIPFS={this.props.useIPFS} personaType={this.state.personaType} api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas} addPersona={this.addPersona}/>		        		
-				<MembersListModal activeMembersList={this.state.activeMembersList} />
+				<MembersListModal activeMembersList={this.state.activeCommunityMembers} />
 				<CommunityDaoComponent activePersona={this.state.activePersona} setMyCommunities={this.setMyCommunities} setAllCommunities={this.setAllCommunities}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     
 				<PersonaDaoComponent activePersona={this.state.activePersona} setAllPersonas={this.setAllPersonas}  useIPFS={this.props.useIPFS} api={this.state.api}/>		     				
             </div>

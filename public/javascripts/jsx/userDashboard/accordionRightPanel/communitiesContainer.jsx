@@ -1,5 +1,7 @@
 var CommunitiesContainer = React.createClass({
-
+	setActiveCommunity: function(communityId){		
+		this.props.setActiveCommunity(communityId);		
+	},	
 	render: function(){
 		var self = this;
 		var communityNodes = this.props.myCommunities.map(function(community, index){
@@ -11,7 +13,7 @@ var CommunitiesContainer = React.createClass({
 					<div className="col-sm-8 commInd">
 						<ul>
 							<li className="commName"><a href="#">{community.name}</a></li>
-							<li className="commNumber"><a href="#membersListModal" data-toggle="modal" data-target="#membersListModal">18,555 Members</a></li>
+							<li className="commNumber"><a onClick={self.setActiveCommunity.bind(self,community.id)} href="#membersListModal" data-toggle="modal" data-target="#membersListModal">{community.members.length} Members</a></li>
 						</ul>
 					</div>					
 				</div>					
