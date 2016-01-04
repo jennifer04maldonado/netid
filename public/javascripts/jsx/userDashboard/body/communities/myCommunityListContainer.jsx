@@ -7,9 +7,8 @@ var MyCommunityListContainer = React.createClass({
 		  //this call clicks the hidden detail tab in the community nav
 	    $('#communityDetailTab').tab('show');
 	},		
-	setMembersList: function(communityId){		
-		console.log('viewDetail5: ' + communityId);
-		this.props.setMembersList(communityId);		
+	setActiveCommunity: function(communityId){				
+		this.props.setActiveCommunity(communityId);		
 	},			
 	render: function(){
 		var self = this;
@@ -25,7 +24,7 @@ var MyCommunityListContainer = React.createClass({
 											<div className="media-body">
 											    <h5> <a data-community-id={community.id} href="#" onClick={self.viewDetail} className="media-heading">{community.name}</a></h5>
 											    <span>{community.description} what is going on</span>
-												<h6><a onClick={self.setMembersList.bind(self, community.id)} href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>{community.members.length} Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
+												<h6><a onClick={self.setActiveCommunity.bind(self, community.id)} href="#membersListModal" data-toggle="modal" data-target="#membersListModal"><img src={"/images/friends.png"}/>{community.members.length} Members</a><i className="fa fa-unlock-alt"><span>Public</span></i></h6>
 											</div>
 										</div>
 								  	</div>

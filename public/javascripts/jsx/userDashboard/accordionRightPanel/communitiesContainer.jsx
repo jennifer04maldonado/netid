@@ -1,4 +1,11 @@
 var CommunitiesContainer = React.createClass({
+	setViewCommunityDetail: function(communityId){		
+		console.log('show detail');
+		this.props.setActiveCommunity(communityId);	
+		//this mimics user selecting Community tab
+ 		$('#navCommunitiesTab').tab('show');
+ 		
+	},		
 	setActiveCommunity: function(communityId){		
 		this.props.setActiveCommunity(communityId);		
 	},	
@@ -11,8 +18,8 @@ var CommunitiesContainer = React.createClass({
 						<img src={community.pic}/>
 					</div>
 					<div className="col-sm-8 commInd">
-						<ul>
-							<li className="commName"><a href="#">{community.name}</a></li>
+						<ul>						
+							<li className="commName"><a data-toggle="tab" onClick={self.setViewCommunityDetail.bind(self,community.id)} href="#communityDetail">{community.name}</a></li>
 							<li className="commNumber"><a onClick={self.setActiveCommunity.bind(self,community.id)} href="#membersListModal" data-toggle="modal" data-target="#membersListModal">{community.members.length} Members</a></li>
 						</ul>
 					</div>					

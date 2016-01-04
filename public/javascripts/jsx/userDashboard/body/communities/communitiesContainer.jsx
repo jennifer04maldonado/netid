@@ -175,8 +175,7 @@ var CommunitiesContainer = React.createClass({
 								<CreateCommunity activePersona={this.props.activePersona}
 												setActiveCommunity={this.setActiveCommunity}
 												addAllCommunitiesState={this.addAllCommunitiesState}
-	                       		 				addMyCommunitiesState={this.addMyCommunitiesState} 
-	                       		 				setMembersList={this.setMembersList} />
+	                       		 				addMyCommunitiesState={this.addMyCommunitiesState} />
 	                       		 				
 							</div>
 							<div role="tabpanel" className="tab-pane tabCreate fade" id="communityDetail">
