@@ -4,6 +4,7 @@ var CommunitiesContainer = React.createClass({
 		this.props.setActiveCommunity(communityId);	
 		//this mimics user selecting Community tab
  		$('#navCommunitiesTab').tab('show');
+ 		$('#communityDetailTab').tab('show');
  		
 	},		
 	setActiveCommunity: function(communityId){		
