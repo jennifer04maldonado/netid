@@ -11,30 +11,14 @@ var CommunitiesContainer = React.createClass({
             activeCommunity: null
         }
 	},	
-
-	setActiveCommunity: function(communityId) {
-		var activeCommunity = null;		
-		$.each(this.props.allCommunities, function (index,  row) {
-			if (communityId == row.id) {
-				//console.log("activePersonaId=" + persona.id);
-				activeCommunity = row;
-			}
-		});
-		//console.log('active community:' + activeCommunity.name);
-		this.setState({activeCommunity: activeCommunity});
-  	}, 	
-
 	addAllCommunitiesState: function(community){		
 		this.props.addAllCommunitiesState(community);
 	},	
     addMyCommunitiesState: function(community){
     	this.props.addMyCommunitiesState(community);
     },
-	viewMembers: function(communityId){		
+	setActiveCommunity: function(communityId){		
 		this.props.setActiveCommunity(communityId);
-	},			    
-	setMembersList: function(communityId){		
-		this.props.setMembersList(communityId);
 	},			    	
 	render: function(){
 		var self = this;
@@ -54,13 +38,11 @@ var CommunitiesContainer = React.createClass({
 						<div className="tab-content col-sm-10">
 							<div role="tabpanel" className="tab-pane tabExplore active " id="explore">
 								<CommunityListComponent setActiveCommunity={this.setActiveCommunity} 
-														setMembersList = {this.setMembersList}
 														allCommunities={this.props.allCommunities}/>
 							</div>
 							<div role="tabpanel" className="tab-pane tabCommunities fade" id="communities">
 								<div className="panel panel-default">
-									<MyCommunityListComponent setActiveCommunity={this.setActiveCommunity} 
-															  setMembersList = {this.setMembersList}
+									<MyCommunityListComponent setActiveCommunity={this.setActiveCommunity} 															  
 															  myCommunities={this.props.myCommunities}/>
 								</div>
 							</div>
@@ -193,12 +175,11 @@ var CommunitiesContainer = React.createClass({
 								<CreateCommunity activePersona={this.props.activePersona}
 												setActiveCommunity={this.setActiveCommunity}
 												addAllCommunitiesState={this.addAllCommunitiesState}
-	                       		 				addMyCommunitiesState={this.addMyCommunitiesState} 
-	                       		 				setMembersList={this.setMembersList} />
+	                       		 				addMyCommunitiesState={this.addMyCommunitiesState} />
 	                       		 				
 							</div>
 							<div role="tabpanel" className="tab-pane tabCreate fade" id="communityDetail">
-								<CommunityDetailComponent activeCommunity={this.state.activeCommunity} />							
+								<CommunityDetailComponent activeCommunity={this.props.activeCommunity} />							
 							</div>
 
 						</div>

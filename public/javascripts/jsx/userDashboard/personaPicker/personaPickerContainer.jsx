@@ -19,7 +19,7 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>                                
-                                <a href="#navCommunities" data-toggle="tab">
+                                <a id='navCommunitiesTab' href="#navCommunities" data-toggle="tab">
                                     Communities
                                 </a>
                             </li>

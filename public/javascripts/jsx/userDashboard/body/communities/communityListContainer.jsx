@@ -8,8 +8,8 @@ var CommunityListContainer = React.createClass({
 	    $('#communityDetailTab').tab('show');
 
 	},		
-	setMembersList: function(communityId){		
-		this.props.setMembersList(communityId);		
+	setActiveCommunity: function(communityId){		
+		this.props.setActiveCommunity(communityId);		
 	},		
 	render: function() {
 		var self = this;
@@ -21,7 +21,7 @@ var CommunityListContainer = React.createClass({
 										<p>{community.description}</p>
 										<div className="col-sm-12 memberCount">
 											<img src={"/images/friends.png"}/>
-											<a href="#" onClick={self.setMembersList.bind(self,community.id)} data-community-id={community.id} data-toggle="modal" data-target='#membersListModal'>{community.members.length} Members</a>
+											<a href="#" onClick={self.setActiveCommunity.bind(self,community.id)} data-community-id={community.id} data-toggle="modal" data-target='#membersListModal'>{community.members.length} Members</a>
 										</div>
 									</div>
 								)

@@ -1,5 +1,3 @@
-
-
 var RatingsPanel = require('./ratingspanel.jsx');
 var RightMenuContainer = require('./rightmenucontainer.jsx');
 var MessagesContainer = require('./messagesContainer.jsx');
@@ -39,6 +37,9 @@ var RightPanel = React.createClass({
 	setMemberPersonaId: function(memberPersonaId) {				
 		this.props.setMemberPersona(memberPersonaId);
 	},
+	setActiveCommunity: function(communityId){		
+		this.props.setActiveCommunity(communityId);		
+	},	
 	render: function() {
 		var menuItems = [
 			{id: 1, title: 'Messages', image: '/images/message.png' },
@@ -60,7 +61,9 @@ var RightPanel = React.createClass({
 							<FriendsOnlinePanel {...this.props} setMemberPersonaId={this.setMemberPersonaId} />
 						</div>
 						<div className={this.state.activeTopMenuId == 3 ? 'selected' : 'hidden'} >
-							<CommunitiesContainer myCommunities={this.props.myCommunities} useIPFS={this.props.useIPFS} />
+							<CommunitiesContainer myCommunities={this.props.myCommunities} 
+												  setActiveCommunity={this.setActiveCommunity}
+												  useIPFS={this.props.useIPFS} />
 						</div>
 					</div>
 					<div id='rightPanelBottomDiv'>
