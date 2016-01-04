@@ -63,7 +63,6 @@ var DashboardApp = React.createClass({
 	    if(!this.isMounted()) return
 	    var ee = net.account.getEventEmitter()
 	    ee.on('init',err => {
-	    	console.log('Net API Object Created '+ net)
 	      if(!err && this.isMounted()){
 	      	var schemObj = net.account.schemaObject
 	        self.setState({ 

@@ -449,6 +449,7 @@ NetidAPI.prototype.init = function(done){
     } else if(res.ID){
       console.log('I am',res.ID)
       this.id = res.ID
+      //this can probably be replaced with 'ipfs files stat /' for all local queries to own database 
       this.resolveIPNS(res.ID)
       console.log('Version is',this.version)
       this.ipfs.add(new Buffer('netid:version:'+this.version),{n: true},(err2,r) => {
@@ -564,7 +565,6 @@ NetidAPI.prototype.addPersona = function(persona, done){
   console.log('Creating new persona')
   try {
     var profile_str = JSON.stringify(persona)
-    console.log(profile_str)
   } catch (e) {
     console.log('Error, invalid persona data:', e)
     return done(e)
@@ -572,6 +572,7 @@ NetidAPI.prototype.addPersona = function(persona, done){
 
   asyncjs.waterfall([
     // Create required directories
+    // Might do this in the account creation process and hope that it doesn't get lost, could need checks here
     cb => this.ipfs.files.mkdir('/netid-account/personas', { p: true }, cb),
     (e, cb) => {
       // Remove old profile files if present
@@ -586,7 +587,6 @@ NetidAPI.prototype.addPersona = function(persona, done){
     },
     (cb) => {
       // Serialize profile and add to IPFS
-      console.log('testing', cb)
       this.ipfs.add(new Buffer(profile_str), cb)
     },
     (res, cb) => {
