@@ -1,59 +1,97 @@
-var PersonaDao = React.createClass({
-	getDefaultProps: function() {		
-	    return {
-	      //useIPFS: false
-	    };
-	},
+var PersonaDao = {
 	getInitialState: function(){		
 		return {
-          isLoaded: false  
-        }
-	},
-  	componentWillReceiveProps: function(nextProps) {    
-	    if (nextProps.activePersona !== this.props.activePersona) {	    	
-			if (nextProps.useIPFS) {
-				this.getAllPersonasIPFS();
+            personas : [],
+            allPersonas: [],            
+            activePersona: null
+            }
+	},	
+	componentWillUpdate: function(nextProps, nextState) {		
+	 	if (nextState.activePersona !== this.state.activePersona) {
+	  // 		console.log('init personas this persona: ' + this.state.activePersona);
+			// console.log('init personas  next persona:' + nextState.activePersona);
+			if (this.props.useIPFS) {
+				this.getAllPersonasIPFS(nextState.activePersona);
 			} else {
-				this.getAllPersonas();
+				this.getAllPersonas(nextState.activePersona);
 			}
-	    }
-  	},    
+	  	}
+	},	
+	setActivePersona: function(activePersonaId) {
+		var self = this;
+		$.each(this.state.personas, function (index,  persona) {
+			//console.log('"persona id:" + persona.id);
+			//console.log("persona name:" + persona.persona_name);			
+			if (activePersonaId == persona.id) {
+				//console.log('seting active persona: ' + persona.persona_name);
+				self.setState({
+					activePersona: persona,
+					viewMemberPersona:false
+				});
+			}
+		});		
+	},
+	//when user clicks user link, it renders their information in the profile tab
+	setMemberPersona: function(personaId) {
+		//console.log('getting persona for personaId: ' + personaId);
+		var self = this;
+		this.getPersonaByPersonaId(personaId, function(persona) {			
+			self.setState({viewMemberPersona: true});
+			self.setState({memberPersona: persona});
+		});
 
-    componentDidMount: function(){    
+	},		
+    getPersonaByPersonaId: function(personaId,done){
+		//console.log("getting persona from table. id= " + personaId);	    
+	    $.each(this.state.allPersonas, function (index,  persona) {
+	      if (personaId == persona.persona_id) {
+	        //console.log("found persona activePersonaId =" + persona.persona_id);	        
+	        done(persona);
+	      }
+	    });				
+    },
+                   
+    updatePersonas: function(tempSchema){
+    	//console.log("updating personas: " + tempSchema);
+    	var self = this;
+    	self.setState({ 
+        	personas: tempSchema
+        });
+    },
+    addPersona: function(newPersona){
+		var myPersonas = this.state.personas;
+		myPersonas.push(newPersona);
+		this.setState({ personas: myPersonas })    		  		
+    },
+    setAddPersonaType: function(personaType) {
+    	this.setState({personaType: personaType});
+    },    
 
-	},    
     getAllPersonas: function(){
 		var self = this;
-		if (!this.state.isLoaded) {
-			//console.log("Pre loading all personas from ajax");
+		if (this.state.allPersonas.length == 0) {
+			console.log("Pre loading all personas from ajax");
 			$.get( ".././json_files/data/netid-account/personas/personaTable.json", function( result, status ) {
 			  	//console.log('result size: '  + result.length);	
 				if (status == 'success') {				   
-		         	self.props.setAllPersonas(result);
-		         	self.setState({isLoaded: true});
+		         	self.setState({allPersonas: result});
 			 	}	 
 			});			
 		} 		
 	},
     getAllPersonasIPFS: function() {
-		if (!this.state.isLoaded) {
-			//console.log("Pre loading all personas from IPFS");
+    	//load only once
+		if (this.state.allPersonas.length == 0) {
+			console.log("Pre loading all personas from IPFS");
 			//only load once
 		  	var net = this.props.api;	    
 	       	var allPersonas = net.account.loadPersonaTable();		    		       	
 		    net.account.ee.on('personaTable',err => {
-		         this.props.setAllPersonas(net.account.personaTable);
-		         this.setState({isLoaded: true});
+		    	 this.setState({allPersonas: net.account.personaTable});		         
 		     });
 		}
-	},
-	render: function(){
-        return(
-			<div>
-			</div>
-		)
 	}
-});
+};
 
 
 module.exports = PersonaDao;

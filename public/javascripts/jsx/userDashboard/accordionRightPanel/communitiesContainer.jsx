@@ -1,9 +1,9 @@
 var CommunitiesContainer = React.createClass({
 	setViewCommunityDetail: function(communityId){		
-		console.log('show detail');
 		this.props.setActiveCommunity(communityId);	
 		//this mimics user selecting Community tab
  		$('#navCommunitiesTab').tab('show');
+ 		$('#communityDetailTab').tab('show');
  		
 	},		
 	setActiveCommunity: function(communityId){		
