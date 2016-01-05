@@ -72,8 +72,7 @@ var DashboardApp = React.createClass({
 	        self.setState({ 
 	        	showLoading: false,
 	        	personas: schemObj,
-	        	activePersona: schemObj[0],
-	        	IPFSConnected: true
+	        	activePersona: schemObj[0]
 	        });
 	      }
 	      if(err){
