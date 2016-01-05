@@ -1,6 +1,5 @@
 var CommunityDao = {
-
-		getInitialState: function(){		
+	getInitialState: function(){		
 			return {
 				allCommunities: [],
 				myCommunities: [],
@@ -13,12 +12,11 @@ var CommunityDao = {
 	  // 		console.log('init community this persona: ' + this.state.activePersona);
 			// console.log('init community next persona:' + nextState.activePersona);
 			var self = this;	    	
-			//load all communities only once
-			if (this.props.useIPFS && this.state.allCommunities.length == 0) {
+			if (this.props.useIPFS) {
 				this.getAllCommunitiesIPFS(function (){
 					self.getMyCommunities(nextState.activePersona);			
 				});    			
-			} else if (this.state.allCommunities.length == 0) {
+			} else {
 				this.getAllCommunities(function (){
 					self.getMyCommunities(nextState.activePersona);			
 				});				
@@ -26,7 +24,7 @@ var CommunityDao = {
 	  	}
 	},
     getAllCommunities: function(done){
-		console.log("Pre loading all community table from ajax");
+		//console.log("Pre loading all community table from ajax");
 		var self = this;
 		//only load once
 			$.get( ".././json_files/data/netid-account/personas/communities.json", function( result, status ) {
@@ -38,7 +36,7 @@ var CommunityDao = {
 		
 	},
     getAllCommunitiesIPFS: function(done) {
-		console.log("Pre loading all community table from IPFS");
+		//console.log("Pre loading all community table from IPFS");
 		//only load once
 		  	var net = this.state.api;	    
 	       	var allCommunities = net.account.getAllCommunities();		    		       	

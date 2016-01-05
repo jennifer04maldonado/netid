@@ -55,7 +55,9 @@ var RightPanel = React.createClass({
 				<div id="rightPanelContentContainer" className="rightCntnr">
 					<div id='rightPanelTopDiv'>
 						<div className={this.state.activeTopMenuId == 1 ? 'selected' : ' hidden'} >
-							<MessagesContainer useIPFS={this.props.useIPFS} {...this.props}  setMemberPersonaId={this.setMemberPersonaId}/>
+							<MessagesContainer useIPFS={this.props.useIPFS} {...this.props}
+											   allMessages={this.props.allMessages}  
+											   setMemberPersonaId={this.setMemberPersonaId}/>
 						</div>
 						<div className={this.state.activeTopMenuId == 2 ? 'selected' : 'hidden'} >
 							<FriendsOnlinePanel {...this.props} setMemberPersonaId={this.setMemberPersonaId} />

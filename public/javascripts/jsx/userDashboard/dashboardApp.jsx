@@ -9,11 +9,13 @@ var	MembersListModal = require('./common/membersListModal');
 
 var CommunityDaoComponent = require('./dao/communityDao');
 var PersonaDaoComponent = require('./dao/personaDao');
+var MessageDaoComponent = require('./dao/messageDao');
+
 
 var DashboardApp = React.createClass({		
 	//mixins are used to extend this Class
 	//separated for easier readability and maintenance
-	mixins: [CommunityDaoComponent, PersonaDaoComponent],
+	mixins: [CommunityDaoComponent, PersonaDaoComponent, MessageDaoComponent],
 	getDefaultProps: function() {
 	    return {
 	      useIPFS: false
@@ -53,6 +55,7 @@ var DashboardApp = React.createClass({
 		});
 	},
 	initializeIPFS: function(){	    
+		console.log("Loading from IPFS")
 	    var net = new NetidAPI();
 	    //example of using the netid api to get the eth balance
 	    var web3test = net.account.getBalance();
@@ -69,7 +72,8 @@ var DashboardApp = React.createClass({
 	        self.setState({ 
 	        	showLoading: false,
 	        	personas: schemObj,
-	        	activePersona: schemObj[0]
+	        	activePersona: schemObj[0],
+	        	IPFSConnected: true
 	        });
 	      }
 	      if(err){
@@ -104,6 +108,8 @@ var DashboardApp = React.createClass({
 	                       		 					activePersona={this.state.activePersona} 	                       		 					
 	                       		 					useIPFS={this.props.useIPFS} 
 	                       		 					myCommunities={this.state.myCommunities} 
+	                       		 					fromGroup={this.state.fromGroup} 
+	                       		 					allMessages={this.state.allMessages} 
 	                       		 					allCommunities={this.state.allCommunities}
 	                       		 					addAllCommunitiesState={this.addAllCommunitiesState}
 	                       		 					addMyCommunitiesState={this.addMyCommunitiesState}
@@ -115,6 +121,7 @@ var DashboardApp = React.createClass({
 	                    <div className="col-sm-2" id="rightControlPanel">
 	   						<RightControlComponent setMemberPersona={this.setMemberPersona} 
 	   											   activePersona={this.state.activePersona} 
+	   											   allMessages={this.state.allMessages} 
 	   											   useIPFS={this.props.useIPFS} 
 	   											   api={this.state.api} 
 	   											   setActiveCommunity={this.setActiveCommunity}

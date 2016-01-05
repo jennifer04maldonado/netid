@@ -5,7 +5,7 @@ var MessagesContainer = React.createClass({
 	getDefaultProps: function() {
 	    return {
 	      value: 'default value'
-	    };
+	    }
 	},
 	getInitialState: function(){		
 		return {
@@ -14,17 +14,15 @@ var MessagesContainer = React.createClass({
         }
 	},
   	componentWillReceiveProps: function(nextProps) {
-		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.id);
-		 if (nextProps.activePersona !== this.props.activePersona) {
-		    var activePersonaId = nextProps.activePersona.id;
-	    	if(this.props.useIPFS){
-	    		this.getMessagesIPFS(activePersonaId);
-	    	} else {
-	    		this.getMessages(activePersonaId);
-	    	}	
-	    }
+				
+		if (nextProps.allMessages.length > 0 && nextProps.activePersona) {	      				
+			this.setState({allMessages: nextProps.allMessages});			
+			var activePersonaId = nextProps.activePersona.id;
+      	  	this.getMessages(activePersonaId);      	  	
+		}	    
   	},	    
-    componentDidMount: function(){
+    componentDidMount: function(){  
+
     },
     setMemberPersonaId: function(event){
     	//TODO:
@@ -36,38 +34,13 @@ var MessagesContainer = React.createClass({
     getMessages: function(personaId) {    
     	var thisPersonaMessages = [];
     	var self = this;
-	    $.get('.././json_files/data/netid-account/personas/messages.json', function(result) {
-	    	if (self.isMounted()) {  					             	          
-	        	for (var i=0; i < result.length; i++) {
-	            	if (personaId == result[i].to_persona_id) {
-	            		//console.log('1 personaid: ' + result[i].from_persona_name);
-	              		thisPersonaMessages.push(result[i]);	              	
-	            	}
-	          	}
-	    		self.setState({personaMessages: thisPersonaMessages});
-	      	}
-    	});
-    	
-  	}, 
-    getMessagesIPFS: function(personaId) {    
-    	//console.log('finding personaId: '+ personaId);
-	    var net = this.props.api;
-	    var messages = net.account.getMessages();
-	    if (this.isMounted()) { 
-	      net.account.ee.on('message',err => {
-	        //console.log('Freind Object Received '+ net.account.friendsList.length+' friends')
-	        var allMessages = net.account.messagesList;
-	        var thisPersonaMessages = [];
-	        for (var i=0; i < net.account.messagesList.length; i++) {
-	        	//console.log('persona name: '+ net.account.messagesList[i].from_persona_name);
-	          if (personaId == net.account.messagesList[i].to_persona_id) {
-	              thisPersonaMessages.push(net.account.messagesList[i]);
-	          }
+	    this.state.allMessages.forEach(function(row, index) {
+	        if (personaId == row.to_persona_id) {
+	          	thisPersonaMessages.push(row);	              	
 	        }
-	        this.setState({personaMessages: thisPersonaMessages});
-	      }) 
-	    } 
-	},
+    	});
+    	self.setState({personaMessages: thisPersonaMessages});    	
+  	}, 
 	render: function(){
 			var self = this;
 			var messageNodes = this.state.personaMessages.map(function(message, index){
