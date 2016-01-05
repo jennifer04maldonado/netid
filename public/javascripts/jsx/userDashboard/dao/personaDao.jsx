@@ -70,7 +70,7 @@ var PersonaDao = {
     getAllPersonas: function(){
 		var self = this;
 		if (this.state.allPersonas.length == 0) {
-			console.log("Pre loading all personas from ajax");
+			//console.log("Pre loading all personas from ajax");
 			$.get( ".././json_files/data/netid-account/personas/personaTable.json", function( result, status ) {
 			  	//console.log('result size: '  + result.length);	
 				if (status == 'success') {				   
@@ -82,9 +82,9 @@ var PersonaDao = {
     getAllPersonasIPFS: function() {
     	//load only once
 		if (this.state.allPersonas.length == 0) {
-			console.log("Pre loading all personas from IPFS");
+			//console.log("Pre loading all personas from IPFS");
 			//only load once
-		  	var net = this.props.api;	    
+		  	var net = this.state.api;	    
 	       	var allPersonas = net.account.loadPersonaTable();		    		       	
 		    net.account.ee.on('personaTable',err => {
 		    	 this.setState({allPersonas: net.account.personaTable});		         
