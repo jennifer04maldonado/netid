@@ -18,8 +18,11 @@ var CommunitiesContainer = React.createClass({
     	this.props.addMyCommunitiesState(community);
     },
 	setActiveCommunity: function(communityId){		
-		this.props.setActiveCommunity(communityId);
+		this.props.setActiveCommunity(communityId);		
 	},			    	
+	postToCommunity: function(message){			
+		this.props.postToCommunity(message);
+	},
 	render: function(){
 		var self = this;
 		return(						
@@ -179,7 +182,9 @@ var CommunitiesContainer = React.createClass({
 	                       		 				
 							</div>
 							<div role="tabpanel" className="tab-pane tabCreate fade" id="communityDetail">
-								<CommunityDetailComponent activeCommunity={this.props.activeCommunity} />							
+								<CommunityDetailComponent activeCommunity={this.props.activeCommunity} 
+														  postToCommunity={this.postToCommunity}														  	                          
+														  activeCommunityPosts={this.props.activeCommunityPosts} />							
 							</div>
 
 						</div>
