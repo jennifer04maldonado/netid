@@ -94,7 +94,7 @@ var DashboardApp = React.createClass({
 	                    		<PersonaContainerComponent personas={this.state.personas} 
 	                    								   setActivePersona={this.setActivePersona} 
 	                    								   activePersona={this.state.activePersona} 
-	                    								   useIPFS={this.props.useIPFS} 
+	                    								   messagesSortedByPersonas={this.state.messagesSortedByPersonas}
 	                    								   setAddPersonaType={this.setAddPersonaType} />
 	                    	</div>
 	                    </div>

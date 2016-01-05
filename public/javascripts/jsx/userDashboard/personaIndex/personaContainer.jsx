@@ -15,7 +15,11 @@ var PersonaContainer = React.createClass({
 	render: function(){
 		return(
 			<div className="personaContainer">
-				<PersonaIndex setActivePersona={this.setActivePersona} personas={this.props.personas} activePersona={this.props.activePersona} setAddPersonaType={this.setAddPersonaType}/>
+				<PersonaIndex messagesSortedByPersonas={this.props.messagesSortedByPersonas}
+							  setActivePersona={this.setActivePersona} 
+							  personas={this.props.personas} 
+							  activePersona={this.props.activePersona} 
+							  setAddPersonaType={this.setAddPersonaType}/>
 			</div>
 		)
 	}

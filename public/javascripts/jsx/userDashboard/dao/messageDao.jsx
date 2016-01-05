@@ -13,13 +13,16 @@ var MessageDao = {
 			var self = this;	    	
 			if (this.props.useIPFS) {
 				this.getAllMessagesIPFS(function (){
-					self.setGroupMessagesByFrom(personaId);
+					self.setGroupMessagesByFrom(personaId);					
 				});    			
 			} else {
 				this.getAllMessages(function (){	
 					self.setGroupMessagesByFrom(personaId);
 				});				
 			}
+	  	}
+	  	if (nextState.allMessages !== this.state.allMessages)  {
+	  		this.setSortedMessagesByPersonas(nextState.allMessages);
 	  	}
 	},	
     getAllMessagesIPFS: function(done) {    					
@@ -65,7 +68,7 @@ var MessageDao = {
 		self.setFromActive();
 
     },
-  	//this sets first on list to active from email sender
+  	//this sets first on list to active from email sender  	
   	setFromActive:function() {
   		
   		var count =  0;
@@ -77,7 +80,33 @@ var MessageDao = {
 			}
 			count++;										
 		});
-  	}
+  	},    
+    setSortedMessagesByPersonas: function(allMessages) {        
+    	var messages = [];				             	          	   	
+	    var self = this;	
+    	var personaIds = [];
+    	//we only need the ids
+    	this.state.personas.forEach(function (persona, index) {
+    			personaIds.push(persona.id);
+    	});
+
+		allMessages.forEach(function (message, index) {			
+			if (personaIds.indexOf(message.to_persona_id) > -1) {        		        		
+        		var temp = [];
+        		if (messages[message.to_persona_id]) {
+        			temp = messages[message.to_persona_id];
+        			temp.push(message);
+        			messages[message.to_persona_id] = temp;
+        		} else {					
+					temp.push(message);
+        			messages[message.to_persona_id] = temp;
+        		}
+			}
+
+		});
+		self.setState({messagesSortedByPersonas: messages});
+    }
+
 };
 
 module.exports = MessageDao;

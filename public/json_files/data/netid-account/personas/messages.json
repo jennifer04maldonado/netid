@@ -43,5 +43,15 @@
         "image": "/images/ein.jpeg",
         "date": "9:15am",
         "body": "last message to you"
+        },
+        {
+        "id": "6",
+        "to_persona_id":"1653726",        
+        "from_persona_name":"JoshtheBoss",
+        "from_persona_id": "154",
+        "image": "/images/ein.jpeg",
+        "date": "9:15am",
+        "body": "your first message from me"
         }
+
 ]

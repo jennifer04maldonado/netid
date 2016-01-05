@@ -4,6 +4,17 @@ var CollapseContainer = require('./collapseContainer');
 var AddPersona = require('./addpersona');
 
 var SinglePersonaHeader = React.createClass({
+	getInitialState: function() {
+		return {			
+			messagesSortedByPersonas: []
+		}	
+	},	
+	componentWillReceiveProps: function(nextProps) {
+		if (nextProps.messagesSortedByPersonas != this.props.messagesSortedByPersonas) {	      	
+			this.setState({messagesSortedByPersonas: nextProps.messagesSortedByPersonas});
+		}		
+
+	},	
 	setActivePersona: function(event){
 		this.props.setActivePersona(event.target.dataset.personaId);
 	},
@@ -22,6 +33,8 @@ var SinglePersonaHeader = React.createClass({
 			var personaHeadingClassName = "col-sm-12 panel-heading personaHeading";	
 			var notifcationClassName = "notificationContainer";
 
+
+			var messageCount = self.state.messagesSortedByPersonas[personaId] ? self.state.messagesSortedByPersonas[personaId].length : 0;
 			if (self.props.activePersona.id == personaId) {
 				notifcationClassName += ' selected';
 			}
@@ -37,7 +50,7 @@ var SinglePersonaHeader = React.createClass({
                         </h4>
                     </span> 
                     <span className={notifcationClassName}>	
-						<a href="#"><span className="badge">{index}</span></a>
+						<a href="#"><span className="badge">{messageCount}</span></a>
 		            </span>                   
                 </li>
 			);
