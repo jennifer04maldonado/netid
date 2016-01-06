@@ -1,21 +1,65 @@
 var CalendarModal = require('./../../common/commCalendarModal');
+var CommentContainer = require('./../../common/commentContainer');
+
 var CommunityDetailContainer = React.createClass({	
 	getInitialState: function() {
 		return {
+			activePersona: null,
 			activeCommunityPosts: [],
-			post :''
+			post :'',
+			commentIndex: []
 			}	
 	},	
   	//gets called when recieved new props 		
   	componentWillReceiveProps: function(nextProps) {
 		//console.log('componentWillReceiveProps: ' + nextProps.activePersona.persona_name);
+		if (nextProps.activePersona !== this.props.activePersona) {
+			this.setState({activePersona: nextProps.activePersona});
+		}
+		
 		if (nextProps.activeCommunityPosts != this.props.activeCommunityPosts) {
 			this.setState({activeCommunityPosts: nextProps.activeCommunityPosts});
 		}
+
+	    if (nextProps.comments !== this.props.comments) {
+			this.setState({comments: nextProps.comments});
+	    }
   	},	
 	viewList: function(event){				
 		this.props.viewList();
-	},		
+	},	
+  	postComment: function(event) {    
+  		//console.log('postId: ' + event.target.id);  		  	
+  		var postId = event.target.id;  		  	
+
+  		var message = this.refs[postId].value;
+  		//console.log('comment: ' + message);
+
+		var comment = {};
+  		comment.id =  Math.floor(Math.random()*100000000000000000);;
+  		comment.persona_id = this.state.activePersona.id;
+  		comment.pic = '/images/arnold.jpg';
+  		comment.posted_by = this.state.activePersona.persona_name;
+  		comment.message = message;
+
+  		var commentIndex = this.state.commentIndex;
+  		var comments = [];
+  		if (commentIndex[postId]) {
+  			comments = commentIndex[postId];
+  			comments.push(comment);
+  			commentIndex[postId] = comments;
+
+  		} else {
+  			comments.push(comment);
+  			commentIndex[postId] = comments;
+  		}
+  		this.setState({commentIndex: commentIndex});
+
+  		//clear input field
+  		//this.setState({comment: ''});
+
+  	},
+
 	postToCommunity: function(event){						
 		var message = this.state.post;
 		this.props.postToCommunity(message);		           
@@ -28,8 +72,10 @@ var CommunityDetailContainer = React.createClass({
 	render: function(){
 		var community = this.props.activeCommunity;
 		var self = this;
+		var commentIndex = this.state.commentIndex;
 
-		var postsNodes = this.state.activeCommunityPosts.map(function(post, index){				
+		var postsNodes = this.state.activeCommunityPosts.map(function(post, index){							
+			
 			return (
 					<div key={post.id}>
 						<div className="media-left">
@@ -43,10 +89,13 @@ var CommunityDetailContainer = React.createClass({
 						    <span className="postContentText">{post.message}</span>
 							<br></br>
 							<span className="postTimeStamp">{post.date}</span>
+
+							<CommentContainer comments={commentIndex[post.id]}/>
+
 							<form>
-								<input type="text" className="form-control" placeholder="Your comment here" ></input>
+								<input ref={post.id} type="text" className="form-control" placeholder="Your comment here" ></input>
 							</form>
-							<button className="btn">Comment</button>
+							<button id={post.id} onClick={self.postComment} className="btn">Comment</button>
 						</div>						
 					</div>
 				)						
