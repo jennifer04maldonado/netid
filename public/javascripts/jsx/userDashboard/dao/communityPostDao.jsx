@@ -35,7 +35,6 @@ var CommunityPostDao = {
     getPostsByCommunity: function(activeCommunity) {        	
 		var activeCommunityPosts = [];
 		var self = this;
-		console.log('this being called?');
 		this.state.allCommunityPosts.forEach(function (post, index) {
 			if (post.community_id == activeCommunity.id) {
 				activeCommunityPosts.push(post);

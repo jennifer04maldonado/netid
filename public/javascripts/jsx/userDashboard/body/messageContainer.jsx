@@ -17,6 +17,7 @@ var MessageContainer = React.createClass({
 		}
 		if (nextProps.fromGroup != this.props.fromGroup) {	      	
       	  	this.setState({fromGroup: nextProps.fromGroup});
+      	  	this.initFromActive(nextProps.fromGroup);
 		}		
 		if (nextProps.allMessages != this.props.allMessages) {	      	
       	  	this.setState({allMessages: nextProps.allMessages});
@@ -50,7 +51,6 @@ var MessageContainer = React.createClass({
     	var from = message.to_persona_id;
 		var messages = [];
 		var fromGroup =  this.state.fromGroup;
-
 		if (fromGroup[from]) {
 			messages = fromGroup[from];
 			messages.push(message);
@@ -62,6 +62,17 @@ var MessageContainer = React.createClass({
 
     	this.setState({fromGroup: fromGroup});
 	},		
+  	initFromActive:function(fromGroup) {	
+  		var count =  0;
+  		var self = this;  		
+		fromGroup.forEach(function(messageArray, key) {
+			if (count == 0) {
+				self.setState({activeFromId: messageArray[0].from_persona_id});
+				self.setState({activeFromName: messageArray[0].from_persona_name});
+			}
+			count++;										
+		});
+  	},
 
     textHandler: function(event) {    	
     	this.setState({activeMessage: event.target.value});
