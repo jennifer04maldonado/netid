@@ -36,7 +36,7 @@ var CommunityDetailContainer = React.createClass({
   		//console.log('comment: ' + message);
 
 		var comment = {};
-  		comment.id =  Math.floor(Math.random()*100000000000000000);;
+  		comment.id =  Math.floor(Math.random()*100000000000000000);
   		comment.persona_id = this.state.activePersona.id;
   		comment.pic = '/images/arnold.jpg';
   		comment.posted_by = this.state.activePersona.persona_name;

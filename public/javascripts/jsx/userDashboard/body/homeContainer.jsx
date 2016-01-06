@@ -61,7 +61,7 @@ var HomeContainer = React.createClass({
   	postMessage: function(event) {    
   		
   		var post = {};
-  		post.id =  JSON.stringify(Math.floor(Math.random()*100000000000000000));;
+  		post.id =  JSON.stringify(Math.floor(Math.random()*100000000000000000));
   		post.persona_id = this.state.activePersona.id;
   		post.pic = '/images/arnold.jpg';
   		post.posted_by = this.state.activePersona.persona_name;
@@ -91,7 +91,7 @@ var HomeContainer = React.createClass({
   		//console.log('comment: ' + message);
 
 		var comment = {};
-  		comment.id =  Math.floor(Math.random()*100000000000000000);;
+  		comment.id =  Math.floor(Math.random()*100000000000000000);
   		comment.persona_id = this.state.activePersona.id;
   		comment.pic = '/images/arnold.jpg';
   		comment.posted_by = this.state.activePersona.persona_name;
