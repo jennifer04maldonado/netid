@@ -26,7 +26,10 @@ var MainBodyContainer = React.createClass({
     },   	  
     setActiveCommunity: function(communityId){
     	this.props.setActiveCommunity(communityId);
-    },   	      
+    },   	  
+	postToCommunity: function(message){	
+		this.props.postToCommunity(message);
+	},        
 	render: function(){		
 		return(
 			<div className="tab-content">
@@ -56,6 +59,8 @@ var MainBodyContainer = React.createClass({
 											allCommunities={this.props.allCommunities}
 											addAllCommunitiesState={this.addAllCommunitiesState}
 											setActiveCommunity={this.setActiveCommunity}
+											activeCommunityPosts={this.props.activeCommunityPosts}
+											postToCommunity={this.postToCommunity}
 	                       		 			addMyCommunitiesState={this.addMyCommunitiesState} />
 			  </div>
 			  <div id="navSettings" className="tab-pane fade">

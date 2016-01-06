@@ -46,7 +46,13 @@ var PersonaIndex = React.createClass({
                         </div>
                     </div>
                     <div id="socialPersonaContainer">
-		        		<SinglePersonaHeader personaType={this.props.personaTypeSocial} activePersona={this.props.activePersona} headingTitle={this.props.socialPersonaHeading} setActivePersona={this.setActivePersona} personas={socialPersonas} setAddPersonaType={this.setAddPersonaType}/>
+		        		<SinglePersonaHeader personaType={this.props.personaTypeSocial} 
+		        							 activePersona={this.props.activePersona} 
+		        							 headingTitle={this.props.socialPersonaHeading} 
+		        							 setActivePersona={this.setActivePersona} 
+		        							 personas={socialPersonas} 
+		        							 messagesSortedByPersonas = {this.props.messagesSortedByPersonas}
+		        							 setAddPersonaType={this.setAddPersonaType}/>
 					</div>
 					<div id="professionalPersonaContainer">
 		        		<SinglePersonaHeader personaType={this.props.personaTypeProfessional} activePersona={this.props.activePersona} headingTitle={this.props.professionalPersonaHeading} setActivePersona={this.setActivePersona} personas={profPersonas} setAddPersonaType={this.setAddPersonaType}/>

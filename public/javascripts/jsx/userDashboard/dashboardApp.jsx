@@ -10,12 +10,12 @@ var	MembersListModal = require('./common/membersListModal');
 var CommunityDaoComponent = require('./dao/communityDao');
 var PersonaDaoComponent = require('./dao/personaDao');
 var MessageDaoComponent = require('./dao/messageDao');
-
+var CommunityPostDaoComponent = require('./dao/communityPostDao');
 
 var DashboardApp = React.createClass({		
 	//mixins are used to extend this Class
 	//separated for easier readability and maintenance
-	mixins: [CommunityDaoComponent, PersonaDaoComponent, MessageDaoComponent],
+	mixins: [CommunityDaoComponent, PersonaDaoComponent, MessageDaoComponent, CommunityPostDaoComponent],
 	getDefaultProps: function() {
 	    return {
 	      useIPFS: false
@@ -94,7 +94,7 @@ var DashboardApp = React.createClass({
 	                    		<PersonaContainerComponent personas={this.state.personas} 
 	                    								   setActivePersona={this.setActivePersona} 
 	                    								   activePersona={this.state.activePersona} 
-	                    								   useIPFS={this.props.useIPFS} 
+	                    								   messagesSortedByPersonas={this.state.messagesSortedByPersonas}
 	                    								   setAddPersonaType={this.setAddPersonaType} />
 	                    	</div>
 	                    </div>
@@ -112,7 +112,9 @@ var DashboardApp = React.createClass({
 	                       		 					allCommunities={this.state.allCommunities}
 	                       		 					addAllCommunitiesState={this.addAllCommunitiesState}
 	                       		 					addMyCommunitiesState={this.addMyCommunitiesState}
-	                       		 					activeCommunity={this.state.activeCommunity}	                       		 					
+	                       		 					activeCommunity={this.state.activeCommunity}
+	                       		 					activeCommunityPosts={this.state.activeCommunityPosts}                       		 			
+	                       		 					postToCommunity={this.postToCommunity}
 	                       		 					setActiveCommunity = {this.setActiveCommunity} />
 
 	                        </div>
