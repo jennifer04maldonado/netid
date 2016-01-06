@@ -16,7 +16,7 @@ var CommunityDetailContainer = React.createClass({
 		if (nextProps.activePersona !== this.props.activePersona) {
 			this.setState({activePersona: nextProps.activePersona});
 		}
-		
+
 		if (nextProps.activeCommunityPosts != this.props.activeCommunityPosts) {
 			this.setState({activeCommunityPosts: nextProps.activeCommunityPosts});
 		}
@@ -56,6 +56,7 @@ var CommunityDetailContainer = React.createClass({
   		this.setState({commentIndex: commentIndex});
 
   		//clear input field
+  		this.refs[postId].value = '';
   		//this.setState({comment: ''});
 
   	},

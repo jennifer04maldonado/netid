@@ -3,7 +3,7 @@ var CommentContainer = require('../common/commentContainer');
 var HomeContainer = React.createClass({
 	getInitialState: function() {
 		return {
-			activePersona: this.props.activePersona,
+			activePersona: null,
 			allPosts: [],
 			personaPosts: [],
 			postMessage: '',
@@ -110,6 +110,7 @@ var HomeContainer = React.createClass({
   		}
   		this.setState({commentIndex: commentIndex});
 
+		this.refs[postId].value = '';
   		//clear input field
   		//this.setState({comment: ''});
 
