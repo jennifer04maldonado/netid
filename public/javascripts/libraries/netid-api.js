@@ -691,7 +691,7 @@ NetidAPI.prototype.saveContract = function(addr){
 NetidAPI.prototype.getInteractionStatus = function(addr){
   //do web3 connects and check the status of each contract
   //var t = "\'"+addr+"\'"
-  console.log(addr)
+  //onsole.log(addr)
   var interactionsContract = this.setEthereumAbi("interactions"); 
   try{
     var interactions = interactionsContract.at(addr)
@@ -722,6 +722,13 @@ NetidAPI.prototype.setEthereumAbi = function (contractName){
       
     default: console.log("No Ethereum ABI found for contract " + contractName);
   }
+}
+
+NetidAPI.prototype.createFirstUser = function (user){
+  var self = this
+  console.log(user)
+  self.ee.emit('firstuser',undefined)
+  self.ee.removeEvent('firstuser')
 }
 
 module.exports = NetidAPI
