@@ -183,7 +183,8 @@ var CommunitiesContainer = React.createClass({
 							</div>
 							<div role="tabpanel" className="tab-pane tabCreate fade" id="communityDetail">
 								<CommunityDetailComponent activeCommunity={this.props.activeCommunity} 
-														  postToCommunity={this.postToCommunity}														  	                          
+														  postToCommunity={this.postToCommunity}
+														  activePersona={this.props.activePersona}				  	            
 														  activeCommunityPosts={this.props.activeCommunityPosts} />							
 							</div>
 

@@ -1,10 +1,13 @@
+var CommentContainer = require('../common/commentContainer');
+
 var HomeContainer = React.createClass({
 	getInitialState: function() {
 		return {
-			activePersona: this.props.activePersona,
+			activePersona: null,
 			allPosts: [],
 			personaPosts: [],
-			postMessage: ''
+			postMessage: '',
+			commentIndex: []
 		}	
 	},
  	//this method decides to fetches data from IPFS or AJAX
@@ -58,7 +61,7 @@ var HomeContainer = React.createClass({
   	postMessage: function(event) {    
   		
   		var post = {};
-  		post.id =  JSON.stringify(Math.floor(Math.random()*100000000000000000));;
+  		post.id =  JSON.stringify(Math.floor(Math.random()*100000000000000000));
   		post.persona_id = this.state.activePersona.id;
   		post.pic = '/images/arnold.jpg';
   		post.posted_by = this.state.activePersona.persona_name;
@@ -75,14 +78,53 @@ var HomeContainer = React.createClass({
   		personaPosts.push(post);
   		this.setState({personaPosts: personaPosts});
 
+  		//clear input field
+  		this.setState({postMessage: ''});
+
+
   	},
-  	postChange: function(event) {    
+  	postComment: function(event) {    
+  		//console.log('postId: ' + event.target.id);  		  	
+  		var postId = event.target.id;  		  	
+
+  		var message = this.refs[postId].value;
+  		//console.log('comment: ' + message);
+
+		var comment = {};
+  		comment.id =  Math.floor(Math.random()*100000000000000000);
+  		comment.persona_id = this.state.activePersona.id;
+  		comment.pic = '/images/arnold.jpg';
+  		comment.posted_by = this.state.activePersona.persona_name;
+  		comment.message = message;
+
+  		var commentIndex = this.state.commentIndex;
+  		var comments = [];
+  		if (commentIndex[postId]) {
+  			comments = commentIndex[postId];
+  			comments.push(comment);
+  			commentIndex[postId] = comments;
+  		} else {
+  			comments.push(comment);
+  			commentIndex[postId] = comments;
+  		}
+  		this.setState({commentIndex: commentIndex});
+
+		this.refs[postId].value = '';
+  		//clear input field
+  		//this.setState({comment: ''});
+
+  	},
+  	postHandler: function(event) {    
    		this.setState({postMessage: event.target.value});
   	},  	
+  	commentHandler: function(event) {      		
+	//  console.log('comment value: ' + event.target.value);
+	//	this.setState({comment: event.target.value});
+  	},  	  	
 	render: function(){
-
-		var mapPosts = this.state.personaPosts.map(function(post, index){
-
+		var self = this;
+		var commentIndex = this.state.commentIndex;
+		var postNodes = this.state.personaPosts.map(function(post, index){
 			return (
 				<div key={post.id} className="postBody">
 					<div className="media-left" >
@@ -93,12 +135,13 @@ var HomeContainer = React.createClass({
 					<div className="media-body">
 					    <h4 className="media-heading">{post.posted_by}</h4>
 					    <span className="postContentText">{post.message}</span>
-						<br></br>
+						<br></br>						
+						<CommentContainer comments={commentIndex[post.id]} />
 						<span className="postTimeStamp">{post.date}</span>
 						<form>
-							<input type="text" className="form-control" placeholder="Your comment here" ></input>
+							<input ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></input>
 						</form>
-						<button className="btn">Comment</button>
+						<button id={post.id} onClick={self.postComment} className="btn">Comment</button>
 					</div>
 				</div>
 				)
@@ -114,11 +157,11 @@ var HomeContainer = React.createClass({
 					<div className="col-sm-offset-2 col-sm-8 media homeDetailPostBody">
 						<div className="well">	
 							<form>
-								<input onChange={this.postChange} type="text" className="form-control" placeholder="Post something here" ></input>
+								<input value={this.state.postMessage} onChange={this.postHandler} type="text" className="form-control" placeholder="Post something here" ></input>
 							</form>
 							<button onClick={this.postMessage} className="btn">Post to your wall</button>
 						</div>
-						{mapPosts}
+						{postNodes}
 					</div>
 				</div>
 			</div>

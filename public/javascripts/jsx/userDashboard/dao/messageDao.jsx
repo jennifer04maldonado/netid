@@ -65,22 +65,8 @@ var MessageDao = {
         	}
       	}
 		self.setState({fromGroup: fromGroup});
-		self.setFromActive();
 
     },
-  	//this sets first on list to active from email sender  	
-  	setFromActive:function() {
-  		
-  		var count =  0;
-  		var self = this;
-		this.state.fromGroup.forEach(function(messageArray, key) {
-			if (count == 0) {
-				self.setState({activeFromId: messageArray[0].from_persona_id});
-				self.setState({activeFromName: messageArray[0].from_persona_name});
-			}
-			count++;										
-		});
-  	},    
     setSortedMessagesByPersonas: function(allMessages) {        
     	var messages = [];				             	          	   	
 	    var self = this;	
