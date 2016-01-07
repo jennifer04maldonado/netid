@@ -7,7 +7,8 @@ var SignUpModal = React.createClass({
     }
   },   
   createNetidAccount: function(e) {
-    var newAccount = {
+    var newAccount = [{
+        id: "",
         profile_id: "", 
         persona_name: "",
         persona_type: "",
@@ -40,24 +41,26 @@ var SignUpModal = React.createClass({
         score: "",
         ratings:"",
         movies: ""
-    }
-    newAccount.profile_id = JSON.stringify(Math.floor(Math.random()*100000000000000000))
-    newAccount.persona_name = this.refs.cname.value
-    newAccount.image = this.refs.cfile.value
-    newAccount.age = this.refs.cage.value
-    newAccount.add_personal_info = this.refs.ctext.value
-    newAccount.gender = this.refs.cgender.value
-    newAccount.relationship_status = this.refs.crelation.value
-    newAccount.persona_type = this.refs.ctype.value
-    newAccount.ethnicity = this.refs.cethnicity.value
-    newAccount.add_interests_info = this.refs.chobbies.value
-    newAccount.movies = this.refs.cmovies.value
+    }]
+    newAccount[0].id = JSON.stringify(Math.floor(Math.random()*100000000000000000))
+    newAccount[0].profile_id = JSON.stringify(Math.floor(Math.random()*100000000000000000))
+    newAccount[0].persona_name = this.refs.cname.value
+    newAccount[0].image = this.refs.cfile.value
+    newAccount[0].age = this.refs.cage.value
+    newAccount[0].add_personal_info = this.refs.ctext.value
+    newAccount[0].gender = ReactDOM.findDOMNode(this.refs.cgender).value
+    newAccount[0].relationship_status = ReactDOM.findDOMNode(this.refs.crelation).value
+    newAccount[0].persona_type = ReactDOM.findDOMNode(this.refs.ctype).value
+    newAccount[0].ethnicity = ReactDOM.findDOMNode(this.refs.cethnicity).value
+    newAccount[0].add_interests_info = this.refs.chobbies.value
+    newAccount[0].movies = this.refs.cmovies.value
     this.setState({
         //loading modal won't close, might be in the api 
         //showLoading: true
       })
     e.preventDefault()
-    var net = new NetidAPI();
+    //passing true to api will not do the ipfs and ethereum init
+    var net = new NetidAPI(true);
     net.account.createFirstUser(newAccount)
     if (this.isMounted()) { 
       net.account.ee.on('firstuser',err => {

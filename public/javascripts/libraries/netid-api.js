@@ -434,12 +434,15 @@ NetidAPI.prototype.getUserCommentList = function(parent,user,done){
   return this.ee
 }
 
+NetidAPI.prototype.initHome = function(){
+  //maybe put some initial checks here just to make sure the user has the clients running
+}
 // API for publishing content and managing to be done later...
 
 // Initialize API
 NetidAPI.prototype.init = function(done){
   if(this.isInit) return
-  this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545')); 
+  this.web3.setProvider(new web3.providers.HttpProvider('http://10.0.1.31:8545')); 
   this.ipfs.id( (err, res) => {
     if(err){
       console.log('Error while getting OWN ID:',err)
@@ -604,6 +607,52 @@ NetidAPI.prototype.addPersona = function(persona, done){
   ], done)
 }
 
+NetidAPI.prototype.createFirstUser = function (user, done){
+  var self = this
+  try {
+    var struser = JSON.stringify(user)
+    console.log(struser)
+  } catch (e) {
+    console.log('Error, invalid persona data:', e)
+    return done(e)
+  }
+
+
+  asyncjs.waterfall([
+    // Create required directories
+    cb => this.ipfs.files.mkdir('/netid-account/personas', { p: true }, cb),
+    (e, cb) => {
+      var path = '/netid-account/personas/personaSchema.json'
+      console.log('removing path ' +path)
+      this.ipfs.files.rm(path, { r: true }, (err, res) => {
+        if (err) 
+          cb(err)
+        console.log('removed old personaSchema json file...')
+        cb()
+      })
+    },
+    (cb) => {
+      // Serialize profile and add to IPFS
+      this.ipfs.add(new Buffer(struser), cb)
+    },
+    (res, cb) => {
+      // Move profile into mfs,
+      console.log('adding FIRST profile to IPFS:', res.Hash)
+      var profilepath = '/ipfs/' + res.Hash
+      this.ipfs.files.cp([profilepath, '/netid-account/personas/personaSchema.json'], cb)
+    },
+    (e, cb) => this.ipfs.files.stat('/', cb),
+    (res, cb) => {
+      var profile_hash = res.Hash
+      console.log('Publishing profile...')
+      this.ipfs.name.publish(profile_hash, cb)
+    },
+    (cb) => {
+      self.ee.emit('firstuser',undefined)
+      self.ee.removeEvent('firstuser')
+    }
+  ], done)
+}
 
 NetidAPI.prototype.getAllCommunities = function(){
   this.ipfs.cat(this.idhash+this.baseurl+'personas/communities.json',(err2,res) => {
@@ -722,13 +771,6 @@ NetidAPI.prototype.setEthereumAbi = function (contractName){
       
     default: console.log("No Ethereum ABI found for contract " + contractName);
   }
-}
-
-NetidAPI.prototype.createFirstUser = function (user){
-  var self = this
-  console.log(user)
-  self.ee.emit('firstuser',undefined)
-  self.ee.removeEvent('firstuser')
 }
 
 module.exports = NetidAPI
