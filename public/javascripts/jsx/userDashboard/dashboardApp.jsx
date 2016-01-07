@@ -18,7 +18,7 @@ var DashboardApp = React.createClass({
 	mixins: [CommunityDaoComponent, PersonaDaoComponent, MessageDaoComponent, CommunityPostDaoComponent],
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: false
+	      useIPFS: true
 		}      
 	},
 	getInitialState: function(){		
@@ -130,7 +130,7 @@ var DashboardApp = React.createClass({
 	                    </div>
 	                </div>
 	            </div>
-				<LoadingModalComponent showLoading={this.state.showLoading}/>
+				<LoadingModalComponent showLoading={this.state.showLoading} targetId="initialLoading"/>
 				<AddPersonaModal useIPFS={this.props.useIPFS} personaType={this.state.personaType} api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas} addPersona={this.addPersona}/>		        		
 				<MembersListModal activeMembersList={this.state.activeCommunityMembers} />
             </div>

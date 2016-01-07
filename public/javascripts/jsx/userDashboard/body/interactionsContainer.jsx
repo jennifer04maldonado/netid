@@ -160,7 +160,7 @@ var InteractionsContainer = React.createClass({
 		            </table>
 				</div>
         	</div>
-        	<LoadingModalComponent showLoading={this.state.showLoading}/>
+        	<LoadingModalComponent targetId="interactionsLoading" showLoading={this.state.showLoading}/>
         </div>
 		)
 	}
