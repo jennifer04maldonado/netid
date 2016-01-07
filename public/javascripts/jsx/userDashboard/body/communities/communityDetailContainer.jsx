@@ -32,6 +32,7 @@ var CommunityDetailContainer = React.createClass({
   		//console.log('postId: ' + event.target.id);  		  	
   		var postId = event.target.id;  		  	
 
+  		//had to use refs instead of state cause array of comments use same state variable
   		var message = this.refs[postId].value;
   		//console.log('comment: ' + message);
 

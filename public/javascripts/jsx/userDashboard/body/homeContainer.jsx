@@ -103,7 +103,6 @@ var HomeContainer = React.createClass({
   			comments = commentIndex[postId];
   			comments.push(comment);
   			commentIndex[postId] = comments;
-
   		} else {
   			comments.push(comment);
   			commentIndex[postId] = comments;
@@ -119,9 +118,8 @@ var HomeContainer = React.createClass({
    		this.setState({postMessage: event.target.value});
   	},  	
   	commentHandler: function(event) {      		
-//  		console.log('comment value: ' + event.target.value);
+	//  console.log('comment value: ' + event.target.value);
 	//	this.setState({comment: event.target.value});
-
   	},  	  	
 	render: function(){
 		var self = this;
@@ -137,11 +135,8 @@ var HomeContainer = React.createClass({
 					<div className="media-body">
 					    <h4 className="media-heading">{post.posted_by}</h4>
 					    <span className="postContentText">{post.message}</span>
-						<br></br>
-						
+						<br></br>						
 						<CommentContainer comments={commentIndex[post.id]} />
-
-
 						<span className="postTimeStamp">{post.date}</span>
 						<form>
 							<input ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></input>
