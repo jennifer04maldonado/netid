@@ -86,7 +86,7 @@ var CommunityDetailContainer = React.createClass({
 						    </a>
 						</div>
 
-						<div className="media-body" key={index}>
+						<div className="media-body commDetailsMediaBodyItem" key={index}>
 						    <h4 className="media-heading">{post.posted_by}</h4>
 						    <span className="postContentText">{post.message}</span>
 							<br></br>
@@ -106,9 +106,11 @@ var CommunityDetailContainer = React.createClass({
 		return(
 			<div className="col-sm-12 bodyContent">
 				<div className="col-sm-12 commDetailBody">
-					<img src={"/images/coders.jpg"} className="col-sm-4 col-sm-offset-2"/>
-					<div className="col-sm-4 commDetailText">	
-						<h3>{community ? community.name : ''}<a href="#"><i className="fa fa-plus-circle"></i></a></h3>
+					<img src={"/images/coders.jpg"} className="col-sm-6"/>
+					<div className="col-sm-6 commDetailText">	
+						<h3>{community ? community.name : ''}
+							<a href="#"><i className="fa fa-plus-circle"></i></a>
+						</h3>
 						<p>{community? community.description : ''}</p>
 						<p> Community ID: {community ? community.id : ''}</p>
 						<p>Public/ Private</p>
@@ -117,8 +119,8 @@ var CommunityDetailContainer = React.createClass({
 					</div>	
 				</div>
 				<div className="col-sm-12 commDetailFeed">
-					<div className="col-sm-offset-2 col-sm-8 media commDetailPostBody">
-						<div className="well">	
+					<div className="col-sm-12 media commDetailPostBody">
+						<div className="well commDetailPostWell">	
 							<form>
 								<input value={this.state.post} onChange={this.postHandler} type="text" className="form-control" placeholder="Post something here" ></input>
 							</form>
