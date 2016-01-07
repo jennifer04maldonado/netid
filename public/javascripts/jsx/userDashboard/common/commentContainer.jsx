@@ -20,13 +20,13 @@ var CommentContainer = React.createClass({
 		var commentsNode =	this.state.comments.map(function (comment,index2) {									
 										return (
 
-											<div key={comment.id} className="postBody">
-												<div className="media-left" >
+											<div key={comment.id} className="postBody commentPostBody">
+												<div className="media-left commentMediaLeft" >
 													<a href="#">
-														<img className="media-object" src={comment.pic}/>
+														<img className="media-object commentMediaObject" src={comment.pic}/>
 													</a>
 												</div>
-												<div className="media-body">
+												<div className="media-body commentMediaBody">
 												    <h4 className="media-heading">{comment.posted_by}</h4>
 												    <span className="postContentText">{comment.message}</span>
 													<br></br>													
