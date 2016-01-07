@@ -75,7 +75,7 @@ var SignUpModal = React.createClass({
         <div className="modal-content">
             <div className="modal-header">
               <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
-              <h4 className="modal-title" id="myModalLabel">Create Your First Netid Persona!</h4>
+              <h4 className="modal-title" id="myModalLabel">Create Your First NetID Persona!</h4>
             </div>
             <div className="modal-body">
               <form name="myform" ref="personaCreateForm">
