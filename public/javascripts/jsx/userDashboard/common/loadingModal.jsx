@@ -22,10 +22,10 @@ var LoadingModal = React.createClass({
 	toggle: function(show) {
 		if (show) {
   			//console.log('show loading modal');
-  			$("#loadingModal").modal("show");
+  			$("#"+this.props.targetId).modal("show");
   		} else {
   			//console.log('hide loading modal');
-  			$("#loadingModal").modal("hide");
+  			$("#"+this.props.targetId).modal("hide");
   		}
 	},
 	componentDidMount: function() {
@@ -33,7 +33,7 @@ var LoadingModal = React.createClass({
 	},
     render: function(){
         return (		   
-			<div className="modal fade in" id="loadingModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div className="modal fade in LoadingModal" id={this.props.targetId} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
 			    <div className="vertical-alignment-helper modal-sm">
 			        <div className="modal-dialog vertical-align-center modal-sm">
 			            <div className="modal-content">
