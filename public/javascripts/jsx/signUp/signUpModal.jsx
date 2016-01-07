@@ -12,7 +12,7 @@ var SignUpModal = React.createClass({
         profile_id: "", 
         persona_name: "",
         persona_type: "",
-        image: "",
+        image: "images/ein.jpeg",
         show_sex: true,
         age: "",
         show_age: true,
@@ -45,7 +45,7 @@ var SignUpModal = React.createClass({
     newAccount[0].id = JSON.stringify(Math.floor(Math.random()*100000000000000000))
     newAccount[0].profile_id = JSON.stringify(Math.floor(Math.random()*100000000000000000))
     newAccount[0].persona_name = this.refs.cname.value
-    newAccount[0].image = this.refs.cfile.value
+    //newAccount[0].image = this.refs.cfile.value
     newAccount[0].age = this.refs.cage.value
     newAccount[0].add_personal_info = this.refs.ctext.value
     newAccount[0].gender = ReactDOM.findDOMNode(this.refs.cgender).value
@@ -56,7 +56,7 @@ var SignUpModal = React.createClass({
     newAccount[0].movies = this.refs.cmovies.value
     this.setState({
         //loading modal won't close, might be in the api 
-        //showLoading: true
+        showLoading: true
       })
     e.preventDefault()
     //passing true to api will not do the ipfs and ethereum init

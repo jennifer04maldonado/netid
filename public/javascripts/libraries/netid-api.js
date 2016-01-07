@@ -442,7 +442,7 @@ NetidAPI.prototype.initHome = function(){
 // Initialize API
 NetidAPI.prototype.init = function(done){
   if(this.isInit) return
-  this.web3.setProvider(new web3.providers.HttpProvider('http://10.0.1.31:8545')); 
+  this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545')); 
   this.ipfs.id( (err, res) => {
     if(err){
       console.log('Error while getting OWN ID:',err)
@@ -623,11 +623,10 @@ NetidAPI.prototype.createFirstUser = function (user, done){
     cb => this.ipfs.files.mkdir('/netid-account/personas', { p: true }, cb),
     (e, cb) => {
       var path = '/netid-account/personas/personaSchema.json'
-      console.log('removing path ' +path)
+      console.log('removing old json files...')
       this.ipfs.files.rm(path, { r: true }, (err, res) => {
         if (err) 
           cb(err)
-        console.log('removed old personaSchema json file...')
         cb()
       })
     },
@@ -640,6 +639,7 @@ NetidAPI.prototype.createFirstUser = function (user, done){
       console.log('adding FIRST profile to IPFS:', res.Hash)
       var profilepath = '/ipfs/' + res.Hash
       this.ipfs.files.cp([profilepath, '/netid-account/personas/personaSchema.json'], cb)
+      //this needs work, we need to make the application tolerant of not having this data for new users
     },
     (e, cb) => this.ipfs.files.stat('/', cb),
     (res, cb) => {
@@ -648,6 +648,7 @@ NetidAPI.prototype.createFirstUser = function (user, done){
       this.ipfs.name.publish(profile_hash, cb)
     },
     (cb) => {
+      console.log('finished publishing first user... you may now log in to your account')
       self.ee.emit('firstuser',undefined)
       self.ee.removeEvent('firstuser')
     }
