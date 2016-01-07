@@ -8,20 +8,20 @@ var ProfileContainer = React.createClass({
 				<div className="col-sm-12 settingsTitle">
 					<h4><i className="fa fa-user"></i>Profile</h4>
 				</div>
-				<div className="col-sm-8 col-sm-offset-2 profileDetailBody">
-					<img src={"/images/ein.jpeg"} className="col-sm-offset-2 profileImage"/>
-					<div className="col-sm-offset-2 col-sm-8 profileDetailText">	
-						<h3 className="row ">{persona ? persona.persona_name : ''}
-							<a href="#editPersonaModal" data-toggle="modal" data-target="#editPersonaModal"><i className="fa fa-pencil-square-o"></i></a>
-							<ul className="col-sm-9 col-sm-offset-1 profileScoreList">
-								<li className="masterScoreListItem">Master Score - 78</li>
-								<li>Social - 39</li>
-								<li>Professional - 81</li>
-							</ul>
+				<div className="col-sm-12 profileDetailBody">
+					<img src={"/images/ein.jpeg"} className="col-sm-4 col-sm-offset-2 profileImage"/>
+					<div className="col-sm-4 profileDetailText">	
+						<h3 className="row">{persona ? persona.persona_name : ''}
+							<a href="#editPersonaModal" data-toggle="modal" data-target="#editPersonaModal"><button className="btn">Edit</button></a>
 						</h3>
+						<ul className="profileScoreList">
+							<li>Master Score - 78</li>
+							<li>Social - 39</li>
+							<li>Professional - 81</li>
+						</ul>
 						<p>{persona ? persona.description : ''}</p>
 					</div>	
-		        </div>
+				</div>
 		        <div className="col-sm-8 col-sm-offset-2 profileInputField">
 					<div className="well">	
 						<form>

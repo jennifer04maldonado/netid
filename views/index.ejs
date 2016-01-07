@@ -34,38 +34,38 @@
 
 <body style="background-color: #313131">
     <!-- START NAVBAR -->
-    <div class="row header" style="margin-top: 3%;">
+    <div class="row header netidIndex">
         <div class="col-sm-3 logoContainer">
             <div class="col-sm-2 col-sm-offset-6 logoBox">
                 <a href="#">
                     <div class="logo">
-                        <img style=" width: 200px" src="images/netIDLogo.png">
+                        <img src="images/netIDLogo.png">
                     </div>
                 </a>
             </div>
         </div>
         <div class="link_container col-sm-7">
             <div class="link_inner">
-                <ul style="list-style-type: none; padding-top: 25px; float: right;">
-                    <li style="display:inline; margin-right: 20px;"><a style="color: lightgray; font-weight: bold" href="#">About</a></li>
-                    <li style="display:inline; margin-right: 20px"><a style="color: lightgray; font-weight: bold" href="#">Support</a></li>
-                    <li style="display:inline; margin-right: 20px"><a style="color: lightgray; font-weight: bold" href="trusted_source_home">Trusted Source</a></li>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a style="" href="#">Support</a></li>
+                    <li><a href="trusted_source_home">Trusted Source</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- START LOGIN FIELDS -->
-    <div class="mainFirstContent" style=" margin-top: 12%;">
+    <div class="mainFirstContent">
         <div class="row">
             <div class="col-sm-6 infoContainer">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-3 headlineContainer">
-                        <p style="color:lightgray; text-transform: uppercase; font-weight: bold; font-size: 60px" class="h1Headline">This is Web 3.0</p>
-                        <h2 style="color:gray; margin-top: 0px; margin-bottom: 40px;" class="h3Headline">Let's get you signed up today</h2>
+                        <p class="h1Headline">This is Web 3.0</p>
+                        <h2 class="h3Headline">Let's get you signed up today</h2>
                     </div>
                 </div>
                 <div class="col-sm-12 col-sm-offset-3 videoContainer">
-                    <button class="col-sm-3 btn videoButton" style="height: 45px; background-color: #169379; color: white; font-weight: bold" type="button" value="video" data-toggle="modal" data-target="#videoModal">
+                    <button class="col-sm-3 btn videoButton" type="button" value="video" data-toggle="modal" data-target="#videoModal">
                         <span class="sr-only">Error:</span> Learn How
                         <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
                     </button>
@@ -74,12 +74,13 @@
             <div class="col-md-6 loginContainer">
                 <div class="row">
                     <div class="col-md-5 col-md-offset-3 innerLoginContainer">
-                        <form action="/userDashboard" method="post" style="padding-bottom: 10px">
-                            <input class="form-control loginInputs" id='login_username' type="text" name="username" placeholder="Username" style="height: 45px; margin-bottom: 5px;">
-                            <input class="form-control loginInputs" id='login_passcode' type="text" name="passcode" placeholder="Passcode" style="height: 45px; margin-bottom: 5px;">
-                            <input class="form-control loginInputs" id='login_auth_app' type="text" name="authApp" placeholder="Authenticator App Code" style="height: 45px; margin-bottom: 5px;">
-                            <button class="col-sm-12 btn loginButton" style="height: 45px; margin-bottom: 5px; background-color: #778899; color: white; font-weight: bold; border: 2px solid white">Log In</button>
+                        <form action="/userDashboard" method="post">
+                            <input class="form-control loginInputs" id='login_username' type="text" name="username" placeholder="Username">
+                            <input class="form-control loginInputs" id='login_passcode' type="text" name="passcode" placeholder="Passcode">
+                            <input class="form-control loginInputs" id='login_auth_app' type="text" name="authApp" placeholder="Authenticator App Code">
+                            <button class="col-sm-12 btn loginButton">Log In</button>
                             <br>
+                            <button class="col-sm-12 btn signUpButton">Sign Up</button>
                         </form>
                         <div id="signUpApp">
                         </div>                        
