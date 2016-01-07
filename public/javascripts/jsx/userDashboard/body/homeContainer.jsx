@@ -67,8 +67,8 @@ var HomeContainer = React.createClass({
   		post.posted_by = this.state.activePersona.persona_name;
   		post.message = this.state.postMessage;
 
-  		var  today = Date();
-  		post.date = today;
+  		var  today = new Date();
+  		post.date = today.toString();
   		//console.log('today is: ' + today.toString());  	  		 		    
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
