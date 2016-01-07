@@ -23,7 +23,7 @@ var ProfileContainer = React.createClass({
 					</div>	
 				</div>
 		        <div className="col-sm-8 col-sm-offset-2 profileInputField">
-					<div className="well">	
+					<div className="well profileInputWell">	
 						<form>
 							<input type="text" className="form-control" placeholder="Post something here" ></input>
 						</form>

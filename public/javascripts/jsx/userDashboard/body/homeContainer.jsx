@@ -126,7 +126,7 @@ var HomeContainer = React.createClass({
 		var commentIndex = this.state.commentIndex;
 		var postNodes = this.state.personaPosts.map(function(post, index){
 			return (
-				<div key={post.id} className="postBody">
+				<div key={post.id} className="postBody homePostBody">
 					<div className="media-left" >
 						<a href="#">
 							<img className="media-object" src={post.pic}/>
