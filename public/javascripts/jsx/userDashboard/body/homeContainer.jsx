@@ -140,7 +140,7 @@ var HomeContainer = React.createClass({
 						<CommentContainer comments={commentIndex[post.id]} />
 						<span className="postTimeStamp">{post.date}</span>
 						<form id={post.id} className="collapse">
-							<input ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></input>
+							<textarea ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></textarea>
 							<button data-post-id={post.id} onClick={self.postComment} className="btn">Comment</button>
 						</form>
 						
@@ -157,9 +157,9 @@ var HomeContainer = React.createClass({
 					<div className="col-sm-offset-2 col-sm-8 media homeDetailPostBody">
 						<div className="well">	
 							<form>
-								<input value={this.state.postMessage} onChange={this.postHandler} type="text" className="form-control" placeholder="Post something here" ></input>
+								<textarea value={this.state.postMessage} onChange={this.postHandler} type="text" className="form-control" placeholder="Post something here" ></textarea>
 							</form>
-							<button onClick={this.postMessage} className="btn">Post to your wall</button>
+							<button onClick={this.postMessage} className="btn postButton">Post to your wall</button>
 						</div>
 						{postNodes}
 					</div>
