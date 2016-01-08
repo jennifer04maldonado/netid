@@ -135,7 +135,7 @@ var HomeContainer = React.createClass({
 					<div className="media-body">
 					    <h4 className="media-heading">{post.posted_by}</h4>
 					    <span className="postContentText">{post.message}</span>
-						<br></br>						
+						<a className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
 						<CommentContainer comments={commentIndex[post.id]} />
 						<span className="postTimeStamp">{post.date}</span>
 						<form>
@@ -144,10 +144,8 @@ var HomeContainer = React.createClass({
 						<button id={post.id} onClick={self.postComment} className="btn">Comment</button>
 					</div>
 				</div>
-				)
+			)
 		});
-
-		
 		return(
 			<div className="homeContent">
 				<div className="col-sm-12 homeTitle">
