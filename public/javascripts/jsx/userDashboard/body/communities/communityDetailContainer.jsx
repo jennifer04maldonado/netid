@@ -30,7 +30,7 @@ var CommunityDetailContainer = React.createClass({
 	},	
   	postComment: function(event) {    
   		//console.log('postId: ' + event.target.id);  		  	
-  		var postId = event.target.id;  		  	
+  		var postId = event.target.dataset.postId;  		  	
 
   		//had to use refs instead of state cause array of comments use same state variable
   		var message = this.refs[postId].value;
@@ -58,6 +58,7 @@ var CommunityDetailContainer = React.createClass({
 
   		//clear input field
   		this.refs[postId].value = '';
+		$("#"+postId).collapse("hide");
   		//this.setState({comment: ''});
 
   	},
@@ -91,13 +92,15 @@ var CommunityDetailContainer = React.createClass({
 						    <span className="postContentText">{post.message}</span>
 							<br></br>
 							<span className="postTimeStamp">{post.date}</span>
+							<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>																
 
 							<CommentContainer comments={commentIndex[post.id]}/>
 
-							<form>
+							<form id={post.id} className="collapse">
 								<input ref={post.id} type="text" className="form-control" placeholder="Your comment here" ></input>
+								<button data-post-id={post.id} onClick={self.postComment} className="btn">Comment</button>
 							</form>
-							<button id={post.id} onClick={self.postComment} className="btn">Comment</button>
+							
 						</div>						
 					</div>
 				)						
