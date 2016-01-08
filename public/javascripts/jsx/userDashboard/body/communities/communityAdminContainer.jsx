@@ -5,6 +5,7 @@ var CommunityAdminContainer = React.createClass({
 	getInitialState: function() {
 		return {
 			myCommunities: [],
+			status: '',
 			activeCommunityType: ''
 			}	
 	},	
@@ -36,6 +37,7 @@ var CommunityAdminContainer = React.createClass({
 
 	    //todo
 	    this.props.updateCommunity(community);
+	    this.setState({status: 'success'});
 
   	},		
   	//gets called when recieved new props 		
@@ -47,9 +49,9 @@ var CommunityAdminContainer = React.createClass({
   	},	
 			
 	render: function(){
-		var self = this;
-		var communityNodes = this.state.myCommunities.map(function(community, index){							
-			
+		var self = this;		
+		var communityNodes = this.state.myCommunities.map(function(community, index){										
+
 			return (
 				    <div key={community.id} className="panel panel-default">
 					    <div className="panel-heading">
@@ -101,8 +103,15 @@ var CommunityAdminContainer = React.createClass({
 		});
 
 		return(
-			<div className="panel-group" id="accordion">
+			<div className="panel-group" id="accordion">			
 				<p>Manage your created Communities</p>
+				<div className={this.state.status == 'success' ? 'alert alert-success' : 'hidden'}>
+  					<strong>Success!</strong>
+				</div>
+				<div className={this.state.status == 'error' ? 'alert alert-danger' : 'hidden'}>
+				  <strong>Error updating!</strong>
+				</div>				
+				{this.state.message}
 				{communityNodes}
 			</div>
 		)
