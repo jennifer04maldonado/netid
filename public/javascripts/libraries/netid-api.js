@@ -442,7 +442,7 @@ NetidAPI.prototype.initHome = function(){
 // Initialize API
 NetidAPI.prototype.init = function(done){
   if(this.isInit) return
-  this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545')); 
+  this.web3.setProvider(new web3.providers.HttpProvider('http://10.0.1.31:8545')); 
   this.ipfs.id( (err, res) => {
     if(err){
       console.log('Error while getting OWN ID:',err)
