@@ -32,7 +32,7 @@ var CommunityAdminContainer = React.createClass({
 			community.description = event.target.description.value;
 			community.community_type = this.state.activeCommunityType;
 		    community.created_date = new Date();
-		    //value has string of members delimited by comma. 
+		    //value has string of member ids delimited by comma. 
 		    //has to saved into a array
 		    community.members =  event.target.memberIds.value.split(",");
 		    
@@ -42,7 +42,7 @@ var CommunityAdminContainer = React.createClass({
 			status = 'error';
 			console.log('error: ' + err);
 		} finally {
-			console.log('update tauts:' + status);
+			console.log('status:' + status);
 			this.setState({status: status});			
 		}				   
 
