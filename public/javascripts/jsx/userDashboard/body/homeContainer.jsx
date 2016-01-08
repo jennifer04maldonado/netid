@@ -110,6 +110,7 @@ var HomeContainer = React.createClass({
   		this.setState({commentIndex: commentIndex});
 
 		this.refs[postId].value = '';
+		$("#"+postId).collapse("hide");
   		//clear input field
   		//this.setState({comment: ''});
 
@@ -135,13 +136,14 @@ var HomeContainer = React.createClass({
 					<div className="media-body">
 					    <h4 className="media-heading">{post.posted_by}</h4>
 					    <span className="postContentText">{post.message}</span>
-						<a className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
+						<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
 						<CommentContainer comments={commentIndex[post.id]} />
 						<span className="postTimeStamp">{post.date}</span>
-						<form>
+						<form id={post.id} className="collapse">
 							<input ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></input>
+							<button id={post.id} onClick={self.postComment} className="btn">Comment</button>
 						</form>
-						<button id={post.id} onClick={self.postComment} className="btn">Comment</button>
+						
 					</div>
 				</div>
 			)
