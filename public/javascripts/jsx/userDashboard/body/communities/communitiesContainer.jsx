@@ -44,6 +44,23 @@ var CommunitiesContainer = React.createClass({
 						</ul>
 						<div className="tab-content col-sm-10">
 							<div role="tabpanel" className="tab-pane tabExplore active " id="explore">
+								<div className="col-sm-12 row commSearchAndFilter">	
+									<div className="col-sm-4 col-sm-offset-6 commSearch">
+									    <input type="text" className="form-control" placeholder="Search"></input>
+									</div>
+									<div className="col-sm-2 commFilter">    
+									    <div className="dropdown">
+										    <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										        Filter 
+										        <span className="caret"></span>
+										    </button>
+										    <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
+											    <li><a href="#">Show Public</a></li>
+											    <li><a href="#">Show All</a></li>
+											</ul>
+										</div>
+							   		</div>
+							   	</div>	
 								<CommunityListComponent setActiveCommunity={this.setActiveCommunity} 
 														allCommunities={this.props.allCommunities}/>
 							</div>
