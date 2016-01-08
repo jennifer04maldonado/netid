@@ -4,16 +4,38 @@ var CommentContainer = require('./../../common/commentContainer');
 var CommunityAdminContainer = React.createClass({	
 	getInitialState: function() {
 		return {
-			name: [],
-			myCommunities: []
+			myCommunities: [],
+			activeCommunityType: ''
 			}	
 	},	
+  	setActiveCommunityType: function(type) {
+		console.log('communityType : ' + type);  		
+		this.setState({activeCommunityType: type});
+
+  	},		
   	updateCommunity: function(event) {
   		event.preventDefault();
-  		//TODO: update		
-		console.log('communityId : ' + event.target.communityId.value);  		
-		console.log('name: ' + event.target.name.value);
-		console.log('description: ' + event.target.description.value);
+
+		// console.log('communityId : ' + event.target.communityId.value);  		
+		// console.log('name: ' + event.target.name.value);
+		// console.log('description: ' + event.target.description.value);
+		// console.log('type: ' + this.state.activeCommunityType);
+		 //console.log('members: ' + event.target.memberIds.value);
+
+  		var community = {};
+
+  		community.id = event.target.communityId.value;  		
+		community.name = event.target.name.value;
+		community.pic = event.target.pic.value;		
+		community.description = event.target.description.value;
+		community.community_type = this.state.activeCommunityType;
+	    community.created_date = new Date();
+	    //value has string of members delimited by comma. 
+	    //has to saved into a array
+	    community.members =  event.target.memberIds.value.split(",");
+
+	    //todo
+	    this.props.updateCommunity(community);
 
   	},		
   	//gets called when recieved new props 		
@@ -43,6 +65,7 @@ var CommunityAdminContainer = React.createClass({
 									<form onSubmit={self.updateCommunity}>
 										<input type="hidden" name="communityId" value={community.id} />
 										<div className="col-sm-4 changeCommImage">
+											<input name="pic" type="hidden" value={community.pic} />
 											<img src={community.pic}/>
 											<label htmlFor="exampleInputFile">Change Image</label>
 				   							<input name="file" type="file" className="form-control-file" id="exampleInputFile"></input>	
@@ -53,10 +76,11 @@ var CommunityAdminContainer = React.createClass({
 												   	Change permissions
 												    <span className="caret"></span>
 												</button>
-												<ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-												    <li><a href="#">Public</a></li>
-												    <li><a href="#">Private</a></li>
-												    <li><a href="#">Secret</a></li>
+												<input name='type' type="hidden" value={community.community_type} />
+												<ul name="type" className="dropdown-menu" aria-labelledby="dropdownMenu1">
+												    <li><a onClick={self.setActiveCommunityType.bind(self, 'Public')} value="Public" href="#">Public</a></li>
+												    <li><a onClick={self.setActiveCommunityType.bind(self, 'Private')} value="Private" href="#">Private</a></li>
+												    <li><a onClick={self.setActiveCommunityType.bind(self, 'Secret')} value="Secret" href="#">Secret</a></li>
 												</ul>
 											</div>
 											<fieldset className="form-group">
@@ -65,6 +89,7 @@ var CommunityAdminContainer = React.createClass({
 										    	<label htmlFor="commDescription">Community Description</label>
 										    	<textarea name="description" className="form-control" placeholder={community.description} rows="3"></textarea>
 										    </fieldset>
+										    <input type="hidden" name="memberIds" value={community.members} />
 										    <button type="submit" className="btn col-sm-12 updateBtn">Update</button>	
 										</div>
 									</form>		
