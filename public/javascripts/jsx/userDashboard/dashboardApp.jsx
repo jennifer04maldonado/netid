@@ -18,7 +18,7 @@ var DashboardApp = React.createClass({
 	mixins: [CommunityDaoComponent, PersonaDaoComponent, MessageDaoComponent, CommunityPostDaoComponent],
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: false
+	      useIPFS: true
 		}      
 	},
 	getInitialState: function(){		
