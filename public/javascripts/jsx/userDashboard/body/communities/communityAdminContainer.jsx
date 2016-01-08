@@ -10,7 +10,7 @@ var CommunityAdminContainer = React.createClass({
 			}	
 	},	
   	setActiveCommunityType: function(type) {
-		console.log('communityType : ' + type);  		
+		//console.log('communityType : ' + type);  		
 		this.setState({activeCommunityType: type});
 
   	},		
@@ -22,22 +22,29 @@ var CommunityAdminContainer = React.createClass({
 		// console.log('description: ' + event.target.description.value);
 		// console.log('type: ' + this.state.activeCommunityType);
 		 //console.log('members: ' + event.target.memberIds.value);
+		var community = {};
+  		var status = '';
 
-  		var community = {};
-
-  		community.id = event.target.communityId.value;  		
-		community.name = event.target.name.value;
-		community.pic = event.target.pic.value;		
-		community.description = event.target.description.value;
-		community.community_type = this.state.activeCommunityType;
-	    community.created_date = new Date();
-	    //value has string of members delimited by comma. 
-	    //has to saved into a array
-	    community.members =  event.target.memberIds.value.split(",");
-
-	    //todo
-	    this.props.updateCommunity(community);
-	    this.setState({status: 'success'});
+		try {
+	  		community.id = event.target.communityId.value;  		
+			community.name = event.target.name.value;
+			community.pic = event.target.pic.value;		
+			community.description = event.target.description.value;
+			community.community_type = this.state.activeCommunityType;
+		    community.created_date = new Date();
+		    //value has string of members delimited by comma. 
+		    //has to saved into a array
+		    community.members =  event.target.memberIds.value.split(",");
+		    
+		    this.props.updateCommunity(community);
+		    status = 'success';
+		} catch (err){
+			status = 'error';
+			console.log('error: ' + err);
+		} finally {
+			console.log('update tauts:' + status);
+			this.setState({status: status});			
+		}				   
 
   	},		
   	//gets called when recieved new props 		
@@ -113,6 +120,7 @@ var CommunityAdminContainer = React.createClass({
 				</div>				
 				{this.state.message}
 				{communityNodes}
+
 			</div>
 		)
 	}
