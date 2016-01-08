@@ -89,6 +89,39 @@ var CommunityDao = {
 		myCommunities.push(community);		
     	this.setState({myCommunities: myCommunities});
     },	 
+
+    updateCommunity: function(updatedCommunity){
+		this.updateAllCommunityState(updatedCommunity);
+		this.updateMyCommunityState(updatedCommunity);
+	},
+    updateAllCommunityState: function(updatedCommunity){
+ 		var allCommunities = this.state.allCommunities;		
+ 		var newAllCommunities = [];
+ 		allCommunities.forEach(function (community, index) {
+			if (community.id == updatedCommunity.id) {
+				newAllCommunities.push(updatedCommunity);		
+			} else {
+				newAllCommunities.push(community);		
+			}			
+ 		});
+ 		//TODO:
+ 		//this is where you would call IPFS API to updated communities file
+
+    	this.setState({allCommunities: newAllCommunities});    	
+    },
+    updateMyCommunityState: function(updatedCommunity){
+
+ 		var myCommunities = this.state.myCommunities;		
+ 		var newMyCommunities = [];
+ 		myCommunities.forEach(function (community, index) {
+			if (community.id == updatedCommunity.id) {
+				newMyCommunities.push(updatedCommunity);		
+			} else {
+				newMyCommunities.push(community);		
+			}			
+ 		});
+    	this.setState({myCommunities: newMyCommunities}); 	
+    }
 };
 
 
