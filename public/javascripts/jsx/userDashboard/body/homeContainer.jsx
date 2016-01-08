@@ -85,8 +85,8 @@ var HomeContainer = React.createClass({
   	},
   	postComment: function(event) {    
   		//console.log('postId: ' + event.target.id);  		  	
-  		var postId = event.target.id;  		  	
-
+  		var postId = event.target.dataset.postId;  		  	
+		console.log('postId: ' + postId);
   		var message = this.refs[postId].value;
   		//console.log('comment: ' + message);
 
@@ -141,7 +141,7 @@ var HomeContainer = React.createClass({
 						<span className="postTimeStamp">{post.date}</span>
 						<form id={post.id} className="collapse">
 							<input ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></input>
-							<button id={post.id} onClick={self.postComment} className="btn">Comment</button>
+							<button data-post-id={post.id} onClick={self.postComment} className="btn">Comment</button>
 						</form>
 						
 					</div>
