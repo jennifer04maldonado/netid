@@ -395,6 +395,10 @@
                 .rightMenu {
                     display: inline-block;
                     margin-right: -29px;
+                    li.active a{
+                        background-color: #006A56;
+                        border-radius: 0px;
+                    }
                     .rightMenuItem {
                         background-color: #636363;
                         display: block;
@@ -405,26 +409,10 @@
                         a {
                             height: inherit;
                             padding: 0px;
-                            &:link{
-                                border-radius: 0px;
-                                background-color: #636363;
-                            }
-                            &:visited{
-                             background-color: #636363;
-                            }
-                            &:hover{
-                                background-color: #006A56;
-                                border-radius: 0px;
-                            }
-                            &:focus{
-                                background-color: #169379;
-                                border-radius: 0px;
-                                outline: none;
-                            }
-                            &:active{
-                                background-color: #169379;
-                                border-radius: 0px;
-                            }   
+                        }
+                        a:hover {
+                            background-color: gray;
+                            border-radius: 0px;
                         }
                         img {
                             width: 20px;
@@ -432,13 +420,12 @@
                             margin-left: 4px;
                             margin-top: 10px;
                         }
-
                     }
-
                     .rightMenuFiller {
                         height: 16px;
                         background-color: #636363;
-                        margin-top: 0px;                    }
+                        margin-top: 0px;    
+                    }
                 }
                 .accordionRightPanel {
                     padding: 0;
