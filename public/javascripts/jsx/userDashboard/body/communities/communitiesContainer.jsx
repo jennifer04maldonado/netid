@@ -2,6 +2,7 @@ var CommunityListComponent = require('./communityListContainer');
 var MyCommunityListComponent = require('./myCommunityListContainer');
 var CommunityDetailComponent = require('./communityDetailContainer');
 var CreateCommunity = require('./createCommunity');
+var CommunityAdminComponent = require('./communityAdminContainer');
 
 
 var CommunitiesContainer = React.createClass({
@@ -23,6 +24,9 @@ var CommunitiesContainer = React.createClass({
 	postToCommunity: function(message){			
 		this.props.postToCommunity(message);
 	},
+	updateCommunity: function(updatedCommunity){			
+		this.props.updateCommunity(updatedCommunity);
+	},	
 	render: function(){
 		var self = this;
 		return(						
@@ -191,6 +195,8 @@ var CommunitiesContainer = React.createClass({
 									    </div>
 								    </div>
 								</div>
+								<CommunityAdminComponent myCommunities={this.props.myCommunities}
+														 updateCommunity={this.props.updateCommunity}/>
 							</div>
 							<div role="tabpanel" className="tab-pane tabCreate fade" id="create">
 								<CreateCommunity activePersona={this.props.activePersona}
