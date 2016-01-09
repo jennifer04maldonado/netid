@@ -115,6 +115,7 @@ var DashboardApp = React.createClass({
 	                       		 					activeCommunity={this.state.activeCommunity}
 	                       		 					activeCommunityPosts={this.state.activeCommunityPosts}                       		 			
 	                       		 					postToCommunity={this.postToCommunity}
+	                       		 					updateCommunity={this.updateCommunity}
 	                       		 					setActiveCommunity = {this.setActiveCommunity} />
 
 	                        </div>
