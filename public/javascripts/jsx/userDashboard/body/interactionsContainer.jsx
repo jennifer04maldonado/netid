@@ -82,10 +82,11 @@ var InteractionsContainer = React.createClass({
         })
   		e.preventDefault()
   		var net = this.props.api
-  		net.account.createContract()
+  		net.account.createContract(this.props.activePersona.id)
 	    if (this.isMounted()) { 
 	      net.account.ee.on('contract',err => {
 	        this.setState({ 
+	        	interactionsData: net.account.newIntData[net.account.newIntData.length - 1],
         		showLoading: false
         	})
 	      }) 
