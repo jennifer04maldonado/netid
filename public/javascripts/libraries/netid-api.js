@@ -797,41 +797,24 @@ NetidAPI.prototype.saveContract = function(addr, id){
               var removepath = '/netid-account/personas/interactionsSchema.json'
               self.ipfs.files.rm(removepath, function(err, res){
                 if(err){
-                  var profilepath = '/ipfs/' + addHash
-                  self.ipfs.files.cp([profilepath, '/netid-account/personas/interactionsSchema.json'], function(err, res){
-                    self.ipfs.files.stat('/', function(err, res){
-                      console.log('Publishing new contract to IPNS')
-                      self.ipfs.name.publish(res.Hash, function(err, res){
-                        if(err){
-                          console.log('error publishing')
-                        }
-                        if(res){
-                          console.log(res)
-                          self.ee.emit('contract',undefined)
-                          self.ee.removeEvent('contract')
-                        }
-                      })
+                  console.log('File was already removed from file api')
+                }
+                var profilepath = '/ipfs/' + addHash
+                self.ipfs.files.cp([profilepath, '/netid-account/personas/interactionsSchema.json'], function(err, res){
+                  self.ipfs.files.stat('/', function(err, res){
+                    console.log('Publishing new contract to IPNS')
+                    self.ipfs.name.publish(res.Hash, function(err, res){
+                      if(err){
+                        console.log('error publishing')
+                      }
+                      if(res){
+                        console.log(res)
+                        self.ee.emit('contract',undefined)
+                        self.ee.removeEvent('contract')
+                      }
                     })
                   })
-                }
-                if(res){
-                  var profilepath = '/ipfs/' + addHash
-                  self.ipfs.files.cp([profilepath, '/netid-account/personas/interactionsSchema.json'], function(err, res){
-                    self.ipfs.files.stat('/', function(err, res){
-                      console.log('Publishing new contract to IPNS')
-                      self.ipfs.name.publish(res.Hash, function(err, res){
-                        if(err){
-                          console.log('error publishing')
-                        }
-                        if(res){
-                          console.log(res)
-                          self.ee.emit('contract',undefined)
-                          self.ee.removeEvent('contract')
-                        }
-                      })
-                    })
-                  })
-                }
+                })
               })
             }
           })
