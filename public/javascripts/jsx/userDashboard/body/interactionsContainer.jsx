@@ -109,7 +109,8 @@ var InteractionsContainer = React.createClass({
  			if(interaction.address != " "){
 				switch (interaction.statusCode){
 					case 0:	cssClass = "btn btn-success interactionsButton";
-							interaction.status = "Accept";
+							//I need to redefine the states for pending on creator and accept on receiver
+							interaction.status = "Pending";
 							break;
 					case 1:	cssClass = "btn btn-info interactionsButton";
 							interaction.status = "Rate";
