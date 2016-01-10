@@ -449,7 +449,7 @@ NetidAPI.prototype.init = function(done){
   try{
     this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'))
   }catch(err){
-    alert(err)
+    console.log(err)
     this.ee.emit('init',undefined)
     this.ee.removeEvent('init')
     //return
@@ -710,7 +710,13 @@ NetidAPI.prototype.createContract = function(id){
   try{
     if(!web3.isConnected()) throw 'Connection to geth account failed, please ensure that it is running with the correct flags'
   }catch(err){
-    alert(err)
+    swal({   
+            title: "Error!",   
+            text: err,   
+            type: "error",   
+            confirmButtonText: "Close" 
+          });
+    //alert(err)
     self.ee.emit('contract',undefined)
     self.ee.removeEvent('contract')
     return
@@ -727,7 +733,12 @@ NetidAPI.prototype.createContract = function(id){
      gas: 1500000
    }, function(e, contract){
     if(e){
-      alert(e)
+      swal({   
+            title: "Error!",   
+            text: e,   
+            type: "error",   
+            confirmButtonText: "Close" 
+          });
       self.ee.emit('contract',undefined)
       self.ee.removeEvent('contract')
     }
