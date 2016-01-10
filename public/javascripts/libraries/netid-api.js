@@ -447,7 +447,7 @@ NetidAPI.prototype.init = function(done){
   if(this.isInit) return
 
   try{
-    if(!this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'))) throw 'Connection to geth account failed, please ensure that it is running with the correct flags'
+    this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'))
   }catch(err){
     alert(err)
     this.ee.emit('init',undefined)
