@@ -2,8 +2,8 @@ var LoadingModalComponent = require('../common/loadingModal');
 var InteractionsContainer = React.createClass({
 	getInitialState: function() {
 		return {
-			interactionsData: {
-				"id":"",
+			"interactionsData": {
+				"id":"test",
 				"interactions":[
 					{
 						"address" : " ",
@@ -12,7 +12,7 @@ var InteractionsContainer = React.createClass({
 					}
 				]
 			},
-			showLoading: false
+			"showLoading": false
 		}
 	},	
  
@@ -55,6 +55,7 @@ var InteractionsContainer = React.createClass({
 	    var self = this;
 		var caughtData = false;
 		var data = null;
+		var emptyState = self.getInitialState().interactionsData;
 		 
 		this.props.api.account.getInteractions(function(result) { 
 			if(self.isMounted()){
@@ -65,11 +66,16 @@ var InteractionsContainer = React.createClass({
 						for (var j in result[i].interactions){
 							data.interactions[j].statusCode = (net.account.getInteractionStatus(result[i].interactions[j].address)).c[0];
 						}
+						console.log('this is the data pulled '+data)
 						self.setState({interactionsData: data});
+					}else{
+						console.log(emptyState.interactions)
+						self.setState({
+							interactionsData: emptyState.interactions
+						})
 					}
 				}
 				if(caughtData == false){
-					var emptyState = self.getInitialState().interactionsData;
 					self.setState({interactionsData: emptyState.interactions});
 				}
 			}	
@@ -77,18 +83,48 @@ var InteractionsContainer = React.createClass({
   	},
  		
   	createInteraction: function(e) {
+  		var personaId = this.props.activePersona.id;
+  		var net = this.props.api
+	    var self = this;
+		var caughtData = false;
+		var data = null;
+
   		this.setState({ 
         	showLoading: true
         })
   		e.preventDefault()
-  		var net = this.props.api
   		net.account.createContract(this.props.activePersona.id)
 	    if (this.isMounted()) { 
 	      net.account.ee.on('contract',err => {
-	        this.setState({ 
+		    this.props.api.account.getInteractions(function(result) { 
+				if(self.isMounted()){
+					for (var i in result){
+						if(result[i].id === personaId) {
+							caughtData = true;
+							data = result[i];
+							for (var j in result[i].interactions){
+								data.interactions[j].statusCode = (net.account.getInteractionStatus(result[i].interactions[j].address)).c[0];
+							}
+							console.log(data)
+							self.setState({
+								interactionsData: data,
+								showLoading: false
+							});
+						}
+					}
+					if(caughtData == false){
+						var emptyState = self.getInitialState().interactionsData;
+						self.setState({
+							interactionsData: emptyState.interactions,
+							showLoading: false
+						});
+					}
+				}	
+			})
+/*	        this.setState({ 
 	        	interactionsData: net.account.newIntData[net.account.newIntData.length - 1],
         		showLoading: false
-        	})
+        	})*/
 	      }) 
 	    }   		
   	},
@@ -105,6 +141,7 @@ var InteractionsContainer = React.createClass({
 		var net = this.props.api
 		var rows = [];
 		var cssClass = "";
+		console.log(this.state.interactionsData.interactions)
 		this.state.interactionsData.interactions.forEach(function(interaction, index) {
  			if(interaction.address != " "){
 				switch (interaction.statusCode){

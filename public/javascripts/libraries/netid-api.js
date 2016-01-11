@@ -447,7 +447,7 @@ NetidAPI.prototype.init = function(done){
   if(this.isInit) return
 
   try{
-    this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'))
+    this.web3.setProvider(new web3.providers.HttpProvider('http://10.0.1.31:8545'))
   }catch(err){
     console.log(err)
     this.ee.emit('init',undefined)
@@ -754,8 +754,9 @@ NetidAPI.prototype.createContract = function(id){
   //self.saveContract('0x3bffff0b66d65d684293e9510e0d5e9925150a62', id)
 }
 
-NetidAPI.prototype.saveContract = function(addr, id){
+NetidAPI.prototype.saveContract = function(addr, id, done){
   var self = this
+  var catid = ""
   self.newIntData = []
   //if(!created){
     this.ipfs.cat(this.idhash+this.baseurl+'personas/interactionsSchema.json',(err2,res) => {
@@ -798,6 +799,7 @@ NetidAPI.prototype.saveContract = function(addr, id){
             })
           }
           if(res){
+            catid = res.Hash
             console.log('test' + res)
           }
         })
@@ -809,78 +811,90 @@ NetidAPI.prototype.saveContract = function(addr, id){
       }
     })
   //}
-
-  this.ipfs.cat(this.idhash+this.baseurl+'personas/interactionsSchema.json',(err2,res) => {
-    if(err2){
-      console.log('error catting interaction json even though iteractionsList was set somewhere else in the app')
-    } else {
-      // TODO: JSON parse error handling
-      this.interactionsList = JSON.parse(res)
-      for(var i = 0; i < this.interactionsList.length; i++){
-        if(this.interactionsList[i].id == id){
-          //this saves objects not the actual data
-           this.interactionsList[i].interactions.push({
-                "address" : addr,
-                "chatAddress" : "0x1234567890"
-              })
-            //console.log(this.interactionsList)  
-          var stinter2 = JSON.stringify(this.interactionsList)
-          self.ipfs.add(new Buffer(stinter2), function(err, res){
-            if(err){
-              console.log('there was a problem saving this contract'+ err)
-            }
-            if(res){
-              var addHash = res.Hash
-              var removepath = '/netid-account/personas/interactionsSchema.json'
-              self.ipfs.files.rm(removepath, function(err, res){
+  this.ipfs.files.stat('/', function(err, res){
+    if(err){
+      console.log(err)
+    }
+    if(res){
+      catid = res.Hash
+      self.ipfs.cat(catid+self.baseurl+'personas/interactionsSchema.json',(err2,res) => {
+        if(err2){
+          console.log('error catting interaction json even though iteractionsList was set somewhere else in the app')
+        } else {
+          // TODO: JSON parse error handling
+          self.interactionsList = JSON.parse(res)
+          for(var i = 0; i < self.interactionsList.length; i++){
+            if(self.interactionsList[i].id == id){
+              //this saves objects not the actual data
+               self.interactionsList[i].interactions.push({
+                    "address" : addr,
+                    "chatAddress" : "0x1234567890"
+                  })
+                //console.log(this.interactionsList)  
+              var stinter2 = JSON.stringify(self.interactionsList)
+              self.ipfs.add(new Buffer(stinter2), function(err, res){
                 if(err){
-                  console.log('File was already removed from file api')
+                  console.log('there was a problem saving this contract'+ err)
                 }
-                var profilepath = '/ipfs/' + addHash
-                self.ipfs.files.cp([profilepath, '/netid-account/personas/interactionsSchema.json'], function(err, res){
-                  self.ipfs.files.stat('/', function(err, res){
-                    console.log('Publishing new contract to IPNS')
-                    self.ipfs.name.publish(res.Hash, function(err, res){
-                      if(err){
-                        console.log('error publishing')
-                      }
-                      if(res){
-                        console.log(res)
-                        self.ee.emit('contract',undefined)
-                        self.ee.removeEvent('contract')
-                      }
+                if(res){
+                  var addHash = res.Hash
+                  var removepath = '/netid-account/personas/interactionsSchema.json'
+                  self.ipfs.files.rm(removepath, function(err, res){
+                    if(err){
+                      console.log('File was already removed from file api')
+                    }
+                    var profilepath = '/ipfs/' + addHash
+                    self.ipfs.files.cp([profilepath, '/netid-account/personas/interactionsSchema.json'], function(err, res){
+                      self.ipfs.files.stat('/', function(err, res){
+                        console.log('Publishing new contract to IPNS')
+                        self.ipfs.name.publish(res.Hash, function(err, res){
+                          if(err){
+                            console.log('error publishing')
+                          }
+                          if(res){
+                            console.log(res)
+                            self.ee.emit('contract',undefined)
+                            self.ee.removeEvent('contract')
+                          }
+                        })
+                      })
                     })
                   })
-                })
+                }
               })
             }
-          })
+          }
         }
-      }
-    
-      console.log('Saving new contract address to IPFS '+addr)
-      this.ee.emit('contract',undefined)
-      this.ee.removeEvent('contract')
-      done(this.interactionsList)
+      })
     }
   })
 }
 
 NetidAPI.prototype.getInteractions = function(done){
-  this.ipfs.cat(this.idhash+this.baseurl+'personas/interactionsSchema.json',(err2,res) => {
-    if(err2){
-      this.ee.emit('error',err2)
-      //done(err2,null)
-    } else {
-      // TODO: JSON parse error handling
-      this.interactionsList = JSON.parse(res)
-      this.ee.emit('getInteractions',undefined)
-      this.ee.removeEvent('getInteractions')
-      done(this.interactionsList)
-    }
-  })
+  var self = this
+  self.ipfs.files.stat('/', function(err, res){
+          if(err){
+              console.log(err)
+            }
+          if(res){
+            console.log(res)
+            self.ipfs.cat(res.Hash+self.baseurl+'personas/interactionsSchema.json',(err2,res) => {
+              if(err2){
+                self.ee.emit('error',err2)
+                //done(err2,null)
+              } else {
+                console.log(res)
+                // TODO: JSON parse error handling
+                self.interactionsList = JSON.parse(res)
+                self.ee.emit('getInteractions',undefined)
+                self.ee.removeEvent('getInteractions')
+                done(self.interactionsList)
+              }
+            })
 
-  return this.interactionsList
+            return self.interactionsList
+          }
+        })
 }
 
 
@@ -894,6 +908,27 @@ NetidAPI.prototype.getInteractionStatus = function(addr){
     var st = interactions.state()
     //console.log('This is the state '+interactions.state())
     return st
+  }catch(err) {
+    console.log(err)
+  }
+}
+
+NetidAPI.prototype.getInteractionRating = function(addr){
+  //do web3 connects and check the status of each contract
+  //var t = "\'"+addr+"\'"
+  //onsole.log(addr)
+  var interactionsContract = this.setEthereumAbi("interactions"); 
+  try{
+    var clientAddr = this.web3.eth.coinbase
+    var interactions = interactionsContract.at(addr)
+    if(clientAddr == interactions.initiator()){
+      console.log('This is the initiators rating '+interactions.initiatorRating())
+      return interactions.initiatorRating()
+    }
+    if(addr == interactions.responder()){
+      console.log('This is the responder rating '+interactions.responderRating())
+      return interactions.responderRating()
+    }
   }catch(err) {
     console.log(err)
   }
