@@ -557,6 +557,53 @@ NetidAPI.prototype.loadPersonaTable = function(){
   return this.personaTable
 }
 
+NetidAPI.prototype.postMessage = function(post){
+  var self = this
+  console.log('saving new post')
+    try {
+    var post_str = JSON.stringify(post)
+  } catch (e) {
+    console.log('Error, invalid persona data:', e)
+    return done(e)
+  }
+
+  self.ipfs.files.rm('/netid-account/personas/wall.json', function(err, res){
+    if(err){
+      console.log(err)
+    }
+    console.log('adding new post to ipfs')
+    self.ipfs.add(new Buffer(post_str), function(err, res){
+      if(err){
+        console.log(err)
+      }
+      if(res){
+        console.log('adding new hash to files api')
+        var profilepath = '/ipfs/'+res.Hash
+        self.ipfs.files.cp([profilepath, '/netid-account/personas/wall.json'], function(err,res){
+            console.log('getting the root files hash for publishing')
+            self.ipfs.files.stat('/', function(err,res){
+              if(err){
+                console.log(err)
+              }
+              if(res){
+                console.log('publishing post...')
+                self.ipfs.name.publish(res.Hash, function(err,res){
+                  if(err){
+                    console.log(err)
+                  }
+                  if(res){
+                    console.log('Post published')
+                    self.ee.emit('postMade',undefined);
+                    self.ee.removeEvent('postMade');
+                  }
+                })
+              }
+            })
+        })
+      }
+    })
+  })
+}
 
 NetidAPI.prototype.addPersona = function(persona, done){
   console.log('Creating new persona')
@@ -800,14 +847,14 @@ NetidAPI.prototype.saveContract = function(addr, id, done){
           }
           if(res){
             catid = res.Hash
-            console.log('test' + res)
+            console.log('first cat returned nothing but there was a file path in files api for interactions')
           }
         })
         //console.log(id)
         //done(err2,null)
       } else {
         // TODO: JSON parse error handling
-        console.log('interactionsList was found undefinded yet cat returned a res')
+        console.log('first cat attempt returned a res, interactions have been published before')
       }
     })
   //}
@@ -819,7 +866,7 @@ NetidAPI.prototype.saveContract = function(addr, id, done){
       catid = res.Hash
       self.ipfs.cat(catid+self.baseurl+'personas/interactionsSchema.json',(err2,res) => {
         if(err2){
-          console.log('error catting interaction json even though iteractionsList was set somewhere else in the app')
+          console.log('error catting interaction json even though ')
         } else {
           // TODO: JSON parse error handling
           self.interactionsList = JSON.parse(res)

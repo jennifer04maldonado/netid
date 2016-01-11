@@ -59,11 +59,11 @@ var HomeContainer = React.createClass({
 		  });
   	},
   	postMessage: function(event) {    
-  		
+  		var net = this.props.api
   		var post = {};
   		post.id =  JSON.stringify(Math.floor(Math.random()*100000000000000000));
   		post.persona_id = this.state.activePersona.id;
-  		post.pic = '/images/arnold.jpg';
+  		post.pic = '/images/ein.jpeg';
   		post.posted_by = this.state.activePersona.persona_name;
   		post.message = this.state.postMessage;
 
@@ -72,16 +72,21 @@ var HomeContainer = React.createClass({
   		//console.log('today is: ' + today.toString());  	  		 		    
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
-  		this.setState({allPosts: allPosts});
 
-  		var personaPosts = this.state.personaPosts;
-  		personaPosts.push(post);
-  		this.setState({personaPosts: personaPosts});
+  		this.props.api.account.postMessage(allPosts)
+  		net.account.ee.on('postMade',err => {
+  			if(this.isMounted()){
+				this.setState({allPosts: allPosts})
 
-  		//clear input field
-  		this.setState({postMessage: ''});
+		  		var personaPosts = this.state.personaPosts
+		  		personaPosts.push(post)
+		  		this.setState({personaPosts: personaPosts})
 
-
+		  		//clear input field
+		  		this.setState({postMessage: ''})
+  			}
+  		})
+  		
   	},
   	postComment: function(event) {    
   		//console.log('postId: ' + event.target.id);  		  	
