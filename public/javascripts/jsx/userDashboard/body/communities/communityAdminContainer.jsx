@@ -80,6 +80,7 @@ var CommunityAdminContainer = React.createClass({
 				   							<input name="file" type="file" className="form-control-file" id="exampleInputFile"></input>	
 										</div>
 										<div className="col-sm-8 commDetailText">
+											<a className="removeMembers" href="#membersListModal" data-toggle="modal" data-target="#membersListModal">Remove Members</a>
 											<div className="dropdown">
 												<button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 												   	Change permissions
