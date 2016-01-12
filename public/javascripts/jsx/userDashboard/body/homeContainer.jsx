@@ -147,8 +147,8 @@ var HomeContainer = React.createClass({
 		var commentIndex = this.state.commentIndex;
 		var postNodes = this.state.personaPosts.map(function(post, index){
 			return (
-				<div className="col-sm-12">	
-					<div key={post.id} className="col-sm-11 postBody homePostBody">
+				<div className="col-sm-12" key={post.id}>	
+					<div className="col-sm-11 postBody homePostBody">
 						<div className="media-left" >
 							<a href="#">
 								<img className="media-object" src={post.pic}/>
@@ -176,9 +176,11 @@ var HomeContainer = React.createClass({
 						    <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
 							    <table className="table table-hover">
 							    	<tbody>
+							    		<tr>
 							    		<td>
 							    			Remove
 							    		</td>
+							    		</tr>
 							    	</tbody>
 							    </table>
 							</ul>
