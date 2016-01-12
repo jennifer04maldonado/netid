@@ -52,7 +52,7 @@ var ProfileContainer = React.createClass({
 						    <table className="table table-hover">
 						    	<tbody>
 						    		<tr>
-						    			<td>Remove</td>
+						    			<td>Delete</td>
 						    		</tr>
 						    	</tbody>
 						    </table>
@@ -82,7 +82,7 @@ var ProfileContainer = React.createClass({
 						    <table className="table table-hover">
 						    	<tbody>
 						    		<tr>
-						    			<td>Remove</td>
+						    			<td>Delete</td>
 						    		</tr>
 						    	</tbody>
 						    </table>
@@ -112,7 +112,7 @@ var ProfileContainer = React.createClass({
 						    <table className="table table-hover">
 						    	<tbody>
 						    		<tr>
-						    			<td>Remove</td>
+						    			<td>Delete</td>
 						    		</tr>
 						    	</tbody>
 						    </table>
