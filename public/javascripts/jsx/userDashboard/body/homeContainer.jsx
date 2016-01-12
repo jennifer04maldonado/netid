@@ -73,8 +73,21 @@ var HomeContainer = React.createClass({
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
 
-  		this.props.api.account.postMessage(allPosts)
-  		net.account.ee.on('postMade',err => {
+      	if (this.props.useIPFS) {         
+	  		this.props.api.account.postMessage(allPosts)
+	  			net.account.ee.on('postMade',err => {
+	  			if(this.isMounted()){
+					this.setState({allPosts: allPosts})
+
+			  		var personaPosts = this.state.personaPosts
+			  		personaPosts.push(post)
+			  		this.setState({personaPosts: personaPosts})
+
+			  		//clear input field
+			  		this.setState({postMessage: ''})
+	  			}
+  			});      	
+      	} else {
   			if(this.isMounted()){
 				this.setState({allPosts: allPosts})
 
@@ -83,9 +96,11 @@ var HomeContainer = React.createClass({
 		  		this.setState({personaPosts: personaPosts})
 
 		  		//clear input field
-		  		this.setState({postMessage: ''})
-  			}
-  		})
+		  		this.setState({postMessage: ''})      	
+      		}
+      	}
+
+
   		
   	},
   	postComment: function(event) {    

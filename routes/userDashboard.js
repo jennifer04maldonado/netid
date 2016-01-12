@@ -83,12 +83,12 @@ router.get('/', function(req, res, next) {
     //console.log("cookies: " +req.cookies.isAuthenticated);
     var isLoggedIn = req.cookies.isAuthenticated;
 
-    if (isLoggedIn) {
+    // if (isLoggedIn) {
         res.render('userDashboard');     
-    } else {
-        //redirect to login
-        res.redirect('/');    
-    }
+    // } else {
+    //     //redirect to login
+    //     res.redirect('/');    
+    // }
     
 });
 module.exports = router;

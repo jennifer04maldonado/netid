@@ -447,7 +447,7 @@ NetidAPI.prototype.init = function(done){
   if(this.isInit) return
 
   try{
-    this.web3.setProvider(new web3.providers.HttpProvider('http://10.0.1.31:8545'))
+    this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'))
   }catch(err){
     console.log(err)
     this.ee.emit('init',undefined)

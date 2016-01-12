@@ -6,7 +6,7 @@ var NetidAPI = function(home){
   var NetidAPI = require('./netid-api.js')
   //var ipfs = require('ipfs-api')(opt.addr || 'localhost',opt.port || 5001)
   //var ipfs = require('ipfs-api')('localhost', 5001);
-  var ipfs = window.ipfsAPI('10.0.1.31', 5001);
+  var ipfs = window.ipfsAPI('localhost', 5001);
 /*  this needs to be in the html for now, gulp cant require the full web3.js
   var Web3 = require('web3')
   var web3 = new Web3()*/

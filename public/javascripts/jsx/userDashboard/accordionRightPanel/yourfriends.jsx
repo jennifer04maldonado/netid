@@ -1,4 +1,5 @@
 var ReactTestUtils = React.addons.TestUtils;
+var AddFriendModal = require('.././common/addFriendModal');
 
 //var ipfs = window.ipfsAPI();
 var MessageModal = require('./../common/messageModal');
@@ -87,7 +88,10 @@ var YourFriends = React.createClass({
     return(
 			<div className="col-sm-12 accordion-group contentPanel yourFriends accordionRightPanel">
         <div className="col-sm-12 friendsTitleCntnr">
-          <h5>Connections</h5> 
+          <h5>Connections
+              <a href="#addFriendModal" data-toggle="modal" data-target="#addFriendModal"><i className="fa fa-pencil-square-o"></i></a> 
+          </h5> 
+          
         </div>
         <div className="col-sm-12 friendsSearchCntnr">
           <input type="text" className="form-control" placeholder="Search"></input> 
@@ -102,6 +106,8 @@ var YourFriends = React.createClass({
           </div>
         </div>
         <MessageModal sendTo={this.state.sendTo} />
+            <AddFriendModal useIPFS={this.props.useIPFS} />
+
       </div>
 		)
 	}

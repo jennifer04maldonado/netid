@@ -68,7 +68,7 @@ var MessagesContainer = React.createClass({
 				<div className="col-sm-12 messageRightContent">
 					{messageNodes}	
 				</div>
-				<ComposeMessageModal/>
+				<ComposeMessageModal/>				
 			</div>
 		)
 	}
