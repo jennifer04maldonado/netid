@@ -696,6 +696,22 @@ NetidAPI.prototype.createFirstUser = function (user, done){
   ], done)
 }
 
+NetidAPI.prototype.getUser = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/user.json',(err2,res) => {
+        if(err2){
+          this.ee.emit('error',err2)
+          //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.user = JSON.parse(res);
+      this.ee.emit('user',undefined);
+      this.ee.removeEvent('user');
+      //done(null,p)
+    }
+  })
+  return this.user;
+}
+
 NetidAPI.prototype.getAllCommunities = function(){
   this.ipfs.cat(this.idhash+this.baseurl+'personas/communities.json',(err2,res) => {
         if(err2){

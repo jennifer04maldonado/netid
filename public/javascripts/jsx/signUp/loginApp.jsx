@@ -16,7 +16,8 @@ var LoginApp = React.createClass({
     event.preventDefault();
     try {
         var username = event.target.username.value;      
-        var  password = event.target.passcode.value;             
+        var  password = event.target.passcode.value;        
+        //TODO: ipfs switch
         this.authenticateUser(username, password, function(result) {
             if (result) {
               window.location.href = "/userDashboard";
