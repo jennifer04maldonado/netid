@@ -13,6 +13,8 @@ var ProfileContainer = React.createClass({
 					<div className="col-sm-4 profileDetailText">	
 						<h3 className="row">{persona ? persona.persona_name : ''}
 							<a href="#editPersonaModal" data-toggle="modal" data-target="#editPersonaModal"><button className="btn">Edit</button></a>
+							<a href="#"><i className="fa fa-exchange"></i></a>
+							<a href="#"><i className="fa fa-envelope"></i></a>
 						</h3>
 						<ul className="profileScoreList">
 							<li>Master Score - 78</li>
