@@ -87,7 +87,7 @@ var YourFriends = React.createClass({
     return(
 			<div className="col-sm-12 accordion-group contentPanel yourFriends accordionRightPanel">
         <div className="col-sm-12 friendsTitleCntnr">
-          <h5>Connections</h5> 
+          <h5>Connections<a href="#addFriendModal" data-toggle="modal" data-target="#addFriendModal"><i className="fa fa-plus"></i></a></h5> 
         </div>
         <div className="col-sm-12 friendsSearchCntnr">
           <input type="text" className="form-control" placeholder="Search"></input> 
