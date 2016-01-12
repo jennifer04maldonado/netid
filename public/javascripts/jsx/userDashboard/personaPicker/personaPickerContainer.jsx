@@ -1,8 +1,10 @@
-
+var AuthenticationMixin = require('../mixins/authenticationMixin');
 
 var PersonaPicker = React.createClass({
-    render: function(){
-        
+    
+    mixins: [AuthenticationMixin],    
+
+    render: function(){        
         var defaultAvatar = '../images/avatar.png';
         var style = {
             marginRight: '15px'
@@ -44,7 +46,7 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>    
-                                <a href="/" className="logOutLink">
+                                <a onClick={this.logOut} href="#" className="logOutLink">
                                     Log Out
                                 </a>
                             </li>

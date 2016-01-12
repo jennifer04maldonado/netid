@@ -73,8 +73,21 @@ var HomeContainer = React.createClass({
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
 
-  		this.props.api.account.postMessage(allPosts)
-  		net.account.ee.on('postMade',err => {
+      	if (this.props.useIPFS) {         
+	  		this.props.api.account.postMessage(allPosts)
+	  			net.account.ee.on('postMade',err => {
+	  			if(this.isMounted()){
+					this.setState({allPosts: allPosts})
+
+			  		var personaPosts = this.state.personaPosts
+			  		personaPosts.push(post)
+			  		this.setState({personaPosts: personaPosts})
+
+			  		//clear input field
+			  		this.setState({postMessage: ''})
+	  			}
+  			});      	
+      	} else {
   			if(this.isMounted()){
 				this.setState({allPosts: allPosts})
 
@@ -83,9 +96,11 @@ var HomeContainer = React.createClass({
 		  		this.setState({personaPosts: personaPosts})
 
 		  		//clear input field
-		  		this.setState({postMessage: ''})
-  			}
-  		})
+		  		this.setState({postMessage: ''})      	
+      		}
+      	}
+
+
   		
   	},
   	postComment: function(event) {    
@@ -132,8 +147,8 @@ var HomeContainer = React.createClass({
 		var commentIndex = this.state.commentIndex;
 		var postNodes = this.state.personaPosts.map(function(post, index){
 			return (
-				<div className="col-sm-12">	
-					<div key={post.id} className="col-sm-11 postBody homePostBody">
+				<div className="col-sm-12" key={post.id}>	
+					<div className="col-sm-11 postBody homePostBody">
 						<div className="media-left" >
 							<a href="#">
 								<img className="media-object" src={post.pic}/>
@@ -161,9 +176,11 @@ var HomeContainer = React.createClass({
 						    <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
 							    <table className="table table-hover">
 							    	<tbody>
+							    		<tr>
 							    		<td>
 							    			Remove
 							    		</td>
+							    		</tr>
 							    	</tbody>
 							    </table>
 							</ul>
