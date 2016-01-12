@@ -1,7 +1,5 @@
 var ReactTestUtils = React.addons.TestUtils;
 var AddFriendModal = require('.././common/addFriendModal');
-
-//var ipfs = window.ipfsAPI();
 var MessageModal = require('./../common/messageModal');
 //INPUT: EVENTUALLY WILL BE DATA OBJECT W/ YOUR FRIENDS
 //OUTPUT: DISPLAY FOR FRIENDS IN ACCORDION
@@ -105,9 +103,9 @@ var YourFriends = React.createClass({
             </div>
           </div>
         </div>
-        <MessageModal sendTo={this.state.sendTo} />
-            <AddFriendModal useIPFS={this.props.useIPFS} />
 
+        <MessageModal sendTo={this.state.sendTo} />        
+        <AddFriendModal useIPFS={this.props.useIPFS}  />
       </div>
 		)
 	}

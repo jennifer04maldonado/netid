@@ -1,12 +1,10 @@
-
 var AddFriendModal = React.createClass({		
 	getDefaultProps: function() {
 		return {
 			//src: 'images/loading1.gif'
 		}
 	},
-  	addFriend: function(event) {
-	    var self = this;
+  	addFriend: function(event) {	    
 	    event.preventDefault();
 	    try {
 	        var friendPersona = event.target.name.value;     
@@ -22,7 +20,7 @@ var AddFriendModal = React.createClass({
 	    	console.log('error: ' + err);
 	      //self.setState({status: "error", message: err})
 	    } finally {
-	    	//reset
+	    	//reset form
 	    	event.target.name.value = '';
 	    	$('#addFriendModal').modal('hide');	
 	    }
