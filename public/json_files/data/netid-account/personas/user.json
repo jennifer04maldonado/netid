@@ -1,0 +1,9 @@
+{
+    "userId": "test",
+    "password": "test",
+    "sex": "Female",
+    "age": "24",
+    "masterScore": "76%",
+    "socialScore": "87%",
+    "profScore": "56%"
+}

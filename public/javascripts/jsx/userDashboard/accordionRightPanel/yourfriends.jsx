@@ -1,6 +1,5 @@
 var ReactTestUtils = React.addons.TestUtils;
-
-//var ipfs = window.ipfsAPI();
+var AddFriendModal = require('.././common/addFriendModal');
 var MessageModal = require('./../common/messageModal');
 //INPUT: EVENTUALLY WILL BE DATA OBJECT W/ YOUR FRIENDS
 //OUTPUT: DISPLAY FOR FRIENDS IN ACCORDION
@@ -87,7 +86,10 @@ var YourFriends = React.createClass({
     return(
 			<div className="col-sm-12 accordion-group contentPanel yourFriends accordionRightPanel">
         <div className="col-sm-12 friendsTitleCntnr">
-          <h5>Connections<a href="#addFriendModal" data-toggle="modal" data-target="#addFriendModal"><i className="fa fa-plus"></i></a></h5> 
+          <h5>Connections
+              <a href="#addFriendModal" data-toggle="modal" data-target="#addFriendModal"><i className="fa fa-pencil-square-o"></i></a> 
+          </h5> 
+          
         </div>
         <div className="col-sm-12 friendsSearchCntnr">
           <input type="text" className="form-control" placeholder="Search"></input> 
@@ -101,7 +103,9 @@ var YourFriends = React.createClass({
             </div>
           </div>
         </div>
-        <MessageModal sendTo={this.state.sendTo} />
+
+        <MessageModal sendTo={this.state.sendTo} />        
+        <AddFriendModal useIPFS={this.props.useIPFS}  />
       </div>
 		)
 	}

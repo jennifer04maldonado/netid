@@ -86,8 +86,21 @@ var HomeContainer = React.createClass({
   		allPosts.push(post);
   		console.log(allPosts)
 
-  		this.props.api.account.postMessage(post, this.state.wallPost)
-  		net.account.ee.on('postMade',err => {
+      	if (this.props.useIPFS) {         
+	  		this.props.api.account.postMessage(post, this.state.wallPost)
+	  			net.account.ee.on('postMade',err => {
+	  			if(this.isMounted()){
+					this.setState({allPosts: allPosts})
+
+			  		var personaPosts = this.state.personaPosts
+			  		personaPosts.push(post)
+			  		this.setState({personaPosts: personaPosts})
+
+			  		//clear input field
+			  		this.setState({postMessage: ''})
+	  			}
+  			});      	
+      	} else {
   			if(this.isMounted()){
 				this.setState({allPosts: allPosts})
 
@@ -96,9 +109,11 @@ var HomeContainer = React.createClass({
 		  		this.setState({personaPosts: personaPosts})
 
 		  		//clear input field
-		  		this.setState({postMessage: ''})
-  			}
-  		})
+		  		this.setState({postMessage: ''})      	
+      		}
+      	}
+
+
   		
   	},
   	postComment: function(event) {    
@@ -145,25 +160,46 @@ var HomeContainer = React.createClass({
 		var commentIndex = this.state.commentIndex;
 		var postNodes = this.state.personaPosts.map(function(post, index){
 			return (
-				<div key={post.id} className="postBody homePostBody">
-					<div className="media-left" >
-						<a href="#">
-							<img className="media-object" src={post.pic}/>
-						</a>
+				<div className="col-sm-12" key={post.id}>	
+					<div className="col-sm-11 postBody homePostBody">
+						<div className="media-left" >
+							<a href="#">
+								<img className="media-object" src={post.pic}/>
+							</a>
+						</div>
+						<div className="media-body">
+						    <h4 className="media-heading">{post.posted_by} 
+						    	<a href="#"><span className="communityNamePost">Community Name</span></a>
+						    </h4>
+						    <span className="postContentText">{post.message}</span>
+							<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
+							<CommentContainer comments={commentIndex[post.id]} />
+							<span className="postTimeStamp">{post.date}</span>
+							<form id={post.id} className="collapse">
+								<textarea ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></textarea>
+								<button data-post-id={post.id} onClick={self.postComment} className="btn">Comment</button>
+							</form>
+						</div>
 					</div>
-					<div className="media-body">
-					    <h4 className="media-heading">{post.posted_by}</h4>
-					    <span className="postContentText">{post.message}</span>
-						<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
-						<CommentContainer comments={commentIndex[post.id]} />
-						<span className="postTimeStamp">{post.date}</span>
-						<form id={post.id} className="collapse">
-							<textarea ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></textarea>
-							<button data-post-id={post.id} onClick={self.postComment} className="btn">Comment</button>
-						</form>
-						
+					<div className="col-sm-1 row removePostBtn">
+						<div className="dropdown">
+						    <button className="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						        <span className="caret"></span>
+						    </button>
+						    <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
+							    <table className="table table-hover">
+							    	<tbody>
+							    		<tr>
+							    		<td>
+							    			Remove
+							    		</td>
+							    		</tr>
+							    	</tbody>
+							    </table>
+							</ul>
+						</div>
 					</div>
-				</div>
+				</div>	
 			)
 		});
 		return(

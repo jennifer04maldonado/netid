@@ -447,7 +447,7 @@ NetidAPI.prototype.init = function(done){
   if(this.isInit) return
 
   try{
-    this.web3.setProvider(new web3.providers.HttpProvider('http://10.0.1.31:8545'))
+    this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'))
   }catch(err){
     console.log(err)
     this.ee.emit('init',undefined)
@@ -696,6 +696,22 @@ NetidAPI.prototype.createFirstUser = function (user, done){
       self.ee.removeEvent('firstuser')
     }
   ], done)
+}
+
+NetidAPI.prototype.getUser = function(){
+  this.ipfs.cat(this.idhash+this.baseurl+'personas/user.json',(err2,res) => {
+        if(err2){
+          this.ee.emit('error',err2)
+          //done(err2,null)
+    } else {
+      // TODO: JSON parse error handling
+      this.user = JSON.parse(res);
+      this.ee.emit('user',undefined);
+      this.ee.removeEvent('user');
+      //done(null,p)
+    }
+  })
+  return this.user;
 }
 
 NetidAPI.prototype.getAllCommunities = function(){

@@ -73,14 +73,9 @@
             </div>
             <div class="col-md-6 loginContainer">
                 <div class="row">
-                    <div class="col-md-5 col-md-offset-3 innerLoginContainer">
-                        <form action="/userDashboard" method="post">
-                            <input class="form-control loginInputs" id='login_username' type="text" name="username" placeholder="Username">
-                            <input class="form-control loginInputs" id='login_passcode' type="text" name="passcode" placeholder="Passcode">
-                            <input class="form-control loginInputs" id='login_auth_app' type="text" name="authApp" placeholder="Authenticator App Code">
-                            <button class="col-sm-12 btn loginButton">Log In</button>
-                            <br>
-                        </form>
+                    <div class="col-md-5 col-md-offset-3 innerLoginContainer">                        
+                        <div id="loginApp"> 
+                        </div>
                         <div id="signUpApp">
                         </div>                        
                     </div>
@@ -215,6 +210,7 @@
         <!--<script src="/javascripts/main2.js"></script>-->
         <!-- // <script src="js/npm.js"></script> -->
         <script src="javascripts/js/signUpApp.js"></script>                        
+        <script src="javascripts/js/loginApp.js"></script>                        
 
 </body>
 

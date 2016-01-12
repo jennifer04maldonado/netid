@@ -17,4 +17,4 @@ gulp.task('watch', function(){
 	gulp.watch('javascripts/signUp/*.jsx', ['signUpApp']);
 	gulp.watch('javascripts/individualCommView/*.jsx', ['individualCommView']);
 });
-gulp.task('default', ['less', 'ejs', 'dashboardApp', 'individualCommView', 'watch','signUpApp']);
+gulp.task('default', ['less', 'ejs', 'dashboardApp', 'individualCommView', 'watch','signUpApp','loginApp']);
