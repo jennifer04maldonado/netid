@@ -12,10 +12,14 @@ var PersonaDaoComponent = require('./dao/personaDao');
 var MessageDaoComponent = require('./dao/messageDao');
 var CommunityPostDaoComponent = require('./dao/communityPostDao');
 
+var AuthenticationMixin = require('./mixins/authenticationMixin');
+
 var DashboardApp = React.createClass({		
 	//mixins are used to extend this Class
 	//separated for easier readability and maintenance
-	mixins: [CommunityDaoComponent, PersonaDaoComponent, MessageDaoComponent, CommunityPostDaoComponent],
+	mixins: [CommunityDaoComponent, PersonaDaoComponent, 
+			 MessageDaoComponent, CommunityPostDaoComponent,
+			 AuthenticationMixin],
 	getDefaultProps: function() {
 	    return {
 	      useIPFS: false
@@ -31,7 +35,12 @@ var DashboardApp = React.createClass({
 			}
 	},
     componentDidMount: function(){
-    	var self  = this;
+    	if (this.isLoggedIn()) {
+			//do nothing    			
+    	} else {
+    		window.location.href = "/";
+    	}
+    	
     	if(this.props.useIPFS){
     		this.initializeIPFS();
     	} else {
