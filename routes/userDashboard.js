@@ -78,8 +78,17 @@ res.render('userDashboard');
 
 
 
-
+//TODO: use sessionId/token
 router.get('/', function(req, res, next) {
-    res.render('userDashboard');
+    //console.log("cookies: " +req.cookies.isAuthenticated);
+    var isLoggedIn = req.cookies.isAuthenticated;
+
+    if (isLoggedIn) {
+        res.render('userDashboard');     
+    } else {
+        //redirect to login
+        res.redirect('/');    
+    }
+    
 });
 module.exports = router;

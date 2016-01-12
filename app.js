@@ -83,7 +83,17 @@ app.get('/', function(req, res, next) {
   //console.log(req.cookies);
   console.log(req.session);
   console.log(req.sessionID);
-  res.render('index', { title: 'Express', object: req.session.cookie});
+
+  //TODO: use session object or token
+  var isLoggedIn = req.cookies.isAuthenticated;
+
+  if (isLoggedIn) {
+      res.render('userDashboard');     
+  } else {
+      res.render('index', { title: 'Express', object: req.session.cookie});
+  }
+
+  
 });
 
 // catch 404 and forward to error handler

@@ -22,7 +22,7 @@ var DashboardApp = React.createClass({
 			 AuthenticationMixin],
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: true
+	      useIPFS: false
 		}      
 	},
 	getInitialState: function(){		
@@ -34,13 +34,7 @@ var DashboardApp = React.createClass({
 			personaType:''
 			}
 	},
-    componentDidMount: function(){
-    	if (this.isLoggedIn()) {
-			//do nothing    			
-    	} else {
-    		window.location.href = "/";
-    	}
-    	
+    componentDidMount: function(){    	
     	if(this.props.useIPFS){
     		this.initializeIPFS();
     	} else {
