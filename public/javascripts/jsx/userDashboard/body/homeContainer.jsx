@@ -35,7 +35,6 @@ var HomeContainer = React.createClass({
 	   	})	
 	    net.account.ee.on('allPosts',err => {		    	
 	    	var result = net.account.allPosts
-	    	console.log(result)
 	    	this.setPersonaPosts(personaId, result);
 	    	this.setState({
 	    		wallPost: result
@@ -84,7 +83,7 @@ var HomeContainer = React.createClass({
   		//console.log('today is: ' + today.toString());  	  		 		    
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
-  		console.log(allPosts)
+  		//console.log(allPosts)
 
       	if (this.props.useIPFS) {         
 	  		this.props.api.account.postMessage(post, this.state.wallPost)

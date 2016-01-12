@@ -68,16 +68,17 @@ var InteractionsContainer = React.createClass({
 						}
 						//console.log('this is the data pulled '+data)
 						self.setState({interactionsData: data});
+						console.log(caughtData)
+						caughtData = false
 					}else{
-						//console.log(emptyState.interactions)
+						//setting emptystate isn't rerendering blank txs 
+						console.log(emptyState.interactions)
 						self.setState({
 							interactionsData: emptyState.interactions
 						})
 					}
 				}
-				if(caughtData == false){
-					self.setState({interactionsData: emptyState.interactions});
-				}
+
 			}	
 		})
   	},
