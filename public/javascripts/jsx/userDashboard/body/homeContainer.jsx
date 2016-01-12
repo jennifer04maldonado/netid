@@ -24,10 +24,22 @@ var HomeContainer = React.createClass({
   	},	
   	getPostsIPFS: function(personaId) {    
 	  	var net = this.props.api;	    
-	   	net.account.getAllPosts();		  
+	   	net.account.getAllPosts();
+	   	net.account.ee.on('postgeterror', err =>{
+	   		console.log('error occured in cat, creating first wall post')
+	   		var firstPostArray = []
+	   		//this.setPersonaPosts(personaId, result)
+	   		this.setState({
+	    		wallPost: firstPostArray
+	    	})
+	   	})	
 	    net.account.ee.on('allPosts',err => {		    	
-	    	var result = net.account.allPosts;
+	    	var result = net.account.allPosts
+	    	console.log(result)
 	    	this.setPersonaPosts(personaId, result);
+	    	this.setState({
+	    		wallPost: result
+	    	})
 	     });
   	},
   	getPosts: function(personaId) {    
@@ -72,8 +84,9 @@ var HomeContainer = React.createClass({
   		//console.log('today is: ' + today.toString());  	  		 		    
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
+  		console.log(allPosts)
 
-  		this.props.api.account.postMessage(allPosts)
+  		this.props.api.account.postMessage(post, this.state.wallPost)
   		net.account.ee.on('postMade',err => {
   			if(this.isMounted()){
 				this.setState({allPosts: allPosts})

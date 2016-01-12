@@ -557,11 +557,13 @@ NetidAPI.prototype.loadPersonaTable = function(){
   return this.personaTable
 }
 
-NetidAPI.prototype.postMessage = function(post){
+NetidAPI.prototype.postMessage = function(post, oldPosts){
   var self = this
   console.log('saving new post')
+  var merge = oldPosts
+  merge.push(post)
     try {
-    var post_str = JSON.stringify(post)
+    var post_str = JSON.stringify(merge)
   } catch (e) {
     console.log('Error, invalid persona data:', e)
     return done(e)
@@ -731,7 +733,9 @@ NetidAPI.prototype.getAllMessages = function(){
 NetidAPI.prototype.getAllPosts = function(){
   this.ipfs.cat(this.idhash+this.baseurl+'personas/wall.json',(err2,res) => {
     if(err2){
-          this.ee.emit('error',err2)
+      console.log('api cat error')
+          this.ee.emit('postgeterror',err2)
+          this.ee.removeEvent('postgeterror');
           //done(err2,null)
     } else {
       // TODO: JSON parse error handling
