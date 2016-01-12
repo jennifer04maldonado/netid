@@ -39,7 +39,9 @@ var PersonaIndex = React.createClass({
 		        <div className={myClassName}>
 		        	<div className="col-sm-12 personaActiveImage">
                         <div className="col-sm-12 personaActiveName">
-                        	<h3>{this.props.activePersona.persona_name}</h3>
+                        	<h3>{this.props.activePersona.persona_name}
+                        		<a href="#"><i className="fa fa-list"></i></a>
+                        	</h3>
                         </div>
                         <div className="personaImage">
                             <img src={this.props.activePersona.image}/>
