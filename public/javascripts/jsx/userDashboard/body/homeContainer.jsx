@@ -180,7 +180,7 @@ var HomeContainer = React.createClass({
 							</form>
 						</div>
 					</div>
-					<div className="col-sm-1 row removePostBtn">
+					<div className="col-sm-1 removePostBtn">
 						<div className="dropdown">
 						    <button className="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 						        <span className="caret"></span>
@@ -189,9 +189,7 @@ var HomeContainer = React.createClass({
 							    <table className="table table-hover">
 							    	<tbody>
 							    		<tr>
-							    		<td>
-							    			Remove
-							    		</td>
+								    		<td>Remove</td>
 							    		</tr>
 							    	</tbody>
 							    </table>

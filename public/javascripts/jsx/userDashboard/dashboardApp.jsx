@@ -22,7 +22,7 @@ var DashboardApp = React.createClass({
 			 AuthenticationMixin],
 	getDefaultProps: function() {
 	    return {
-	      useIPFS: true
+	      useIPFS: false
 		}      
 	},
 	getInitialState: function(){		
