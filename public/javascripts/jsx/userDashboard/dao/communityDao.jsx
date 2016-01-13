@@ -27,12 +27,16 @@ var CommunityDao = {
 		//console.log("Pre loading all community table from ajax");
 		var self = this;
 		//only load once
+		if (this.state.allCommunities.length == 0) {
 			$.get( ".././json_files/data/netid-account/personas/communities.json", function( result, status ) {
-				if (status == 'success') {	
-				 	self.setState({allCommunities: result});
-				 	done();
-			 	}
+					if (status == 'success') {	
+					 	self.setState({allCommunities: result});
+					 	done();
+				 	}
 			});
+		} else {
+			done();
+		}
 		
 	},
     getAllCommunitiesIPFS: function(done) {

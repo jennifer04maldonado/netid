@@ -31,9 +31,6 @@ var LoginApp = React.createClass({
 
   },
   componentDidMount: function(){
-      if (this.isLoggedIn()) {
-           window.location.href="/userDashboard";
-      };
   },  
   render: function(){
     return (

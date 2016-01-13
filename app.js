@@ -87,11 +87,11 @@ app.get('/', function(req, res, next) {
   //TODO: use session object or token
   var isLoggedIn = req.cookies.isAuthenticated;
 
-  // if (isLoggedIn) {
-  //     res.render('userDashboard');     
-  // } else {
+  if (isLoggedIn) {
+      res.render('userDashboard');     
+  } else {
       res.render('index', { title: 'Express', object: req.session.cookie});
-  // }
+  }
 
   
 });
