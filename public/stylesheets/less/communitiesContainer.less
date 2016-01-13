@@ -1,359 +1,370 @@
-.bodyContent{
-	padding-bottom: 100px;
-	.communityTitle{
-		border-bottom: 3px solid #1E1E1E;
-		h4{
-			color: lightgray;
-			img{
-				width: 20px;
-				height: 20px;
-				margin-right: 7px;
-			}
-		}
-	}
-	.communityNavTabs{
-		padding: 0;
-		ul{
-			border-bottom: 0px;
-			border-bottom: 3px solid #1E1E1E;
-			li.active a{
+.bodyContent {
+    padding-bottom: 100px;
+    .communityTitle {
+        border-bottom: 3px solid #1E1E1E;
+        h4 {
+            color: lightgray;
+            img {
+                width: 20px;
+                height: 20px;
+                margin-right: 7px;
+            }
+        }
+    }
+    .communityNavTabs {
+        padding: 0;
+        ul {
+            border-bottom: 0px;
+            border-bottom: 3px solid #1E1E1E;
+            li.active a {
                 background-color: #006A56;
                 border: 1px solid #313131;
                 color: white;
             }
-			li{
-				border: none;
-				margin-bottom: 0px;
-				a{
-					padding-bottom: 8px;
-					border-radius: 0px;
-					color: gray;
-				}
-				a:hover{
+            li {
+                border: none;
+                margin-bottom: 0px;
+                a {
+                    padding-bottom: 8px;
+                    border-radius: 0px;
+                    color: gray;
+                }
+                a:hover {
                     background-color: #313131;
                     border: 1px solid #313131;
-                } 
-                a:focus{
+                }
+                a:focus {
                     background-color: #006A56;
                 }
-			}
-		}
-		.tab-content{
-			.tabExplore{
-				margin-top: 15px;
-				.commSearchAndFilter{
-					padding-bottom: 15px;
-					border-bottom: 1px solid black;
-					.commSearch{
-						input{
-       		               border-radius: 0px;
-                           height: 30px;
-                           background-color: #1E1E1E;
-                           border: none;
-                           color: gray;
-						}
-					}
-					.commFilter{
-						.dropdown{
-							button{
-								width: 75%;
-								border-radius: 0px;
-								background-color: #169379;
-								border: none;
-								color: white;
-								height: 30px;
-								span{
-									margin-left: 5px;
-								}
-							}
-							.dropdown-menu{
-								background-color: #1E1E1E;						
-								li{
-									height: 30px;
-									a:hover{
-										color: white;
-									}
-								}
-							}
-						}
-					}
-				}
-				.well{
-					margin: 25px;
-					padding: 0px 0px 0px 0px;
-					background-color: #636363;
-					border-radius: 0px;
-					border: none;
-					min-height: 315px;
-					a{
-						}
-						img{
-							width: 100%;
-							height: 200px;
-							object-fit: cover;
-							&:hover{
-							outline: 4px solid #1E1E1E;
-						}
-					}	
-					h5{
-						margin-bottom: 5px;
-						margin-left: 10px;
-					}
-					p{
-						font-size: 12px;
-						color: lightgray;
-						margin-left: 10px;
-					}
-					.memberCount{
-						font-size: 12px;
-						background-color: #1E1E1E;
-						padding-top: 8px;
-						padding-bottom: 8px;
-						margin-top: 8px;
-						img{
-							width: 20px;
-							height: 20px;
-							margin-right: 6px;
-							object-fit: cover;
-							&:hover{
-								outline: none;
-							}
-						}
-						a{
-							text-decoration: none;
-							color: #169379;
-						}
-					}
-				}
-			}
-			.tabCommunities{
-				margin-top: 35px;
-				.panel{
-					border: none;
-					.panel-body{
-						background-color: #313131;
-						.media{
-								.media-left{
-									a{
-										img{
-											width: 70px;
-				            				height: 70px;
-				            				object-fit: cover;
-				            				
-										}
-									}
-								}
-							}	
-							.media-body{
-								h5{
-									color: white;
-									span{
-										color: #169379;
-									}
-									a{
-										text-decoration: none;
-										color: #169379;
-									}
-								}
-								span{
-									color: #6A6E70;
-								}
-								h6{
-									color: #6A6E70;
-									img{
-										width: 20px;
-										height: 20px;
-										margin-right: 6px;
-										object-fit: cover;
-									}
-									i{
-										margin-left: 25px;
-										margin-right: 6px;
-										font-size: 16px;
-										color: #A4A5A5;
-										span{
-											font-family: sans-serif;
-											font-size: 13px;
-											margin-left: 5px;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				.tabManage{
-					margin-top: 30px;
-					p{
-						margin-bottom: 25px;
-						color: gray;
-					}
-					#accordion{
-						.panel{
-							border: 2px solid #1E1E1E;
-							border-radius: 0px;
-							.panel-heading{
-								background-color: #313131;
-								color: lightgray;
-								border-radius: 0px;
-								h4{
-									padding-top: 8px;
-									padding-bottom: 8px;
-									a{
-										&:hover{
-											color: lightgray;
-											text-decoration: none;
-										}
-									}
-								}
-							}
-							.panel-collapse{
-								.panel-body{
-									padding-top: 35px;
-									padding-bottom: 35px;
-									background-color: #1E1E1E;
-									border: 1px solid #1E1E1E;
-									.commDetailBody{
-										margin-top: 0px;
-										.changeCommImage{
-											img{
-											height: 10em;
-											width: 100%;
-											object-fit: cover;
-											}
-											label{
-												font-weight: normal;
-												margin-top: 15px;
-												input{
-
-												}
-											}	
-										}
-										.commDetailText{
-											.removeMembers{
-												color: lightgray;
-												background-color: #313131;
-												padding: 12px 15px;
-												&:hover{
-													text-decoration: none;
-												}
-											}
-											.dropdown{
-												margin-top: 25px;
-												button{
-													border-radius: 0px;
-													background-color: #313131;
-													border: none;
-													color: lightgray;
-													padding-top: 10px;
-													padding-bottom: 10px;
-													span{
-														margin-left: 5px;
-													}
-												}
-												.dropdown-menu{
-													border-bottom: none;
-													border-radius: 0px;
-													li{
-														a{
-															background-color: #FFFFFF;
-															&:hover{
-																color: black;
-																border: none;
-															}
-														}
-													}
-												}
-											}
-											.form-group{
-												label{
-													margin-top: 15px;
-													font-weight: normal;
-												}
-												textarea{
-													resize: none;
-												}
-											}
-											.updateBtn{
-												background-color: #169379;
-												border-radius: 0px;
-												padding-top: 10px;
-												padding-bottom: 10px;
-												&:hover{
-													color: lightgray;
-												}
-											}
-										}	
-									}
-								}
-							}
-						}
-					}
-				}
-				.tabCreate{
-					.well{
-						margin-top: 35px;
-						background-color: transparent;
-						border: none;
-						.addPersonaImage{
-							padding: 0;
-							border-bottom: 1px solid #636363;
-							padding-bottom: 15px;
-							.addImageBtn{
-								padding: 0;
-								img{
-									margin-bottom: 15px;
-								}
-							}
-							.addImageUpload{
-								.addImageUploadBtn{
-									input{
-									
-									}
-								}
-							}
-						}
-						.newCommOptions{
-							margin-top: 15px;
-							margin-bottom: 15px;
-							.commRadioTitle{
-								margin-top: 15px;
-								margin-bottom: 5px;
-								color: lightgray;
-							}
-							input{
-								margin: 6px 7px 25px;
-							}
-						}
-						form{
-							.commCreateName{
-								resize: none;
-								margin-bottom: 15px;
-								height: 40px;
-								padding-top: 9px;
-								color: black;
-							}
-							.commCreateAbout{
-								resize: none;
-								margin-bottom: 15px;
-								height: 100px;
-								padding-top: 9px;
-								color: black;
-							}
-						}
-						button{
-							background-color: #169379;
-							border-radius: 0px;
-							border: none;
-							padding-top: 15px;
-							padding-bottom: 15px;
-							color: white;
-						}
-					}
-				}
-			}
-		}
-	a{
-	}
+            }
+        }
+        .tab-content {
+            .tabExplore {
+                margin-top: 15px;
+                .commSearchAndFilter {
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid black;
+                    .commSearch {
+                        input {
+                            border-radius: 0px;
+                            height: 30px;
+                            background-color: #1E1E1E;
+                            border: none;
+                            color: gray;
+                        }
+                    }
+                    .commFilter {
+                        .dropdown {
+                            button {
+                                width: 75%;
+                                border-radius: 0px;
+                                background-color: #169379;
+                                border: none;
+                                color: white;
+                                height: 30px;
+                                span {
+                                    margin-left: 5px;
+                                }
+                            }
+                            .dropdown-menu {
+                                background-color: #1E1E1E;
+                                li {
+                                    height: 30px;
+                                    a:hover {
+                                        color: white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .well {
+                    margin: 25px;
+                    padding: 0px 0px 0px 0px;
+                    background-color: #636363;
+                    border-radius: 0px;
+                    border: none;
+                    min-height: 315px;
+                    a {}
+                    img {
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        &:hover {
+                            outline: 4px solid #1E1E1E;
+                        }
+                    }
+                    h5 {
+                        margin-bottom: 5px;
+                        margin-left: 10px;
+                    }
+                    p {
+                        font-size: 12px;
+                        color: lightgray;
+                        margin-left: 10px;
+                    }
+                    .memberCount {
+                        font-size: 12px;
+                        background-color: #1E1E1E;
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                        margin-top: 8px;
+                        img {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 6px;
+                            object-fit: cover;
+                            &:hover {
+                                outline: none;
+                            }
+                        }
+                        a {
+                            text-decoration: none;
+                            color: #169379;
+                        }
+                    }
+                }
+            }
+            .tabCommunities {
+                margin-top: 35px;
+                .panel {
+                    border: none;
+                    .panel-body {
+                        background-color: #313131;
+                        .media {
+                            .media-left {
+                                a {
+                                    img {
+                                        width: 70px;
+                                        height: 70px;
+                                        object-fit: cover;
+                                    }
+                                }
+                            }
+                            .media-body {
+                                h5 {
+                                    color: white;
+                                    span {
+                                        color: #169379;
+                                    }
+                                    a {
+                                        text-decoration: none;
+                                        color: #169379;
+                                    }
+                                }
+                                span {
+                                    color: #6A6E70;
+                                }
+                                h6 {
+                                    color: #6A6E70;
+                                    img {
+                                        width: 20px;
+                                        height: 20px;
+                                        margin-right: 6px;
+                                        object-fit: cover;
+                                    }
+                                    i {
+                                        margin-left: 25px;
+                                        margin-right: 6px;
+                                        font-size: 16px;
+                                        color: #A4A5A5;
+                                        span {
+                                            font-family: sans-serif;
+                                            font-size: 13px;
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .removePostBtn {
+                            margin-top: 2%;
+                            button {
+                                background-color: #1E1E1E;
+                                span {}
+                            }
+                            ul {
+                                color: black;
+                                padding-top: 0px;
+                                table {
+                                    margin-bottom: 0px;
+                                    tbody {
+                                        tr {
+                                            border-top: none;
+                                            td {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .tabManage {
+                margin-top: 30px;
+                p {
+                    margin-bottom: 25px;
+                    color: gray;
+                }
+                #accordion {
+                    .panel {
+                        border: 2px solid #1E1E1E;
+                        border-radius: 0px;
+                        .panel-heading {
+                            background-color: #313131;
+                            color: lightgray;
+                            border-radius: 0px;
+                            h4 {
+                                padding-top: 8px;
+                                padding-bottom: 8px;
+                                a {
+                                    &:hover {
+                                        color: lightgray;
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+                        #collapseOne, #collapseTwo, #collapseThree, #collapseFour {
+                            .panel-body{
+                                padding-top: 35px;
+                                padding-bottom: 35px;
+                                background-color: #1E1E1E;
+                                border: 1px solid #1E1E1E;
+                                .commDetailBody {
+                                    margin-top: 0px;
+                                    .changeCommImage {
+                                        img {
+                                            height: 10em;
+                                            width: 100%;
+                                            object-fit: cover;
+                                        }
+                                        label {
+                                            font-weight: normal;
+                                            margin-top: 15px;
+                                        }
+                                        input {}
+                                    }
+                                    .commDetailText {
+                                        .removeMembers {
+                                            color: lightgray;
+                                            background-color: #313131;
+                                            padding: 12px 15px;
+                                            &:hover {
+                                                text-decoration: none;
+                                            }
+                                        }
+                                        .dropdown {
+                                            margin-top: 25px;
+                                            button {
+                                                border-radius: 0px;
+                                                background-color: #313131;
+                                                border: none;
+                                                color: lightgray;
+                                                padding-top: 10px;
+                                                padding-bottom: 10px;
+                                                span {
+                                                    margin-left: 5px;
+                                                }
+                                            }
+                                            .dropdown-menu {
+                                                border-bottom: none;
+                                                border-radius: 0px;
+                                                li {
+                                                    a {
+                                                        background-color: #FFFFFF;
+                                                        &:hover {
+                                                            color: black;
+                                                            border: none;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .form-group {
+                                            label {
+                                                margin-top: 15px;
+                                                font-weight: normal;
+                                            }
+                                            textarea {
+                                                resize: none;
+                                            }
+                                        }
+                                        .updateBtn {
+                                            background-color: #169379;
+                                            border-radius: 0px;
+                                            padding-top: 10px;
+                                            padding-bottom: 10px;
+                                            &:hover {
+                                                color: lightgray;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .tabCreate {
+                .well {
+                    margin-top: 35px;
+                    background-color: transparent;
+                    border: none;
+                    .addPersonaImage {
+                        padding: 0;
+                        border-bottom: 1px solid #636363;
+                        padding-bottom: 15px;
+                        .addImageBtn {
+                            padding: 0;
+                            img {
+                                margin-bottom: 15px;
+                            }
+                        }
+                        .addImageUpload {
+                            .addImageUploadBtn {
+                                input {}
+                            }
+                        }
+                    }
+                    .newCommOptions {
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                        .commRadioTitle {
+                            margin-top: 15px;
+                            margin-bottom: 5px;
+                            color: lightgray;
+                        }
+                        input {
+                            margin: 6px 7px 25px;
+                        }
+                    }
+                    form {
+                        .commCreateName {
+                            resize: none;
+                            margin-bottom: 15px;
+                            height: 40px;
+                            padding-top: 9px;
+                            color: black;
+                        }
+                        .commCreateAbout {
+                            resize: none;
+                            margin-bottom: 15px;
+                            height: 100px;
+                            padding-top: 9px;
+                            color: black;
+                        }
+                    }
+                    button {
+                        background-color: #169379;
+                        border-radius: 0px;
+                        border: none;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
 }
-
