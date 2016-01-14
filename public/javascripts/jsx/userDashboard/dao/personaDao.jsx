@@ -33,7 +33,7 @@ var PersonaDao = {
 	},
 	//when user clicks user link, it renders their information in the profile tab
 	setMemberPersona: function(personaId) {
-		//console.log('getting persona for personaId: ' + personaId);
+//		console.log('getting persona for personaId: ' + personaId);
 		var self = this;
 		this.getPersonaByPersonaId(personaId, function(persona) {			
 			self.setState({viewMemberPersona: true});
@@ -42,6 +42,7 @@ var PersonaDao = {
 
 	},		
     getPersonaByPersonaId: function(personaId,done){
+		var result;
 		//console.log("getting persona from table. id= " + personaId);	    
 	    $.each(this.state.allPersonas, function (index,  persona) {
 	      if (personaId == persona.persona_id) {

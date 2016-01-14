@@ -8,7 +8,8 @@ var MembersListModal = React.createClass({
 		console.log("view member persona: " + event.target.dataset.personaId);
 		var personaId = event.target.dataset.personaId;
 		this.props.setMemberPersona(personaId);
-		$("#membersListModal").modal('hide');
+		$("#membersListModal").modal('hide');		
+		$("#navProfileTab").tab('show');		
 
 	},
     render: function(){
@@ -18,9 +19,9 @@ var MembersListModal = React.createClass({
     		return (
 				<tr key={persona.id}>
 					<td><img src={"/images/starwars.jpg"}></img></td>
-					<td><a data-persona-id={persona.id} onClick={self.viewMemberPersona} href="#">{persona.persona_name}</a></td>
+					<td><a data-persona-id={persona.persona_id} onClick={self.setMemberPersona} href="#">{persona.persona_name}</a></td>
 					<td>{persona.persona_type}</td>
-					<td><a data-persona-id={persona.id} href="#"><i className="fa fa-plus"></i></a></td>
+					<td><a data-persona-id={persona.persona_id} href="#"><i className="fa fa-plus"></i></a></td>
 					<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
 				</tr>
     		)
