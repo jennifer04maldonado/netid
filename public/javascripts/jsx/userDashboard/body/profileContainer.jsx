@@ -1,6 +1,11 @@
 var EditPersonaModal = require('.././common/editPersonaModal');
 
 var ProfileContainer = React.createClass({	
+  	postMessage: function(event) {    
+	
+  		event.preventDefault();
+
+	},	
 	render: function(){
 		var persona = this.props.activePersona;
 		return(
@@ -30,10 +35,11 @@ var ProfileContainer = React.createClass({
 				</div>
 		        <div className="col-sm-8 col-sm-offset-2 profileInputField">
 					<div className="well profileInputWell">	
-						<form>
+						<form onSubmit={this.postMessage}>
 							<input type="text" className="form-control" placeholder="Post something here" ></input>
+							<button type="submit" className="btn">Post to your wall</button>
 						</form>
-						<button className="btn">Post to your wall</button>
+						
 					</div>	
 				</div>
 				<div className="row col-sm-7 col-sm-offset-2 media profilePostsElementText">
