@@ -66,18 +66,19 @@ var InteractionsContainer = React.createClass({
 						for (var j in result[i].interactions){
 							data.interactions[j].statusCode = (net.account.getInteractionStatus(result[i].interactions[j].address)).c[0];
 						}
-						console.log('this is the data pulled '+data)
+						//console.log('this is the data pulled '+data)
 						self.setState({interactionsData: data});
+						console.log(caughtData)
+						caughtData = false
 					}else{
+						//setting emptystate isn't rerendering blank txs 
 						console.log(emptyState.interactions)
 						self.setState({
 							interactionsData: emptyState.interactions
 						})
 					}
 				}
-				if(caughtData == false){
-					self.setState({interactionsData: emptyState.interactions});
-				}
+
 			}	
 		})
   	},
@@ -105,7 +106,7 @@ var InteractionsContainer = React.createClass({
 							for (var j in result[i].interactions){
 								data.interactions[j].statusCode = (net.account.getInteractionStatus(result[i].interactions[j].address)).c[0];
 							}
-							console.log(data)
+							//console.log(data)
 							self.setState({
 								interactionsData: data,
 								showLoading: false
@@ -129,11 +130,9 @@ var InteractionsContainer = React.createClass({
 	    }   		
   	},
 	
-	updateStatus : function (address, status, event) {
-		if(status == 1 || status == 2){
-			//expand row here to add buttons/ratings	
-		}
-		this.props.api.account.updateIntStatus(address, status);
+	updateStatus : function (address, status, rating, event) {
+		this.props.api.account.updateIntStatus(address, status, rating)
+		console.log(status)
 	},  
 	
 	render: function(){
@@ -141,7 +140,7 @@ var InteractionsContainer = React.createClass({
 		var net = this.props.api
 		var rows = [];
 		var cssClass = "";
-		console.log(this.state.interactionsData.interactions)
+		//console.log(this.state.interactionsData.interactions)
 		this.state.interactionsData.interactions.forEach(function(interaction, index) {
  			if(interaction.address != " "){
 				switch (interaction.statusCode){

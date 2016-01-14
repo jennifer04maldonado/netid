@@ -447,7 +447,7 @@ NetidAPI.prototype.init = function(done){
   if(this.isInit) return
 
   try{
-    this.web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'))
+    this.web3.setProvider(new web3.providers.HttpProvider('http://10.0.1.31:8545'))
   }catch(err){
     console.log(err)
     this.ee.emit('init',undefined)
@@ -557,11 +557,13 @@ NetidAPI.prototype.loadPersonaTable = function(){
   return this.personaTable
 }
 
-NetidAPI.prototype.postMessage = function(post){
+NetidAPI.prototype.postMessage = function(post, oldPosts){
   var self = this
   console.log('saving new post')
+  var merge = oldPosts
+  merge.push(post)
     try {
-    var post_str = JSON.stringify(post)
+    var post_str = JSON.stringify(merge)
   } catch (e) {
     console.log('Error, invalid persona data:', e)
     return done(e)
@@ -747,7 +749,9 @@ NetidAPI.prototype.getAllMessages = function(){
 NetidAPI.prototype.getAllPosts = function(){
   this.ipfs.cat(this.idhash+this.baseurl+'personas/wall.json',(err2,res) => {
     if(err2){
-          this.ee.emit('error',err2)
+      console.log('api cat error')
+          this.ee.emit('postgeterror',err2)
+          this.ee.removeEvent('postgeterror');
           //done(err2,null)
     } else {
       // TODO: JSON parse error handling
@@ -997,13 +1001,19 @@ NetidAPI.prototype.getInteractionRating = function(addr){
   }
 }
 
-NetidAPI.prototype.updateIntStatus = function (address, status) {
-  var intContAbi = this.setEthereumAbi("interactions");
-  var intCont = intContAbi.at(address);
-  if(status == 0)
-    intCont.confirmInvite({from: web3.eth.accounts[0], gas: 100000});
-  else
-    console.log("contract status is not defined: NetidAPI.protptype.updateIntStatus()");
+NetidAPI.prototype.updateIntStatus = function (address, status, rating) {
+  var intContAbi = this.setEthereumAbi("interactions")
+  var intCont = intContAbi.at(address)
+  if(status == 0){
+    intCont.confirmInvite({from: web3.eth.accounts[0], gas: 100000})
+  }
+  if(status == 1){
+    rating = 3
+    intCont.rate(rating, {from: web3.eth.accounts[0], gas: 100000})
+  }
+  if(status == 2){
+    intCont.confirmRating({from: web3.eth.accounts[0], gas: 100000})
+  }
 }
 
 //Central Place to get ABI for ethereum (keep adding new switches for each new ethereum contract abi)

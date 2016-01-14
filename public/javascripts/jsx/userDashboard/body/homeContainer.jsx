@@ -24,10 +24,21 @@ var HomeContainer = React.createClass({
   	},	
   	getPostsIPFS: function(personaId) {    
 	  	var net = this.props.api;	    
-	   	net.account.getAllPosts();		  
+	   	net.account.getAllPosts();
+	   	net.account.ee.on('postgeterror', err =>{
+	   		console.log('error occured in cat, creating first wall post')
+	   		var firstPostArray = []
+	   		//this.setPersonaPosts(personaId, result)
+	   		this.setState({
+	    		wallPost: firstPostArray
+	    	})
+	   	})	
 	    net.account.ee.on('allPosts',err => {		    	
-	    	var result = net.account.allPosts;
+	    	var result = net.account.allPosts
 	    	this.setPersonaPosts(personaId, result);
+	    	this.setState({
+	    		wallPost: result
+	    	})
 	     });
   	},
   	getPosts: function(personaId) {    
@@ -74,9 +85,10 @@ var HomeContainer = React.createClass({
   		//console.log('today is: ' + today.toString());  	  		 		    
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
+  		//console.log(allPosts)
 
       	if (this.props.useIPFS) {         
-	  		this.props.api.account.postMessage(allPosts)
+	  		this.props.api.account.postMessage(post, this.state.wallPost)
 	  			net.account.ee.on('postMade',err => {
 	  			if(this.isMounted()){
 					this.setState({allPosts: allPosts})
@@ -168,7 +180,7 @@ var HomeContainer = React.createClass({
 							</form>
 						</div>
 					</div>
-					<div className="col-sm-1 row removePostBtn">
+					<div className="col-sm-1 removePostBtn">
 						<div className="dropdown">
 						    <button className="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 						        <span className="caret"></span>
@@ -177,9 +189,7 @@ var HomeContainer = React.createClass({
 							    <table className="table table-hover">
 							    	<tbody>
 							    		<tr>
-							    		<td>
-							    			Remove
-							    		</td>
+								    		<td>Remove</td>
 							    		</tr>
 							    	</tbody>
 							    </table>
