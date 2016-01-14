@@ -87,7 +87,7 @@ router.get('/', function(req, res, next) {
         res.render('userDashboard');     
     } else {
          //redirect to login
-        res.redirect('/');    
+        res.render('index', {message: 'please login first'});    
     }
     
 });

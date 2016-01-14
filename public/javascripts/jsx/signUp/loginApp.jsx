@@ -31,16 +31,28 @@ var LoginApp = React.createClass({
 
   },
   componentDidMount: function(){
+    var self = this;    
+    $( document ).ready(function() {
+      var message = $("#message").val();
+      var status = '';
+      if (message.length > 0) {
+        status = 'error';
+      }
+      self.setState({status: status, message: message});
+    });
+
   },  
   render: function(){
+
     return (
         <div>
             <div className={this.state.status == 'error' ? 'alert alert-danger' : 'hidden'}>
               <strong>{this.state.message}</strong>
-            </div>  
+            </div>              
+            
             <div className="alert alert-info">
               <strong> default Net Id/passcode: test/test</strong>
-            </div>  
+            </div>              
 
             <form onSubmit={this.loginUser} action="/userDashboard" method="post">
                 <input className="form-control loginInputs" id='login_username' type="text" name="netId" placeholder="Net Id"/>
@@ -48,12 +60,12 @@ var LoginApp = React.createClass({
                 <input className="form-control loginInputs" id='login_auth_app' type="text" name="authApp" placeholder="Authenticator App Code"/>
                 <button type="submit" className="col-sm-12 btn loginButton">Log In</button>                
             </form>
-            </div>
+        </div>
     )
   }
 }); 
 
 ReactDOM.render(
-  <LoginApp />, 
+  <LoginApp/>, 
   document.getElementById('loginApp')
 );

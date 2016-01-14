@@ -90,7 +90,7 @@ app.get('/', function(req, res, next) {
   if (isLoggedIn) {
       res.render('userDashboard');     
   } else {
-      res.render('index', { title: 'Express', object: req.session.cookie});
+      res.render('index', {message: '', title: 'Express', object: req.session.cookie});
   }
 
   
