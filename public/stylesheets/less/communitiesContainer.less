@@ -1,6 +1,6 @@
 .bodyContent {
     padding-bottom: 100px;
-    .communityTitle {
+    .communityTitle{
         border-bottom: 3px solid #1E1E1E;
         h4 {
             color: lightgray;
@@ -307,54 +307,98 @@
                 }
             }
             .tabCreate {
-                .well {
-                    margin-top: 35px;
+                .commCreateWell {
                     background-color: transparent;
                     border: none;
-                    .addPersonaImage {
-                        padding: 0;
-                        border-bottom: 1px solid #636363;
-                        padding-bottom: 15px;
-                        .addImageBtn {
-                            padding: 0;
-                            img {
-                                margin-bottom: 15px;
+                    padding-top: 0px;
+                    .commCreateTop{
+                        background-color: #1E1E1E;
+                        padding-top: 35px;
+                        form{
+                            .addPersonaImage {
+                                padding: 0;
+                                padding-bottom: 15px;
+                                .addImageBtn {
+                                    padding: 0;
+                                    img {
+                                        margin-bottom: 15px;
+                                        height: 170px;
+                                    }
+                                }
+                                .addImageUpload {
+                                    padding: 0px;
+                                    .addImageUploadBtn {
+                                        input {
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                            .commCreateName{
+                                resize: none;
+                                margin-bottom: 17px;
+                                height: 40px;
+                                color: black;
+                            }
+                            .commCreateAbout{
+                                resize: none;
+                                padding-top: 9px;
+                                color: black;
                             }
                         }
-                        .addImageUpload {
-                            .addImageUploadBtn {
-                                input {}
-                            }
-                        }
-                    }
-                    .newCommOptions {
-                        margin-top: 15px;
-                        margin-bottom: 15px;
-                        .commRadioTitle {
-                            margin-top: 15px;
-                            margin-bottom: 5px;
+                    }    
+                    .commDetailsTitle{
+                        background-color: #313131;
+                        border: 2px solid #1E1E1E;
+                        margin-top: 20px;
+                        h4{
+                            font-size: 16px;
                             color: lightgray;
-                        }
-                        input {
-                            margin: 6px 7px 25px;
-                        }
-                    }
-                    form {
-                        .commCreateName {
-                            resize: none;
-                            margin-bottom: 15px;
-                            height: 40px;
-                            padding-top: 9px;
-                            color: black;
-                        }
-                        .commCreateAbout {
-                            resize: none;
-                            margin-bottom: 15px;
-                            height: 100px;
-                            padding-top: 9px;
-                            color: black;
+                            padding-top: 8px;
+                            padding-bottom: 8px;
                         }
                     }
+                    .commCreateBottom{
+                        background-color: #1E1E1E;
+                        padding-bottom: 35px; 
+                        .newCommOptions {
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                            border-bottom: 1px solid #313131;
+                            .commRadioTitle {
+                                margin-top: 15px;
+                                margin-bottom: 5px;
+                                color: lightgray;
+                            }
+                            .commRadioButtons{
+                                h5{
+                                    margin-bottom: 5px;
+                                    input{
+
+                                    }
+                                }
+                                p{
+                                    font-size: 10px;
+                                    color: gray;
+                                }
+                            }
+                        }
+                        .commKeyWords{
+                            margin-top: 10px;
+                            h4{
+                                p{
+                                    font-size: 10px;
+                                    color: gray;
+                                    margin-top: 5px;
+                                }
+                            }
+                            .commCreateKeywords{
+                                resize: none;
+                                color: black;
+                                padding-top: 9px;
+                            }
+                        }
+                    }    
                     button {
                         background-color: #169379;
                         border-radius: 0px;
@@ -362,6 +406,7 @@
                         padding-top: 15px;
                         padding-bottom: 15px;
                         color: white;
+                        margin-top: 15px;
                     }
                 }
             }

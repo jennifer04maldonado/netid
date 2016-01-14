@@ -78,28 +78,56 @@ var CreateCommunity = React.createClass({
 	},	
     render: function(){
         return (	           			    
-			<div className="well col-sm-12">
-            	<form name="createCommunity" action="">
-                	<div className="row col-sm-4 col-sm-offset-4 addPersonaImage">
-						<div className="col-sm-11 col-sm-offset-1 addImageBtn">
-							<img src={"/images/avatar.png"}/>
-						</div>
-						<div className="col-sm-8 col-sm-offset-1 addImageUpload">
-							<div className = "form-group addImageUploadBtn">
-							    <input type = "file" id = "inputfile"></input>
+			<div className="well col-sm-12 commCreateWell">
+				<div className="col-sm-12 commDetailsTitle">
+					<h4>General Information</h4>
+				</div> 
+				<div className="col-sm-12 commCreateTop">
+	            	<form action="">
+	                	<div className="row col-sm-4 addPersonaImage">
+							<div className="col-sm-11 col-sm-offset-1 addImageBtn">
+								<img src={"/images/addComm.png"}/>
+							</div>
+							<div className="col-sm-8 col-sm-offset-1 addImageUpload">
+								<div className = "form-group addImageUploadBtn">
+								    <input type = "file" id = "inputfile"></input>
+								</div>
 							</div>
 						</div>
+	                	<input name="name" className="col-sm-8 commCreateName" onChange={this.onChangeHandler} value={this.state.community.name} placeholder="Community Name"></input>
+						<textarea name="description" className="col-sm-8 commCreateAbout" onChange={this.onChangeHandler} value={this.state.community.description} placeholder="What is this Community about?" rows="7"></textarea>
+					</form>
+				</div>
+				<div className="col-sm-12 commDetailsTitle">
+					<h4>Community Details</h4>
+				</div> 
+				<div className="col-sm-12 commCreateBottom">
+					<div className="col-sm-12 newCommOptions">
+						<h4 className="commRadioTitle col-sm-2">Permissions</h4>
+				        <div className="col-sm-3 col-sm-offset-2 commRadioButtons">
+				        	<h5><input onChange={this.onChangeHandler} checked={this.state.community.community_type =='Public' } name="type" id="radio1" value="Public" type="radio"/>
+				        	Public</h5>
+				        	<p>Your Community will be searchable to all</p>
+				        </div>
+				        <div className="col-sm-3 commRadioButtons">
+				        	<h5><input onChange={this.onChangeHandler} checked={this.state.community.community_type =='Private'} name="type" id="radio2" value="Private" type="radio"/>
+				        	Private</h5>
+				        	<p>Your Community will be invite-only</p>
+				        </div>
+				         <div className="col-sm-2 commRadioButtons">	
+				        	<h5><input onChange={this.onChangeHandler} checked={this.state.community.community_type =='Secret'} name="type" id="radio3" value="Secret" type="radio"/>
+				        	Secret</h5>
+				        	<p>Your Community will not be searchable</p>
+				        </div>	
 					</div>
-					<div className="col-sm-5 col-sm-offset-4 newCommOptions">
-						<h4 className="commRadioTitle">What kind of Community is this?</h4>
-				        <input onChange={this.onChangeHandler} checked={this.state.community.community_type =='Public' } name="type" id="radio1" value="Public" type="radio"/>Public
-				        <input onChange={this.onChangeHandler} checked={this.state.community.community_type =='Private'} name="type" id="radio2" value="Private" type="radio"/>Private
-				        <input onChange={this.onChangeHandler} checked={this.state.community.community_type =='Secret'} name="type" id="radio3" value="Secret" type="radio"/>Secret
+					<div className="col-sm-12 row commKeyWords">
+						<h4 className="col-sm-4">Key Words
+							<p>Separated by commas</p>
+						</h4>
+						<textarea className="col-sm-8 commCreateKeywords" name="keywords" onChange={this.onChangeHandler} value={this.state.community.keywords} placeholder="Help more people discover your Community by using accurate and descriptive words or phrases" rows="7"></textarea>
 					</div>
-                	<input name="name" onChange={this.onChangeHandler} value={this.state.community.name} className="col-sm-8 col-sm-offset-2 commCreateName" placeholder="Community Name"></input>
-					<textarea name="description" onChange={this.onChangeHandler} value={this.state.community.description} className="col-sm-8 col-sm-offset-2 commCreateAbout" placeholder="What is this Community about?" rows="5"></textarea>
-				</form> 
-				<button onClick={this.createCommunity} type="submit" className="col-sm-offset-2 col-sm-8 btn btn-default">Create</button>	
+				</div>	
+				<button className="col-sm-12 btn btn-default" onClick={this.createCommunity} type="submit">Create</button>	
 			</div>	
 
         );
