@@ -68,7 +68,7 @@ var CommunityAdminContainer = React.createClass({
 						        </a>
 					        </h4>
 					    </div>
-					    <div id={"communityId"+community.id} className={index == 0 ? "panel-collapse collapse in" : "panel-collapse collapse"}>
+					    <div id={"communityId"+community.id} className={index == 0 ? "collapse-manage panel-collapse collapse in" : "collapse-manage panel-collapse collapse"}>
 					      	<div className="panel-body">
 								<div className="col-sm-12 commDetailBody">
 									<form onSubmit={self.updateCommunity}>
