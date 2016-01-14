@@ -12,9 +12,13 @@ var ProfileContainer = React.createClass({
 					<img src={"/images/ein.jpeg"} className="col-sm-4 col-sm-offset-2 profileImage"/>
 					<div className="col-sm-4 profileDetailText">	
 						<h3 className="row">{persona ? persona.persona_name : ''}
-							<a href="#editPersonaModal" data-toggle="modal" data-target="#editPersonaModal"><button className="btn">Edit</button></a>
-							<a href="#"><i className="fa fa-exchange"></i></a>
-							<a href="#"><i className="fa fa-envelope"></i></a>
+							<span className={this.props.viewMemberPersona ? "hidden" : ""}>
+								<a href="#editPersonaModal" data-toggle="modal" data-target="#editPersonaModal"><button className="btn">Edit</button></a>
+							</span>
+							<span className={this.props.viewMemberPersona ? "" : "hidden"}>							
+								<a href="#"><i className="fa fa-exchange"></i></a>
+								<a href="#"><i className="fa fa-envelope"></i></a>
+							</span>
 						</h3>
 						<ul className="profileScoreList">
 							<li>Master Score - 78</li>

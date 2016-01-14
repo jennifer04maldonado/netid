@@ -42,7 +42,7 @@ var HomeContainer = React.createClass({
 	     });
   	},
   	getPosts: function(personaId) {    
-  		var self = this;
+  		var self = this;	      	
 	    $.get('.././json_files/data/netid-account/personas/wall.json', function(allPosts) {
 	          //console.log('personaId:' + personaId);
 
@@ -70,6 +70,8 @@ var HomeContainer = React.createClass({
 		  });
   	},
   	postMessage: function(event) {    
+  		event.preventDefault();
+
   		var net = this.props.api
   		var post = {};
   		post.id =  JSON.stringify(Math.floor(Math.random()*100000000000000000));
@@ -116,10 +118,11 @@ var HomeContainer = React.createClass({
   		
   	},
   	postComment: function(event) {    
+  		event.preventDefault();
   		//console.log('postId: ' + event.target.id);  		  	
-  		var postId = event.target.dataset.postId;  		  	
+  		var postId = event.target.postId.value;
 		console.log('postId: ' + postId);
-  		var message = this.refs[postId].value;
+  		var message = event.target.comment.value;
   		//console.log('comment: ' + message);
 
 		var comment = {};
@@ -141,7 +144,7 @@ var HomeContainer = React.createClass({
   		}
   		this.setState({commentIndex: commentIndex});
 
-		this.refs[postId].value = '';
+		event.target.comment.value = '';
 		$("#"+postId).collapse("hide");
   		//clear input field
   		//this.setState({comment: ''});
@@ -150,10 +153,6 @@ var HomeContainer = React.createClass({
   	postHandler: function(event) {    
    		this.setState({postMessage: event.target.value});
   	},  	
-  	commentHandler: function(event) {      		
-	//  console.log('comment value: ' + event.target.value);
-	//	this.setState({comment: event.target.value});
-  	},  	  	
 	render: function(){
 		var self = this;
 		var commentIndex = this.state.commentIndex;
@@ -168,15 +167,16 @@ var HomeContainer = React.createClass({
 						</div>
 						<div className="media-body">
 						    <h4 className="media-heading">{post.posted_by} 
-						    	<a href="#"><span className="communityNamePost">Community Name</span></a>
+						    	<a href="#"><span className="communityNamePost">{"<<Community Name>>"}</span></a>
 						    </h4>
 						    <span className="postContentText">{post.message}</span>
 							<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
 							<CommentContainer comments={commentIndex[post.id]} />
 							<span className="postTimeStamp">{post.date}</span>
-							<form id={post.id} className="collapse">
-								<textarea ref={post.id} onChange={self.commentHandler} type="text" className="form-control" placeholder="Your comment here" ></textarea>
-								<button data-post-id={post.id} onClick={self.postComment} className="btn">Comment</button>
+							<form id={post.id} onSubmit={self.postComment} className="collapse">
+								<input name="postId" type="hidden" value={post.id} value={post.id} />
+								<textarea name="comment" type="text" className="form-control" placeholder="Your comment here" ></textarea>
+								<button type="submit" className="btn">Comment</button>
 							</form>
 						</div>
 					</div>

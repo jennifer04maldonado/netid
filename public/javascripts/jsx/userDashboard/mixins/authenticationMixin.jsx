@@ -44,7 +44,7 @@ var AuthenticationMixin = {
 	 				self.setCookie("username", username, expireDays);
 	 				self.setCookie("password", password, expireDays);
 	 				self.setCookie(self.props.isAuthenticated, true, expireDays);
-	 				//TODO: set cookie and session
+	 				//TODO: use session or token
 	 				done(true);
 	 			} else {	 				
 					self.setCookieToExpire(self.props.isAuthenticated);

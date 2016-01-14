@@ -4,17 +4,23 @@ var MembersListModal = React.createClass({
 			//src: 'images/loading1.gif'
 		}
 	},
+	setMemberPersona:function(event) {
+		console.log("view member persona: " + event.target.dataset.personaId);
+		var personaId = event.target.dataset.personaId;
+		this.props.setMemberPersona(personaId);
+		$("#membersListModal").modal('hide');
 
+	},
     render: function(){
-
+    	var self = this;
     	var membersListNodes = this.props.activeMembersList.map(function (persona, index) {
 
     		return (
 				<tr key={persona.id}>
 					<td><img src={"/images/starwars.jpg"}></img></td>
-					<td><a href="#">{persona.persona_name}</a></td>
+					<td><a data-persona-id={persona.id} onClick={self.viewMemberPersona} href="#">{persona.persona_name}</a></td>
 					<td>{persona.persona_type}</td>
-					<td><a href="#"><i className="fa fa-plus"></i></a></td>
+					<td><a data-persona-id={persona.id} href="#"><i className="fa fa-plus"></i></a></td>
 					<td><a href="#"><i className="fa fa-envelope-o"></i></a></td>
 				</tr>
     		)

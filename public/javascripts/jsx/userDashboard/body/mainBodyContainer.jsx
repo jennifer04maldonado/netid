@@ -53,7 +53,9 @@ var MainBodyContainer = React.createClass({
 			  							   api={this.props.api} />
 			  </div>
 			  <div id="navProfile" className="tab-pane fade">
-			  		<ProfileComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} /> 
+			  		<ProfileComponent friendPersona={this.props.memberPersona}
+			  						  viewMemberPersona={this.props.viewMemberPersona}
+			  						  activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} /> 
 			  </div>
 			  <div id="navCommunities" className="tab-pane fade">
 			  		<CommunitiesComponent 	activePersona={this.state.activePersona} 
