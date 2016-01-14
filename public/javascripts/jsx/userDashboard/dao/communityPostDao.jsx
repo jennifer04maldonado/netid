@@ -50,7 +50,7 @@ var CommunityPostDao = {
 		post.community_id = this.state.activeCommunity.id;
 		post.posted_by = this.state.activePersona.id;
 		post.message = message;
-		post.created_date = new Date();
+		post.created_date = new Date().toString();
 
 		var temp = this.state.activeCommunityPosts;
 		temp.push(post);

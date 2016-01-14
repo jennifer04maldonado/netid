@@ -42,6 +42,7 @@ var CommunityDetailContainer = React.createClass({
   		comment.pic = '/images/arnold.jpg';
   		comment.posted_by = this.state.activePersona.persona_name;
   		comment.message = message;
+  		comment.created_date = new Date().toString();
 
   		var commentIndex = this.state.commentIndex;
   		var comments = [];
@@ -91,12 +92,12 @@ var CommunityDetailContainer = React.createClass({
 						    <h4 className="media-heading">{post.posted_by}</h4>
 						    <span className="postContentText">{post.message}</span>
 							<br></br>
-							<span className="postTimeStamp">{post.date}</span>
-							<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>																
+							<span className="postTimeStamp">{post.created_date}</span>
+							<a data-toggle="collapse" data-target={"#communityPostId"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>																
 
 							<CommentContainer comments={commentIndex[post.id]}/>
 
-							<form id={post.id} className="collapse">
+							<form id={"communityPostId"+post.id} className="collapse">
 								<input ref={post.id} type="text" className="form-control" placeholder="Your comment here" ></input>
 								<button data-post-id={post.id} onClick={self.postComment} className="btn">Comment</button>
 							</form>
@@ -126,8 +127,9 @@ var CommunityDetailContainer = React.createClass({
 						<div className="well commDetailPostWell">	
 							<form>
 								<input value={this.state.post} onChange={this.postHandler} type="text" className="form-control" placeholder="Post something here" ></input>
+								<button onClick={this.postToCommunity} className="btn">Post to Community Wall</button>
 							</form>
-							<button onClick={this.postToCommunity} className="btn">Post to Community Wall</button>
+							
 						</div>
 						{postsNodes}
 					</div>
