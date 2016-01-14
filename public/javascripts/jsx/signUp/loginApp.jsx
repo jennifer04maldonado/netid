@@ -30,18 +30,24 @@ var LoginApp = React.createClass({
     }          
 
   },
-  componentDidMount: function(){
-    var self = this;    
-    $( document ).ready(function() {
-      var message = $("#message").val();
-      var status = '';
-      if (message.length > 0) {
-        status = 'error';
-      }
-      self.setState({status: status, message: message});
-    });
+  componentWillMount: function() {
 
-  },  
+    //this fetchs error message set by nodejs
+    //nodejs can't pass directly to react components so saving data as input value then extracting it using jquery
+    var self = this;
+    try {
+      $( document ).ready(function() {
+        var message = $("#message").val();      
+        var status = '';
+        if (message.length > 0) {
+          status = 'error';
+        }
+        self.setState({status: status, message: message});
+      });      
+    } catch (err) {
+        console.log("error: " + err); 
+    }
+  },   
   render: function(){
 
     return (
