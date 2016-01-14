@@ -137,7 +137,7 @@ var DashboardApp = React.createClass({
 				<LoadingModalComponent showLoading={this.state.showLoading} targetId="initialLoading"/>
 				<AddPersonaModal useIPFS={this.props.useIPFS} personaType={this.state.personaType} api={this.state.api} personas={this.state.personas} updatePersonas={this.updatePersonas} addPersona={this.addPersona}/>		        		
 				<MembersListModal activeMembersList={this.state.activeCommunityMembers}
-								  setMembersPersona={this.setMemberPersona} />
+								  setMemberPersona={this.setMemberPersona} />
             </div>
         );
     }
