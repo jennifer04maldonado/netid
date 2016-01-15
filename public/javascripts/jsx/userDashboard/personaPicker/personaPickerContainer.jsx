@@ -41,7 +41,7 @@ var PersonaPicker = React.createClass({
                                 </a>
                             </li>
                             <li>    
-                                <a href="#" data-toggle="tab">
+                                <a href="#navStats" data-toggle="tab">
                                     Statistics
                                 </a>
                             </li>

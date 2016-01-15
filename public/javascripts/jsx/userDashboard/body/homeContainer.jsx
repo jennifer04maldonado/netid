@@ -70,6 +70,7 @@ var HomeContainer = React.createClass({
 		  });
   	},
   	postMessage: function(event) {    
+  		
   		event.preventDefault();
 
   		var net = this.props.api
@@ -81,7 +82,7 @@ var HomeContainer = React.createClass({
   		post.message = this.state.postMessage;
 
   		var  today = new Date();
-  		post.date = today.toString();
+  		post.created_date = today.toString();
   		//console.log('today is: ' + today.toString());  	  		 		    
   		var allPosts = this.state.allPosts;
   		allPosts.push(post);
@@ -131,6 +132,8 @@ var HomeContainer = React.createClass({
   		comment.pic = '/images/arnold.jpg';
   		comment.posted_by = this.state.activePersona.persona_name;
   		comment.message = message;
+  		var  today = new Date();
+  		comment.created_date = today.toString();
 
   		var commentIndex = this.state.commentIndex;
   		var comments = [];
@@ -171,10 +174,11 @@ var HomeContainer = React.createClass({
 						    </h4>
 						    <span className="postContentText">{post.message}</span>
 							<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
+							<span className="postTimeStamp">{post.created_date}</span>
 							<CommentContainer comments={commentIndex[post.id]} />
-							<span className="postTimeStamp">{post.date}</span>
+							
 							<form id={post.id} onSubmit={self.postComment} className="collapse">
-								<input name="postId" type="hidden" value={post.id} value={post.id} />
+								<input name="postId" type="hidden" value={post.id} />
 								<textarea name="comment" type="text" className="form-control" placeholder="Your comment here" ></textarea>
 								<button type="submit" className="btn">Comment</button>
 							</form>
@@ -207,10 +211,10 @@ var HomeContainer = React.createClass({
 				<div className="col-sm-12 homeDetailFeed">
 					<div className="col-sm-offset-2 col-sm-8 media homeDetailPostBody">
 						<div className="well">	
-							<form>
+							<form onSubmit={this.postMessage}>
 								<textarea value={this.state.postMessage} onChange={this.postHandler} type="text" className="form-control" placeholder="Post something here" ></textarea>
-							</form>
-							<button onClick={this.postMessage} className="btn postButton">Post to your wall</button>
+								<button type="submit" className="btn postButton">Post to your wall</button>
+							</form>							
 						</div>
 						{postNodes}
 					</div>

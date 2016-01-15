@@ -4,6 +4,7 @@ var SettingsComponent = require('./settingsContainer');
 var ProfileComponent = require('./profileContainer');
 var CommunitiesComponent = require('./communities/communitiesContainer');
 var HomeComponent = require('./homeContainer');
+var StatsComponent = require('./statsContainer');
 
 
 
@@ -72,6 +73,10 @@ var MainBodyContainer = React.createClass({
 			  <div id="navSettings" className="tab-pane fade">
 					<SettingsComponent activePersona={this.props.viewMemberPersona ? this.props.memberPersona : this.state.activePersona} />
 			  </div>
+			  <div id="navStats" className="tab-pane fade">
+					<StatsComponent activePersona={this.state.activePersona} />
+			  </div>
+
 			</div>
 
 		)

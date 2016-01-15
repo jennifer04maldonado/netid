@@ -30,7 +30,7 @@ var CommentContainer = React.createClass({
 												    <h4 className="media-heading">{comment.posted_by}</h4>
 												    <span className="postContentText">{comment.message}</span>
 													<br></br>													
-													<span className="postTimeStamp">{comment.date}</span>
+													<span className="postTimeStamp">{comment.created_date}</span>
 												</div>
 											</div>
 
