@@ -178,7 +178,7 @@ var HomeContainer = React.createClass({
 							<CommentContainer comments={commentIndex[post.id]} />
 							
 							<form id={post.id} onSubmit={self.postComment} className="collapse">
-								<input name="postId" type="hidden" value={post.id} value={post.id} />
+								<input name="postId" type="hidden" value={post.id} />
 								<textarea name="comment" type="text" className="form-control" placeholder="Your comment here" ></textarea>
 								<button type="submit" className="btn">Comment</button>
 							</form>
