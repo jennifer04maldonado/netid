@@ -1,4 +1,5 @@
 var CalendarModal = require('./../../common/commCalendarModal');
+var RemoveMembersModal = require('./../../common/removeMembersModal');
 var CommentContainer = require('./../../common/commentContainer');
 
 var CommunityAdminContainer = React.createClass({	
@@ -106,6 +107,7 @@ var CommunityAdminContainer = React.createClass({
 								</div>									      
 							</div>
 					    </div>
+					    <RemoveMembersModal/>
 				    </div>
 				)						
 		});
