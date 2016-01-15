@@ -171,12 +171,15 @@ var HomeContainer = React.createClass({
 						<div className="media-body">
 						    <h4 className="media-heading">{post.posted_by} 
 						    	<a href="#"><span className="communityNamePost">{"<<Community Name>>"}</span></a>
+						    	<span className="postTimeStamp">{post.created_date}</span>
 						    </h4>
 						    <span className="postContentText">{post.message}</span>
-							<a data-toggle="collapse" data-target={"#"+post.id}  className="col-sm-12 row postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
-							<span className="postTimeStamp">{post.created_date}</span>
-							<CommentContainer comments={commentIndex[post.id]} />
-							
+							<div className="col-sm-12 row homeUserTools">
+								<a data-toggle="collapse" data-target={"#"+post.id}  className="postClosedCommentView" href="#"><i className="fa fa-comment"></i>Comment</a>									
+								<a className="likePost" href="#"><i className="fa fa-level-up "></i>Like</a>		
+								<a className="dislikePost" href="#"><i className="fa fa-level-down"></i>Dislike</a>									
+								<CommentContainer comments={commentIndex[post.id]} />
+							</div>
 							<form id={post.id} onSubmit={self.postComment} className="collapse">
 								<input name="postId" type="hidden" value={post.id} />
 								<textarea name="comment" type="text" className="form-control" placeholder="Your comment here" ></textarea>

@@ -56,6 +56,7 @@ var CommunitiesContainer = React.createClass({
 										    </button>
 										    <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
 											    <li><a href="#">Show Public</a></li>
+											    <li><a href="#">Show Private</a></li>
 											    <li><a href="#">Show All</a></li>
 											</ul>
 										</div>
